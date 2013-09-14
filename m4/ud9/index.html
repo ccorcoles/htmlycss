@@ -1,13 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ca">
+<!DOCTYPE html>
+<html lang="es">
 <head>
-<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
-<meta http-equiv="Content-Language" content="ca" />
-<meta name="language" content="ca" />
+<meta charset="utf-8" />
 <meta name="author" content="Universitat Oberta de Catalunya" />
-<meta name="description" content="FALTA CONTENIDO" />
-<meta name="title" content="FALTA CONTENIDO" />
-<meta name="keywords" content="FALTA CONTENIDO" />
 
 <title>El texto central de HTML - Creación de múltiples páginas con menús de navegación</title>
 <link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
@@ -150,30 +145,6 @@
   <p>Ya hemos hablado de esto un poco en el apartado sobre los enlaces, pero aquí encontraréis una descripción más detallada de qué significa la navegación por la página y qué hay que hacer para que funcione.</p>
   
   <p>En el ejemplo relativo a este subapartado de navegación por la página (archivo "<a href="http://dev.opera.com/articles/view/23-creating-multiple-pages-with-navigat/inpagenavigation.html" hreflang="en">inpagenavigation.html</a>") hemos utilizado una lista de enlaces que conducen a anclas que se encuentran más abajo en la misma página. Para conectar las anclas, es necesario utilizar un atributo <code>id</code> en los elementos hacia los cuales se navegará y un atributo <code>href</code> consistente en un símbolo de almohadilla seguido del mismo nombre que el valor <code>id</code> del ancla a la que queréis que conduzca este enlace. Cada una de las secciones de la página también tiene un enlace para volver al menú que funciona de la misma manera, pero que conduce de vuelta al menú.</p>
-  
-  <p>Técnicamente, esto es todo lo que necesitáis para que este tipo de navegación funcione sin problemas, pero Internet Explorer presenta un problema muy molesto que nos obliga a trabajar un poco más.</p>
-  
-  <p>Podéis comprobar este error vosotros mismos:</p>
-  
- 	<ol>
-		<li><p>Abrid el documento con Internet Explorer 6 o 7.</p></li>
-  
-  <li><p>No utilicéis el ratón, utilizad el teclado para navegar por el documento. Podéis pulsar la tecla del tabulador para pasar de un enlace a otro y la tecla de retorno para activar un enlace; en este caso, para pasar a la sección a la que apunta.</p></li>
-  
-  <li><p>Aparentemente todo funciona sin problemas; el navegador va hasta el punto de la página donde queríais ir.</p></li>
-  
-  <li><p>Si volvéis a pulsar la tecla del tabulador, lo que debería hacer un navegador sería llevaros a (o marcar) el primer enlace de la sección elegida. ¡Internet Explorer, sin embargo, os enviará al principio del menú del principio de la página!</p></li>
-	</ol>
-  
-  <p>La manera de solucionar este problema es muy confusa y tiene que ver con una propiedad especial de Internet Explorer llamada <code>hasLayout</code>. Podéis hacerlo de varias maneras, y todas ellas se explican en el excelente artículo de Ingo Chao "<a href="http://satzansatz.de/cssd/onhavinglayout.html" hreflang="en">On having layout</a>". La manera más sencilla es definir la anchura del elemento <code>div</code> con CSS, igual que en el ejemplo del archivo "<a href="http://dev.opera.com/articles/view/23-creating-multiple-pages-with-navigat/inpagenavigationmsiefix.html" hreflang="en">inpagenavigationmsiefix.html</a>". Lo que exige IE es que el ancla se encuentre en un elemento con <code>hasLayout</code>.</p>
-  
-  <p>Tener que hacerlo es muy molesto, pero también va bien en el caso de que queráis aplicar estilos diferentes a las secciones. También soluciona uno de los problemas de los títulos en HTML: los títulos no contienen las secciones a las que se aplican; simplemente se asume que todo lo que sigue hasta el próximo título forma parte de la misma sección del documento. Esto hace que sea imposible aplicar estilos diferentes a las secciones de un documento sin añadir un <code>&lt;div&gt;</code>. Otros lenguajes de marcas proponen un elemento <code>&lt;section&gt;</code> con un <code>&lt;title&gt;</code> en su interior, de manera similar a como <code>&lt;fieldset&gt;</code> y <code>&lt;legend&gt;</code> os permiten etiquetar partes de un formulario.</p>
-  
-  <div class="note">
-  <h3>Navegación espacial</h3>
-  
-  <p>Tened en cuenta que con Opera la navegación por los enlaces con el teclado funciona un tanto diferente; mirad el ejemplo anterior con Opera, mantened pulsada la tecla <kbd>Mayúsculas</kbd> y utilizad las teclas de cursor para navegar por los enlaces (también funciona con los elementos de los formularios). Esto se conoce como navegación espacial.</p>
-  </div>         
 
   <h3 id="sitenavigation">23.3.2. Navegación por el sitio</h3>
   
@@ -277,7 +248,6 @@
   <dt><code>coords</code></dt>
   <dd>Define las coordenadas en la imagen que se deben convertir en zonas sensibles; estos valores se miden desde el vértice superior izquierdo de la imagen y se pueden medir en píxeles o porcentajes. Para las áreas rectangulares, sólo hay que definir el vértice superior izquierdo y el inferior derecho; para los círculos deberéis definir el centro y el radio; para los polígonos deberéis ofrecer una lista de todos los puntos de vértice.</dd>
   </dl>
-  <p>Los mapas de imagen no son tan divertidos de definir y escribir como el HTML, y por ello hay herramientas de manipulación de imágenes, como Adobe Image Ready o Fireworks, que ofrecen una opción para crearlos visualmente (generan automáticamente el HTML).</p>                        
 
   <h3 id="forms">23.4.2. Ahorrar espacio de pantalla y evitar la sobrecarga de enlaces con formularios</h3>
   
@@ -308,4 +278,43 @@
 
   <h2 id="skiplinks">23.5. Dónde poner el menú, y ofrecer opciones para saltárselo</h2>
   
-  <p>Una última cosa que cabe mencionar sobre los menús HTML es que la situación del menú es muy importante. Pensad en los visitantes que no tienen ningún mecanismo de desplazamiento o que no pueden 
+  <p>Una última cosa que cabe mencionar sobre los menús HTML es que la situación del menú es muy importante. Pensad en los visitantes que no tienen ningún mecanismo de desplazamiento o que no pueden ver y que, por lo tanto, se fían de la navegación con el teclado para moverse por el sitio. Lo primero con lo que se encontrarán cuando carguen el documento es su ubicación y el título, y a continuación el documento se leerá de principio a fin deteniéndose en cada uno de los enlaces para pedir al visitante si los quieren seguir o no. Otras opciones pueden ser una lista de todos los enlaces o pasar de título a título. Si el menú se encuentra en la parte superior del documento, será lo primero que encontrará el usuario. El hecho de tener que pasar por 15 o 20 enlaces antes de llegar al contenido puede ser una tarea realmente molesta. Para ello hay dos soluciones disponibles. En primer lugar, podéis poner el menú después del contenido principal del documento (si queréis, también lo podéis poner en la parte superior de la pantalla utilizando el CSS). En segundo lugar, podéis ofrecer un enlace para pasar por alto el menú. Éste no es nada más que un enlace colocado antes del menú principal y que lleva al principio del contenido, con lo que el visitante, si lo desea, se puede saltar el menú e ir directamente al contenido. Podéis añadir otro enlace "ir al menú" al final del documento para así poder volver fácilmente a la parte superior. </p>
+  
+  <p class="font"><strong>Para conocer más detalles sobre este tipo de enlaces, podéis ver ejemplos en:</strong> "<a href="http://dev.opera.com/articles/view/23-creating-multiple-pages-with-navigat/skiplinks.html" hreflang="en">skiplinks.html</a>"</p>
+  
+  <p>Los enlaces para saltar el menú no sólo son útiles para las personas con este tipo de discapacidades, sino que también lo hacen todo más fácil cuando se navega por un sitio en un dispositivo móvil con una pantalla pequeña.</p>
+  
+        <h2 id="summary">Resumen</h2> 
+  
+  <p>En este apartado hemos explicado los diferentes tipos de menús que probablemente deberéis escribir en HTML. Hemos hablado de:</p>
+  
+  <ul>
+		<li><p>Por qué las listas con anclas son la estructura HTML perfecta para definir un menú.</p>
+  </li>
+  
+  <li><p>Por qué es importante no considerar los menús como algo inamovible, sino que hay prever y planificar los cambios que puedan hacerse.</p>
+  </li>
+  
+  <li><p>Navegación por la página: enlaces hacia secciones del documento actual y de vuelta hacia el menú.</p>
+  </li>
+  
+  <li><p>Navegación por el sitio: ofrecer un menú que muestre tanto las páginas del sitio actual como su jerarquía; también hemos explicado por qué es importante destacar la página en la que se encuentra actualmente el usuario.</p>
+  </li>
+  
+  <li><p>Navegación contextual: ofrecer enlaces hacia páginas relacionadas de otros puntos del sitio (o de otros sitios.</p>
+  </li>
+  
+  <li><p>Mapas del sitio: como alternativa y herramienta de orientación para los visitantes que se sientan perdidos o que lleguen con una necesidad específica.</p>
+  </li>
+  
+  <li><p>Paginación: una herramienta que permite a los visitantes navegar por un documento dividido en múltiples páginas.</p>
+  </li>
+  
+  <li><p>Mapas de imagen: crear menús gráficos poniendo zonas sensibles sobre imágenes.</p></li>
+  <li><p>Menús de formulario: ofrecer muchas opciones sin ocupar mucho espacio de pantalla y sin agobiar a los visitantes y los motores de búsqueda con demasiados enlaces.</p>
+  </li>
+  
+  <li><p>Enlaces para saltar el menú y ubicación del menú.</p></li>
+  </ul>
+  
+  <p>Más adelante volveremos a hablar de algunos de estos temas en la sección de CSS de este curso y explicaremos cómo se puede conseguir que estas estructuras HTML tengan un aspecto atractivo y sean unos menús todavía

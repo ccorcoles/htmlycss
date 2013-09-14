@@ -1,13 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es">
+<!DOCTYPE html>
+<html lang="es">
 <head>
-<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
-<meta http-equiv="Content-Language" content="es" />
-<meta name="language" content="es" />
+<meta charset="utf-8" />
 <meta name="author" content="Universitat Oberta de Catalunya" />
-<meta name="description" content="FALTA CONTENIDO" />
-<meta name="title" content="FALTA CONTENIDO" />
-<meta name="keywords" content="FALTA CONTENIDO" />
 
 <title>Introducción al mundo de los estándares web - El modelo de estándares web: HTML, CSS y JavaScript</title>
 <link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estilo normal" />
@@ -56,14 +51,14 @@
 <h2 id="whyseparate">4.1. ¿Por qué separar?</h2>
 <p>Ésta es, generalmente, la primera pregunta que se formula sobre los estándares web. Se puede crear el contenido, el estilo y el formato sólo utilizando HTML: elementos de tipo de letra para el estilo y tablas HTML para el formato, de manera que, ¿por qué preocuparse de este asunto de XHTML/CSS? El uso de tablas para el formato, etc., es como se solía hacer en los malos tiempos del dise&ntilde;o web, y mucha gente todavía lo hace de esta manera (aunque no se debería de hacer) y, de hecho, es uno de los motivos por los que hemos creado este curso. Aquí no trataremos estos métodos. Éstas son las razones más importantes para utilizar CSS y HTML en vez de métodos obsoletos:</p>
 <ol>
-<li><p><strong>Eficiencia del código</strong>: cuanto mayores sean los archivos, más tardarán en descargarse y más dinero le costará a algunas personas (algunas personas todavía pagan por megabyte descargado). Por lo tanto, no se debe malgastar el ancho de banda con páginas grandes abarrotadas de información de estilo y de formato en cada archivo HTML. Una alternativa mucho mejor es que los archivos HTML estén desglosados y limpios, e incluir la información de estilo y de formato sólo una vez en un archivo CSS independiente o en varios.</p>
+<li><p><strong>Eficiencia del código</strong>: cuanto mayores sean los archivos, más tardarán en descargarse y más dinero le costará a algunas personas (algunas personas todavía pagan por megabyte descargado y las tarifas móviles acostumbran a tener límites estrictos). Por lo tanto, no se debe malgastar el ancho de banda con páginas grandes abarrotadas de información de estilo y de formato en cada archivo HTML. Una alternativa mucho mejor es que los archivos HTML estén desglosados y limpios, e incluir la información de estilo y de formato sólo una vez en un archivo CSS independiente o en varios.</p>
 <div class="exemple">
 	<h3>Eficiencia del código</h3>
 <p>Para ver un caso real de este hecho en acción, podéis ver el artículo sobre la reescritura de Slashdot, en <a href="http://www.alistapart.com/articles/slashdot" hreflang="en">A List Apart Slashdot</a>, donde el autor tomó una página web muy popular y la reescribió en XHTML/CSS.</p>
 </div></li>
 <li><p><strong>Facilidad de mantenimiento</strong>: en relación con el último punto, si la información de estilo y formato sólo se especifica en un sitio, quiere decir que sólo habrá que hacer actualizaciones en un lugar si se quiere cambiar el aspecto de la página web. ¿Preferiríais tener que actualizar esta información en cada página de vuestra web? No lo creo.</p></li>
 <li><p><strong>Accesibilidad</strong>: los usuarios de la web con problemas visuales pueden utilizar una tipo de software conocido como "lector de pantalla" para acceder a la información mediante el sonido en vez de la vista; literalmente, les lee la página. Además, el software de introducción de datos mediante la voz que utilizan las personas con problemas de movilidad también se beneficia de las páginas web con una semántica bien construida. De manera muy parecida al lector de pantalla que utiliza las instrucciones del teclado para navegar por los encabezamientos, enlaces y formularios, un usuario que interaccione interaccione mediante voz utilizará instrucciones con su voz. Los documentos web marcados semánticamente, en vez de presentacionalmente, pueden resultar más fáciles de navegar y la información que contienen es más fácil de encontrar por parte del usuario.  En otras palabras, cuanto más rápidamente "entre en materia" (el contenido), mejor. Los lectores de pantalla no pueden acceder al texto dentro de imágenes y encuentran confusos algunos usos de JavaScript. Aseguraos de que el contenido más importante está disponible para todo el mundo.</p></li>
-<li><p><strong>Compatibilidad de dispositivos</strong>: ya que vuestra página XHTML es simplemente etiquetado normal, sin información de estilo, se puede reformatear para diferentes dispositivos con atributos ampliamente variados (por ejemplo, el tama&ntilde;o de pantalla), simplemente aplicando una hoja de estilos alternativa; podéis hacerlo de varias maneras. Podéis ver los <a href="http://dev.opera.com/articles/mobile/" hreflang="en">artículos de dev.opera.com</a> para obtener recursos al respecto. CSS también permite especificar hojas de estilo diferentes a nivel nativo para distintos métodos de presentación o tipos de soporte (por ejemplo, visualización en pantalla, impresión, visualización en un dispositivo móvil, etc.).</p></li>
+<li><p><strong>Compatibilidad de dispositivos</strong>: ya que vuestra página HTML es simplemente etiquetado normal, sin información de estilo, se puede reformatear para diferentes dispositivos con atributos ampliamente variados (por ejemplo, el tama&ntilde;o de pantalla), simplemente aplicando una hoja de estilos alternativa; podéis hacerlo de varias maneras. Podéis ver los <a href="http://dev.opera.com/articles/mobile/" hreflang="en">artículos de dev.opera.com</a> para obtener recursos al respecto. CSS también permite especificar hojas de estilo diferentes a nivel nativo para distintos métodos de presentación o tipos de soporte (por ejemplo, visualización en pantalla, impresión, visualización en un dispositivo móvil, etc.).</p></li>
 <li><p><strong>Motores de búsqueda en la web</strong>: probablemente os interesará que vuestras páginas web sean fáciles de encontrar al buscar en Google o en otros motores de busca. Un motor de búsqueda utiliza un <em>crawler</em> o ara&ntilde;a web, que es una pieza de software especializada para leer vuestras páginas. Si esta ara&ntilde;a tuviera problemas para encontrar el contenido de vuestras páginas o interpretara mal lo que es importante porque no habéis definido los encabezamientos como encabezamientos, etc., entonces seguro que vuestra posición en los resultados de busca se verá afectada.</p></li>
 <li><p><strong>Es simplemente una buena práctica</strong>: se trata de un motivo un poco del tipo "porque lo digo yo", pero hablad con cualquier desarrollador o dise&ntilde;ador web profesional consciente de los estándares y seguro que os dice que separar el contenido, el estilo y el comportamiento es la mejor manera de desarrollar una aplicación.</p></li>
 </ol>
@@ -93,20 +88,20 @@
 	</tfoot>
 	<tbody>
 	<tr><td>Los elementos y atributos no distinguen entre mayúsculas y minúsculas, <code>&lt;h1&gt;</code> es lo mismo que <code>&lt;H1&gt;</code>.</td>
-			<td>Los elementos y atributos distinguen entre mayúsculas y minúsculas; todos están en minúsculas.</td>
+	<td>Los elementos y atributos distinguen entre mayúsculas y minúsculas; todos están en minúsculas.</td>
 	</tr>
 	<tr><td>Algunos elementos no necesitan una etiqueta de cierre (por ejemplo, párrafos, <code>&lt;p&gt;</code>), mientras que otros (denominados <em>elementos vacíos</em>) prohíben la marca de cierre (por ejemplo, las imágenes, <code>&lt;img&gt;</code>).</td>
-			<td>Todos los elementos se deben cerrar claramente (por ejemplo, <code>&lt;p&gt;A paragraph&lt;/p&gt;</code>). Los elementos sin contenido se pueden cerrar utilizando una barra inclinada en la marca inicial (por ejemplo, <code>&lt;hr&gt;&lt;/hr&gt;</code> y <code>&lt;hr/&gt;</code> significan lo mismo).<br/>
-			Si servís el texto XHTML como <code>text/html</code>, deberéis utilizar la sintaxis abreviada en todos los <a href="http://www.cs.tut.fi/~jkorpela/html/empty.html" hreflang="en">elementos que están definidos como "vacíos"</a> y colocar un espacio antes de la barra inclinada. Deberíais utilizar la forma larga (con marcas inicial y final independientes) en cualquier elemento que no esté definido como vacío, aunque no tenga ningún contenido.</td>
+	<td>Todos los elementos se deben cerrar claramente (por ejemplo, <code>&lt;p&gt;A paragraph&lt;/p&gt;</code>). Los elementos sin contenido se pueden cerrar utilizando una barra inclinada en la marca inicial (por ejemplo, <code>&lt;hr&gt;&lt;/hr&gt;</code> y <code>&lt;hr/&gt;</code> significan lo mismo).<br/>
+	Si servís el texto XHTML como <code>text/html</code>, deberéis utilizar la sintaxis abreviada en todos los <a href="http://www.cs.tut.fi/~jkorpela/html/empty.html" hreflang="en">elementos que están definidos como "vacíos"</a> y colocar un espacio antes de la barra inclinada. Deberíais utilizar la forma larga (con marcas inicial y final independientes) en cualquier elemento que no esté definido como vacío, aunque no tenga ningún contenido.</td>
 	</tr>
 	<tr><td>Algunos valores de atributos pueden estar escritos sin estar entre comillas.</td>
-			<td>Los valores de los atributos se han de incluir entre comillas.</td>
+	<td>Los valores de los atributos se han de incluir entre comillas.</td>
 	</tr>
 	<tr><td>Algunos atributos se pueden abreviar (por ejemplo, <code>&lt;option selected&gt;</code>).</td>
-			<td>Se debe utilizar la forma de atributo entera para todos los atributos (por ejemplo, <code>&lt;option selected="selected"&gt;</code>).</td>
+	<td>Se debe utilizar la forma de atributo entera para todos los atributos (por ejemplo, <code>&lt;option selected="selected"&gt;</code>).</td>
 	</tr>
 	<tr><td>Los servidores habrían de servir el HTML al cliente con un tipo de medio <code>text/html</code>.</td>
-			<td>El XHTML debería utilizar el tipo de medio <code>application/xhtml+xml</code> pero se puede utilizar <code>application/xml</code>, <code>text/xml</code> o <code>text/html</code>. Si se utiliza <code>text/html</code>, se deberían seguir las <a href="http://www.w3.org/TR/xhtml1/guidelines.html" hreflang="en">directrices de compatibilidad de HTML</a> porque los navegadores lo tratarán como HTML (y utilizar la recuperación de errores para representar las diferencias entre idiomas).</td>
+	<td>El XHTML debería utilizar el tipo de medio <code>application/xhtml+xml</code> pero se puede utilizar <code>application/xml</code>, <code>text/xml</code> o <code>text/html</code>. Si se utiliza <code>text/html</code>, se deberían seguir las <a href="http://www.w3.org/TR/xhtml1/guidelines.html" hreflang="en">directrices de compatibilidad de HTML</a> porque los navegadores lo tratarán como HTML (y utilizar la recuperación de errores para representar las diferencias entre idiomas).</td>
 	</tr>
 	</tbody>
 </table>
@@ -152,7 +147,7 @@
 <div class="exemple">
 	<h3>Ejemplo de definición de una ID</h3>
 <p>Si sólo queréis que un párrafo determinado sea a doble espacio y destacado con texto verde, asignad una ID.</p>
-<pre><code>&lt;p id="highlight"&gt;Paragraph content&lt;/p&gt;</code></pre>
+<pre><code>&lt;p id="highlight"&gt;Contenido del párrafo&lt;/p&gt;</code></pre>
 <p>Y entonces aplicadle una regla CSS, tal como se indica a continuación:</p>
 <pre><code>#highlight {
    line-height: 2;
@@ -165,8 +160,8 @@
 <div class="exemple">
 	<h3>Ejemplo de definición de una clase</h3>
 <p>Siguiendo con nuestro ejemplo de doble espacio, si queréis que los dos primeros párrafos de una página sean a doble espacio y estén destacados, les habríais de a&ntilde;adir clases como:</p>
-<pre><code>&lt;p class="highlight"&gt;Paragraph content&lt;/p&gt;
-&lt;p class="highlight"&gt;The content of the second paragraph&lt;/p&gt;</code></pre>
+<pre><code>&lt;p class="highlight"&gt;Contenido del párrafo&lt;/p&gt;
+&lt;p class="highlight"&gt;El contenido del segundo párrafo&lt;/p&gt;</code></pre>
 <p>Y entonces aplicadles una regla CSS como se indica a continuación:</p>
 <pre><code>.highlight {
    line-height: 2;
@@ -198,11 +193,11 @@
 <p>El ejemplo que presentamos a continuación es una página de referencias que se puede utilizar para citar referencias al final de, pongamos por caso, un ensayo psicológico sobre la dinámica de grupo de un equipo de desarrollo web, o un informe para trabajar sobre el uso de Internet de banda ancha en Estados Unidos. Tened en cuenta que si sois muy estrictos con la redacción académica canónica, este ejemplo muestra el formato APA (tenía que elegir uno). <a href="http://dev.opera.com/articles/view/4-the-web-standards-model-html-css-a/article4_examples.zip" hreflang="en">Descargaos el código</a>.</p>
 
 <h3 id="index">4.5.1. <code>index.html</code></h3>
-<pre><code>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
-&lt;html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"&gt;
+<pre><code>&lt;!DOCTYPE html&gt;
+
+&lt;html&gt;
 &lt;head&gt;
-  &lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8"/&gt;
+  &lt;meta charset="utf-8" /&gt;
   &lt;title&gt;References&lt;/title&gt;
   &lt;style type="text/css"&gt;
     @import url("styles.css");
@@ -232,7 +227,7 @@
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <p>No haremos una disección de este archivo línea por línea, ya que veréis muchos ejemplos en futuros apartados; sin embargo, a continuación se indican algunos elementos importantes que cabe tener en cuenta.</p>
-<p>La línea 1 es lo que se denomina <em>declaración de tipo de documento</em> o <span lang="en">doctype</span>. En este caso, la página es "XHTML 1.0 Transitional". El tipo de documento especifica una serie de reglas que debe seguir el etiquetado y gracias a las que se puede validar.</p>
+<p>La línea 1 es lo que se denomina <em>declaración de tipo de documento</em> o <span lang="en">doctype</span>. En este caso, la página es "HTML5" (aunque no explota todas las características de HTML5). El tipo de documento especifica una serie de reglas que debe seguir el etiquetado y gracias a las que se puede validar.</p>
 <div class="vegeu_tambe">
 <h3>Ved también</h3>
 <p>Podéis ver el apartado 14 del módulo "Fundamentos de HTML" para encontrar más información sobre tipo de documentos.</p>
@@ -311,8 +306,8 @@ h1 {
 </div>
 
 <h2 id="summary">Resumen</h2>
-<p>XHTML, CSS y JavaScript no tienen nada de complicado. Son simplemente una evolución de la web. Si ya habéis tenido un poco de contacto con HTML, lo podéis aprovechar perfectamente. Todo lo que sabéis sigue siendo válido, sólo hay que tratar algunos conceptos de manera diferente (y tener un poco más de cuidado con el etiquetado).</p>
-<p>Aparte de tener la satisfacción de un trabajo bien hecho, el desarrollo de los estándares web es totalmente lógico. Los argumentos en contra del desarrollo con estándares son que se debe invertir mucho tiempo y es muy pesado hacer que un dise&ntilde;o funcione en distintos navegadores. Se podría utilizar el argumento contrario para hacer que un formato no basado en estándares funcione en diferentes dispositivos y con futuras versiones de navegadores. ¿Cómo se puede tener la certeza de que un etiquetado que se sostiene con agujas se verá bien en Opera 12.0, Firefox 5.0 e IE 10.0? No se puede, a no ser que se sigan algunas reglas.</p>
+<p>(X)HTML, CSS y JavaScript no tienen nada de complicado. Son simplemente una evolución de la web. Si ya habéis tenido un poco de contacto con HTML, lo podéis aprovechar perfectamente. Todo lo que sabéis sigue siendo válido, sólo hay que tratar algunos conceptos de manera diferente (y tener un poco más de cuidado con el etiquetado).</p>
+<p>Aparte de tener la satisfacción de un trabajo bien hecho, el desarrollo de los estándares web es totalmente lógico. Los argumentos en contra del desarrollo con estándares son que se debe invertir mucho tiempo y es muy pesado hacer que un dise&ntilde;o funcione en distintos navegadores. Se podría utilizar el argumento contrario para hacer que un formato no basado en estándares funcione en diferentes dispositivos y con futuras versiones de navegadores. ¿Cómo se puede tener la certeza de que un etiquetado que se sostiene con pinzas se verá bien en Opera 87, Firefox 100 e IE 14? No se puede, a no ser que se sigan algunas reglas.</p>
 
 <h2 id="exercises">Preguntas de repaso</h2>
 <ol>
@@ -321,7 +316,7 @@ h1 {
 	<li><p>Tomad el archivo index.html del ejemplo y cambiad el formato utilizando sólo CSS (os recomendamos editar el archivo utilizando un editor de texto como el Bloc de Notas o Text Wrangler). No hagáis ningún cambio al HTML.</p>
 	<ol class="lletres">
 		<li><p>A&ntilde;adid un icono para cada uno de los diferentes tipos de referencia (un icono diferente para artículos, libros y recursos web). Generad vuestros propios iconos para este propósito y haced que aparezcan junto con los diferentes tipos de referencia utilizando sólo CSS.</p></li>
-		<li><p>Ocultad el aviso de <em>copyright</em> de la parte inferior de la página.</p></li>
+		<li><p>Ocultad el aviso de <i lang="en">copyright</i> de la parte inferior de la página.</p></li>
 		<li><p>Cambiad el aspecto del título, conseguid que destaque.</p></li>
 	</ol></li>
 	<li><p>¿Qué tipo de cosas podríais hacer con CSS para lograr que este ejemplo funcione bien con un navegador de teléfono móvil?</p></li>
@@ -338,5 +333,6 @@ h1 {
 <a rel="index" href="../../index.html" title="Ir al índice" accesskey="0"><img src="../../img/indice_inv.gif" alt="Ir al índice" /></a> <strong>:</strong>
 <a rel="next" href="../ud4/index.html" title="Ir al artículo siguiente" accesskey="9"><img src="../../img/fletxa_der_inv.gif" alt="Ir al artículo siguiente" /></a>
 </div>
+
 </body>
 </html>

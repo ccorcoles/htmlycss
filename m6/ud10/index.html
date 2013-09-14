@@ -1,13 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es">
+<!DOCTYPE html>
+<html lang="es">
 <head>
-<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
-<meta http-equiv="Content-Language" content="es" />
-<meta name="language" content="es" />
+<meta charset="utf-8" />
 <meta name="author" content="Universitat Oberta de Catalunya" />
-<meta name="description" content="FALTA CONTENIDO" />
-<meta name="title" content="FALTA CONTENIDO" />
-<meta name="keywords" content="FALTA CONTENIDO" />
 
 <title>CSS - Posicionamiento estático y relativo con CSS</title>
 <link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
@@ -52,7 +47,6 @@
 <li>36.3.1. <a href="#multicolumnlayout">Disposición de múltiples columnas con requisitos de orden en el código fuente</a>
 <ul class="index">
 <li><a href="#makingcolumns">Crear columnas</a></li>
-<li><a href="#iequirks">Solucionar los problemas con Internet Explorer</a></li>
 </ul></li>
 <li>36.3.2. <a href="#otherusesforrelative">Otros usos del posicionamiento relativo</a></li>
 </ul></li>
@@ -64,7 +58,7 @@
 
 <h2 id="rectangles">36.1. El maravilloso mundo de los rectángulos</h2>
 
-<p>Para empezar, recapitularemos un poco todo lo que hemos dicho en el apartado anterior, dedicado a los elementos flotantes y al <em>clearing</em>, sobre el CSS y las cajas HTML. Un documento HTML consiste en un número de elementos salpicados con datos de caracteres (texto). Cuando un documento de este tipo se reproduce en una pantalla de ordenador o en una copia impresa, estos elementos generan cajas rectangulares. De la misma manera que un conjunto de elementos HTML se divide en elementos de bloque y elementos en línea, las cajas CSS también pueden ser básicamente cajas de bloque o cajas en línea. Por defecto, la hoja de estilos del agente de usuario integrado de un navegador hace que los elementos HTML de bloque, como <code>p</code> y <code>div</code>, generen cajas de bloque, mientras que los elementos en línea, como <code>strong</code> y <code>span</code>, generan cajas en línea. Podemos utilizar la propiedad <code>display</code> para controlar el tipo de caja que se generará.</p>
+<p>Para empezar, recapitularemos un poco todo lo que hemos dicho en el apartado anterior, dedicado a los elementos flotantes y al <span lang="en">clearing</span>, sobre el CSS y las cajas HTML. Un documento HTML consiste en un número de elementos salpicados con datos de caracteres (texto). Cuando un documento de este tipo se reproduce en una pantalla de ordenador o en una copia impresa, estos elementos generan cajas rectangulares. De la misma manera que un conjunto de elementos HTML se divide en elementos de bloque y elementos en línea, las cajas CSS también pueden ser básicamente cajas de bloque o cajas en línea. Por defecto, la hoja de estilos del agente de usuario integrado de un navegador hace que los elementos HTML de bloque, como <code>p</code> y <code>div</code>, generen cajas de bloque, mientras que los elementos en línea, como <code>strong</code> y <code>span</code>, generan cajas en línea. Podemos utilizar la propiedad <code>display</code> para controlar el tipo de caja que se generará.</p>
 
 <div class="vegeu_tambe">
 <h3>Ved también</h3>
@@ -172,11 +166,10 @@
 <ol>
 <li><p>Copiad el siguiente código HTML en un documento nuevo del editor de textos que más os guste y guardadlo con el nombre <code>relative.html</code>.</p>
 
-<pre><code>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
- "http://www.w3.org/TR/html4/strict.dtd"&gt;
+<pre><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
-   &lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8"&gt;
+   &lt;meta charset="utf-8"&gt;
    &lt;title&gt;Relative Positioning&lt;/title&gt;
 &lt;/head&gt;
 &lt;body&gt;
@@ -265,11 +258,10 @@ span {
 <ol>
 <li><p>Copiad el código siguiente en vuestro editor de textos y guardad el archivo con el nombre <code>layout.html</code>.</p>
 
-<pre><code>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" 
-"http://www.w3.org/TR/html4/strict.dtd"&gt;
+<pre><code>&lt;!DOCTYPE html&gt;
 &lt;html lang="en"&gt;
 &lt;head&gt;
-   &lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8"&gt;
+   &lt;meta charset="utf-8"&gt;
    &lt;title&gt;Static and Relative Positioning&lt;/title&gt;
    &lt;link rel="stylesheet" type="text/css" href="layout.css"&gt;
 &lt;/head&gt;
@@ -342,7 +334,7 @@ span {
 <div class="note">
 <h3>Nota</h3>
 
-<p>Si utilizáis la versión 6 o anterior de Microsoft Internet Explorer, no podréis ver los efectos de ninguna limitación de la anchura. Esto es así porque estas versiones del IE no aceptan anchuras (o alturas) mínimas y máximas. Al final del ejemplo veremos una manera de solucionar este problema. De hecho, a lo largo de todo este ejemplo iréis viendo unos resultados extraños, incluso con IE 7, porque Internet Explorer tiene muchos errores de representación. En este ejemplo nos centraremos en la manera de hacer las cosas según los estándares, y al final ya veremos las soluciones.</p>
+<p>Si seguís los ejemplos con versiones de Internet Explorer hasta la 8 veréis resultados extraños, porque Internet Explorer tenía muchos errores de representación. En este ejemplo nos centraremos en la manera de hacer las cosas según los estándares.</p>
 </div>
 
 <p>Si observáis el código con atención, veréis que las anchuras están fijadas en 13 em y 11 em en lugar de 14 em y 12 em. Esto es así porque necesitamos un poco de separación horizontal; no queremos que el contenido de estas columnas toque los bordes, ya que no queda demasiado bien. La separación se añade a la anchura, con lo cual 13 em + 0,5 em + 0,5 em suman un total de 14 em, que es lo que queremos.</p>
@@ -370,34 +362,4 @@ span {
    background-color: #ddd;
 }</code></pre>
 
-<p>Con este código se hacen flotar las columnas, sí, pero no se muestran en el orden correcto. Además, la columna del contenido principal es demasiado estrecha. ¿Y qué ha pasado con el pie de página?</p></li>
-
-<li><p>En primer lugar, nos encargaremos del pie de página. El problema es que hemos hecho flotar las tres columnas, con lo que han quedado fuera del flujo del documento. El pie de página queda justo debajo del encabezamiento y la caja de línea que contiene el texto se ha acortado, de manera que la palabra "Footer" aparece a la derecha de los elementos flotantes. Podemos solucionarlo haciendo que el pie de página esté a una cierta distancia de todas las columnas flotantes. Añadid la regla siguiente a vuestro archivo CSS:</p>
-
-<pre><code>#footer {
-   <strong>clear: left;</strong>
-   border-top: 1px solid #369;
-}</code></pre></li>
-
-<li><p>Y ahora nos dedicaremos a las tres columnas. Lo haremos paso a paso, y durante un momento todo tendrá un aspecto horrible; pero no os desesperéis porque al final todo acabará bien.</p>
-
-<p>La clave es el elemento de envoltorio. Definiremos unos márgenes izquierdo y derecho que se correspondan con las anchuras de las columnas laterales (la navegación y la barra lateral). La columna del contenido principal ocupará toda la anchura del envoltorio y las columnas laterales se desplazarán hacia el espacio que dejan vacío los márgenes. ¿Suena complicado? No os preocupéis, lo iremos haciendo poco a poco. En primer lugar definiremos los márgenes del envoltorio añadiendo la regla siguiente al archivo CSS:</p>
-
-<pre><code>#wrapper {
-   margin: 0 14em 0 12em;
-   padding: 0 1em;
-}</code></pre>
-
-<p>Recordad que los valores de la propiedad <code>margin</code> abreviada se especifican en el orden <strong>TRaBaLenguas</strong>, es decir: <code>top</code> (superior), <code>right</code> (derecho), <code>bottom</code> (inferior), <code>left</code> (izquierdo). Definimos los márgenes superior e inferior a 0, el margen derecho en 14 em (para la barra lateral) y el margen izquierdo en 12 em (para la navegación). También hemos añadido 1 em de separación horizontal porque no queremos que el contenido toque las columnas laterales, ya que debe respirar.</p></li>
-
-<li><p>El siguiente paso es hacer que la columna del contenido principal ocupe toda la anchura de su elemento envoltorio padre; el código también define un color de fondo chillón para esta columna, temporalmente:</p>
-
-<pre><code>#main {
-   float: left;
-   <strong>width: 100%;</strong>
-   <strong>background-color: lime;</strong>
-}</code></pre></li>
-
-<li><p>Guardad el archivo y volved a cargarlo; veréis una columna de contenido de color verde lima con la barra lateral y la navegación debajo. También veréis que hay mucho espacio en blanco a ambos lados. Lo que debemos hacer ahora es conseguir que nuestras columnas laterales se desplacen hacia este espacio en blanco.</p>
-
-<p>De momento, nos dedicaremos a la barra lateral, que es flotante y ya tiene la anchura correcta, pero como la columna <code>#main</code> tiene una anchura del 100% la barra lateral se desplaza hacia abajo. ¿Cómo podemos hacer que suba y se coloque al lado de <code>#main</code> teniendo
+<p>Con este código se hacen flotar las columnas, sí, pero no se muestran en el orden correcto. Además, la columna del contenido principal es demasiado estrecha. ¿Y qué ha pasado con el p

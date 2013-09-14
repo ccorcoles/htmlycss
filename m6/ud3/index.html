@@ -1,13 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es">
+<!DOCTYPE html>
+<html lang="es">
 <head>
-<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
-<meta http-equiv="Content-Language" content="es" />
-<meta name="language" content="es" />
+<meta charset="utf-8" />
 <meta name="author" content="Universitat Oberta de Catalunya" />
-<meta name="description" content="FALTA CONTENIDO" />
-<meta name="title" content="FALTA CONTENIDO" />
-<meta name="keywords" content="FALTA CONTENIDO" />
 
 <title>CSS - Creación de estilos de texto con CSS</title>
 <link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
@@ -262,18 +257,18 @@
 
 <pre><code>1,143em = 114,3% diferent de 16px = 12pt</code></pre>
 
-<h3 id="CSS21TRNote">Breve comentario sobre la recomendación oficial de CSS 2.1</h3>
+<h3 id="CSS21TRNote">Breve comentario sobre la recomendación oficial de CSS</h3>
 
-<p>En ocasiones, os dirán que consultéis la Recomendación Candidata o <em><a href="http://www.w3.org/TR/CSS21/" hreflang="en">Candidate Recommendation</a></em> del <em>World Wide Web Consortium</em> para la especificación CSS 2.1. Como todas las recomendaciones del W3C, este documento puede considerarse la definición de un estándar web; algunos se siguen más que otros, tanto por parte de los fabricantes de navegadores como por los desarrolladores de webs.</p>
+<p>En ocasiones, os dirán que consultéis la Recomendación Candidata o <span lang="en"><a href="http://www.w3.org/TR/css-2010/" hreflang="en">Candidate Recommendation</a></span> del <span lang="en">World Wide Web Consortium</span> para la especificación CSS. Como todas las recomendaciones del W3C, este documento puede considerarse la definición de un estándar web; algunos se siguen más que otros, tanto por parte de los fabricantes de navegadores como por los desarrolladores de webs.</p>
 
 
-<p>Aunque es útil conocer de arriba abajo las recomendaciones del W3C, este curso se ha diseñado para proporcionar una introducción concisa y fácil de asimilar al diseño/desarrollo web y las recomendaciones del W3C pueden ser un poco pesadas. En todos los casos en los que se os pida visitar la recomendación de CSS 2.1, se os está dirigiendo a un material demasiado complejo como para justificar una explicación detallada en este apartado.</p>
+<p>Aunque es útil conocer de arriba abajo las recomendaciones del W3C, este curso se ha diseñado para proporcionar una introducción concisa y fácil de asimilar al diseño/desarrollo web y las recomendaciones del W3C pueden ser un poco pesadas. En todos los casos en los que se os pida visitar la recomendación de CSS, se os está dirigiendo a un material demasiado complejo como para justificar una explicación detallada en este apartado.</p>
 
 <h3 id="sizekeywords">Palabras clave de tamaño</h3>
 
 <p>También se pueden utilizar palabras clave de tamaño, como se ha mencionado anteriormente. Hay siete, desde <code>xx-small</code> hasta <code>xx-large</code>, y <code>medium</code> es el valor medio (y predeterminado). La lista completa de los siete valores se muestra más adelante en la tabla 3, que incluye todas las palabras clave que aceptan las distintas propiedades CSS mencionadas en este apartado.</p>
 
-<p>La recomendación de CSS 2.1 ofrece una gran cantidad de información adicional sobre las <a href="http://www.w3.org/TR/CSS21/fonts.html#font-size-props" hreflang="en">palabras clave de <code>font-size</code></a>.</p>
+<p>La recomendación de CSS ofrece una gran cantidad de información adicional sobre las <a href="http://www.w3.org/TR/CSS21/fonts.html#font-size-props" hreflang="en">palabras clave de <code>font-size</code></a>.</p>
 
 <h3>Demostración 1</h3>
 <p>De vez en cuando, este texto enlazará con un documento de Demostración cada vez con más estilo que mostrará las propiedades CSS de las que hablamos en su uso real. El primero de los ejemplos es el documento HTML de muestra sin ningún tipo de estilo aplicado.</p>
@@ -309,7 +304,7 @@ h1 { font-size: x-large; }
 <img src="76510_m6_05.gif" alt="Tipografía genérica por defecto de MacOs 10.5."/>
 <p>Figura 1. Las tipografías "genéricas" predeterminadas de MacOS 10.5 tal como quedan representadas a 24 píxeles en Safari 3.1.</p>
 </div>        
-<p>En la recomendación del CSS 2.1 se enumeran <a href="http://www.w3.org/TR/CSS21/fonts.html#generic-font-families" hreflang="en">varias tipografías más que pueden aplicarse a cada familia genérica</a>.</p>
+<p>En la recomendación del CSS se enumeran <a href="http://www.w3.org/TR/CSS21/fonts.html#generic-font-families" hreflang="en">varias tipografías más que pueden aplicarse a cada familia genérica</a>.</p>
 
 <h3>Demostración 2</h3>
 
@@ -332,7 +327,7 @@ blockquote { font-family: Helvetica,Arial,sans-serif; }</code></pre>
 
 <h3 id="whyfontstyle">¿Por qué hay que utilizar la propiedad <code>font-style</code> cuando los elementos "em" e "i" ya parecen bastante adecuados?</h3>
 
-<p>Cada uno de estos elementos tiene usos específicos: el del <code>em</code> es proporcionar énfasis y el de <code>i</code> ser la alternativa de <code>&lt;span style="font-style: italic;"&gt;...&lt;/span&gt;</code> en los pocos casos en los que su uso sería poco adecuado. En general, <code>&lt;i&gt;</code> no es nada adecuado porque es un elemento presentacional, pero hay determinadas partes del texto central que se escriben en cursiva por convención, como por ejemplo los títulos de los libros (aunque eso es discutible, ya que hay quien cree que el elemento <code>cite</code> es más adecuado para los títulos de libro, así que haced lo que consideréis adecuado). <code>&lt;em&gt;</code> suele ser más apropiado porque especifica el énfasis como concepto en lugar de la cursiva como estilo específico: la apariencia real del énfasis puede variar entre varios navegadores.</p>
+<p>Como ya hemos visto, cada uno de estos elementos tiene usos específicos. Además, la apariencia real del texto marcado con <code>em</code>, <code>i</code>, o cualquier otro elemento, puede variar entre varios navegadores.</p>
 
 <p>Hay situaciones en las que el uso de<code> em</code> y su hermano <code>strong</code> pueden requerir un punto de vista diferente. Por ejemplo, supongamos que queréis dar énfasis al texto haciéndolo más grande. Lo que habría que hacer para dar un mayor énfasis sería añadir cursiva, lo que daría lugar a reglas como las siguientes:</p>
 
@@ -346,15 +341,9 @@ strong {
    font-style: italic;
 }</code></pre>
 
-<p>Las reglas de la hoja de estilo precedente darían unos resultados parecidos a los siguientes:</p>
-
-<div class="exemple">
-<p>The <strong><em>quick</em></strong> red fox jumped over the <strong>lazy</strong> brown dog.</p>
-</div>
-
 <h3>Demostración 3</h3>
 
-<p>En el texto de Demostración no hay palabras ni fragmentos en cursiva, y las atribuciones ya contienen la cursiva necesaria gracias al uso del elemento <code>cite</code>. Teniendo en cuenta la falta de opciones, el título es el mejor candidato para estar en cursiva.</p>
+<p>En el texto de demostración no hay palabras ni fragmentos en cursiva, y las atribuciones ya contienen la cursiva necesaria gracias al uso del elemento <code>cite</code>. Teniendo en cuenta la falta de opciones, el título es el mejor candidato para estar en cursiva.</p>
 
 <pre><code>h1 { font-style: italic; }
 .sectionNote { font-style: normal; }</code></pre>
@@ -382,7 +371,7 @@ strong {
 <h3 id="fontweightboldness">29.2.5. <code>font-weight</code>: negrita y la falta de ésta</h3>
 
 <p>La propiedad <code>font-weight</code> (peso de la fuente) permite modificar el nivel de negrita de cualquier fragmento de texto al que se aplique.</p>
-<p>Los valores habituales de la propiedad <code>font-weight</code> son <code>normal</code> y <code>bold</code>. Mientras que la recomendación CSS 2.1 proporciona <a href="http://www.w3.org/TR/CSS21/fonts.html#font-boldness" hreflang="en">varios valores</a>, el estado actual de compatibilidad con la tipografía web hace que los demás valores no tengan valor funcional excepto para los usuarios especialistas.</p>
+<p>Los valores habituales de la propiedad <code>font-weight</code> son <code>normal</code> y <code>bold</code>. La recomendación CSS proporciona <a href="http://www.w3.org/TR/CSS21/fonts.html#font-boldness" hreflang="en">los varios valores posibles</a>.</p>
 
 <h3>Demostración 5</h3>
 
@@ -483,4 +472,28 @@ strong {
 <ul>
 <li><p>La<strong> justificación izquierda</strong>  es más adecuada para fragmentos de texto largos.</p></li>
 
-<li><p>La<strong> justificación derecha</strong> es más adecuada para la columna de la izquierda del todo de tablas de datos y disposiciones de columna múltiple. Cuando la column
+<li><p>La<strong> justificación derecha</strong> es más adecuada para la columna de la izquierda del todo de tablas de datos y disposiciones de columna múltiple. Cuando la columna adyacente se deja justificada y colocada en el otro lado de un canal adecuadamente ancho, el resultado es mejorar la legibilidad de ambas columnas.</p></li>
+
+<li><p>La<strong> justificación completa</strong> funciona bien para bloques pequeños, como citas de bloques y textos de ejemplo. Cuando se utiliza en fragmentos largos como texto de ancho óptimo con márgenes anchos, la justificación completa también mejora la coherencia de la maquetación.</p></li>
+
+<li><p>El <strong>centrado</strong> se suele utilizar para los elementos de interfaz y listas en serie como las que se encuentran en los pies de página.</p></li>
+</ul>
+
+
+<h3>Demostración 6</h3>
+
+<p>Como la demostración se basa en un fragmento de texto de ficción extraído de un libro, ¿por qué no le aplicamos la justificación?</p>
+
+<pre><code>p { text-align: justify; }
+blockquote p { text-align: left; }</code></pre>
+
+
+<p class="font"><strong>Archivo fuente de:</strong> "<a href="http://dev.opera.com/articles/view/29-text-styling-with-css/copy_example7.html" hreflang="en">Página con justificación completa del texto central del fragmento</a>"</p>
+
+
+<p class="font"><strong>Archivo fuente de:</strong> "<a href="http://dev.opera.com/articles/view/29-text-styling-with-css/text_06.css" hreflang="en">Hoja de estilo de la demostración 6</a>"</p>
+
+
+<h3 id="changingtracking">29.3.2. Modificar el espaciado: las propiedades <code>letter-spacing</code> y <code>word-spacing</code></h3>
+
+<p

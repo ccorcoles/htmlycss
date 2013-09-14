@@ -1,13 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es">
+<!DOCTYPE html>
+<html lang="es">
 <head>
-<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
-<meta http-equiv="Content-Language" content="es" />
-<meta name="language" content="es" />
+<meta charset="utf-8" />
 <meta name="author" content="Universitat Oberta de Catalunya" />
-<meta name="description" content="FALTA CONTENIDO" />
-<meta name="title" content="FALTA CONTENIDO" />
-<meta name="keywords" content="FALTA CONTENIDO" />
 
 <title>CSS - El modelo de composición de CSS: cajas, bordes, márgenes, relleno</title>
 <link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
@@ -34,7 +29,7 @@
 
 <p>A primera vista, el modelo de composición de CSS es muy sencillo. Las cajas, los bordes y los márgenes son elementos bastante simples y la sintaxis de CSS ofrece una manera fácil de describir sus características.</p>
 
-<p>Sin embargo, los motores de representación de los navegadores siguen una lista de reglas descritas en la Recomendación CSS 2.1 y unas cuantas propias. Por esta razón, hay muchos detalles que debemos comprender antes de poder añadir técnicas avanzadas al repertorio de un especialista en estilos.</p>
+<p>Sin embargo, los motores de representación de los navegadores siguen una lista de reglas descritas en la Recomendación CSS y unas cuantas propias. Por esta razón, hay muchos detalles que debemos comprender antes de poder añadir técnicas avanzadas al repertorio de un especialista en estilos.</p>
 
 <p>En este apartado se presentan las propiedades de CSS que manipulan la composición de los elementos HTML como los bordes, los márgenes y muchos más. También se tratan algunas de las reglas mencionadas antes. En próximos apartados se hablará de la disposición avanzada de columnas y las técnicas de parrilla, y se tratará con más detalle la composición de los formularios, los elementos flotantes, la distancia y el posicionamiento.</p>
 
@@ -468,4 +463,9 @@ h1 { color:red; font-size:2em; }</code></pre>
 <li><p><strong>Los errores de representación de Microsoft Internet Explorer (IE) hacen necesario especificar las parejas de valor/propiedad de <code>width</code> o <code>height</code> para algunos elementos</strong>. Hay algunas peculiaridades del motor de representación de IE que sólo pueden resolverse con la fuerza bruta. La mayoría de estas peculiaridades son bien conocidas y se eliminarán de IE 8, pero hasta que esta versión sustituya a sus predecesoras en el mercado, este problema seguirá siendo un caso de prueba inevitable. <a href="http://www.positioniseverything.net" hreflang="en">PositionIsEverything.net</a> y la <a href="http://css-discuss.incutio.com/" hreflang="en">wiki de discusión de CSS</a> ofrecen mucha información sobre este asunto y técnicas para resolverlo.</p></li>
 
 
-<li><p><strong>De vez en cuando, los algoritmos de redondeo provocan diferencias fuera de especificación en los navegadores que muestran los contenidos con medios de visualización LCD, LED o CRT (<code>type="screen"</code>)</strong>. El tipo de medio <code>screen</code> (pantalla) requiere que todas las unidades se conviertan en medidas de píxeles, de manera que l
+<li><p><strong>De vez en cuando, los algoritmos de redondeo provocan diferencias fuera de especificación en los navegadores que muestran los contenidos con medios de visualización LCD, LED o CRT (<code>type="screen"</code>)</strong>. El tipo de medio <code>screen</code> (pantalla) requiere que todas las unidades se conviertan en medidas de píxeles, de manera que la imagen puede quedar diferente en cada navegador.</p></li>
+</ul>
+
+<h3 id="minandmax">30.2.2. <code>min-width</code>, <code>max-width</code>, <code>min-height</code> y <code>max-height</code></h3>
+
+<p>En ocasiones os encontraréis situaciones en las que necesitáis limitar el tamaño de un elemento, generalmente para garantizar que una columna de tamaño proporcional conserve siempre una anchura legible. Las distintas prop

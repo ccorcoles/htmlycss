@@ -1,13 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ca">
+<!DOCTYPE html>
+<html lang="es">
 <head>
-<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
-<meta http-equiv="Content-Language" content="ca" />
-<meta name="language" content="ca" />
+<meta charset="utf-8" />
 <meta name="author" content="Universitat Oberta de Catalunya" />
-<meta name="description" content="FALTA CONTENIDO" />
-<meta name="title" content="FALTA CONTENIDO" />
-<meta name="keywords" content="FALTA CONTENIDO" />
 
 <title>Fundamentos de HTML - Conceptos básicos de HTML</title>
 <link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
@@ -87,7 +82,7 @@
   
   <p>Más tarde, en aquel mismo año apareció un borrador de HTML 3.0, pero se dejó de trabajar en esta versión a causa de la falta de apoyo por parte de los creadores de navegadores en cuanto a la dirección que se debía seguir. HTML 3.2 suprimió muchas de las funciones nuevas de la versión 3.0 y, en lugar de éstas, adoptó muchas de las creaciones de los navegadores más populares de entonces: Mosaic y Netscape Navigator.</p>
   
-  <p>En el año 1997, el W3C publicó HTML 4.0 como recomendación que adoptaba más extensiones específicas de navegadores, pero que también intentaba racionalizar y perfeccionar HTML. Esto se hizo marcando varios elementos como desaprobados (deprecated), que significa que los elementos están obsoletos y que, aunque todavía aparecen en esta versión, se eliminarán en una revisión posterior. Esto se hizo para impulsar un uso mejor y más semántico de HTML en documentos.</p>
+  <p>En el año 1997, el W3C publicó HTML 4.0 como recomendación que adoptaba más extensiones específicas de navegadores, pero que también intentaba racionalizar y perfeccionar HTML. Esto se hizo marcando varios elementos como desaprobados (<span lang="en">deprecated</span>), que significa que los elementos están obsoletos y que, aunque todavía aparecen en esta versión, se eliminarán en una revisión posterior. Esto se hizo para impulsar un uso mejor y más semántico de HTML en documentos.</p>
   
   <div class="vegeu_tambe">
   <h3>Ved también</h3>
@@ -95,24 +90,24 @@
   <p>Podéis ver la evolución de HTML en el apartado 4 del módulo "Introducción al mundo de los estándares web".</p>
   </div>
   
-  <p>En el año 1999 se publicó HTML 4.01, con algunas erratas corregidas en el año 2001. Ésta es la última versión de HTML, aunque actualmente se está trabajando en la versión HTML 5.</p>
+  <p>En el año 1999 se publicó HTML 4.01, con algunas erratas corregidas en el año 2001. En el año 2000, el W3C también publicó la especificación XHTML 1.0, que era HTML reestructurado para ser un documento XML válido.</p>
   
-  <p>En el año 2000, el W3C también publicó la especificación XHTML 1.0, que era HTML reestructurado para ser un documento XML válido.</p>             
+<p>En el año 2004 el <span lang="en">Web Hypertext Application Technology Working Group</span> (<a href="http://www.whatwg.org/" hreflang="en">WHATWG</a>) inició el trajo para desarrollar la especificación de HTML5. En enero de 2008 se publicó el primer <a href="http://www.w3.org/TR/html5/" hreflang="en">"borrador de trabajo" de HTML5</a>, que posteriormente alcanzaría el estatus de "<span lang="en">candidate recommendation</span>" en diciembre de 2012. El documento lo mantiene el <a href="http://www.w3.org/html/wg/" hreflang="en"><span lang="en">HTML Working Group</span></a> del W3C.</p>
                      
   <h2 id="htmlstructure">12.4. La estructura de un documento HTML</h2>
   
   <p>El documento HTML válido más pequeño posible sería algo similar a esto:</p>
   
   
-<pre><code>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/
- strict.dtd"&gt;
-&lt;html&gt;
-   &lt;head&gt;
-      &lt;title&gt;Pàgina d'exemple&lt;/title&gt;
-   &lt;/head&gt;
-   &lt;body&gt;
-      &lt;h1&gt;Hola a todos&lt;/h1&gt;
-   &lt;/body&gt;
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;title&gt;Página de ejemplo&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Hola mundo&lt;/h1&gt;
+  &lt;/body&gt;
 &lt;/html&gt;</code></pre>
   
   <p>El documento empieza con un elemento de tipo de documento o doctype. Este elemento describe el tipo de HTML que se utiliza para que los agentes de usuario puedan determinar cómo se debe interpretar el documento y saber si sigue las normas que dice que seguirá.</p>
@@ -127,7 +122,7 @@
   
   <p>Dentro del elemento <code>html</code> está el elemento <code>head</code>. Éste es un elemento que contiene información sobre el documento (los metadatos). Este elemento se describe más detalladamente en el apartado siguiente. En la cabecera está el elemento <code>title</code>, que define el título "Página de ejemplo" de la barra del menú.</p>
   
-  <p>Después del elemento <code>head</code> está el elemento  <code>body</code>, que es el elemento que incluye el contenido real de la página; en este caso sólo hay un elemento de encabezamiento de nivel uno (<code>h1</code>), que contiene el texto "Hola a todos". Y éste es todo nuestro documento.</p>
+  <p>Después del elemento <code>head</code> está el elemento  <code>body</code>, que es el elemento que incluye el contenido real de la página; en este caso sólo hay un elemento de encabezamiento de nivel uno (<code>h1</code>), que contiene el texto "Hola mundo". Y éste es todo nuestro documento.</p>
   
   <p>Como se puede ver, a menudo los elementos contienen otros elementos. El cuerpo del documento incluirá inevitablemente muchos otros elementos. Las divisiones de página crean la estructura general del documento y contendrán subdivisiones. Éstas contendrán títulos, párrafos, listas, etc. Los párrafos pueden contener elementos que creen enlaces hacia otros documentos, citas, énfasis, etc. A medida que vayáis avanzando en esta serie, iréis sabiendo más cosas sobre estos elementos.</p>
 
@@ -145,9 +140,9 @@
   
   <p>En este ejemplo hay un elemento <code>div</code> (división de página, una manera de partir los documentos en bloques lógicos) con un atributo <code>id</code> añadido que tiene el valor de <code>masthead</code>. El elemento <code>div</code> contiene un elemento <code>h1</code> (encabezamiento de primer nivel o más importante), que al mismo tiempo contiene texto. Parte de este texto está incluido en un elemento <code>abbr</code> (que se utiliza para especificar la expansión de las siglas), que tiene el atributo <code>title</code>, cuyo valor está definido como <em>lenguaje de marcado de hipertexto</em> (<span lang="en">Hypertext Markup Language</span>).</p>
   
-  <p>Muchos de los atributos de HTML son comunes para todos los elementos, aunque algunos son específicos de uno o varios elementos concretos. Éstos tienen siempre la forma <code>keyword="value"</code>. El valor debe aparecer siempre entre comillas simples o dobles (en algunas circunstancias se pueden omitir las comillas, pero no es una práctica recomendable con respecto a la predictibilidad, la comprensión y la claridad; se deben poner siempre los valores entre comillas).</p>
+  <p>Muchos de los atributos de HTML son comunes para todos los elementos, aunque algunos son específicos de uno o varios elementos concretos. Éstos tienen siempre la forma <code>palabraclave="valor"</code>. El valor debe aparecer siempre entre comillas simples o dobles (en algunas circunstancias se pueden omitir las comillas, pero no es una práctica recomendable con respecto a la predictibilidad, la comprensión y la claridad; se deben poner <em>siempre</em> los valores entre comillas).</p>
   
-  <p>La mayoría de los <a href="http://www.w3.org/TR/html401/index/attributes.html" hreflang="en">atributos y sus valores posibles están definidos por las especificaciones HTML</a>; no es posible crear atributos propios sin invalidar el HTML, ya que ello puede confundir a los agentes de usuario y provocar problemas a la hora de interpretar correctamente la página web. Las únicas excepciones reales son los atributos <code>id</code> y <code>class</code>; sus valores están totalmente bajo vuestro control, ya que sirven para añadir significado y semántica propias a vuestros documentos.</p>
+  <p>La mayoría de los atributos y sus valores posibles están definidos por las especificaciones HTML; no es posible crear atributos propios sin invalidar el HTML, ya que ello puede confundir a los agentes de usuario y provocar problemas a la hora de interpretar correctamente la página web. Las únicas excepciones reales son los atributos <code>id</code> y <code>class</code>; sus valores están totalmente bajo vuestro control, ya que sirven para añadir significado y semántica propias a vuestros documentos.</p>
   
   <p>Un elemento que se encuentra dentro de otro elemento se conoce como "hijo" de este elemento. Así pues, en el ejemplo anterior, <code>abbr</code> es hijo del elemento <code>h1</code>, que al mismo tiempo es hijo de <code>div</code>. Y al revés, el elemento <code>div</code> sería "padre" del elemento <code>h1</code>. Este concepto de padre/hijo es muy importante, ya que es la base de CSS y se utiliza mucho en JavaScript.</p>
 
@@ -197,5 +192,6 @@
 		<a rel="index" href="../../index.html" title="Ir al índice" accesskey="0"><img src="../../img/indice_inv.gif" alt="Ir al índice" /></a> <strong>:</strong>
 		<a rel="next" href="../ud2/index.html" title="Ir al artículo siguiente" accesskey="9"><img src="../../img/fletxa_der_inv.gif" alt="Ir al artículo siguiente" /></a>
 </div>
+
 </body>
 </html>

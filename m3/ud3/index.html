@@ -1,13 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ca">
+<!DOCTYPE html>
+<html lang="es">
 <head>
-<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
-<meta http-equiv="Content-Language" content="ca" />
-<meta name="language" content="ca" />
+<meta charset="utf-8" />
 <meta name="author" content="Universitat Oberta de Catalunya" />
-<meta name="description" content="FALTA CONTENIDO" />
-<meta name="title" content="FALTA CONTENIDO" />
-<meta name="keywords" content="FALTA CONTENIDO" />
 
 <title>Fundamentos de HTML - Elegir el doctype correcto para los documentos HTML</title>
 <link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
@@ -74,6 +69,10 @@
      <p>La segunda cadena, <code>"http://www.w3.org/TR/html4/strict.dtd"</code>, es una URL que indica el documento DTD utilizado para este <code>doctype</code>.</p>
      
      <p>Aunque un <code>doctype</code> puede tener un aspecto un tanto extraño, las especificaciones HTML y XHTML lo exigen. Si no incluís ninguno, aparecerá un error de validación cuando comprobéis la sintaxis de vuestro documento con el validador de etiquetado del W3C u otras herramientas que comprueben los documentos HTML por si contienen errores. Algunos navegadores incluso contienen esta función por defecto, mientras que otros pueden incluirla si se instala una extensión.</p>
+     
+     <p>En cualquier caso, si usáis el <code>doctype</code> de HTML5, que es el que hemos visto hasta ahora en todos los ejemplos, la cosa queda muy simplificada, puesto que este es el más sencillo posible:</p>
+     
+          <pre><code>&lt;!DOCTYPE html&gt;</code></pre>
  
      <h2 id="doctypeswitching">14.2. Cambios de <code>doctype</code> y modos de representación</h2>
      
@@ -93,29 +92,36 @@
 
      <h2 id="choosingdoctype">14.4. Elegir un <code>doctype</code></h2>
      
-     <p>Así pues, ahora que ya sabéis que hay que introducir un <code>doctype</code> y para qué se utiliza, ¿cómo podéis saber cuál hay que utilizar? De hecho, no hay uno, sino que hay muchos. Incluso podéis crear uno propio, siempre y cuando tengáis el nivel de conocimientos necesario para hacerlo. Aquí, sin embargo, no hablaremos de muchos <code>doctypes</code> diferentes. Haremos las cosas fáciles y sólo mencionaremos dos.</p>
-     <p>Si vuestro documento es HTML, utilizad el siguiente:</p>
+     <p>Así pues, ahora que ya sabéis que hay que introducir un <code>doctype</code> y para qué se utiliza, ¿cómo podéis saber cuál hay que utilizar? De hecho, no hay uno, sino que hay muchos. Incluso podéis crear uno propio, siempre y cuando tengáis el nivel de conocimientos necesario para hacerlo. Aquí, sin embargo, no hablaremos de muchos <code>doctypes</code> diferentes. Haremos las cosas fáciles y sólo mencionaremos tres.</p>
+     
+     <p>Si vuestro documento es HTML5, utilizad el siguienteel que ya hemos visto:</p>
+     
+<pre><code>&lt;!DOCTYPE html&gt;</code></pre>
+
+<p>Si por algún motivo vuestro documento debe utilizarse en navegadores incompatibles con HTML5 (en general esto pasará porque hay una base importante de usuarios que aún usan versiones antiguas de IE), utilizad el siguiente, para indicar que estáis usando HTML 4.01:</p>
      
      <pre><code>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/
  html4/strict.dtd"&gt;</code></pre>
      
-     <p>Si vuestro documento es XHTML, utilizad el siguiente:</p>
+     <p>Si vuestro documento es XHTML 1.0, utilizad el siguiente:</p>
      
      <pre><code>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/
  xhtml1/DTD/xhtml1-strict.dtd"&gt;</code></pre>
      
      <div class="note">
-     <h3>Nota</h3>    
-     <p>El XHTML "real" se debe comunicar al navegador como XML, pero los detalles sobre cómo y cuándo hacerlo, y las implicaciones que tiene, quedan fuera del alcance de este apartado en concreto.</p>
+     <h3>Notas</h3>    
+     <ul><li>El motivo por el que los <code>doctype</code> de HTML 4.01 y XHTML 1 necesiyaban especificar una DTD y el HTML5 no es que los dos primeros se basaban en SGML y HTML5 no. El significado de SGML va más allá de los objetivos de este curso.</li>
+	<li>El XHTML "real" se debe comunicar al navegador como XML, pero los detalles sobre cómo y cuándo hacerlo, y las implicaciones que tiene, quedan fuera del alcance de este apartado en concreto.</li></ul>
      </div>
      
-     <p>Estos dos <code>doctypes</code> garantizarán que los navegadores utilicen su modo de estándares a la hora de trabajar con vuestro documento. El efecto más evidente que tendrá sobre vuestro trabajo es que obtendréis unos resultados más uniformes a la hora de diseñar el documento con CSS. Para ver algunos de los otros <code>doctypes</code> que podéis utilizar, el W3C ha publicado una <a href="http://www.w3.org/QA/2002/04/valid-dtd-list.html" hreflang="en">lista de DTD recomendadas para utilizarlas en vuestro documento web</a>.</p>
-     
-     <p>Es posible que hayáis observado que los dos <code>doctypes</code> que hemos mencionado se llaman "Strict". Aunque pueda parecer un poco extraño, no lo es en absoluto.</p>
-     
-     <p>Tanto el HTML como el XHTML pueden ser estrictos o transicionales. Estrictos, en este caso, significa que los <code>doctypes</code> permiten un etiquetado menos presentacional que los <code>doctypes</code> transicionales. El etiquetado presentacional que no está permitido no debería aparecer de ninguna manera, ya que debéis utilizar el HTML para definir la estructura y el significado de vuestros documentos, y el CSS para determinar el modo como se presentarán. El uso de un <code>doctype</code> estricto os ayudará, ya que el validador os avisará de cualquier elemento o atributo presentacional que se pueda haber escurrido dentro del código.</p>
+     <p>Estos <code>doctypes</code> garantizarán que los navegadores utilicen su modo de estándares a la hora de trabajar con vuestro documento. El efecto más evidente que tendrá sobre vuestro trabajo es que obtendréis unos resultados más uniformes a la hora de diseñar el documento con CSS.</p>
 
      <h2 id="xmldeclaration">14.5. La declaración XML</h2>
+     
+     <div class="note">
+	<h3>Nota</h3>
+	<p>Esta sección sólo es relevante si debéis usar HTML 4.01 o XHTML 1.0.</p>
+     </div>
      
      <p>Ya hemos señalado antes que el <code>doctype</code> debe ser la primera cosa que haya dentro de vuestros documentos HTML. Pues bien, eso es en realidad una versión simplificada de la verdad. También hay que tener en cuenta la declaración XML.</p>
      <p>Es posible que en algunos documentos XHTML hayáis visto un fragmento de código con un aspecto similar al siguiente antes del <code>doctype</code>:</p>
@@ -168,5 +174,6 @@
 		<a rel="index" href="../../index.html" title="Ir al índice" accesskey="0"><img src="../../img/indice_inv.gif" alt="Ir al índice" /></a> <strong>:</strong>
 		<a rel="next" href="../../m4/ud1/index.html" title="Ir al artículo siguiente" accesskey="9"><img src="../../img/fletxa_der_inv.gif" alt="Ir al artículo siguiente" /></a>
 </div>
+
 </body>
 </html>

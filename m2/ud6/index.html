@@ -1,13 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es">
+<!DOCTYPE html>
+<html lang="es">
 <head>
-<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
-<meta http-equiv="Content-Language" content="es" />
-<meta name="language" content="es" />
+<meta charset="utf-8" />
 <meta name="author" content="Universitat Oberta de Catalunya" />
-<meta name="description" content="FALTA CONTENIDO" />
-<meta name="title" content="FALTA CONTENIDO" />
-<meta name="keywords" content="FALTA CONTENIDO" />
 
 <title>Conceptos de diseño web - La tipografía en la web</title>
 <link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estilo normal" />
@@ -61,8 +56,8 @@
 </ul>
 
 <h2 id="limitations">11.1. Limitaciones de la tipografía de la web</h2>
-<p>Los diseñadores de la imprenta tradicional tienen un montón de posibilidades a su disposición con respecto a la tipografía, que incluyen toda la gran cantidad de tipos de letras disponibles y muchas opciones para la distribución del texto. La tipografía de la web es mucho más limitada, ya que hay que crear el diseño utilizando tipos de letras, distribuciones de texto, etc., que sabemos de entrada que estarán disponibles en los ordenadores de todos los usuarios que naveguen por Internet. ¡No sirve de nada diseñar la web pensando sólo en uno mismo!</p>
-<p>Algunas de las limitaciones de la tipografía de la web son:</p>
+<p>Hasta hace relativamente poco los diseñadores web miraban a los diseñadores de la imprenta tradicional con una cierta envidia, puesto que estos tenían un montón más de posibilidades a su disposición con respecto a la tipografía, que incluyen toda la gran cantidad de tipos de letras disponibles y muchas opciones para la distribución del texto. Aunque la tipografía de la web continúa siendo mucho más limitada, estas diferencias se han reducido mucho en los últimos años.</p>
+<p>Algunas de las limitaciones tradicionales de la tipografía de la web son:</p>
 
 <ul>
 	<li><p>Poca variedad de tipo de letra.</p></li>
@@ -97,6 +92,11 @@
 <p>Si especificáis cualquiera de los tipos de letra anteriores, tendréis muchas posibilidades de que también lo tengan la mayoría de las personas que os visiten. Microsoft creó seis tipos de letra nuevos diseñados para su uso en pantalla en Windows Vista y XP cuyos nombres, curiosamente, empiezan por la letra C. Si las queréis utilizar, son Cambria, Calibri, Candara, Consolas, Constantia y Corbel. Sin embargo, nosotros no aconsejaríamos su uso porque es muy probable que no estén disponibles en las plataformas Mac o Linux.</p>
 <p>Por lo tanto, en comparación con los millares de tipos de letra disponibles para los diseñadores gráficos, los diseñadores de sitios web sólo pueden seleccionar entre poco más de una docena. Pero ¿se trata de una limitación problemática? La tipografía es mucho más que el hecho de seleccionar un tipo de letra atractivo; también hay que tener en cuenta las longitudes de línea, el interletraje y el espacio en blanco. Recordad que los tipógrafos anteriores a las tipografías electrónicas también se habían de enfrentar a unas limitaciones similares.</p>
 
+<div class="exemple">
+<h3>Actualización</h3>
+<p>De hecho, el principal problema para el uso de otras tipografías en la web tiene más que ver con las limitaciones de la propiedad intelectual que con las limitaciones tecnológicas. El uso de <code>@font-face</code> para distribuir otras tipografías tiene un soporte muy extendido entre los navegadores, tanto los "de escritorio" como los de dispositivos móviles (todas las versiones de Chrome, Safari desde la 3.2, Opera desde la 10, Firefox desde la 3.5 e IE desde la 8, y hay remarcar que existen soluciones para hacerlo también hasta con IE6). Pero hasta no hace mucho era prácticamente imposible encontrar tipografías que permitieran su uso legal en la web. En los últimos años han aparecido muchas, que podéis encontrar en repositorios gratuitos como <a href="http://www.fontsquirrel.com/" hreflang="en">fontsquirrel.com</a> o <a href="https://www.google.com/fonts/" hreflang="en">Google Fonts</a> o servicios comerciales coma <a href="https://typekit.com/" hreflang="en">Typekit</a>.</p>
+</div>
+
 <h3 id="hyphenation">11.1.2. Partición de palabras</h3>
 <p>Cuando se trata de alinear el texto dentro del espacio disponible hay cuatro opciones: alineado a la izquierda, alineado a la derecha, centrado y justificado. El texto justificado, en el que los márgenes izquierdo y derecho del bloque están alineados con los lados verticales del espacio que lo contiene, puede tener un aspecto más atractivo que el texto con un margen "irregular" y se puede ver mucho en revistas y libros. En la web, sin embargo, esto es problemático a causa de la falta de la partición de palabras automática, que en otros soportes rompe las palabras en los puntos apropiados a fin de que encajen mejor dentro de la línea. Con el fin de justificar el bloque de texto, lo único que puede hacer el navegador es ajustar el espacio entre las palabras, lo cual puede provocar que aparezcan "ríos de espacio en blanco" que fluyan verticalmente por el bloque de texto; esto suele pasar normalmente cuando la longitud de línea del bloque de texto es demasiado corta y no hay suficiente espacio para realizar unos ajustes sutiles, tal como muestra la figura 2.</p>
 <div class="imagen">
@@ -106,6 +106,10 @@
 
 <p>Tal como podéis ver en esta figura, el hecho de que no se partan las palabras para cortarlas en los puntos naturales provoca que el espaciado entre algunas palabras llegue a tener unas dimensiones inaceptables. Para evitarlo, en la web la mayoría de las veces hay que utilizar el texto alineado a la izquierda.</p>
 
+<div class="exemple">
+<h3>Actualización</h3>
+<p>De hecho, algunos navegadores ya permiten la partición de palabras, usando la propiedad experimental de CSS3 <a href="http://www.w3.org/TR/css3-text/#hyphenation" hreflang="en"><code>hyphens</code></a>. Actualmente se trata de Firefox (desde la versión 6), Safari (desde la 5.1) e IE (desde la versión 10). Chrome y Opera no soportan esta propiedad en el momento de escribir estas palabras.</p>
+</div>
 
 <h3 id="kerning">11.1.3. Interletraje</h3>
 <p>El interletraje es el proceso de ajustar el espaciado entre parejas de letras concretas cuando el tipo de letra utilizado es proporcional (como Times New Roman, en el que el espacio entre los caracteres varía según los caracteres de los que se trate) y no de anchura fija (como Courier, en el que el espacio entre los caracteres es siempre el mismo). El interletraje se utiliza en imprenta para ajustar el espacio entre letras que se alinean de una manera natural, como por ejemplo una W seguida de una A, y puede dar un aspecto más profesional al texto. Los tipos de letra más profesionales ya incorporan instrucciones de interletraje con el fin de dar información sobre el espaciado al dispositivo que deba reproducir el tipo. La figura 3 muestra la diferencia que representa el uso del interletraje.</p>
@@ -122,6 +126,11 @@
 </div>
 
 <p>En la figura anterior se ha aumentado el espaciado entre cada uno de los caracteres en la misma medida. Esto ha servido para separar la A y la S, pero ahora el espacio entre la W y A es demasiado grande. A causa de esta característica de todo o nada, es muy difícil utilizar el espaciado de letra con CSS de una manera adecuada; por ello, hay que utilizarlo con mucha moderación.</p>
+
+<div class="exemple">
+<h3>Actualización</h3>
+<p>La propiedad experimental de CSS3 <a href="http://docs.webplatform.org/wiki/css/properties/font-feature-settings" hreflang="en">font-feature-settings</a> permite aplicar el interletraje especificado en fuentes que lo especifiquin (así como otras características avanzadas de las tipografías, como ligaduros o versalitas auténticas). Actualmente todos los navegadores modernos tienen soporte completo para la propiedad (Firefox, a partir de la versión 15, Chrome, a partir de la 21, Safari, a partir de la 7, Opera a partir de la 15 e IE a partir de la 11).</p>
+</div>
 
 <h3 id="lackofcontrol">11.1.4. Falta de control</h3>
 <p>Después de todas estas explicaciones sobre el mundo de la imprenta, hay algo muy importante que cabe tener siempre en cuenta, y es que <strong><em>la web no es una imprenta</em></strong>. Así que, mientras el diseñador gráfico no se debe preocupar de si la persona que ve su trabajo redimensiona el texto, de si no tiene los tipos de letra necesarios o de sí no ha activado el <span lang="en">aliasing</span>, nosotros, sin embargo, sí que nos hemos de preocupar, y normalmente caemos en la tentación de forzar un diseño concreto para el espectador, por ejemplo, definiendo un texto de un tamaño rígido, metiendo el texto en un espacio de una anchura y una altura fijas o incluso sustituyendo fragmentos de texto por imágenes.</p>
@@ -229,5 +238,6 @@
 		<a rel="index" href="../../index.html" title="Ir al índice" accesskey="0"><img src="../../img/indice_inv.gif" alt="Ir al índice" /></a> <strong>:</strong>
 		<a rel="next" href="../../m3/ud1/index.html" title="Ir al artículo siguiente" accesskey="9"><img src="../../img/fletxa_der_inv.gif" alt="Ir al artículo siguiente" /></a>
 </div>
+
 </body>
 </html>

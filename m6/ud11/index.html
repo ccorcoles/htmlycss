@@ -1,13 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es">
+<!DOCTYPE html>
+<html lang="es">
 <head>
-<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
-<meta http-equiv="Content-Language" content="es" />
-<meta name="language" content="es" />
+<meta charset="utf-8" />
 <meta name="author" content="Universitat Oberta de Catalunya" />
-<meta name="description" content="FALTA CONTENIDO" />
-<meta name="title" content="FALTA CONTENIDO" />
-<meta name="keywords" content="FALTA CONTENIDO" />
 
 <title>CSS - Posicionamiento absoluto y fijo con CSS</title>
 <link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
@@ -128,11 +123,10 @@
 <ol>
 <li><p>Copiad el código siguiente en vuestro editor de texto y guardad el documento como <code>absolute.html</code>.</p>
 
-<pre><code>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" 
-      "http://www.w3.org/TR/html4/strict.dtd"&gt;
+<pre><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
-   &lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8"&gt;
+   &lt;meta charset="utf-8"&gt;
    &lt;title&gt;Absolute Positioning&lt;/title&gt;
    &lt;link rel="stylesheet" type="text/css" href="absolute.css"&gt;
 &lt;/head&gt;
@@ -410,4 +404,25 @@ píxeles de grueso es realmente un borde de 1 píxel alrededor de un elemento co
 
 <li><p>Si guardáis y recargáis, veréis... que no ha habido ningún cambio en absoluto. El nivel de pila que hemos especificado para el cuadrado amarillo se aplica en el contexto de apilamiento local establecido por el cuadrado gris, es decir: el cuadrado amarillo se encuentra en un sobre junto con su padre gris. Podríais mover el cuadrado cian hasta adelante porque su padre (el cuadrado azul) no establece un contexto de apilamiento local: tiene un <code>z-index</code>:<code>auto</code> implícito. El cuadrado azul es un papel independiente en la pila. Los cuadrados amarillo y cian están en realidad solos en pequeños sobres individuales (tienen un nivel de pila entero y establecen contextos de apilamiento local por su cuenta).</p></li>
 
-<li><p>Si hacéis que el cuadrado azul estable
+<li><p>Si hacéis que el cuadrado azul establezca un contexto de apilamiento local, no podréis mover el cuadrado cian hacia adelante a no ser que también llevéis a su padre (el cuadrado azul) adelante. Probémoslo. Haced los siguientes cambios en vuestro CSS:</p>
+
+<pre><code>#inner {
+
+...
+
+<strong>z-index: 2;</strong>
+}
+#second {
+
+   ...
+
+   <strong>z-index: 1;</strong>
+}
+#second span {
+
+   ...
+
+   <strong>z-index: 3;</strong>
+}</code></pre></li>
+
+<li><p>Guardad y recargad. Ahora, tanto el cuadrado gris como el cuadrado azul establecen contextos de apilamiento local, de manera que se c

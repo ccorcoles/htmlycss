@@ -1,13 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es">
+<!DOCTYPE html>
+<html lang="es">
 <head>
-<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
-<meta http-equiv="Content-Language" content="es" />
-<meta name="language" content="es" />
+<meta charset="utf-8" />
 <meta name="author" content="Universitat Oberta de Catalunya" />
-<meta name="description" content="FALTA CONTENIDO" />
-<meta name="title" content="FALTA CONTENIDO" />
-<meta name="keywords" content="FALTA CONTENIDO" />
 
 <title>CSS - Elementos flotantes y clearing</title>
 <link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
@@ -106,12 +101,10 @@
 <ol>
 <li><p>Cread un archivo nuevo, copiad el código siguiente y guardad el documento como <code>float.html</code>.</p>
 
-<pre><code>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
- "http://www.w3.org/TR/html4/strict.dtd"&gt;
+<pre><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
    &lt;head&gt;
-      &lt;meta http-equiv="Content-Type" content="text/html;
-       charset=utf-8"&gt;
+      &lt;meta charset=utf-8"&gt;
       &lt;title&gt;Floating&lt;/title&gt;
    &lt;/head&gt;
 &lt;body&gt;
@@ -490,4 +483,8 @@
    <strong>left: -50%;</strong>
 }</code></pre>
 
-<p>El menú ya está centrado; el único problema es que puede haber una barra de desplazamiento horizontal según la anchura de la lista y de la ventana del navegador. Esto ocurre porque habéis desplazado el elemento de envoltorio hasta el 
+<p>El menú ya está centrado; el único problema es que puede haber una barra de desplazamiento horizontal según la anchura de la lista y de la ventana del navegador. Esto ocurre porque habéis desplazado el elemento de envoltorio hasta el centro de la pantalla; si la lista es más ancha que la mitad de la ventana, una parte de ésta quedará fuera.</p></li>
+
+<li><p>Podéis evitarlo definiendo <code>overflow:hidden</code> en un elemento padre adecuado para ocultar el desbordamiento. En este caso, el padre del envoltorio es el <code>body</code>. Algunas veces no es factible ocultar el desbordamiento del elemento <code>body</code>, y en este caso necesitaréis un envoltorio para el envoltorio; aquí, sin embargo, todo funciona correctamente.</p>
+
+<p>Añadid la regla siguiente a vues

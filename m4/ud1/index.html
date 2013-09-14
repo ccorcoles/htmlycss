@@ -1,13 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ca">
+<!DOCTYPE html>
+<html lang="es">
 <head>
-<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
-<meta http-equiv="Content-Language" content="ca" />
-<meta name="language" content="ca" />
+<meta charset="utf-8" />
 <meta name="author" content="Universitat Oberta de Catalunya" />
-<meta name="description" content="FALTA CONTENIDO" />
-<meta name="title" content="FALTA CONTENIDO" />
-<meta name="keywords" content="FALTA CONTENIDO" />
 
 <title>El texto central de HTML - Etiquetar contenido textual en HTML</title>
 <link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
@@ -155,8 +150,6 @@
   <p>A menudo, los artículos, los apuntes de bloques y los documentos de referencia citan total o parcialmente algún otro documento. En el HTML, estas citas se marcan con el elemento <code>blockquote</code> para citas largas, como frases enteras, párrafos, listas o similares.</p>
   </div>
   
-  <p>Un elemento <code>blockquote</code> no puede contener texto, sino que debe tener en su interior otro elemento de bloque. Deberíais utilizar el mismo elemento de bloque que en el documento original. Si citáis un párrafo de texto, utilizad un párrafo; cuando citéis una lista, utilizad los elementos para listas; y así sucesivamente.</p>
-  
   <p>Si la cita es de otra página web, podéis indicarlo utilizando el atributo <code>cite</code>.</p>
   
   <p>Como en el ejemplo siguiente:</p>
@@ -178,7 +171,7 @@ tome de una novela, una revista o de alguna otra forma de contenido fuera de lí
   <h3 id="preformatted">15.2.4. Texto preformateado</h3>
   
   <div class="text-clau">
-  <p>Cualquier texto en el que el formato y el espacio en blanco (podéis ver más arriba) sean importantes se debería etiquetar con el elemento<code>pre</code>.</p>
+  <p>Cualquier texto en el que el formato y el espacio en blanco (podéis ver más arriba) sean importantes se debería etiquetar con el elemento <code>pre</code>.</p>
   </div>
   
   <p>En la mayoría de los navegadores web, el texto marcado como preformateado se mostrará al usuario tal como aparezca en el código fuente, algunas veces utilizando un tipo de letra de ancho fijo, lo cual da al texto el aspecto de haber sido escrito con una máquina de escribir. Este uso de tipos de letras de ancho fijo es uno de los primeros recursos que utilizaron los programadores para el texto preformateado.</p>
@@ -247,7 +240,7 @@ sub slurp {
   <p>El HTML contiene dos métodos para indicar que el texto de su interior debe aparecer enfatizado delante del usuario, como por ejemplo los mensajes de error, las advertencias o las notas. </p>
   
   <div class="text-clau">
-  <p>	En los navegadores visuales esto significa normalmente la aplicación de un color o un tipo de letra diferente o la visualización del texto en negrita o cursiva. Para los usuarios de lectores de pantalla, el resultado puede ser una voz diferente o algún otro efecto acústico. Para presentar texto con énfasis hay que utilizar el elemento <code>em</code>.</p>
+  <p>	En los navegadores visuales esto significa normalmente la aplicación de un color o un tipo de letra diferente o la visualización del texto en negrita o cursiva. Para los usuarios de lectores de pantalla, el resultado puede ser una voz diferente o algún otro efecto acústico. Para presentar texto con énfasis hay que utilizar el elemento <code>em</code>, que habitualmente se presenta en los navegadores como texto en cursiva.</p>
   </div>
   
   <p>Como en el ejemplo siguiente:</p>
@@ -256,31 +249,42 @@ sub slurp {
 
   <p class="font"><strong>Ved ejemplos reales en:</strong> "<a href="http://dev.opera.com/articles/view/15-marking-up-textual-content-in-html/HTMLtext_examples.html#em" hreflang="en">Emphasis example</a>"</p>
   
-  <p>Si hay que enfatizar toda una frase pero una parte concreta de ésta se debe enfatizar de una manera aún más importante, se debe utilizar el elemento <code>strong</code> para indicar un énfasis más fuerte de lo normal, como en el ejemplo siguiente:</p>
+  <p>Si hay que enfatizar toda una frase pero una parte concreta de ésta se debe enfatizar de una manera aún más importante, se pueden anidar elementos <code>em</code> para indicar un énfasis más fuerte de lo normal, como en el ejemplo siguiente:</p>
                       
-  <pre><code>&lt;p&gt;&lt;em&gt;Please note: the kettle &lt;strong&gt;must&lt;/strong&gt; be unplugged every evening,
- otherwise it will explode - &lt;strong&gt;killing us all&lt;/strong&gt;&lt;/em&gt;.&lt;/p&gt;</code></pre>  
+  <pre><code>&lt;p&gt;&lt;em&gt;Please note: the kettle &lt;em&gt;must&lt;/strong&gt; be unplugged every evening,
+ otherwise it will explode - &lt;em&gt;killing us all&lt;/em&gt;&lt;/em&gt;.&lt;/p&gt;</code></pre>  
 
   <p class="font"><strong>Ved ejemplos reales en:</strong> "<a href="http://dev.opera.com/articles/view/15-marking-up-textual-content-in-html/HTMLtext_examples.html#emstrong" hreflang="en">Emphasis and strong example</a>"</p>
+  
+  <p>De la misma forma, podéis utilizar el elemento <code>strong</code>, que indica la importancia del texto que rodea y que se suele mostrar en los navegadores como texto en negrita.</p>
 
   <h3 id="italics">15.3.3. Texto en cursiva</h3>
   
-  <p>	Normalmente se cree que
-<em>cursiva</em> no describe el significado y que, por lo tanto, el elemento
-<code>i</code> no se debe utilizar (igual que muchos otros elementos presentacionales descritos en el subapartado siguiente).</p>
-  
-  <div class="text-clau">
-  <p>Hay un par de casos en los que es correcto describir el contenido como cursiva. Ya se ha comentado que algunos conceptos se describen mejor como "cursiva" en lugar de tener que crear algunos elementos muy específicos y no utilizados. Éstos incluyen cosas como por ejemplo los nombres de barcos, los títulos de series de televisión, películas y libros, algunos términos técnicos y otras designaciones taxonómicas.</p>
-  </div>
-  
-  <p>La razón es que la cursiva indica que el texto es especial y el contexto indica en qué sentido lo es. De hecho, esto ya queda reflejado en el borrador de la especificación de HTML 5:</p>
+  <p>Originalmente el elemento <code>i</code> era puramente presentacional: significaba exclusivamente que el texto que rodeaba debía mostrarse en letra cursiva. Pero la especificación de HTML5 dice:</p>
   
   <blockquote>
-  <p>"El elemento i representa un texto en una voz o un modo alternativo, o que de alguna manera queda fuera de la prosa normal. [...] El elemento
-i se debe utilizar como último recurso cuando no hay ningún otro elemento que sea más apropiado".</p>
+  <p>"El elemento <code>i</code> representa un texto en una voz o un modo alternativo, o que de alguna manera queda fuera de la prosa normal.".</p>
   </blockquote>
   
-  <p>Como el CSS puede modificar el elemento i a fin de que no sea cursiva, en este contexto hay que interpretar el significado de "cursiva" fundamentalmente como "algo un tanto diferente". Yo no lo considero correcto, personalmente hablando, pero hay precedentes suficientes para utilizarlo de esta manera.</p>
+  <p>La especificación también dice explícitamente que los autores deben considerar si existen otros elementos más aplicables, como <code>em</code>, que se ajusten mejor semánticamente a aquello que se quiera expresar.</p>
+  
+  <p>Un uso habitual de <code>i</code> es marcar términos en otros idiomas. En ese caso usaremos el atributo <code>lang</code> para especificar dicho idioma:</p>
+  
+  <pre><code>Como dicen los franceses, &lt;i lang="fr"&gt;c'est la vie&lt;/i&gt;</code>...</pre>
+  
+  <p>También se aconseja el uso del elemento <code>class</code> para indicar cuál es el uso específico que estamos usando (y de esta manera poder presentar de maneras diferentes usos diferentes mediante el CSS). Hay que recalcar que si bien la presentación por defecto de <code>i</code> es la letra cursiva, con el CSS podremos indicar cualquier otra presentación (por ejemplo, con fondo amarillo, como si hubiésemos marcado el texto con un rotulador).</p>
+  
+  <h3 id="bold">Texto en negrita</h3>
+  
+  <p>De la misma forma que <code>i</code>, <code>b</code> era inicialmente un elemento presentacional que indicaba el uso de negrita. Pero la especificación de HTML dice:</p>
+  
+  <blockquote><p>El elemento <code>b</code> representa una secuencia de texto a la que se quiere dirigir atención por motivos utilitarios sin darle ninguna importancia extra y sin implicar una voz o modo alternativos, como, por ejemplo, palabras clave en el resumen de un documento, nombres de productos en una crítica, palabras sobre las que se puede actuar en un juego de texto, o la entradilla de un artículo.</p></blockquote>
+  
+  <p>Como en el caso de <code>i</code>, es conveniente usar clases para indentificar por qué se está usando el elemento y aplicar los estilos correspondientes.</p>
+  
+  <p>La especificación es dura en cuanto al uso de <code>b</code>:</p>
+  
+  <blockquote><p>...debería usarse como último recurso cuando ningún otro elemento sea más adecuado. En particular, los encabezamientos deberían usar los elementos <code>h1</code> a <code>h6</code>, el énfasis debería usar el elemento <code>em</code>, la importancia debería denotarse con <code>strong</code> y el texto marcado o destacado debería usar el elemento <code>mark</code>.</p></blockquote>
                        
   <h2 id="presentational">15.4. Elementos presentacionales: no utilizar nunca</h2>
   
@@ -297,21 +301,12 @@ i se debe utilizar como último recurso cuando no hay ningún otro elemento que 
   </div>
   
   <ul>
-		<li><p><code>font face="..." size="..."</code>. El navegador mostrará el texto en estos elementos utilizando un tipo de letra diferente del tipo por defecto; los tipos de letra, sin embargo, se deben definir con CSS.</p></li>
-  
-  <li><p>b. El texto aparece en negrita; casi siempre significa que el texto tiene algún tipo de énfasis y, por lo tanto, se debería utilizar <code>em</code> o
- <code>strong</code>, tal como se ha explicado antes.</p></li>
-  
-  <li><p><code>s</code> y <code>strike</code>. El texto aparece rayado con una línea que lo atraviesa; si es sólo un efecto presentacional, este efecto se debería conseguir con CSS. Además, si el texto se quiere marcar como suprimido o no deseado, se debería etiquetar con el elemento
- del que se describe más adelante.</p></li>
-  
-  <li><p>u. El texto se subraya; es casi siempre un efecto visual y se debería conseguir con el CSS.</p></li>
-  
+  <li><p><code>font face="..." size="..."</code>. El navegador mostrará el texto en estos elementos utilizando un tipo de letra diferente del tipo por defecto; los tipos de letra, sin embargo, se deben definir con CSS.</p></li>
+  <li><p><code>strike</code>. El texto aparece rayado con una línea que lo atraviesa; si es sólo un efecto presentacional, este efecto se debería conseguir con CSS. Además, si el texto se quiere marcar como suprimido o no deseado, se debería etiquetar con el elemento <code>del</code> que se describe más adelante.</p></li>
   <li><p>tt. El texto se presenta en un tipo de letra de "teletipo" o de ancho fijo; este efecto se debería conseguir con el CSS o con algún elemento semántico más apropiado, como por ejemplo
 pre, tal como se ha visto anteriormente.</p></li>
-  
-  <li><p><code>big</code> y <code>small</code>. Se ajusta el tamaño del texto; se debería conseguir con el CSS.</p></li>
-	</ul>
+  <li><p><code>big</code>. Se ajusta el tamaño del texto; se debería conseguir con el CSS.</p></li>
+  </ul>
 	
   <h2 id="summary">Resumen</h2> 
   
@@ -328,5 +323,6 @@ pre, tal como se ha visto anteriormente.</p></li>
 		<a rel="index" href="../../index.html" title="Ir al índice" accesskey="0"><img src="../../img/indice_inv.gif" alt="Ir al índice" /></a> <strong>:</strong>
 		<a rel="next" href="../ud2/index.html" title="Ir al artículo siguiente" accesskey="9"><img src="../../img/fletxa_der_inv.gif" alt="Ir al artículo siguiente" /></a>
 </div>
+
 </body>
 </html>

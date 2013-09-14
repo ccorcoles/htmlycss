@@ -1,13 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ca">
+<!DOCTYPE html>
+<html lang="es">
 <head>
-<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
-<meta http-equiv="Content-Language" content="ca" />
-<meta name="language" content="ca" />
+<meta charset="utf-8" />
 <meta name="author" content="Universitat Oberta de Catalunya" />
-<meta name="description" content="FALTA CONTENIDO" />
-<meta name="title" content="FALTA CONTENIDO" />
-<meta name="keywords" content="FALTA CONTENIDO" />
 
 <title>El texto central de HTML - Listas HTML</title>
 <link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
@@ -231,7 +226,7 @@
     <li><p>Servidlo</p></li>
   </ol>
   
-  <p>Tened en cuenta que este atributo ha sido desaprobado en la última versión de las especificaciones de HTML 4, lo que significa que vuestras páginas no validarán si utilizan doctypes estrictos HTML4. Si queréis utilizar esta función en una página HTML4 estricta y es absolutamente necesario validarla, podéis hacerlo utilizando los <a href="http://dev.opera.com/articles/view/automatic-numbering-with-css-counters/" hreflang="en">contadores de CSS</a> en lugar de este atributo. <code>&lt;start&gt;</code> ha sido añadido de nuevo en HTML5, afortunadamente, pues resulta útil.</p>
+  <p>El atributo <code>start</code> es un buen ejemplo de cómo cambian las cosas entre especificaciones de HTML: era válido en HTML 3, fue desaprobado en la última versión de las especificaciones de HTML 4 y  ha sido añadido de nuevo en HTML5, afortunadamente, pues resulta útil.</p>
                               
   <h3 id="definition">16.1.6. Listas de definiciones</h3>
   
@@ -325,6 +320,8 @@
   </dl>
   
   <p>En general, no es demasiado habitual asociar múltiples términos a una única definición, pero está bien saber que es posible por si alguna vez hay que hacerlo.</p>
+  
+  <p>La especificación de HTML5 indica que las listas de definiciones </p>
 
   <h2 id="choosinglists">16.2. Elegir entre tipos de listas</h2>
   
@@ -587,4 +584,18 @@ Preparación
 
   <h3 id="recipestyles">16.5.5. Estilos de la página de la receta</h3>
   
-  <p>	El cliente está muy contento con los resultados, pero quiere que las definiciones aparezcan en negrita para 
+  <p>	El cliente está muy contento con los resultados, pero quiere que las definiciones aparezcan en negrita para hacerlas más legibles. Añadid lo siguiente al <code>head</code> de vuestro HTML: </p>
+                       
+
+  <pre><code>&lt;style&gt;
+dt {
+   font-weight: bold;
+}
+&lt;/style&gt;</code></pre>
+  
+  <p>La página debería tener un aspecto similar al de la figura 3.</p>
+                         
+	<div class="imagen">
+		<img src="06510_m4_04.gif" alt="Captura de pantalla que mostra la pàgina de la recepta" />
+		<p>Figura 3. La página de la receta acabada con los términos de las definiciones en negrita.</p>
+		<p class="font"><strong>También podéis ver la página de ejemplo en:</strong> "<a href="http://dev.opera.com/articles/view/16-ht

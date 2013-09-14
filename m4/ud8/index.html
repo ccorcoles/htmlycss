@@ -1,13 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ca">
+<!DOCTYPE html>
+<html lang="es">
 <head>
-<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
-<meta http-equiv="Content-Language" content="ca" />
-<meta name="language" content="ca" />
+<meta charset="utf-8" />
 <meta name="author" content="Universitat Oberta de Catalunya" />
-<meta name="description" content="FALTA CONTENIDO" />
-<meta name="title" content="FALTA CONTENIDO" />
-<meta name="keywords" content="FALTA CONTENIDO" />
 
 <title>El texto central de HTML - Contenedores genéricos: los elementos div y span</title>
 <link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
@@ -50,7 +45,6 @@
   <li>22.7. <a href="#inappropriatesemantics" accesskey="7">Semántica inadecuada</a>
 	<ul class="index">
   <li>22.7.1. <a href="#genericparagraphs">Párrafos "genéricos"</a></li>
-  <li>22.7.2. <a href="#presentationalelements">Elementos presentacionales</a></li>
   </ul></li>
   <li class="especial"><a href="#summary">Resumen</a></li> 
   <li class="especial"><a href="#exercises">Preguntas de repaso</a></li> 
@@ -224,25 +218,7 @@ permite un control más preciso de todo él en general --&gt;
   
   <p>Los elementos correctos para rodear contenido textual inconexo que no tiene ninguna otra relación semántica cubierta por otros elementos del HTML son <code>div</code> o <code>span</code> (según la posición exacta).</p>
 
-  <h3 id="presentationalelements">22.7.2. Elementos presentacionales</h3>
-  
-  <p>Un consejo especialmente malo que se puede encontrar algunas veces en Internet es el de utilizar elementos presentacionales cortos, como <code>b</code> o <code>i</code>, como contenedores genéricos en lugar de <code>span</code>. La razón aportada es normalmente una de las dos siguientes:</p>
-       
-	<ul>
-  <li><p>Los elementos son tres bytes más cortos, con lo cual ahorran ancho de banda tanto en el HTML como el CSS.</p>
-  </li>
-  
-  <li><p>Los estilos necesarios son sólo para el aspecto, y por lo tanto el uso de elementos presentacionales es correcto en estas circunstancias.</p></li>
-	</ul>
-  
-  <p>La primera razón es correcta, pero el ahorro es prácticamente insignificante (si no es que utilizáis una cantidad increíble de efectos presentacionales), especialmente si tenemos en cuenta la compresión moderna aplicada por los servidores web en los documentos antes de enviarlos a través de Internet al navegador. Esto provoca que los documentos sean mucho más cortos de lo que puede conseguir cualquier compresión hecha a mano.</p>
-  
-  <p>La segunda razón revela una falta de comprensión de lo que significa realmente presentacional en el contexto del HTML. Los elementos presentacionales describen el aspecto que debe tener su contenido (<code>b</code> significa simplemente "el texto del interior está en negrita"). No representan ningún vínculo genérico para el estilo de su interior.</p>
-  
-  <p>Si se debe aplicar un estilo a una sección pequeña de texto dentro de un párrafo, o si el JavaScript lo debe usar como destino y no hay ningún elemento semántico aplicable para rodearla, el único elemento correcto que se puede utilizar es <code>span</code>.</p>
-  
-  
-        <h2 id="summary">Resumen</h2> 
+  <h2 id="summary">Resumen</h2> 
   
   <p>Aquí acaban nuestras explicaciones sobre los elementos <code>span</code> y <code>div</code>; ahora ya deberíais entender mucho mejor cuál es su finalidad y ser capaces de utilizarlos con toda confianza. Los apartados del módulo "Conceptos básicos de CSS" se detendrán mucho más en su uso para crear maquetaciones de página y para otras finalidades.</p>
   
@@ -267,5 +243,6 @@ permite un control más preciso de todo él en general --&gt;
 		<a rel="index" href="../../index.html" title="Ir al índice" accesskey="0"><img src="../../img/indice_inv.gif" alt="Ir al índice" /></a> <strong>:</strong>
 		<a rel="next" href="../ud9/index.html" title="Ir al artículo siguiente" accesskey="9"><img src="../../img/fletxa_der_inv.gif" alt="Ir al artículo siguiente" /></a>
 </div>
+
 </body>
 </html>

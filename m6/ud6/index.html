@@ -1,13 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es">
+<!DOCTYPE html>
+<html lang="es">
 <head>
-<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
-<meta http-equiv="Content-Language" content="es" />
-<meta name="language" content="es" />
+<meta charset="utf-8" />
 <meta name="author" content="Universitat Oberta de Catalunya" />
-<meta name="description" content="FALTA CONTENIDO" />
-<meta name="title" content="FALTA CONTENIDO" />
-<meta name="keywords" content="FALTA CONTENIDO" />
 
 <title>CSS - Estilos de listas y enlaces</title>
 <link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
@@ -441,7 +436,7 @@ li {
    display:-moz-inline-box;
 }</code></pre>
 
-<p>En la mayoría de los navegadores, con esto será suficiente para crear el efecto de la columna, pero deberéis especificar que IE haga que "floten" los elementos de la lista a la izquierda. Utilizamos un estilo condicional para todas las versiones hasta IE 7 (ya que aún no sabemos qué harán las futuras versiones).</p>
+<p>En la mayoría de los navegadores, con esto será suficiente para crear el efecto de la columna, pero deberéis especificar que IE haga que "floten" los elementos de la lista a la izquierda. Utilizamos un estilo condicional para todas las versiones hasta IE 7.</p>
 
 <pre><code>&lt;!--[if lte IE 7]&gt;
    &lt;style type="text/css"&gt;
@@ -489,7 +484,7 @@ li {
 
 <li><p>Visitado (<em>visited</em>). El estado de un enlace que el usuario ya ha visitado.</p></li>
 
-<li><p>Seleccionado (<em>focus</em>). Se aplica mientras el enlace está seleccionado; por ejemplo, cuando el cursor del usuario del teclado se encuentra sobre el enlace. Actualmente, IE no acepta el estado seleccionado y sólo utiliza <code>active</code> (activo) en lugar de <code>focus</code> (seleccionado).</p></li>
+<li><p>Seleccionado (<em>focus</em>). Se aplica mientras el enlace está seleccionado; por ejemplo, cuando el cursor del usuario del teclado se encuentra sobre el enlace.</p></li>
 
 <li><p>Por encima (<em>hover</em>). Se aplica cuando un usuario tiene el puntero del ratón por encima del enlace pero todavía no ha hecho clic sobre él.</p></li>
 
@@ -519,4 +514,16 @@ li {
 
 <p>Aunque era un poco monótono, era totalmente consistente y estableció <strong>la base de las futuras expectativas de los usuarios</strong>. Concretamente, los usuarios todavía a día de hoy esperan que el texto subrayado sea un enlace. Quizá no se esperen que todos los enlaces estén subrayados, pero sí esperan que se pueda hacer clic sobre un texto subrayado. Y es mejor no ir en contra de esta expectativa.</p>
 
-<p>Algunos sitios utilizan enlaces azules y morados, que aún son los colores predeterminados del contenido sin estilo en la mayoría de los navegadores. Aunque siempre podéis adaptaros a la moda "retro" y seguir con esta pareja de colores, en general a los usuario
+<p>Algunos sitios utilizan enlaces azules y morados, que aún son los colores predeterminados del contenido sin estilo en la mayoría de los navegadores. Aunque siempre podéis adaptaros a la moda "retro" y seguir con esta pareja de colores, en general a los usuarios no les importa encontrarse con otros colores, dentro de ciertos límites.</p>
+
+
+<h3 id="userexpectations">32.2.3. Expectativas del usuario</h3>
+
+<p>Hay una serie de reglas generales para las expectativas del usuario en cuanto a los enlaces.</p>
+
+<ul>
+<li><p>Los usuarios esperan encontrar enlaces que tengan <strong>un aspecto diferente</strong> del resto del texto que no son enlaces.</p></li>
+
+<li><p>Los usuarios esperan que los enlaces <strong>reaccionen</strong> de alguna manera cuando se pasa el cursor por encima o cuando se selecciona el enlace.</p></li>
+
+<li><p>Los usuarios esperan que los enlaces <strong>cam

@@ -1,13 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ca">
+<!DOCTYPE html>
+<html lang="es">
 <head>
-<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
-<meta http-equiv="Content-Language" content="ca" />
-<meta name="language" content="ca" />
+<meta charset="utf-8" />
 <meta name="author" content="Universitat Oberta de Catalunya" />
-<meta name="description" content="FALTA CONTENIDO" />
-<meta name="title" content="FALTA CONTENIDO" />
-<meta name="keywords" content="FALTA CONTENIDO" />
 
 <title>El texto central de HTML - Enlaces HTML: ¡construimos una web!</title>
 <link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
@@ -76,11 +71,10 @@
   
   <p>Por ejemplo, en el siguiente documento HTML el texto <code>Yahoo Developer Network</code> se convierte en un enlace.</p>
                       
-  <pre><code>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/
- html4/strict.dtd"&gt;
+  <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
-&lt;meta http-equiv="content-type" content="text/html; charset=utf-8"&gt;
+&lt;meta charset=utf-8"&gt;
 &lt;title&gt;Link Example&lt;/title&gt;
 &lt;link rel="stylesheet" href="styles.css"&gt;
 &lt;/head&gt;
@@ -124,11 +118,10 @@
   
   <p>El siguiente bloque de código HTML contiene ejemplos de todos los tipos diferentes de enlaces:</p>                                                                                          
 
-  <pre><code>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/
- html4/strict.dtd"&gt;
+  <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
-&lt;meta http-equiv="content-type" content="text/html; charset=utf-8"&gt;
+&lt;meta charset=utf-8"&gt;
 &lt;title&gt;Different Link Example&lt;/title&gt;
 &lt;link rel="stylesheet" href="linkexamplestyles.css"&gt;
 &lt;/head&gt;
@@ -191,7 +184,7 @@
   <p>Para recapitular: </p>
   
   <ul>
-		<li><p>Los enlaces de ancla pueden tener un identificador de fragmento como valor del atributo <code>ref</code>; este identificador de fragmento debe empezar con una almohadilla (<code>#</code>).</p></li>
+		<li><p>Los enlaces de ancla pueden tener un identificador de fragmento como valor del atributo <code>href</code>; este identificador de fragmento debe empezar con una almohadilla (<code>#</code>).</p></li>
   
   <li><p>Al activarlo, este enlace llevará hacia cualquier elemento HTML con un <code>id</code> de este valor. Estos ID de cada página deben ser únicos.</p></li>
   
@@ -214,11 +207,10 @@
   <p>Por ejemplo, podéis escribir una pequeña introducción al contenido y la ubicación del documento enlazado:</p>
                       
 
-  <pre><code>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/
- html4/strict.dtd"&gt;
+  <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
-&lt;meta http-equiv="content-type" content="text/html; charset=utf-8"&gt;
+&lt;meta charset=utf-8"&gt;
 &lt;title&gt;Adding extra information with a title attribute&lt;/title&gt;
 &lt;link rel="stylesheet" href="linkexamplestyles.css"&gt;
 &lt;/head&gt;
@@ -261,11 +253,10 @@
   
   <p>Aquí encontraréis algunos ejemplos:</p>
   
-  <pre><code>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/
- strict.dtd"&gt;
+  <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
-&lt;meta http-equiv="content-type" content="text/html; charset=utf-8"&gt;
+&lt;meta charset=utf-8"&gt;
 &lt;title&gt;Linking non-HTML resources&lt;/title&gt;
 &lt;link rel="stylesheet" href="linkexamplestyles.css"&gt;
 &lt;/head&gt;
@@ -394,4 +385,16 @@
   <li><p>Los antecedentes de los estilos básicos de los enlaces.</p></li>
 	</ul>
   
-  <p>Con todos estos conocimientos, deberíais ser capaces de escribir documentos HTML que se enlacen adecuadamente, y ya estáis preparados para empezar a pensar en los menús y la navegación del
+  <p>Con todos estos conocimientos, deberíais ser capaces de escribir documentos HTML que se enlacen adecuadamente, y ya estáis preparados para empezar a pensar en los menús y la navegación del sitio.</p>
+  
+  
+	<h2 id="exercises">Preguntas de repaso</h2> 
+  
+  <ol>
+		<li><p>¿Qué problema tiene el enlace siguiente: <code>&lt;a href="report.pdf" title="report as PDF, 2.3MB"&gt;get our latest report&lt;/a&gt;</code>?</p></li>
+    <li><p>¿Para qué sirve el atributo target en los enlaces? ¿Se puede utilizar de alguna manera positiva?</p></li>
+    <li><p>Hemos hablado sobre las relaciones de los enlaces y las conexiones entre los enlaces y las anclas. ¿Hay algún atributo para los enlaces que describa también las relaciones entre documentos?</p></li>
+    <li><p>¿Cómo se puede escribir un enlace que envíe a los visitantes hacia un elemento que hay más abajo de la página al hacer clic en él? ¿Qué hay que comprobar de antemano?</p></li>
+</ol>
+</div>
+<div><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.es"><img src="../../m0/creative_commons.gif" id="logo

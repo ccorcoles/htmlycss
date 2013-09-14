@@ -1,13 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es">
+<!DOCTYPE html>
+<html lang="es">
 <head>
-<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
-<meta http-equiv="Content-Language" content="es" />
-<meta name="language" content="es" />
+<meta charset="utf-8" />
 <meta name="author" content="Universitat Oberta de Catalunya" />
-<meta name="description" content="FALTA CONTENIDO" />
-<meta name="title" content="FALTA CONTENIDO" />
-<meta name="keywords" content="FALTA CONTENIDO" />
 
 <title>Conceptos básicos de CSS</title>
 <link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
@@ -470,4 +465,13 @@ border-left-color: black;</code></pre></li>
 <li><p>Definición abreviada de tipo de letra: podéis especificar el tamaño del tipo de letra, el peso, el estilo, la familia y la interlínea utilizando una definición abreviada como una única línea. Pongamos por caso el CSS siguiente:</p>
 
 <pre><code>font-size: 1.5em;
-line-height: 20
+line-height: 200%;
+font-weight: bold;
+font-style: italic;
+font-family: Georgia, "Times New Roman", serif;</code></pre>
+
+<p>Podríais especificar exactamente lo mismo con la línea siguiente:</p>
+
+<pre><code>font: 1.5em/200% bold italic Georgia, "Times New Roman", serif;</code></pre></li>
+
+<li><p>Definición abreviada de fondo: podéis especificar el color de fondo, la imagen de fondo, la repetición de la imagen y la posición de la 

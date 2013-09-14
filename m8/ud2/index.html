@@ -1,13 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es">
+<!DOCTYPE html>
+<html lang="es">
 <head>
-<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
-<meta http-equiv="Content-Language" content="es" />
-<meta name="language" content="es" />
+<meta charset="utf-8" />
 <meta name="author" content="Universitat Oberta de Catalunya" />
-<meta name="description" content="FALTA CONTENIDO" />
-<meta name="title" content="FALTA CONTENIDO" />
-<meta name="keywords" content="FALTA CONTENIDO" />
 
 <title>Los nuevos elementos estructurales de HTML5</title>
 <link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
@@ -324,4 +319,6 @@ on the 13th of March 1989&lt;/time&gt;</code></pre>
 
 <p>Los navegadores antiguos: eternamente la  ruina de nuestra existencia cuando intentamos familiarizarnos con el uso de los  juguetes nuevos de la webâ¦ De hecho, el problema aquÃ­ son todos los  navegadores: <strong>ningÃºn navegador actual  reconoce y soporta estos nuevos elementos estructurales HTML5 </strong>como tales. Pero no temas, aÃºn  asÃ­ puedes hacer que funcionen en todos los navegadores de hoy con un mÃ­nimo  esfuerzo.</p>
 
-<p>En primer lugar, si pones un elemento  desconocido en una pÃ¡gina web, por defecto 
+<p>En primer lugar, si pones un elemento  desconocido en una pÃ¡gina web, por defecto el navegador lo tratarÃ¡ simplemente  como un <code>&lt;span&gt;</code>, es decir, un elemento en lÃ­nea anÃ³nimo. La mayorÃ­a de  elementos HTML5 que hemos analizado en este artÃ­culo deberÃ­an comportarse como  elementos de bloque y, por tanto, la manera mÃ¡s fÃ¡cil de hacer que se comporten  correctamente en navegadores antiguos es establecerles <code>display: block;</code> en el  CSS:</p>
+
+<pre><code>a

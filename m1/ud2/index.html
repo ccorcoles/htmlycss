@@ -1,13 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es">
+<!DOCTYPE html>
+<html lang="es">
 <head>
-<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
-<meta http-equiv="Content-Language" content="es" />
-<meta name="language" content="es" />
+<meta charset="utf-8" />
 <meta name="author" content="Universitat Oberta de Catalunya" />
-<meta name="description" content="FALTA CONTENIDO" />
-<meta name="title" content="FALTA CONTENIDO" />
-<meta name="keywords" content="FALTA CONTENIDO" />
 
 <title>Introducción al mundo de los estándares web - ¿Cómo funciona Internet?</title>
 <link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estilo normal" />
@@ -43,7 +38,7 @@
 <li><p>Contenido estático y dinámico.</p></li>
 </ul>
 
-<p>Son materias bastante básicas y, aunque la mayor parte de lo que aquí se explica no os ayudará a construir una página web mejor, sí que os proporcionará el lenguaje adecuado para hablar con clientes y otras personas sobre Internet. Es como lo que una institutriz muy inteligente dijo una vez en <em>Sonrisas y lágrimas</em>: "Cuando leemos, empezamos por ABC. Cuando cantamos, empezamos por Do Re Mi". En este apartado describiremos brevemente cómo los ordenadores se comunican realmente utilizando HTTP y TCP/IP, y después nos fijaremos en los diferentes lenguajes que se combinan para crear las páginas web que conforman Internet. </p>
+<p>Son materias bastante básicas y, aunque la mayor parte de lo que aquí se explica no os ayudará a construir una página web mejor, sí que os proporcionará el lenguaje adecuado para hablar con clientes y otras personas sobre Internet. Es como lo que una institutriz muy inteligente dijo una vez en <cite>Sonrisas y lágrimas</cite>: <q>Cuando leemos, empezamos por ABC. Cuando cantamos, empezamos por Do Re Mi</q>. En este apartado describiremos brevemente cómo los ordenadores se comunican realmente utilizando HTTP y TCP/IP, y después nos fijaremos en los diferentes lenguajes que se combinan para crear las páginas web que conforman Internet. </p>
 <p>Los contenidos de este apartado son los siguientes:</p>
 <ul class="index">
 	<li>3.1. <a href="#internetcommunication" accesskey="1">¿Cómo se comunican los ordenadores a través de Internet?</a>
@@ -64,7 +59,7 @@
 </ul>
 
 <h2 id="internetcommunication">3.1. ¿Cómo se comunican los ordenadores a través de Internet?</h2>
-<p>Por suerte, hemos mantenido las cosas simples para los ordenadores. Cuando se trata de la web, la mayoría de las páginas están escritas utilizando el mismo lenguaje, el HTML, que pasa de un sitio a otro utilizando un protocolo común: <strong>HTTP</strong> (<span lang="en">hypertext transfer protocol</span> o protocolo de transferencia de hipertexto). El HTTP es el dialecto (especificación) común de Internet que permite, por ejemplo, que un equipo con Windows cante en armonía con un ordenador que ejecute la versión más reciente y más fantástica de Linux (¡Do Re Mi!). Mediante el uso de un navegador web un software especial que interpreta el HTTP y entrega el HTML en una manera legible para los humanos, las páginas web creadas con HTML y con cualquier tipo de ordenador se pueden leer en cualquier medio, incluyendo teléfonos, PDA e incluso en los sistemas de videojuegos más populares.</p>
+<p>Por suerte, hemos mantenido las cosas simples para los ordenadores. Cuando se trata de la web, la mayoría de las páginas están escritas utilizando el mismo lenguaje, HTML, que pasa de un sitio a otro utilizando un protocolo común: <strong>HTTP</strong> (<span lang="en">hypertext transfer protocol</span> o protocolo de transferencia de hipertexto). El HTTP es el dialecto (especificación) común de Internet que permite, por ejemplo, que un equipo con Windows cante en armonía con un ordenador que ejecute la versión más reciente y más fantástica de Linux (¡Do Re Mi!). Mediante el uso de un navegador web un software especial que interpreta el HTTP y entrega el HTML en una manera legible para los humanos, las páginas web creadas con HTML y con cualquier tipo de ordenador se pueden leer en cualquier medio, incluyendo teléfonos, PDA e incluso en los sistemas de videojuegos más populares.</p>
 <p>Aunque hablen el mismo lenguaje, los diferentes dispositivos que acceden a la web han de tener algunas normas establecidas para poder hablar entre ellos; es como aprender a alzar la mano para preguntar en clase. El HTTP establece estas normas básicas para Internet. Gracias al HTTP, un equipo cliente (como vuestro ordenador) sabe que debe ser él quien inicie una petición de una página web desde un <strong>servidor</strong>. Un servidor es un ordenador donde residen las páginas web; cuando escribís una dirección web en vuestro navegador, un servidor recibe la petición, encuentra la página web que deseáis y la envía a vuestro ordenador para que se vea en vuestro navegador.</p>
 
 <h3 id="requestresponse">3.1.1. Disección de un ciclo de solicitud-respuesta</h3>
@@ -96,7 +91,7 @@
 <h3 id="webstandards">3.2.2. Estándares web</h3>
 <p>Las herramientas de construcción básicas de la web son los tres principales estándares web: HTML (o XHTML, aquí utilizaremos ambos indistintamente para nuestras finalidades), CSS y JavaScript:</p>
 <ol class="lletres">
-	<li><p><strong>Lenguaje de marcado de hipertexto</strong> (HTML), es un nombre realmente bueno con respecto a la definición de su objetivo. El HTML se utiliza para dividir un documento, especificar sus contenidos y su estructura, y definir el significado de cada parte (es lo que incluye todo el texto, etc., que se ve en las páginas web). Utiliza elementos para identificar los diferentes componentes de una página.</p></li>
+	<li><p><strong>Lenguaje de marcado de hipertexto</strong> (HTML) es un nombre realmente bueno con respecto a la definición de su objetivo. El HTML se utiliza para dividir un documento, especificar sus contenidos y su estructura, y definir el significado de cada parte (es lo que incluye todo el texto, etc., que se ve en las páginas web). Utiliza elementos para identificar los diferentes componentes de una página.</p></li>
 	<li><p> Las <strong>hojas de estilo en cascada</strong> (CSS) dan un control total sobre cómo se visualiza un elemento.</p>
 	<div class="exemple">
 		<h3>Cambios de formato</h3>
@@ -104,16 +99,16 @@
 
 <p><code>line-height: 2em;</code></p>
 <p>O hacer que todos los encabezamientos de segundo nivel sean verdes:</p>
-<p><code>color: green;[/courier-new]</code></p>
+<p><code>color: green;</code></p>
 	</div>
 	
-	<p>Existen muchas ventajas para separar la estructura del formato y lo veremos con más detalle en el siguiente apartado. Para demostrar la potencia de HTML y CSS utilizados de manera combinada, la figura 2 muestra a la izquierda HTML normal, sin ningún formato a&ntilde;adido, mientras que a la derecha puede verse exactamente el mismo HTML con algunos estilos de CSS aplicados.</p>
+	<p>Existen muchas ventajas derivadas de separar la estructura del formato y lo veremos con más detalle en el siguiente apartado. Para demostrar la potencia de HTML y CSS utilizados de manera combinada, la figura 2 muestra a la izquierda HTML normal, sin ningún formato a&ntilde;adido, mientras que a la derecha puede verse exactamente el mismo HTML con algunos estilos de CSS aplicados.</p>
 
 <div class="imagen">
 	<img src="76510_m1_03.gif" alt=" " />
 	<p>Figura 2. HTML normal a la izquierda, HTML con CSS aplicado a la derecha.</p>
 </div></li>
-	<li><p>Por último, el <strong>lenguaje JavaScript</strong> aporta funciones dinámicas a las páginas web. Se pueden escribir peque&ntilde;os programas en JavaScript que se ejecutarán en el ordenador cliente y que no requieren que haya ningún software especial instalado en el servidor. JavaScript permite a&ntilde;adir algunas funciones básicas e interactividad a las páginas web, pero tiene sus limitaciones, lo que nos lleva a hablar de lenguajes de programación del lado del servidor y a páginas web dinámicas.</p></li>
+	<li><p>Por último, el <strong>lenguaje JavaScript</strong> aporta funciones dinámicas a las páginas web. Se pueden escribir peque&ntilde;os programas en JavaScript que se ejecutarán en el ordenador cliente y que no requieren que haya ningún software especial instalado en el servidor. JavaScript permite a&ntilde;adir algunas funciones básicas e interactividad a las páginas web, pero tiene sus limitaciones, lo que nos lleva a hablar de lenguajes de programación del lado del servidor y de páginas web dinámicas.</p></li>
 </ol>
 
 
@@ -127,13 +122,13 @@
 <p>Si os encontráis un documento de Word, de Excel, PDF, un fichero comprimido (por ejemplo, ZIP o SIT), un fichero de imágenes complejas como Photoshop PSD, u otro fichero complejo que el navegador no comprende, generalmente el navegador os preguntará si deseáis descargar o abrir el fichero. Ambas acciones normalmente tienen resultados similares, excepto que la última hará que el fichero se descargue y a continuación se abra con una aplicación que lo comprende, si está instalada.</p>
 <p>Si os encontráis una página que contenga una película Flash, MP3 u otro formato de música, MPEG u otro formato de vídeo, el navegador lo reproducirá utilizando un conector, si hay uno instalado. En caso contrario, se proporcionará un enlace para instalar el conector necesario, o el archivo se descargará y buscará una aplicación de escritorio para ejecutarlo.</p>
 </div>
-<p>Naturalmente, hay algunas áreas grises: por ejemplo, SVG (<span lang="en">scalable vector graphics</span>, gráficos vectoriales escalables) es un estándar web que se ejecuta de manera nativa en algunos navegadores, como Opera, pero no en otros, como Internet Explorer. El IE necesita un conector para comprender los SVG. Hay una serie de navegadores que incluyen algunos conectores previamente instalados, de modo que es posible que no seáis conscientes de que el contenido se está visualizando mediante un conector y de manera no nativa en el navegador.</p>
+<p>Naturalmente, hay algunas áreas grises: por ejemplo, SVG (<span lang="en">scalable vector graphics</span>, gráficos vectoriales escalables) es un estándar web que se ejecuta de manera nativa en algunos navegadores, como Opera, pero no en otros, como las versiones anteriores a la 9 Internet Explorer. Esas versiones de IE necesitan un conector para comprender los SVG. Hay una serie de navegadores que incluyen algunos conectores previamente instalados, de modo que es posible que no seáis conscientes de que el contenido se está visualizando mediante un conector y de manera no nativa en el navegador.</p>
 
 
 <h2 id="staticdynamic">3.3. Páginas web estáticas o dinámicas</h2>
 <p>Así pues, ¿qué son las páginas web estáticas y dinámicas y cuál es la diferencia entre ambas? Como en una caja de bombones, todo se basa en el relleno.</p>
 <div class="text-clau">
-<p>Una <strong>página web estática</strong> es una página web donde el contenido, el HTML y los gráficos, son siempre estáticos se sirve a cualquier visitante de la misma manera, a no ser que la persona que ha creado la web decida cambiar manualmente su copia en el servidor, exactamente lo que hemos estado repasando en la mayor parte de este apartado.</p>
+<p>Una <strong>página web estática</strong> es una página web donde el contenido, el HTML y los gráficos, son siempre estáticos &mdash;se sirve a cualquier visitante de la misma manera, a no ser que la persona que ha creado la web decida cambiar manualmente su copia en el servidor&mdash;, exactamente lo que hemos estado repasando en la mayor parte de este apartado.</p>
 <p>Por el contrario, en una <strong>página web dinámica</strong>, el contenido del servidor es el mismo, pero en vez de ser sólo HTML, también contiene código dinámico, que puede mostrar datos diferentes según la información que suministre a la página web.</p>
 </div>
 <div class="exemple">
@@ -181,5 +176,6 @@
 <a rel="index" href="../../index.html" title="Ir al índice" accesskey="0"><img src="../../img/indice_inv.gif" alt="Ir al índice" /></a> <strong>:</strong>
 <a rel="next" href="../ud3/index.html" title="Ir al artículo siguiente" accesskey="9"><img src="../../img/fletxa_der_inv.gif" alt="Ir al artículo siguiente" /></a>
 </div>
+
 </body>
 </html>

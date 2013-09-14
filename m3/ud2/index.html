@@ -1,13 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ca">
+<!DOCTYPE html>
+<html lang="es">
 <head>
-<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
-<meta http-equiv="Content-Language" content="ca" />
-<meta name="language" content="ca" />
+<meta charset="utf-8" />
 <meta name="author" content="Universitat Oberta de Catalunya" />
-<meta name="description" content="FALTA CONTENIDO" />
-<meta name="title" content="FALTA CONTENIDO" />
-<meta name="keywords" content="FALTA CONTENIDO" />
 
 <title>Fundamentos de HTML - El elemento &lt;head&gt; del HTML</title>
 <link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
@@ -56,7 +51,7 @@
       
       <p>Una parte de la información sobre el documento se encuentra en el elemento padre de <code>head</code>, que es el elemento <code>html</code>. Aquí se define el idioma natural principal del documento. Cuando hablamos de idioma natural nos estamos refiriendo a un idioma <em>humano</em>, como por ejemplo el francés, el tailandés o el inglés. Esto es de gran ayuda para los lectores de pantalla, ya que, por ejemplo, la palabra six se pronuncia de una manera muy diferente en francés y en inglés; también puede ser de mucha ayuda para los motores de búsqueda. Es muy aconsejable definir el idioma principal de un documento, sobre todo si estáis escribiendo páginas pensadas para un público internacional, aunque hay muchas páginas que no lo hacen. Se debe definir de la manera siguiente:</p>
       
-<pre><code>&lt;html lang="en-GB"&gt;
+<pre><code>&lt;html lang="en"&gt;
    ...
 &lt;/html&gt;</code></pre>
       
@@ -65,21 +60,13 @@
       <p>Tened en cuenta que también podéis definir el idioma de subsecciones de vuestro documento utilizando el atributo lang en otros elementos, como por ejemplo <code>&lt;span lang="fr"&gt;Bonjour&lt;/span&gt;</code>.</p>
       </div>
       
-      <p>Los atributos que utilizáis para definir el idioma dependen del DOCTYPE de vuestro documento. El <a href="http://www.w3.org/TR/i18n-html-tech-lang/#ri20040429.092928424" hreflang="en">W3C</a> dice:</p>
-
-      <blockquote>
-      <p>"Para HTML hay que utilizar sólo el atributo <code>lang</code>; para XHTML 1.0 servido como <code>text/html</code> hay que utilizar los atributos <code>lang</code> y <code>xml:lang</code>; y para XHTML servido como XML hay que utilizar sólo el atributo <code>xml:lang</code>."</p>
-      
-      </blockquote>
-      
       <p>Los códigos de idioma pueden ser códigos de dos letras, como por ejemplo en para el inglés, o códigos de cuatro letras como <code>en-US</code> para el inglés americano u otros códigos menos habituales. Los códigos de dos letras están definidos en <a href="http://en.wikipedia.org/wiki/ISO_639-1" hreflang="en">ISO 639-1</a>, aunque las mejores prácticas actuales exigen el <a href="http://www.w3.org/International/articles/language-tags/" hreflang="en">uso del registro de subetiquetas de la IANA para las definiciones de los códigos de idioma</a>.</p>
 
       <h2 id="title">13.3. Juzgar un documento por su título</h2>
       
       <p>Uno de los elementos más importantes de <code>head</code> es <code>title</code>. El texto incluido en el <code>title</code> aparece en la mayoría de los agentes de usuario/navegadores dentro de la barra del título de la aplicación (la barra que hay en la parte superior de la ventana del navegador). Es lo primero que verán los usuarios de la web cuando visiten vuestro sitio; por lo tanto, es realmente importante. Además, las tecnologías de asistencia como por ejemplo los lectores de pantalla (software que lee en voz alta las páginas web para los usuarios con alguna discapacidad visual) lo leen para dar una primera idea sobre lo que los visitantes pueden esperar del documento, y también hay muchos motores de búsqueda que funcionan de un modo similar. Así pues, si utilizáis un buen título que sea legible para las personas y que contenga las palabras clave adecuadas, tendréis muchísimas más posibilidades de que os encuentren en la Red. Ahora seleccionaremos el documento HTML <code><a href="http://devfiles.myopera.com/articles/360/headexample.html" hreflang="en">headexample.html</a></code> y lo abriremos en el navegador. </p>
                          
-      <pre><code>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/
- html4/strict.dtd"&gt;
+      <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
   &lt;title&gt;I am a title example&lt;/title&gt;
@@ -102,8 +89,7 @@
       
       <p>Lo siguiente que se debe hacer puede parecer de entrada superfluo, ya que las personas que visiten vuestro sitio web no lo verán nunca: añadir una descripción y palabras clave. La una y las otras se deben añadir a <code>head</code> dentro de los elementos <code>meta</code>, tal como se puede ver en <a href="http://devfiles.myopera.com/articles/360/headwithmeta.html" hreflang="en">el ejemplo</a> siguiente de la web de Yahoo! Eurosport: </p>
                          
-      <pre><code>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/
- html4/strict.dtd"&gt;
+      <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
   &lt;title&gt;Yahoo! UK &amp; Ireland Eurosport&#8211;Sports News | Live Scores | Sport&lt;/title&gt;
@@ -139,8 +125,7 @@
       
       <p>El otro elemento que podéis añadir al <code>head</code> de un documento son las normas para los estilos, que se definen en hojas de estilo en cascada (CSS, del inglés <span lang="en">cascading style sheets</span>). Los podéis integrar directamente en <code>head</code> utilizando un elemento <code>style</code>, como por ejemplo (<a href="http://devfiles.myopera.com/articles/360/headinlinestylesmedia.html" hreflang="en">headinlinestyles.html</a>): </p>
                           
-      <pre><code>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/
- html4/strict.dtd"&gt;
+      <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
    &lt;title&gt;Breeding Dogs&#8211;Tips about Alsatians&lt;/title&gt;
@@ -191,9 +176,14 @@
 				<p>Figura 4. Una hoja de estilos de pantalla y de impresión.</p>
 			</div>
 
+<div class="exemple">
+<h3>Actualización</h3>
+<p>HTML4 y CSS2 usaban <code>media</code> <em>exclusivamente</em> con tipos de medios. Con HTML5 y CSS3 podemos extender esta funcionalidad a través de <span lang="en">media queries</span>. Una <span lang="en">media query</span> consiste de un medio, como los vistos anteriormente, y, si lo deseamos, diferentes expresiones que comprueban características como la resolución de pantalla del navegador.</p>
+</div>
+
       <h2 id="javascripthead">13.6. Añadir funciones dinámicas con JavaScript</h2>
       
-      <p>Otro elemento que podéis añadir a <code>head</code> son <em>scripts</em> que ejecutará el navegador, y que por ello se conocen como "<em>scripts</em> de cliente", escritos en JavaScript. Como ya hemos visto, JavaScript añade un comportamiento dinámico al HTML estático, como por ejemplo efectos de animación, validación de datos de formularios u otras cosas que pasan cuando el usuario realiza determinadas acciones.</p>
+      <p>Otro elemento que podéis añadir a <code>head</code> son <i lang="en">scripts</i> que ejecutará el navegador, y que por ello se conocen como "<i lang="en">scripts</i> de cliente", escritos en JavaScript. Como ya hemos visto, JavaScript añade un comportamiento dinámico al HTML estático, como por ejemplo efectos de animación, validación de datos de formularios u otras cosas que pasan cuando el usuario realiza determinadas acciones.</p>
       
       <p>Podéis añadir JavaScript a un documento utilizando el elemento <code>script</code>. Cuando un navegador encuentra un elemento de este tipo, ignora todo lo demás y deja de analizar cualquier otra parte del documento mientras intenta ejecutar el código que hay en este elemento. Eso significa que si queréis estar seguros de que vuestro JavaScript estará disponible antes de que se cargue el documento principal, deberéis añadirlo a <code>head</code>. Por ejemplo, podéis avisar a la gente que os visite de que un enlace concreto los conducirá a otro servidor con el siguiente script (<code><a href="http://devfiles.myopera.com/articles/360/headscript.html" hreflang="en">headscript.html</a></code>): </p>
       
@@ -204,8 +194,7 @@
       </div>
                           
 
-      <pre><code>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/
- html4/strict.dtd"&gt;
+      <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
    &lt;title&gt;Breeding Dogs&#8211;Tips about Alsatians&lt;/title&gt;
@@ -241,7 +230,7 @@ Test!
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
       
-      <p>Si abrís este ejemplo en vuestro navegador web y hacéis clic en el enlace, se os pedirá que confirméis la acción. Éste es sólo un ejemplo muy rápido de un script, pero queda muy lejos de las mejores prácticas actuales. Los otros tutoriales que encontraréis más adelante en este mismo curso explican las mejores prácticas de JavaScript y enseñan las técnicas de JavaScript con detalle, pero de momento no es necesario que os preocupéis de eso. </p>
+      <p>Si abrís este ejemplo en vuestro navegador web y hacéis clic en el enlace, se os pedirá que confirméis la acción. Éste es sólo un ejemplo muy rápido de un script, pero queda muy lejos de las mejores prácticas actuales. Otras asignaturas del grado de Multimedia explican las mejores prácticas de JavaScript y enseñan las técnicas de JavaScript con detalle, pero de momento no es necesario que os preocupéis de eso. </p>
   
       <h2 id="externalfileshead">13.7. ¡Un momento! El uso de CSS integrado y JavaScript no es precisamente la mejor idea</h2>
       
@@ -249,8 +238,7 @@ Test!
       
       <p>Es mucho mejor poner los estilos y scripts en archivos externos e importarlos hacia los archivos HTML cuando sea necesario; de esta manera, cuando se deban hacer cambios sólo habrá que actualizarlos en un lugar. Para vuestro JavaScript, eso es hace utilizando elementos <code>script</code> que no tienen ningún <code>script</code> en su interior, sino un enlace a un archivo externo utilizando un atributo <code>src</code>, tal como podéis ver en el código siguiente (<a href="http://devfiles.myopera.com/articles/360/externaljs.html" hreflang="en">externaljs.html</a>): </p>
       
-      <pre><code>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/
- html4/strict.dtd"&gt;
+      <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
    &lt;title&gt;Breeding Dogs&#8211;Tips about Alsatians&lt;/title&gt;
@@ -283,8 +271,7 @@ Test!
 
       <p>Con CSS no es tan fácil. El elemento <code>style</code> no tiene ningún atributo <code>src</code>, con lo cual deberéis utilizar el elemento <code>link</code>; éste tiene un atributo <code>href</code> que especifica un fichero CSS externo para importarlo y un atributo <code>media</code> para definir si estos estilos se deben utilizar para pantalla, impresión, etc., de manera similar a lo que hemos visto antes. Poniendo tanto CSS como JavaScript en sus ficheros independientes se puede reducir de una manera muy importante la longitud del <code>head</code>, tal como se puede ver a continuación (<a href="http://devfiles.myopera.com/articles/360/externalall.html" hreflang="en">externalall.html</a>):</p>
       
-      <pre><code>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/
- html4/strict.dtd"&gt;
+      <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
    &lt;title&gt;Breeding Dogs&#8211;Tips about Alsatians&lt;/title&gt;
@@ -345,5 +332,6 @@ Test!
 		<a rel="index" href="../../index.html" title="Ir al índice" accesskey="0"><img src="../../img/indice_inv.gif" alt="Ir al índice" /></a> <strong>:</strong>
 		<a rel="next" href="../ud3/index.html" title="Ir al artículo siguiente" accesskey="9"><img src="../../img/fletxa_der_inv.gif" alt="Ir al artículo siguiente" /></a>
 </div>
+
 </body>
 </html>

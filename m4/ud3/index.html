@@ -1,13 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ca">
+<!DOCTYPE html>
+<html lang="es">
 <head>
-<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
-<meta http-equiv="Content-Language" content="ca" />
-<meta name="language" content="ca" />
+<meta charset="utf-8" />
 <meta name="author" content="Universitat Oberta de Catalunya" />
-<meta name="description" content="FALTA CONTENIDO" />
-<meta name="title" content="FALTA CONTENIDO" />
-<meta name="keywords" content="FALTA CONTENIDO" />
 
 <title>El texto central de HTML - Imágenes en HTML</title>
 <link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
@@ -50,8 +45,7 @@
   <ul class="index"> 
 	<li>17.3.1. <a href="#alt">Ofrecer una alternativa de texto con el atributo  <code>alt</code></a></li>
   <li>17.3.2. <a href="#title">Añadir información pertinente con el atributo <code>title</code></a></li>
-  <li>17.3.3. <a href="#longdesc">Utilizar <code>longdesc</code> para ofrecer una alternativa a las imágenes complejas</a></li>
-  <li>17.3.4. <a href="#widthheight">Visualización más rápida de las imágenes definiendo las dimensiones con <code>width</code> y <code>height</code></a></li>
+  <li>17.3.3. <a href="#widthheight">Visualización más rápida de las imágenes definiendo las dimensiones con <code>width</code> y <code>height</code></a></li>
 	</ul></li>
   <li>17.4. <a href="#somuchforinline" accesskey="4">Las imágenes en línea</a></li>
   <li>17.5. <a href="#cssimages" accesskey="5">Imágenes de fondo con CSS</a>
@@ -104,8 +98,7 @@
   
   <p>El documento inlineimageexample.html del archivo zip muestra la fotografía balconyview.jpg en un navegador (siempre que tengáis la imagen en la misma carpeta que el archivo HTML.) </p>
                       
-  <pre><code>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/
- html4/strict.dtd"&gt;
+  <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
    &lt;title&gt;Example of an inline image&lt;/title&gt;
@@ -131,8 +124,7 @@
   
   <p>Para que la imagen sea comprensible para todo el mundo, es necesario que añadáis un texto alternativo adecuado; en este caso, por ejemplo, "View from my balcony, showing a row of houses, trees and a castle" (vista desde mi balcón, desde donde se ve una hilera de casas, árboles y un castillo).</p>
 
-  <pre><code>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/
- html4/strict.dtd"&gt;
+  <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
    &lt;title&gt;Example of an inline image&lt;/title&gt;
@@ -145,7 +137,7 @@
 <p class="font"><strong>Archivo fuente:</strong> "<a href="http://dev.opera.com/articles/view/17-images-in-html/inlineimageexamplealt.html" hreflang="en">inlineimageexamplealt.html</a>"</p> 
 
   <div class="text-clau">
-  <p>El atributo <code>alt</code> contiene el texto que aparecerá cuando la imagen no esté disponible. La información del atributo  <code>alt</code> no debería aparecer cuando la imagen se cargue correctamente; Internet Explorer lo hace mal y muestra este texto como si fuera un indicador de función al poner el puntero del ratón sobre la imagen durante unos momentos. Esto es un error, ya que hace que mucha gente utilice el atributo <code>alt</code> para añadir información adicional sobre la imagen. Si queréis añadir información adicional, debéis utilizar el atributo <code>title</code>, que explicaremos en el subapartado siguiente. </p>
+  <p>El atributo <code>alt</code> contiene el texto que aparecerá cuando la imagen no esté disponible. La información del atributo  <code>alt</code> no debería aparecer cuando la imagen se cargue correctamente; algunas versiones antiguas de Internet Explorer lo hacen mal y muestran este texto como si fuera un indicador de función al poner el puntero del ratón sobre la imagen durante unos momentos. Esto es un error, ya que hace que mucha gente utilice el atributo <code>alt</code> para añadir información adicional sobre la imagen. Si queréis añadir información adicional, debéis utilizar el atributo <code>title</code>, que explicaremos en el subapartado siguiente. </p>
   </div>              
 
   <h3 id="title">17.3.2. Añadir información pertinente con el atributo <code>title</code></h3>
@@ -156,8 +148,7 @@
   
   <p>El atributo <code>title</code> puede ser muy útil, pero no es una manera segura de ofrecer información crucial. En cambio, sí que es una buena manera, por ejemplo, para escribir las sensaciones que provoca la imagen o el significado que tiene dentro del contexto. </p>
                               
-  <pre><code>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/
- html4/strict.dtd"&gt;
+  <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
    &lt;title&gt;Example of an inline image with alternative text and title&lt;/title&gt;
@@ -177,78 +168,14 @@
 		<p>Figura 2. En muchos navegadores, los atributos <code>title</code> aparecen como si fueran indicadores de función.</p>
 	</div>
 
-  <h3 id="longdesc">17.3.3. Utilizar  <code>longdesc</code> para ofrecer una alternativa a las imágenes complejas</h3>
-  
-  <div class="text-clau">
-  <p>Si la imagen es muy compleja, como por ejemplo un gráfico, podéis ofrecer una descripción más larga con el atributo
-<code>longdesc</code> para que las personas que utilicen lectores de pantalla o naveguen con las imágenes desactivadas puedan seguir accediendo a la información que transmite la imagen.</p>
-  </div>
-  
-  <p>Este atributo contiene una URL que lleva a un documento que contiene la misma información. Por ejemplo, si tenéis un gráfico que muestra una serie de datos, podéis vincularlo a una tabla de datos que contenga la misma información utilizando
-<code>longdesc</code>: </p>
-                       
 
-  <pre><code>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/
- html4/strict.dtd"&gt;
-&lt;html&gt;
-&lt;head&gt;
-   &lt;title&gt;Example of an inline image with longdesc&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;img src="chart.png" width="450" height="150" alt="Chart showing the fruit
- consumption amongst under 15 year olds. Most children ate Pineapples,
- followed by Pears" longdesc="fruitconsumption.html"&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>  
-<p class="font"><strong>Archivo fuente:</strong> "<a href="http://dev.opera.com/articles/view/17-images-in-html/inlineimagelongdesc.html" hreflang="en">inlineimagelongdesc.html</a>"</p>
-
-  <p>El archivo "fruitconsumption.html" contiene una tabla muy sencilla que representa los mismos datos: </p>
-                       
-  <pre><code>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/
- html4/strict.dtd"&gt;
-&lt;html&gt;
-&lt;head&gt;
-   &lt;title&gt;Fruit consumption&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;table summary="Fruit Consumption of under 15 year olds, March 2007"&gt;
-   &lt;caption&gt;Fruit Consumption&lt;/caption&gt;
-   &lt;thead&gt;
-      &lt;tr&gt;&lt;th scope="col"&gt;Fruit&lt;/th&gt;&lt;th scope="col"&gt;Amount&lt;/th&gt;&lt;/tr&gt;
-   &lt;/thead&gt;
-   &lt;tbody&gt;
-      &lt;tr&gt;&lt;td&gt;Apples&lt;/td&gt;&lt;td&gt;10&lt;/td&gt;&lt;/tr&gt;
-      &lt;tr&gt;&lt;td&gt;Oranges&lt;/td&gt;&lt;td&gt;58&lt;/td&gt;&lt;/tr&gt;
-      &lt;tr&gt;&lt;td&gt;Pineapples&lt;/td&gt;&lt;td&gt;95&lt;/td&gt;&lt;/tr&gt;
-      &lt;tr&gt;&lt;td&gt;Bananas&lt;/td&gt;&lt;td&gt;30&lt;/td&gt;&lt;/tr&gt;
-      &lt;tr&gt;&lt;td&gt;Raisins&lt;/td&gt;&lt;td&gt;8&lt;/td&gt;&lt;/tr&gt;
-      &lt;tr&gt;&lt;td&gt;Pears&lt;/td&gt;&lt;td&gt;63&lt;/td&gt;&lt;/tr&gt;
-   &lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;&lt;a href="inlineimagelongdesc.html"&gt;Back to article&lt;/a&gt;&lt;/p&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
-<p class="font"><strong>Archivo fuente:</strong> "<a href="http://dev.opera.com/articles/view/17-images-in-html/fruitconsumption.html" hreflang="en">fruitconsumption.html</a>"</p>
-
-  <p>Las dos representaciones de estos datos, la una al lado de la otra, aparecen tal como se puede ver en la figura 3. </p>
-                         
-	<div class="imagen">
-		<img src="06510_m4_08.gif" alt="Un document i el seu resultat de longdesc" />
-		<p>Figura 3. Podéis vincular un documento con datos complejos a una imagen mediante el atributo
-<code>longdesc</code>.</p>
-	</div>        
-	
-  <p>Observad que no hay ninguna indicación visual y que hay un archivo de descripción largo conectado a esta imagen. No obstante, las tecnologías de asistencia permitirán que sus usuarios sepan que hay una alternativa disponible. </p>
-
-
-  <h3 id="widthheight">17.3.4. Visualización más rápida de las imágenes definiendo las dimensiones con <code>width</code> y <code>height</code></h3>
+  <h3 id="widthheight">17.3.3. Visualización más rápida de las imágenes definiendo las dimensiones con <code>width</code> y <code>height</code></h3>
   
   <div class="text-clau">
   <p>Cuando el agente de usuario encuentra un elemento <code>img</code> en el HTML, empieza a cargar la imagen señalada por el atributo <code>src</code>. Por defecto, éste no sabe cuáles son las dimensiones de la imagen, por lo que se limitará a mostrar todo el texto apilado y desplazará el resto del documento cuando finalmente se carguen y aparezcan las imágenes. Esto puede provocar que la carga de la página sea más lenta y genere confusión entre las personas que la visitan. A fin de que eso no ocurra, podéis indicar al agente de usuario que asigne el espacio adecuado a las imágenes antes de que éstas se carguen especificándole las dimensiones de la imagen con los atributos <code>width</code> y <code>height</code>.</p>
   </div>
                        
-  <pre><code>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/
- html4/strict.dtd"&gt;
+  <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
    &lt;title&gt;Example of an inline image with dimensions&lt;/title&gt;
@@ -264,7 +191,7 @@
 
   <h2 id="somuchforinline">17.4. Las imágenes en línea</h2>
   
-  <p>HiHay muchos atributos que podéis utilizar para las imágenes, pero la mayoría están desaprobados porque definen la maquetación y la alineación de la imagen. Si el objetivo es éste, no se debe utilizar el HTML, sino el CSS, que se inventó precisamente para ello. Aquí sólo diremos que es importante recordar que las imágenes son, por defecto, elementos en línea. Esto significa que pueden aparecer entre palabras dentro del texto sin crear líneas nuevas. Eso es muy útil para añadir iconos pequeños dentro del texto, pero puede ser muy molesto cuando intentéis crear maquetaciones utilizando imágenes y texto. Con CSS podréis hacer que las imágenes no queden en línea por defecto y hacer que aparezcan como si fueran elementos de bloque (elementos que aparecen en una línea nueva al añadirlos a un documento).</p>  
+  <p>Hay muchos atributos que podéis utilizar para las imágenes, pero la mayoría están desaprobados porque definen la maquetación y la alineación de la imagen. Si el objetivo es éste, no se debe utilizar el HTML, sino el CSS, que se inventó precisamente para ello. Aquí sólo diremos que es importante recordar que las imágenes son, por defecto, elementos en línea. Esto significa que pueden aparecer entre palabras dentro del texto sin crear líneas nuevas. Eso es muy útil para añadir iconos pequeños dentro del texto, pero puede ser muy molesto cuando intentéis crear maquetaciones utilizando imágenes y texto. Con CSS podréis hacer que las imágenes no queden en línea por defecto y hacer que aparezcan como si fueran elementos de bloque (elementos que aparecen en una línea nueva al añadirlos a un documento).</p>  
 
   <h2 id="cssimages">17.5. Imágenes de fondo con CSS</h2>
   
@@ -315,7 +242,6 @@ background-color:#eee;</code></pre>
 			<li><p><code>src</code> para la ubicación del archivo de la imagen</p></li>
       <li><p><code>alt</code> para el texto que debe estar disponible cuando la imagen no se carga o no se puede ver</p></li>
       <li><p><code>title</code> para la información adicional interesante (pero no esencial)</p></li>
-      <li><p><code>longdesc</code> para indicar un archivo externo que contiene una representación textual alternativa de los datos que aparecen en la imagen cuando ésta es, por ejemplo, un gráfico complejo</p></li>
       <li><p><code>width</code> y <code>height</code> para indicar al navegador las dimensiones de la imagen y, por lo tanto, el espacio que le debe asignar</p></li>
     </ol></li>
     <li><p>Los conceptos básicos de las imágenes de fondo del CSS </p>
@@ -330,7 +256,7 @@ background-color:#eee;</code></pre>
   <ol>
 		<li><p>Por qué es importante añadir un buen texto a una imagen en un atributo <code>alt</code> Y es necesario? </p></li>
     <li><p>Si tenéis una imagen de 1.280 &times; 786 píxeles y queréis presentar una miniatura de 40 &times; 30 píxeles, ¿podéis hacerlo con HTML? ¿Y es aconsejable hacerlo? </p></li>
-    <li><p>¿Qué hace el atributo <code>longdesc</code>, y cómo lo muestran los navegadores?' </p></li>
+    <li><p>¿Buscad información sobre el atributo <code>longdesc</code>, que era válido en HTML 5 y no lo es en HTML5. ¿Qué hace, y cómo lo muestran los navegadores?</p></li>
     <li><p>¿Qué hacen los atributos <code>valign</code> y <code>align</code> y por qué no los hemos explicado aquí?</p></li>
     <li><p>¿Dónde se colocan por defecto las imágenes de fondo del CSS en un elemento y cuál es el patrón de repetición por defecto? </p></li>
   </ol>
@@ -346,5 +272,6 @@ background-color:#eee;</code></pre>
 		<a rel="index" href="../../index.html" title="Ir al índice" accesskey="0"><img src="../../img/indice_inv.gif" alt="Ir al índice" /></a> <strong>:</strong>
 		<a rel="next" href="../ud4/index.html" title="Ir al artículo siguiente" accesskey="9"><img src="../../img/fletxa_der_inv.gif" alt="Ir al artículo siguiente" /></a>
 </div>
+
 </body>
 </html>
