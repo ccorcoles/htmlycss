@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
+<meta http-equiv="Content-Language" content="es" />
+<meta name="language" content="es" />
+<meta name="author" content="Universitat Oberta de Catalunya" />
+<meta name="description" content="FALTA CONTENIDO" />
+<meta name="title" content="FALTA CONTENIDO" />
+<meta name="keywords" content="FALTA CONTENIDO" />
+
+<title>Introducción al mundo de los estándares web - Estándares web: un bonito sueño, pero ¿cuál es la realidad?</title>
+<link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estilo normal" />
+</head>
+
+<body>
+
+<div id="cabecera">
+	<img id="logo" src="../../img/logo.gif" alt="Universitat Oberta de Catalunya" />
+    <a href="http://mosaic.uoc.edu/"><img id="logomosaic" src="../../img/logo-mosaic.gif" alt="Logo de Mosaic" title="Abre la página web de Mosaic" /></a>
+	<div id="titulo">Introducción al mundo de los estándares web</div>
+	<div id="subtitulo">Estándares web: un bonito sueño, pero ¿cuál es la realidad?</div>
+<div id="cierre"></div>
+	<div id="navegador">
+		<a href="../../m0/accessibilitat.html" id="accesibilidad">Accesibilidad</a> <strong>:</strong> 
+		<a rel="prev" href="../ud3/index.html" title="Ir al artículo anterior" accesskey="8"><img src="../../img/fletxa_izq.gif" alt="Ir al artículo anterior" /></a> <strong>:</strong> 
+		<a rel="index" href="../../index.html" title="Ir al índice" accesskey="0"><img src="../../img/indice.gif" alt="Ir al índice" /></a> <strong>:</strong> 
+		<a rel="next" href="../../m2/ud1/index.html" title="Ir al artículo siguiente" accesskey="9"><img src="../../img/fletxa_der.gif" alt="Ir al artículo siguiente" /></a>
+	</div>
+</div>
+	
+<div id="main">
+<h1>5. Estándares web: un bonito sueño, pero ¿cuál es la realidad?</h1>
+<p class="by"><a href="../../index.html#lane">Jonathan Lane</a>. 8 de julio del 2008. Publicado en: validación, adopción, compatibilidad, estándares</p>
+
+<p>Hasta ahora, hemos hablado sobre el maravilloso ideal de los estándares web. Los estándares web permiten una interoperabilidad entre todos los navegadores web, en todos los sistemas operativos e incluso en todos los dispositivos electrónicos disponibles. Pero ¿es ésta la realidad? ¿Todos los navegadores cumplen los estándares al 100%? ¿Están utilizando adecuadamente los estándares web todos los desarrolladores web? ¿Construyen los desarrolladores web una página utilizando estándares web y ya se quedan tranquilos pensando que su diseño funcionará en todas partes?</p>
+<p>La respuesta realmente sencilla a esta última pregunta es no; aunque se trata de una situación ideal, está muy alejada de la realidad. </p>
+<p>Los contenidos de este apartado son los siguientes:</p>
+<ul class="index">
+	<li>5.1. <a href="#standardscheck" accesskey="1">¿Cómo se comprueba el cumplimiento de los estándares web?</a></li>
+	<li>5.2. <a href="#standardstoday" accesskey="2">Compatibilidad de los estándares en las páginas actualmente</a>
+	<ul class="index">
+		<li>5.2.1. <a href="#amazon">Amazon: ¿comprar con estándares?</a></li>
+		<li>5.2.2. <a href="#cnn">CNN: ¿noticias estandarizadas?</a></li>
+		<li>5.2.3. <a href="#apple">Apple: la máxima elegancia en diseño... ¿y en validación?</a></li>
+		<li>5.2.4. <a href="#survey">Un pequeño sondeo de compatibilidad de estándares</a></li>
+	</ul></li>
+	<li>5.3. <a href="#compliancelack" accesskey="3">¿Por qué hay tan pocas páginas que cumplan los estándares?</a>
+	<ul class="index">
+		<li>5.3.1. <a href="#education">Educación</a></li>
+		<li>5.3.2. <a href="#business">Motivos empresariales</a></li>
+	</ul></li>
+	<li class="especial"><a href="#summary">Resumen</a></li>
+	<li class="especial"><a href="#exercises">Preguntas de repaso</a></li>
+	<li class="especial"><a href="#furtherreading">Lecturas complementarias</a></li>
+</ul>
+
+<h2 id="standardscheck">5.1. ¿Cómo se comprueba el cumplimiento de los estándares web?</h2>
+<p>Antes de continuar, la pregunta que probablemente os esté pasando por la cabeza es: ¿cómo se sabe si una página web utiliza estándares web? ¿Tiene un aspecto diferente a cualquier otra página web? Sí y no. Las páginas web que cumplen los estándares web, si están correctamente desarrolladas, no deben parecer diferentes de las páginas web codificadas mediante un etiquetado que es un batiburrillo o que se sujeta con pinzas. No obstante, el código fuente de la página web puede parecer bastante diferente (intentad hacer clic con el botón secundario del ratón o pulsando la tecla Ctrl sobre una página web y seleccionad la opción "Código fuente" o "Ver el código fuente"; la terminología exacta depende del navegador).</p>
+<p>Una página web que cumpla los estándares tendrá un etiquetado ordenado y claro con poco o sin formato incrustado en la misma página. Es posible que os resulte difícil notarlo a primera vista pero, creedme, las personas con dificultades visuales que utilizan lectores de pantalla y motores de búsqueda lo notarán enseguida. En el último apartado ya hemos hablado de las ventajas de utilizar los estándares web.</p>
+<p>La manera más sencilla de comprobar la compatibilidad de los estándares es utilizar una práctica herramienta, disponible en línea, denominada <strong>validador</strong>.</p>
+
+<ul>
+	<li><p>El World Wide Web Consortium (W3C) tiene disponible el validador gratuitamente en <a href="http://validator.w3.org/" hreflang="en">http://validator.w3.org/</a> (podéis consultar la figura 1). Podéis (y sería necesario) utilizar esta herramienta para comprobar errores de HTML o XHTML en cualquier página web que estéis desarrollando.</p></li>
+	<li><p>El CSS se puede comprobar utilizando el validador de CSS disponible en <a href="http://jigsaw.w3.org/css-validator/" hreflang="en">http://jigsaw.w3.org/css-validator/</a>.</p></li>
+</ul>
+
+<p>Visitad libremente estos enlaces y probad algunas de las páginas web que más os gusten.</p>
+<div class="imagen">
+	<img src="76510_m1_07.gif" alt="El validador del W3C muestra que el XHTML 1.0 de la página es válido" />
+	<p>Figura 1. El servicio de validación de etiquetado del W3C comprueba vuestras páginas e indica cualquier error de etiquetado.</p>
+</div>
+
+<p>Validar siempre las páginas que se crean es sólo la mitad del proceso. ¿Cómo podemos comprobar si los navegadores cumplen los estándares? El Proyecto de estándares web ha desarrollado una serie de pruebas denominadas pruebas Acid que utilizan algunas reglas complejas de HTML y CSS (además de otro etiquetado y código), para ver si un navegador puede reproducir correctamente diferentes pantallas de prueba. La última versión de la prueba Acid, Acid3, todavía está en proceso de creación.</p>
+<div class="vegeu_tambe">
+<h3>Ved también</h3>
+<p>Podéis leer más cosas sobre las pruebas Acid en la página web de <a href="http://www.acidtests.org/" hreflang="en">acidtests.org</a> y también podéis visitar las páginas de prueba reales para poner a prueba vuestro navegador.</p>
+</div>
+
+<h2 id="standardstoday">5.2. Compatibilidad de los estándares en las páginas actualmente</h2>
+<p>¿Utilizan las principales webs los estándares o simplemente recogen cuatro cosas y ya está? Echemos una ojeada a unas cuantas empresas y veamos qué puntuación reciben mediante el servicio de validación de etiquetado del W3C. Os sorprendería cuántas grandes páginas web no pasan las pruebas de validación de estándares; no os desaniméis porque no hay motivo para no poder hacerlo mejor y que vuestras páginas sí se validen correctamente. Cuando leáis los siguientes informes, tened en cuenta que cuanto mayor y complicada sea la página web, más difícil será validarla, en general (hay otros factores que se deben tener en cuenta, como las tecnologías utilizadas).</p>
+
+<h3 id="amazon">5.2.1. Amazon: ¿comprar con estándares?</h3>
+<p>Es posible que si alguna vez habéis realizado alguna compra en línea hayáis visitado <a href="http://amazon.com/" hreflang="en">Amazon.com</a> (o una de las webs específicas por país). Amazon es un megaalmacén del ciberespacio que ofrece de todo, desde libros hasta CD e incluso alimentos en algunas zonas. Ahora bien: ¿pasaría Amazon.com la prueba de validación? Podéis comprobarlo en la figura 2.</p>
+<div class="imagen">
+	<img src="76510_m1_08.gif" alt="Amazon tiene muchos errores de validación" />
+	<p>Figura 2. ¡Amazon.com falla estrepitosamente! No sólo tiene etiquetado no válido, sino que ni siquiera declaran un tipo de documento (explicando qué versión de HTML o XHTML utilizan).</p>
+</div>
+
+<p>A Amazon todavía le queda mucho por hacer con respecto a compatibilidad con los estándares. Desconocemos qué sucede en Amazon, pero si se nos permite especular un poco, diríamos que, teniendo en cuenta que Amazon ya hace tiempo que funciona, probablemente han utilizado el mismo software para su página web durante toda su existencia. Como los estándares web no han recibido la suficiente atención hasta comienzos de este siglo, es muy probable que el sistema que utiliza Amazon para vender productos en línea se desarrollara mucho antes, cuando los estándares web no eran realmente aceptados ni publicitados. No lo sabemos a ciencia cierta, pero intuimos que Amazon se encuentra en el caso de aquellos que se mantienen con lo que les funciona.</p>
+
+<h3 id="cnn">5.2.2. CNN: ¿noticias estandarizadas?</h3>
+<p>¿Seguro que las organizaciones de noticias son entes semánticos? <a href="http://cnn.com/" hreflang="en">CNN.com</a> es una de las páginas web de medios mayor de todo el mundo. Al tener recursos globales e informar sobre las noticias a medida que suceden, seguramente tendrán un equipo de especialistas internos para garantizar que su web tenga un etiquetado válido, ¿no? Podéis comprobarlo en la figura 3.</p>
+
+<div class="imagen">
+	<img src="76510_m1_09.gif" alt="CNN es un poco más conforme, pero no supera la prueba" />
+	<p>Figura 3. CNN.com (el 15 de abril del 2008) no supera la validación con 33 errores. Se menciona un tipo de documento HTML 4.01 transicional, pero gran parte de su etiquetado se parece mucho a XHTML.</p>
+</div>
+
+<p>33 errores no está mal, tratándose de una web de dimensiones y complejidad como las de CNN. Puede que estos 33 errores se produzcan (y de nuevo estamos especulando) por que el sistema de gestión de contenidos que utiliza no esté del todo preparado para producir etiquetado que cumpla los estándares, o podría tratarse de una colección de errores de etiquetado por parte de un personal de producción que se especializa en redactar noticias, y no en producir webs; cualquier explicación es verosímil.</p>
+
+
+<h3 id="apple">5.2.3. Apple: el máximo de elegancia en diseño... ¿y en validación?</h3>
+<p>Apple es famosa por sus productos de hardware y software bonitos y funcionales. Sus anuncios de productos son casi como experiencias religiosas para multitudes de fieles seguidores. La web de <a href="http://apple.com/" hreflang="en">Apple</a> (podéis ver la figura 4) a menudo se considera muy bien diseñada y organizada, sin embargo... ¿pasaría la prueba de validación?</p>
+<div class="imagen">
+	<img src="76510_m1_10.jpg" alt="El sitio web de Apple casi supera la validación" />
+	<p>Figura 4. A Apple.com le falta muy poco para tener un etiquetado HTML 4.01 transicional válido. Entre los seis errores que tiene hay una mezcla de errores de etiquetado y un caso de uso de etiquetas específicas de Safari.</p>
+</div>
+
+<p>La web de Apple se acerca mucho a la validación. Realmente, sólo sería necesario que alguien le dedicara cinco minutos para corregir los errores y hacer que la página supere la prueba de validación. No obstante, el único error que mencionaríamos brevemente es que Apple ha decidido utilizar un atributo específico de Safari en su cuadro de busca (dando al cuadro de busca el atributo <code>type="search</code>"). En Safari, esto permitirá ver una lista de buscas recientes pinchando sobre un pequeño icono de lupa. En otros navegadores, como Opera o Internet Explorer, se verá sólo como un cuadro de texto normal.</p>
+
+
+<h3 id="survey">5.2.4. Un pequeño sondeo de compatibilidad de estándares</h3>
+<p>En vez de ver muchos ejemplos como éste, hemos comprimido el resto de webs sondeadas en una práctica gráfica de tarta. Hemos mirado unas 40 webs corporativas de la lista Fortune 500 y también las clasificaciones Alexa de webs con más tráfico, y en la figura 5 se muestra lo que hemos averiguado:</p>
+<div class="imagen">
+	<img src="76510_m1_11.gif" alt="Un 85% de los sitios web examinados no superan la validación" />
+	<p>Figura 5. El 85% de las webs sondeadas no pasaron la validación de ninguna manera. Algunas presentaban fallos espectaculares de hasta mil errores; otras tenían sólo un par de errores aquí y allí.</p>
+</div>
+
+<h2 id="compliancelack">5.3. ¿Por qué hay tan pocas páginas que cumplan los estándares?</h2>
+<p>Nos preguntamos: ¿por qué, por qué no validan? Esto puede ser un poco dramático, pero como mínimo tiene un tono similar a la pregunta que os estáis haciendo en este momento. ¿Por qué se validan tan pocas webs? Ya hemos mencionado algunas de las razones posibles cosas como sistemas de comercio electrónico o sistemas de gestión de contenidos heredados pero también hay otros motivos subyacentes.</p>
+
+<h3 id="education">5.3.1. Educación</h3>
+<p>La facultad en la que estudié tenía un programa de sistemas de información de gestión (<span lang="en">management information systems</span>), un programa de ciencias informáticas y un programa de nuevos medios, cada uno de los cuales tenía asignaturas relacionadas con la producción de webs pero, aunque enseñaban muchas cosas de manera eficiente, en ninguna de éstas había realmente mucha cobertura sobre cómo codificar realmente una web. La sensación general que tengo cuando reviso muchas asignaturas universitarias es que los lenguajes web como el HTML, el CSS y JavaScript se encuentran bajo el umbral técnico de la mayoría de los programas de ciencias informáticas y por encima del de la mayoría de los programas de MIS/Nuevos medios.</p>
+<p>A donde quiero ir a parar en este caso es que muchos cursos educativos no cubren este tipo de materias con mucho detalle. Apostaría a que si le preguntáis a diez desarrolladores que trabajen con estándares web dónde aprendieron a utilizarlos, nueve de ellos responderían que son autodidactas (y el otro no respondería porque tiene demasiado trabajo intentando que su web se visualice bien con el IE 6).</p>
+<p>El World Wide Web Consortium (W3C), que es el grupo responsable de desarrollar los estándares, y la Web Standards Project (WaSP) se están tomando seriamente este reto y están presionando realmente para que mejore la aceptación de los estándares web, tanto por parte de los fabricantes de navegadores como por parte de los desarrolladores.</p>
+<p>De hecho, el verdadero motivo por el que se creó este curso que estáis leyendo es proporcionar un conjunto adecuado de materiales de aprendizaje para los estándares web y un medio para utilizar este material para aprender, de manera gratuita. En definitiva, intentamos eliminar algunos motivos más (dudamos de si utilizar la palabra <em>excusas</em> en este caso...) por los que la gente no está adoptando los estándares web. Realmente no hay excusa para no utilizarlos, teniendo en cuenta las ventajas que suponen (tal como se ha visto en el subapartado 4.1).</p>
+
+<h3 id="business">5.3.2. Motivos empresariales</h3>
+<p>Una web que visitamos frecuentemente, destinada a emprendedores implicados en poner en marcha nuevas iniciativas basadas en la web, ha alojado una serie de discusiones sobre el uso de los estándares web en "aplicaciones web 2.0". Generalmente, existe un intercambio interesante entre aquellos que creen que se deberían utilizar los estándares web porque tiene sentido (por todos los motivos que hemos tratado anteriormente), y aquellos que simplemente dicen que no importa.</p>
+<p>El fondo de la cuestión es que los navegadores web interpretarán el código por malo que sea. No es necesario validar vuestras páginas para que se visualicen correctamente en la mayoría de los navegadores. Desde una perspectiva empresarial, donde el tiempo es oro, ¿para qué preocuparse de invertir más tiempo a fin de que se validen? Si podéis arreglar cuatro códigos en forma de tabla en 30 minutos, o pasaros 30 minutos codificando vuestra página en HTML y CSS y 30 minutos para aseguraros de que se valida y funciona correctamente en cualquier navegador, y el resultado final tiene el mismo aspecto en la mayoría de los navegadores web, ¿qué os parece más fácil y rápido?</p>
+<p>Mucha gente de mi generación (casi llego a la treintena en el momento de redactar esto) aprendió a crear webs utilizando tablas para el formato y etiquetas de tipo de letra para la tipografía. Puede parecer abrumador volver a aprender a hacer algo cuando lo que estás haciendo todavía "funciona" (todavía se ve bien en la mayoría de los navegadores web). Los empresarios generalmente no distinguen la diferencia; no me he encontrado nunca con que un director me hablara de la calidad de mi etiquetado durante una revisión de rendimiento. De manera que, realmente, ¿cuál es el incentivo?</p>
+<p>Pues lo que yo creo es (ya podéis adivinar cuál es mi posición) que el planteamiento del código desordenado o mal hecho tiene muy poca visión de futuro. Según mi experiencia, rediseñar una web basada en estándares es mucho más fácil que tener que convertir un caos de páginas incorrectamente codificadas (he hecho las dos cosas). Todavía debe llegar la utopía que prometen XHTML y CSS en la que sólo se ha de tocar el CSS para rediseñar una web, pero me he acercado mucho.</p>
+<p>También hay que tener en cuenta que veréis muchos más anuncios de trabajo actualmente pidiendo conocimientos de estándares web que nunca.</p>
+<p>También hay algunos motivos empresariales directos que se deben tener en cuenta. En general, el uso de estándares web mejora la posición de una web en las clasificaciones de los motores de búsqueda (el orden en el que aparecen las webs cuando se realiza una busca de Google) y sobre todo mejora la facilidad de encontrarla. Además, el uso de estándares y buenas prácticas generalmente hará que la página web sea más accesible para las personas con discapacidades que intentan utilizarla y para los usuarios que intentan acceder a la web con teléfonos móviles. Más usuarios y un aumento de la visibilidad siempre es bueno para el negocio.</p>
+
+
+<h2 id="summary">Resumen</h2>
+<p>En este apartado hemos hablado sobre el estado actual de la adopción de estándares web, sobre cómo comprobar si los estándares se están utilizando correctamente en una web, cuántos utilizan los estándares web correctamente y los motivos por los que la gente no adopta los estándares. Como ya habéis visto anteriormente, los motivos no son tan imperativos y deberían ser fáciles de superar.</p>
+<p>Así pues, ¿qué debe hacer un desarrollador web emprendedor? ¿Pensáis que son importantes los estándares web (y seguir leyendo este curso), o sois de los que ponéis en marcha un editor gráfico y empezáis a maquetar la web con tablas?</p>
+<p>Digámoslo de esta manera: la queja individual mayor que he leído de personas que dicen que el desarrollo basado en estándares es una pérdida de tiempo es que se tarda demasiado en aprender los estándares web en vez de los métodos obsoletos y desarrollar webs que funcionen con todos los navegadores. Entonces, ¿por qué no empezar aprendiendo la manera correcta de hacerlo y ahorrarse unos cuantos problemas? Habéis decidido aprender cómo crear webs y debéis hacerlo de una manera u otra; por lo tanto, ¿por qué no aprender a hacerlo correctamente?</p>
+
+<h2 id="exercises">Preguntas de repaso</h2>
+<ol>
+<li><p>Hemos visto muchas "grandes" webs y si validan o no. Pasad por el validador algunas de las webs que visitáis a menudo. ¿Validan? Si no es así, mirad algunos de los errores para haceros una idea de por qué fallan.</p></li>
+<li><p>¿Qué es un tipo de documento (<span lang="en">doctype</span>)? ¿De qué se encarga?</p></li>
+<li><p>¿Qué argumentos podéis dar a favor de los estándares web para los negocios?</p></li>
+</ol>
+
+<h2 id="furtherreading">Lecturas complementarias</h2>
+
+<ul>
+	<li><p><a href="http://validator.w3.org/" hreflang="en">Servicio de validación de marcado del W3C</a>.</p></li>
+	<li><p><a href="http://www.w3.org/" hreflang="en">Web del W3C</a> (con información sobre distintos estándares y recomendaciones para el futuro).</p></li>
+	<li><p><a href="http://www.webstandards.org/" hreflang="en">El Proyecto de estándares web</a>.</p></li>
+</ul>
+
+</div>
+<div><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.es"><img src="../../m0/creative_commons.gif" id="logo_cc" alt="Logo Creative Commons" /></a></div>
+<div id="logo_text">Los contenidos recogidos en este artículo están sujetos a una licencia <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.es">Creative Commons<br /> Reconocimiento, No comercial - Compartir bajo la misma licencia 3.0 No adaptada</a>.
+</div>
+<div id="cierre_autor"></div>
+
+<div id="peu">
+		<a rel="prev" href="../ud3/index.html" title="Ir al artículo anterior" accesskey="8"><img src="../../img/fletxa_izq_inv.gif" alt="Ir al artículo anterior" /></a> <strong>:</strong>
+<a rel="index" href="../../index.html" title="Ir al índice" accesskey="0"><img src="../../img/indice_inv.gif" alt="Ir al índice" /></a> <strong>:</strong>
+<a rel="next" href="../../m2/ud1/index.html" title="Ir al artículo siguiente" accesskey="9"><img src="../../img/fletxa_der_inv.gif" alt="Ir al artículo siguiente" /></a>
+</div>
+</body>
+</html>

@@ -1,0 +1,522 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
+<meta http-equiv="Content-Language" content="es" />
+<meta name="language" content="es" />
+<meta name="author" content="Universitat Oberta de Catalunya" />
+<meta name="description" content="FALTA CONTENIDO" />
+<meta name="title" content="FALTA CONTENIDO" />
+<meta name="keywords" content="FALTA CONTENIDO" />
+
+<title>CSS - Estilos de listas y enlaces</title>
+<link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
+</head>
+
+<body>
+<div id="cabecera">
+	<img id="logo" src="../../img/logo.gif" alt="Universitat Oberta de Catalunya" />
+    <a href="http://mosaic.uoc.edu/"><img id="logomosaic" src="../../img/logo-mosaic.gif" alt="Logo de Mosaic" title="Abre la página web de Mosaic" /></a>
+	<div id="titulo">CSS</div>
+	<div id="subtitulo">Estilos de listas y enlaces</div>
+<div id="cierre"></div>
+	<div id="navegador">
+		<a href="../../m0/accessibilitat.html" id="accesibilidad">Accesibilidad</a> <strong>:</strong> 
+		<a rel="prev" href="../ud5/index.html" title="Ir al artículo anterior" accesskey="8"><img src="../../img/fletxa_izq.gif" alt="Ir al artículo anterior" /></a> <strong>:</strong> 
+		<a rel="index" href="../../index.html" title="Ir al índice" accesskey="0"><img src="../../img/indice.gif" alt="Ir al índice" /></a> <strong>:</strong> 
+		<a rel="next" href="../ud7/index.html" title="Ir al artículo siguiente" accesskey="9"><img src="../../img/fletxa_der.gif" alt="Ir al artículo siguiente" /></a>
+	</div>
+</div>
+	
+<div id="main">
+<h1>32. Estilos de listas y enlaces</h1>
+<p class="by"><a href="../../index.html#buchanan">Ben Buchanan</a>. 26 de septiembre del 2008 Publicado en: subrayar, estados, navegación, relleno, margen</p>    
+
+<p>Muchos elementos de las páginas web son un tanto "indulgentes" en cuanto al diseño: no es muy grave si no están "del todo bien". Pero listas y enlaces son otra historia, porque si no se hacen bien, pueden causar problemas graves a la gente que quiera utilizar vuestro sitio web.</p>
+
+<p>En concreto, los enlaces tienen algunos requisitos básicos en cuanto al estilo y a las expectativas de los usuarios. Los enlaces con estilos mal hechos pueden arruinar la experiencia que tendrá el usuario cuando utilice la web porque la gente deberá detenerse a pensar dónde debe hacer clic. En el peor de los casos, el usuario no sabrá determinar ni siquiera qué elementos de la página son enlaces.</p>
+
+<p>En este apartado, nos centraremos en las competencias básicas necesarias para crear unos estilos de listas y de enlaces bien hechos. También hablaremos de algunas maneras de evitar errores fundamentales de estos elementos y de producir un resultado final que funcione en cualquier navegador y que sea accesible para los usuarios con discapacidades.</p>
+
+<div class="note">
+<h3>Nota</h3>
+
+<p>En este apartado se utilizarán varios ejemplos, de modo que os podéis descargar los ficheros de muestra de las listas y los enlaces para ir viéndolos a medida que sigáis la lección.</p>
+
+<p class="font"><strong>Ved ejemplos reales en:</strong> "<a href="http://dev.opera.com/articles/view/32-styling-lists-and-links/styling-lists-and-links-examples.zip" hreflang="en">styling-lists-and-links examples</a>"</p>
+</div>  
+
+<p>Los contenidos de este apartado son los siguientes:</p>
+
+<ul class="index">
+
+<li>32.1. <a href="#stylinglists" accesskey="1">Aplicar estilos a las listas</a>
+<ul class="index">    
+<li>32.1.1. <a href="#basicbullets">Picos y números básicos</a></li>
+<li>32.1.2. <a href="#custombullets">Picos personalizados mediante imágenes</a></li>
+<li>32.1.3. <a href="#listmarginspadding">Márgenes y relleno de listas</a>
+<ul class="index">  
+<li><a href="#unorderedlists">Listas no ordenadas</a></li>
+<li><a href="#orderedlists">Listas ordenadas</a></li>
+<li><a href="#whattodo">¿Entonces qué hay que hacer?</a></li>
+</ul></li>
+<li>32.1.4. <a href="#liststyleposition">Utilizar una colocación de tipo lista</a></li>
+<li>32.1.5. <a href="#definitionlists">¿Y las listas de definiciones, qué?</a></li>
+<li>32.1.6. <a href="#nestedlists">Listas anidadas</a></li>
+<li>32.1.7. <a href="#horizontallists">Listas horizontales</a></li>
+<li>32.1.8. <a href="#fauxcolumns">"Columnas falsas"</a>
+<ul class="index">  
+<li><a href="#legacybrowsers">Navegadores antiguos</a></li>
+</ul></li>
+<li>32.1.9. <a href="#listsconclusion">Conclusión de las listas</a></li>
+</ul></li>                       
+<li>32.2. <a href="#stylinglinks" accesskey="2">Aplicar estilos a los enlaces</a>
+<ul class="index">
+<li>32.2.1. <a href="#linkstates">Comprender los estados de los enlaces</a></li>
+<li>32.2.2. <a href="#evolutionexpectations">Cómo la evolución de los navegadores creó expectativas</a></li>
+<li>32.2.3. <a href="#userexpectations">Expectativas del usuario</a></li>
+<li>32.2.4. <a href="#usecolorcarefully">Utilización adecuada de los colores</a></li>
+<li>32.2.5. <a href="#cssforlinks">Entremos en materia: el CSS</a>
+<ul class="index">  
+<li><a href="#linkstateorder">Aplicar estilos de estado de enlace en el orden adecuado</a></li>
+<li><a href="#controllingdefaults">Controlar las opciones por defecto</a></li>
+<li><a href="#underline">Subrayados</a></li>
+<li><a href="#outline">Contorno</a></li>
+</ul></li>
+<li>32.2.6. <a href="#recreatingnetscape">Ejemplo: recreación de las opciones por defecto de Netscape</a>
+<ul class="index">  
+<li><a href="#fauxunderlines">Subrayados falsos con <code>border-bottom</code></a></li>
+<li><a href="#stylesthatdontrelyoncolor">Estilos no basados en el color</a></li>
+</ul></li>
+<li>32.2.7. <a href="#iconsonlinks">Iconos en enlaces</a></li>
+</ul></li>                     
+<li>32.3. <a href="#navigationexample" accesskey="3">Combinarlo todo: un sencillo menú de navegación</a></li>
+<li class="especial"><a href="#summary">Resumen</a></li>
+<li class="especial"><a href="#exercises">Preguntas de repaso</a></li>
+<li class="especial"><a href="#furtherreading">Bibliografía</a></li>
+
+</ul>
+
+<h2 id="stylinglists">32.1. Aplicar estilos a las listas</h2>
+
+<p>Antes de nada, os enseñaremos los conceptos básicos relacionados con la aplicación de estilos a las listas con CSS y después pasaremos a echar un vistazo a algunas de las técnicas algo más complicadas.</p>
+
+<h3 id="basicbullets">32.1.1. Picos y números básicos</h3>
+
+<p>El punto más básico que se debe tener en cuenta a la hora de crear un estilo para una lista es pensar en qué forma de pico o de número queremos utilizar. También puede ser que no queráis utilizar ningún tipo de pico o de número. Como habéis aprendido al ver el HTML para las listas, existen muchas posibilidades que se establecen mediante la propiedad <code>list-style-type</code>.</p>
+
+<div class="vegeu_tambe">
+<h3>Ved también</h3>
+
+<p>Podéis ver las listas en el apartado 16 del módulo "El texto central de HTML".</p>
+</div>
+
+<p>Por ejemplo, para especificar que todas las listas no ordenadas del sitio web utilicen picos cuadrados, podéis utilizar este CSS:</p>    
+
+<pre><code>ul li {
+   list-style-type: square;
+}</code></pre>
+
+<p>De esta manera, conseguiremos un resultado parecido al de la figura 1:</p>
+
+<div class="imagen">
+<img src="76510_m6_35.gif" alt="Captura de pantalla de una lista con picos cuadrados" />
+<p>Figura 1. Lista desordenada con picos cuadrados </p>
+</div>
+
+ <p>En la figura 2 se muestran algunos ejemplos de lista muy habituales:</p>
+ 
+<div class="imagen">
+<img src="76510_m6_36.gif" alt="Captura de pantalla de algunos tipos de lista habituales: discos, cuadrados, círculos y sin pico para las listas no ordenadas, números decimales, decimales con cero a la izquierda, letras minúsculas y números romanos en minúscula para las listas ordenadas" />
+<p>Figura 2. Estilos más habituales de listas </p>
+<p><strong>Podéis ver algunas opciones más en la página de ejemplos en:</strong> "<a href="http://devfiles.myopera.com/articles/485/styling-lists-example-basics.html" hreflang="en">styling-lists-example-basics</a>"</p>
+</div>
+
+
+
+<p>Fijaos en que los picos y los números se representan con el <code>color</code> que se especifique en <code>li</code> o que éste herede. Si necesitáis que el pico sea de un color diferente del texto, deberéis utilizar una imagen o solucionarlo utilizando otros elementos de los puntos enumerados en la lista (puede ser muy fácil si la lista está formada por enlaces, por ejemplo).</p>
+
+
+<h3 id="custombullets">32.1.2. Picos personalizados mediante imágenes</h3>
+
+<p>El conjunto de picos estándar es suficiente para el contenido básico, pero a menudo se pide a los diseñadores que sustituyan los picos por una imagen propia.</p>
+
+<p>La especificación de CSS incluye la propiedad <code>list-style-image</code> para añadir una imagen de lista personalizada. No obstante, la propiedad tiene pocas opciones de colocación de la imagen de fondo y, en determinadas circunstancias, no funciona en absoluto en IE. Por ello, ha acabado siendo mucho más habitual establecer una imagen de fondo en los elementos enumerados en la lista.</p>
+
+<p>Pongamos por caso que tenéis una lista de canales de información RSS y queréis cambiar el pico por el típico icono naranja de RSS. Aplicaremos la clase "rss" a la lista para diferenciarla de otras listas.</p>
+
+<pre><code>&lt;ul <strong>class="rss"</strong>&gt;
+   &lt;li&gt;&lt;a href="http://example.com/rss.xml"&gt;News&lt;/a&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;a href="http://example.com/rss.xml"&gt;Sport&lt;/a&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;a href="http://example.com/rss.xml"&gt;Weather&lt;/a&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;a href="http://example.com/rss.xml"&gt;Business&lt;/a&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;a href="http://example.com/rss.xml"&gt;Entertainment&lt;/a&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;a href="http://example.com/rss.xml"&gt;Funny News&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+<p>Primero estableceremos que la lista no tenga <code>list-style-type</code> y eliminaremos el margen y el relleno (<em>padding</em>). Entonces, sólo hay que añadir una imagen de fondo en cada elemento enumerado de la lista, algo de relleno a la izquierda para desplazar el texto para que se pueda ver la imagen y algo de relleno alrededor del botón para espaciar los elementos de la lista.</p>
+
+<pre><code>.rss {
+   margin: 0;
+   padding: 0;
+   list-style-type: none;
+}
+.rss li {
+   background: #fff url("icon-rssfeed.gif") 0 3px no-repeat;
+   padding: 0 0 5px 15px;
+}</code></pre>
+
+<p>De esta manera, nos quedará una lista con la imagen de RSS en lugar de picos, tal como se puede observar en la figura 3:</p>
+
+<div class="imagen">
+<img src="76510_m6_37.gif" alt="Captura de pantalla de una lista con los picos sustituidos por imágenes" />
+<p>Figura 3. Lista con picos hechos con una imagen </p>
+</div>
+
+<p>Tened en cuenta que la imagen de fondo está situada utilizando píxeles para colocarla de manera precisa. Dependiendo del diseño que queráis aplicar, puede ser que también podáis utilizar <code>%</code>, <code>em</code> o palabras clave. De todos modos, id con cuidado cuando el diseño incluya contenido que pueda hacer que un elemento de la lista acabe teniendo varias líneas de texto, porque si establecéis el fondo en <code>center</code> o <code>50%</code> verticalmente, puede quedar bastante extraño, como se ve en la figura 4:</p>
+
+<div class="imagen">
+<img src="76510_m6_38.gif" alt="Captura de pantalla que muestra cómo queda el pico centrado verticalmente en medio del texto en lugar de estar centrado en la primera línea del texto." />
+<p>Figura 4. Demostración de imágenes de pico centradas verticalmente en un elemento de lista de varias líneas </p>
+</div>
+
+<p>En cambio, si establecéis que la imagen quede en la parte superior del elemento de la lista, conservaréis el comportamiento tradicional de los picos (es decir, quedará delante de la primera línea). Podéis ver la figura 5:</p>
+
+<div class="imagen">
+<img src="76510_m6_39.gif" alt="Captura de pantalla de imágenes de pico colocadas en la parte superior." />
+<p>Figura 5. Demostración de imágenes de pico alineadas en la parte superior de un elemento de lista con más de una línea </p>
+</div>
+
+<h3 id="listmarginspadding">32.1.3. Márgenes y relleno de listas</h3>
+
+<p>Si se utilizan bien, los márgenes y el relleno pueden hacer que las listas queden mucho más ordenadas y profesionales, pero debéis saber qué estáis haciendo y tener en cuenta que la situación es diferente para cada tipo de lista. En este subapartado os enseñaremos cómo aplicar márgenes y relleno a los dos tipos de lista más habituales de manera juiciosa.</p>
+
+<h3 id="unorderedlists">Listas no ordenadas</h3>
+
+<p>Algo que probablemente notaréis enseguida es que el estilo predeterminado de las listas aplica un sangrado más destacado que el estilo predeterminado para los párrafos. Podéis ver la figura 6:</p>
+
+<div class="imagen">
+<img src="76510_m6_40.gif" alt="Captura de pantalla de estilos de lista por defecto con un sangrado mayor que el de los párrafos" />
+<p>Figura 6. Las listas con el estilo predeterminado tienen un sangrado a la izquierda. </p>
+</div>
+
+<p>Si queréis que los elementos de una lista no ordenada queden alineados en el mismo punto que el resto de contenido, deberéis crear algunos estilos para modificar el sangrado como más os guste. Cada navegador requiere unos parámetros diferentes, en algunos se debe eliminar el margen y en otros se debe eliminar el relleno. Por lo tanto, para establecer los valores iniciales en todos los navegadores, estableced lo siguiente:</p>
+
+<pre><code>ul {
+   margin: 0;
+   padding: 0;
+}</code></pre>
+
+<p>Puede que eso no tenga el efecto que esperabais porque hará que todo el texto quede a la misma altura tocando a la izquierda, pero los picos quedarán más allá del texto, como se ve en la figura 7:</p>
+
+<div class="imagen">
+<img src="76510_m6_41.gif" alt="Captura de pantalla de picos más allá del texto" />
+<p>Figura 7. Los picos quedan más a la izquierda que el texto. </p>
+</div>
+
+<p>Por lo tanto, para alinear los picos a la izquierda, lo que debéis hacer es establecer un margen para la lista de elementos y que así quede todo al mismo nivel:</p>
+
+<pre><code>ul {
+   margin-left: 0;
+   padding-left: 0;
+}
+ul li {
+   margin-left: 1em;
+}</code></pre>
+
+<p>Llegados a este punto, aún encontraréis alguna diferencia de un píxel entre un navegador y otro, pero el efecto es básicamente el más consistente posible. Podéis ver la figura 8:</p>
+
+<div class="imagen">
+<img src="76510_m6_42.gif" alt="Captura de pantalla de picos alineados a la izquierda como los párrafos" />
+<p>Figura 8. Los picos colocados al mismo nivel que los párrafos anteriores y posteriores </p>
+</div>
+
+<h3 id="orderedlists">Listas ordenadas</h3>
+
+<p>Ahora debéis tener en cuenta lo mismo, pero aplicado a las listas ordenadas. Estas listas son más complicadas porque los símbolos numéricos están alineados según el elemento de la lista que tenga el número más alto. Por ejemplo, si tenéis una lista de 10 elementos, los decimales se colocarán de manera que el elemento de dos dígitos, el "10", quede como se ve en la figura 9:</p>
+
+
+<div class="imagen">
+<img src="76510_m6_43.gif" alt="Captura de pantalla de una lista de diez elementos con los marcadores sangrados para que quepa el 10." /> 
+<p>Figura 9. Los símbolos numéricos de los elementos del 1 al 9 tienen un relleno a la izquierda para quedar alineados con el elemento 10. </p>
+</div>
+
+
+
+<p>Por lo tanto, en realidad no se puede hacer que esta lista quede toda alineada a la izquierda y al mismo nivel que el resto del texto, a no ser que establezcáis que la lista utilice <code>list-style-type: decimal-leading-cero</code>;, que solucionará el problema tal como se ve en la figura 10:</p>
+
+<div class="imagen">
+<img src="76510_m6_44.gif" alt="Captura de pantalla de ceros al principio para que todos los números queden bien alineados a la izquierda." />
+<p>Figura 10. Los ceros a la izquierda llenan el espacio vacío de los elementos del 1 al 9. </p>
+</div>
+
+<p>Es más habitual aceptar sencillamente la diferencia de espaciado. Sin embargo, esto significa que los símbolos de las listas ordenadas y desordenadas no podrán alinearse fácilmente a la izquierda de manera consistente. Sólo se podrá alinear el texto de las listas.</p>
+
+<pre><code>ul, ol {
+   margin-left: 0;
+   padding-left: 0;
+}
+li {
+   margin-left: 2em;
+}</code></pre>
+
+<p>Necesitáis como mínimo 2 em de margen a la izquierda para incluir tanto las listas ordenadas como las no ordenadas. En la figura 11, fijaos en cómo se alinea el texto de los elementos en las dos listas.</p>
+
+<div class="imagen">
+<img src="76510_m6_45.gif" alt="Captura de pantalla de listas con todo el texto alineado a la izquierda" />
+<p>Figura 11. El texto se alinea tanto en las listas ordenadas como en las desordenadas. </p>
+</div>
+
+
+<h3 id="whattodo">¿Entonces qué hay que hacer?</h3>
+
+<p>Básicamente tenéis tres opciones:</p>
+
+<ol>
+<li><p>Aceptar la colocación por defecto de las listas y de sus símbolos.</p></li>
+<li><p>Especificar la alineación del texto de las listas.</p></li>
+<li><p>Establecer un estilo diferente para <code>ul</code> y <code>ol</code>.</p></li>
+</ol>
+<p>No hay una manera correcta ni incorrecta de hacerlo y es bastante habitual que se deje todo con la configuración predeterminada para las listas de contenido general.</p>
+
+
+<h3 id="liststyleposition">32.1.4. Utilizar una colocación de tipo lista</h3>
+
+<p>Si queréis que el texto de elementos de más de una línea quede por debajo del símbolo de la lista, deberéis configurar la propiedad <code>list-style-position</code> en <code>inside</code> para así obtener el resultado que se ve en la figura 12:</p>
+
+<div class="imagen">
+<img src="76510_m6_46.gif" alt="Captura de pantalla de una lista desordenada con texto de más de una línea por debajo de los picos" />
+<p>Figura 12. La posición de la lista <code>inside</code> hace que, a partir de la segunda línea, el texto quede por debajo del símbolo en lugar de alineado con el sangrado del texto. </p>
+</div>
+
+<p>Este estilo de símbolos rodeados de texto no es muy popular. La propiedad <code>list-style-position</code> está establecida por defecto en <code>outside</code>, lo que produce el resultado del que se habla más adelante en este apartado.</p>
+
+
+<h3 id="definitionlists">32.1.5. ¿Y las listas de definiciones, qué?</h3>
+
+<p>En general, las listas de definiciones no requieren mucha atención aparte de establecer un estilo <code>dt</code> (normalmente texto en negrita) y controlar el sangrado de las definiciones:</p>
+
+<pre><code>dt {
+   font-weight: bold;
+}
+dd {
+   margin-left: 2em;
+}</code></pre>
+
+<p>Eso define un estilo claro y sencillo para listas de definiciones, como se ve en la figura 13:</p>
+
+<div class="imagen">
+<img src="76510_m6_47.gif" alt="Captura de pantalla de una lista de definiciones con términos en negrita y definiciones con sangrado" />
+<p>Figura 13. Una lista de definiciones con un estilo muy sencillo </p>
+</div>
+
+<p>Aunque las listas de definiciones pueden reestructurarse con elementos flotantes y posicionamientos, esto es complicado y, en general, es mejor hacer las cosas sencillas. Como ya son bastante útiles, sólo les hace falta un poco de ayuda para hacer que los términos de la definición destaquen un poco más y que las definiciones tengan un sangrado adecuado.</p>
+
+
+<h3 id="nestedlists">32.1.6. Listas anidadas</h3>
+
+<p>Ya aprendisteis a anidar listas. Cuando creéis vuestro propio CSS, debéis ir con cuidado de mantener unos rasgos de diseño muy claros para mostrar la relación entre una lista anidada y la lista que la incluye. La manera más fácil de conseguirlo es aplicar un sangrado a los elementos de la lista anidada que, de hecho, es la configuración predeterminada en todos los navegadores.</p>
+
+<div class="vegeu_tambe">
+<h3>Ved también</h3>
+
+<p>Podéis ver las listas en el subapartado 16.4 del módulo "El texto central de HTML".</p>
+</div>
+
+<p>Si establecéis vuestro sangrado de lista personal, la configuración básica se multiplicará. Por ejemplo, podéis ver el CSS siguiente:</p>
+
+<pre><code>ul, ol {
+   margin-left: 0;
+   padding-left: 0;
+}
+li {
+   margin-left: 2em;
+}</code></pre>
+
+<p>Cada elemento subsiguiente de la lista hija de la cadena hereda el valor de <code>margin</code> de su elemento de lista padre además de tener 2 em propios más añadidos encima. Así pues, un elemento de lista de nivel superior (uno que no tenga un elemento de lista como elemento padre) tendrá un margen izquierdo de 2 em, mientras que un elemento de lista hijo del primer elemento de lista heredará 2 em de su padre y tendrá 2 em más añadidos encima, es decir, un total de 4 em, etc.</p>
+
+
+<h3 id="horizontallists">32.1.7. Listas horizontales</h3>
+
+<p>Uno de los cambios más comunes que son necesarios para trabajar con una lista es crear una lista horizontal, es decir, hacer que los elementos de la lista aparezcan uno al lado del otro en vez de uno debajo del otro. Se trata de un truco muy habitual para la navegación por el sitio. Veamos un ejemplo del apartado de los menús de navegación (figura 14):</p>
+
+<div class="imagen">
+<img src="76510_m6_48.gif" alt="Captura de pantalla de una lista sencilla con picos" />
+<p>Figura 14. Una lista sencilla </p>
+</div>
+
+<p>Convirtámosla en una lista horizontal como se ve en la figura 15:</p>
+
+<div class="imagen">
+<img src="76510_m6_49.gif" alt="Captura de pantalla de una lista con los elementos uno al lado del otro" />
+<p>Figura 15. Una lista horizontal sencilla </p>
+</div>
+
+<p>Para conseguir este efecto, hemos de hacerle tres cosas a la lista:</p>
+
+<ol>
+<li><p>Eliminar <code>margin</code> y <code>padding</code> de <code>&lt;ul&gt;</code>.</p></li>
+<li><p>Establecer los elementos de la lista en <code>display: inline</code>;.</p></li>
+<li><p>Aplicar un poco de espaciado a la derecha de los elementos de la lista para que no choquen.</p></li>
+</ol>
+
+<p>En este ejemplo, la lista tiene el ID "mainmenu" (menú principal), de manera que lo utilizaremos como selector contextual para garantizar que sólo cambiamos la lista que queremos cambiar. El CSS es el siguiente:</p>
+
+<pre><code>#mainmenu {
+   margin: 0;
+   padding: 0;
+}
+#mainmenu {
+   display: inline;
+   padding: 0 1em 0 0;
+}</code></pre>
+
+<p>En este sencillo ejemplo sólo hay que establecer los elementos de la lista en <code>display: inline;.</code> Tened en cuenta que si utilizáis <code>float: left;</code> también conseguiréis un resultado parecido. Más adelante aprenderéis más cosas sobre los elementos flotantes.</p>
+
+<div class="vegeu_tambe">
+<h3>Ved también</h3>
+
+<p>Podéis ver los elementos flotantes en el apartado 35 de este módulo didáctico.</p>
+</div>
+
+ <h3 id="fauxcolumns">32.1.8. "Columnas falsas"</h3>
+
+<p>Antes hemos creado una lista de canales de información de RSS. Ahora imaginaos que aquella lista se ha situado en una barra lateral de vuestro sitio. El diseñador quiere que la lista aparezca en dos columnas con un borde alrededor de todo el grupo como se ve en la figura 16:</p>
+
+<div class="imagen">
+<img src="76510_m6_50.gif" alt="Captura de pantalla de una lista en dos columnas" />
+<p>Figura 16. Una lista de canales de información en dos columnas con un icono de RSS como pico </p>
+<p class="font"><strong>Ved el ejemplo en:</strong> "<a href="http://devfiles.myopera.com/articles/485/styling-lists-example-columns.html" hreflang="en">Styling lists example columns</a>"</p>     
+</div>
+
+
+<p>Supongamos que la lista se encuentra dentro de un <code>&lt;div&gt;</code> que establece la anchura y el borde. La lista básica quedaría de una manera parecida a la figura 17:</p>
+
+<div class="imagen">
+<img src="76510_m6_51.gif" alt="Captura de pantalla de lista básica" />
+<p>Figura 17. La lista sin estilos dentro del borde </p>
+<p class="font"><strong>Ved la lista básica original en:</strong> "<a href="http://devfiles.myopera.com/articles/485/styling-lists-example-image-bullet.html" hreflang="en">Styling lists example image bullet</a>"</p>             
+</div>
+
+<p>Para conseguir el efecto de "faux columns" o columnas falsas, añadid el icono RSS como hemos visto antes y aplicad un margen de 5 píxeles arriba, a la derecha y a la izquierda.</p>
+
+<pre><code>.rss {
+   margin: 5px 5px 0 5px;
+   padding: 0;
+}
+.rss li {
+   list-style-type: none;
+   background: #fff url("icon-rssfeed.gif") 0 3px no-repeat;
+   padding: 0 0 5px 15px;
+   display:-moz-inline-box;
+}</code></pre>
+
+<div class="note">
+<h3>Nota</h3>
+
+<p>Fijaos en que se añade <code>display:-moz-inline-box;</code> para que el ejemplo se pueda ver correctamente con Firefox 2.</p>
+</div>
+
+<p>No es necesario que le añadamos margen al botón porque el último elemento de la lista ya aplicará el espaciado adecuado con su relleno tal como se observa en la figura 18:</p>
+
+<div class="imagen">
+<img src="76510_m6_52.gif" alt="Captura de pantalla de lista con el espaciado y los iconos correctos" />
+<p>Figura 18. Ya casi hemos terminado; ahora tenemos un espaciado y unos iconos de pico bien hechos. </p>
+</div>
+
+<p>Ahora estableced los elementos de la lista en <code>display: inline-block;</code> y estableced la anchura a <code>40%</code> y el margen derecho a <code>2%</code> (también podéis utilizar anchuras en píxeles). También debéis especificar que el <code>&lt;ul&gt;</code> tenga una anchura de <code>100%</code> para garantizar que los elementos de más de una línea queden como deben quedar y que la lista tenga el tamaño correcto:</p>
+
+<pre><code>.rss {
+   margin: 5px 5px 0 5px;
+   padding: 0;
+   <strong>width: 100%;</strong>
+}
+.rss li {
+   <strong>display: inline-block;</strong>
+   <strong>width: 40%;</strong>            
+   <strong>margin: 0 2% 0 0;</strong>
+   list-style-type: none;
+   background: #fff url("icon-rssfeed.gif") 0 3px no-repeat;
+   padding: 0 0 5px 15px;
+   display:-moz-inline-box;
+}</code></pre>
+
+<p>En la mayoría de los navegadores, con esto será suficiente para crear el efecto de la columna, pero deberéis especificar que IE haga que "floten" los elementos de la lista a la izquierda. Utilizamos un estilo condicional para todas las versiones hasta IE 7 (ya que aún no sabemos qué harán las futuras versiones).</p>
+
+<pre><code>&lt;!--[if lte IE 7]&gt;
+   &lt;style type="text/css"&gt;
+      .rss li {
+         float: left;
+      }
+   &lt;/style&gt;
+&lt;![endif]--&gt;</code></pre>
+
+<p>Ahora ya tenemos el efecto de las dos columnas, tal como se ve en la figura 19:</p>
+
+<div class="imagen">
+<img src="76510_m6_53.gif" alt="Captura de pantalla de una lista en dos columnas" />
+<p>Figura 19. La lista completa </p>
+</div>
+
+<h3 id="legacybrowsers">Navegadores antiguos</h3>
+
+<p>Si se os pide que creéis este diseño para navegadores más antiguos que no aceptan <code>inline-block</code> (bloque en línea), deberéis hacer que "floten" los elementos de la lista a la izquierda en todos los navegadores y utilizar un ajuste de distancia como el que se describe en el "<a href="http://www.positioniseverything.net/easyclearing.html" hreflang="en">How to clear floats without structural markup</a>". Por suerte, la última hornada de navegadores han hecho que el <code>inline-block</code> sea una propiedad de visualización viable, así que, a no ser que tengáis una cuota muy grande de navegadores antiguos como Firefox 2, deberíais poder utilizar el método <code>inline-block</code>.</p>
+
+<h3 id="listsconclusion">32.1.9. Conclusión de las listas</h3>
+
+<p>Ya hemos cubierto un conjunto básico de opciones de aplicación de estilos y métodos para listas. Podéis utilizar estos ejemplos como punto de partida y combinarlos para crear un gran número de diseños. Como las listas a menudo se combinan con enlaces, pasamos a hablar de estos.</p>
+                                              
+<h2 id="stylinglinks">32.2. Aplicar estilos a los enlaces</h2>
+
+<p>Aplicar estilos a los enlaces puede considerarse una especie de arte. En este campo hay muchos requisitos en juego y puede ser difícil cumplirlos todos y, a la vez, obtener un resultado estéticamente satisfactorio. Por otra parte, es perfectamente posible siempre y cuando se tengan en cuenta una serie de normas muy sencillas:</p>
+
+<ul>
+<li><p>comprender los diferentes estados de los enlaces,</p></li>
+
+<li><p>no apartarse mucho de las expectativas del usuario,</p></li>
+
+<li><p>utilizar los colores adecuadamente.</p></li>
+</ul>
+
+<p>Si seguís estas reglas, podréis crear enlaces claros y fáciles de utilizar.</p>
+
+<h3 id="linkstates">32.2.1. Comprender los estados de los enlaces</h3>
+
+<p>Antes de aplicar estilos a los enlaces, debéis comprender los diferentes <strong>estados de los enlaces</strong>. Hay un total de cinco estados: no visitado o predeterminado, visitado, seleccionado, por encima y activo.</p>
+
+<ul>
+<li><p>No visitado (<em>unvisited</em>). El estado por defecto de un enlace cuando todavía no se ha activado o visitado.</p></li>
+
+<li><p>Visitado (<em>visited</em>). El estado de un enlace que el usuario ya ha visitado.</p></li>
+
+<li><p>Seleccionado (<em>focus</em>). Se aplica mientras el enlace está seleccionado; por ejemplo, cuando el cursor del usuario del teclado se encuentra sobre el enlace. Actualmente, IE no acepta el estado seleccionado y sólo utiliza <code>active</code> (activo) en lugar de <code>focus</code> (seleccionado).</p></li>
+
+<li><p>Por encima (<em>hover</em>). Se aplica cuando un usuario tiene el puntero del ratón por encima del enlace pero todavía no ha hecho clic sobre él.</p></li>
+
+<li><p>Activo (<em>active</em>). Se aplica cuando el usuario activa el enlace, es decir, mientras está haciendo clic sobre él. En algunos navegadores, este estilo también se aplica cuando el enlace se ha abierto en otra ventana o pestaña.</p></li>
+</ul>
+
+<p>Siempre debéis especificar el CSS para cada uno de estos estados. Cada uno aporta información al usuario sobre el hecho de interactuar con un enlace. En caso de duda sobre si utilizar <code>focus</code>, <code>hover</code> o <code>active</code>, podéis aplicar el estilo <code>focus</code> y <code>hover</code> de la misma manera porque sus funciones son bastante parecidas para no causar confusión con el mismo estilo de enlace. Después podéis añadir alguna variación sencilla para <code>active</code>, por ejemplo poner el texto en cursiva. En caso de que sea necesario, podéis aplicar el mismo estilo a los tres.</p>
+
+<div class="note">
+<h3>Nota</h3>
+
+<p>Fijaos en que no todos estos estados son mutuamente excluyentes (aunque en realidad no es posible que un enlace esté visitado y no visitado a la vez); es perfectamente posible que un enlace esté en estado "por encima", "activo" y "visitado" a la vez.</p>
+</div>
+
+<h3 id="evolutionexpectations">32.2.2. Cómo la evolución de los navegadores creó expectativas</h3>
+
+<p>Para entender mejor algunas expectativas de los usuarios respecto a los enlaces, va bien saber un poco de la historia de la web.</p>
+
+<p>Puede que hayáis oído hablar de los "valores por defecto de Netscape" de los enlaces o que los enlaces siempre deberían ser azules y morados. Esto se remonta a los principios de la creación de la web, cuando los navegadores establecían los colores del contenido y los creadores de webs no tenían demasiado control sobre la manera de representación de sus páginas.</p>
+
+<p>El texto era negro, el fondo era gris y todos los enlaces estaban subrayados. Los enlaces sin visitar eran azules, los enlaces visitados eran morados y los enlaces activos eran rojos. Esto era todo. Podéis ver la figura 20 para observar una muestra.</p>
+
+<div class="imagen">
+<img src="76510_m6_54.jpg" alt="Captura de pantalla de la página de inicio de Mosaic/Navigator donde se explica qué son los hiperenlaces." />
+<p>Figura 20. Una captura de pantalla de Mosaic </p>
+</div>
+
+<p>Aunque era un poco monótono, era totalmente consistente y estableció <strong>la base de las futuras expectativas de los usuarios</strong>. Concretamente, los usuarios todavía a día de hoy esperan que el texto subrayado sea un enlace. Quizá no se esperen que todos los enlaces estén subrayados, pero sí esperan que se pueda hacer clic sobre un texto subrayado. Y es mejor no ir en contra de esta expectativa.</p>
+
+<p>Algunos sitios utilizan enlaces azules y morados, que aún son los colores predeterminados del contenido sin estilo en la mayoría de los navegadores. Aunque siempre podéis adaptaros a la moda "retro" y seguir con esta pareja de colores, en general a los usuario

@@ -1,0 +1,467 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
+<meta http-equiv="Content-Language" content="es" />
+<meta name="language" content="es" />
+<meta name="author" content="Universitat Oberta de Catalunya" />
+<meta name="description" content="FALTA CONTENIDO" />
+<meta name="title" content="FALTA CONTENIDO" />
+<meta name="keywords" content="FALTA CONTENIDO" />
+
+<title>CSS - Diseño, composición y presentación de formularios con CSS</title>
+<link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
+</head>
+
+<body>
+<div id="cabecera">
+	<img id="logo" src="../../img/logo.gif" alt="Universitat Oberta de Catalunya" />
+    <a href="http://mosaic.uoc.edu/"><img id="logomosaic" src="../../img/logo-mosaic.gif" alt="Logo de Mosaic" title="Abre la página web de Mosaic" /></a>
+	<div id="titulo">CSS</div>
+	<div id="subtitulo">Diseño, composición y presentación de formularios con CSS</div>
+<div id="cierre"></div>
+	<div id="navegador">
+		<a href="../../m0/accessibilitat.html" id="accesibilidad">Accesibilidad</a> <strong>:</strong> 
+		<a rel="prev" href="../ud7/index.html" title="Ir al artículo anterior" accesskey="8"><img src="../../img/fletxa_izq.gif" alt="Ir al artículo anterior" /></a> <strong>:</strong> 
+		<a rel="index" href="../../index.html" title="Ir al índice" accesskey="0"><img src="../../img/indice.gif" alt="Ir al índice" /></a> <strong>:</strong> 
+		<a rel="next" href="../ud9/index.html" title="Ir al artículo siguiente" accesskey="9"><img src="../../img/fletxa_der.gif" alt="Ir al artículo siguiente" /></a>
+	</div>
+</div>
+	
+<div id="main">
+<h1>34. Diseño, composición y presentación de formularios con CSS</h1>
+<p class="by"><a href="../../index.html#henick">Ben Henick</a>. 26 de septiembre del 2008 Publicado en: alineación, seleccionar, tercios, composición, cuadrículas</p>
+
+<p>El apartado de formularios HTML os presentó los conceptos básicos de creación de formularios y estilos. Este apartado continúa donde acabó el otro y ofrece más detalles sobre los elementos y estilos de formulario, así como sobre de qué modo se incluyen los formularios en los diseños de aplicación web del mundo real.</p>
+
+<div class="note">
+<h3>Nota</h3>
+
+<p>Podéis descargaros el fichero de código de ejemplo completo "styling_forms_code.zip" para que podáis jugar con él en vuestro ordenador. Además, en varios puntos del apartado se ofrecen enlaces a los ficheros de ejemplo.</p>
+
+<p class="font"><strong>Descargad el fichero de código de ejemplo completo en:</strong> "<a href="http://dev.opera.com/articles/view/34-styling-forms/styling_forms_code.zip" hreflang="en">Styling forms code examples</a>"</p>
+</div>
+
+<p>Los contenidos de este apartado son los siguientes:</p>
+                  
+<ul class="index">
+<li>34.1. <a href="#newconcepts" accesskey="1">Conceptos nuevos que presenta este apartado</a>
+<ul class="index">   
+<li>34.1.1. <a href="#ruletokenoverloading">Sobrecarga de reglas y etiquetas</a></li>
+<li>34.1.2. <a href="#newformelements">Elementos de campo de formulario nuevos</a></li>
+<li>34.1.3. <a href="#formdesignprinciples">Principios del diseño de formularios</a></li>
+<li>34.1.4. <a href="#ruleofthirds">La regla de los tercios</a></li>
+<li>34.1.5. <a href="#grids">Cuadrículas</a></li>
+<li>34.1.6. <a href="#platformsupport">Capas de soporte de plataforma</a></li>
+</ul></li>          
+<li>34.2. <a href="#simpleform" accesskey="2">Un formulario de contacto sencillo</a>
+<ul class="index">
+<li>34.2.1. <a href="#markup">Etiquetado</a></li>
+<li>34.2.2. <a href="#changesfrompreviousform">Cambios con respecto al formulario anterior</a></li>
+<li>34.2.3. <a href="#shortcomings">Defectos aparentes</a></li>
+<li>34.2.4. <a href="#newformfields">¿Campos de formulario nuevos? ¿Qué es eso?</a>
+<ul class="index"> 
+<li><a href="#checkbox">Elegir descripciones: <code>input type="checkbox"</code></a></li>
+<li><a href="#radio">Elegir uno de dos posibles estados mutuamente exclusivos: <code>input type="radio"</code></a></li>
+<li><a href="#select">Cuando hay demasiadas opciones para elegir: <code>select/option</code></a></li>
+<li><a href="#select2">Agrupar series de controles: <code>fieldset</code></a></li>
+</ul></li>
+</ul></li>
+<li>34.3. <a href="#walkthrough" accesskey="3">De cero hasta un formulario completo</a>
+<ul class="index">
+<li>34.3.1. <a href="#demo1">Demostración 1</a></li>
+<li>34.3.2. <a href="#demo1background">Demostración 1: consideraciones previas</a></li>
+<li>34.3.3. <a href="#demo2">Demostración 2</a></li>
+<li>34.3.4. <a href="#demo2background">Demostración 2: consideraciones previas</a></li>
+<li>34.3.5. <a href="#demo3">Demostración 3</a></li>
+<li>34.3.6. <a href="#demo3background">Demostración 3: consideraciones previas</a></li>
+<li>34.3.7. <a href="#creatingagrid">Crear una cuadrícula</a>
+<ul class="index"> 
+<li><a href="#gridframeworkwithincomposite">Crear la estructura de una cuadrícula en una composición</a></li>
+<li><a href="#enforcingthegrid">Aplicar la cuadrícula a la hoja de estilo</a></li>
+</ul></li>
+<li>34.3.8. <a href="#demo4">Demostración 4</a></li>
+<li>34.3.9. <a href="#demo4background">Demostración 4: consideraciones previas</a></li>
+<li>34.3.10. <a href="#ruleofthirdsexplanation">La regla de los tercios</a></li>
+<li>34.3.11. <a href="#demo5">Demostración 5</a></li>
+<li>34.3.12. <a href="#demo5background">Demostración 5: consideraciones previas</a></li>
+<li>34.3.13. <a href="#demo6">Demostración 6</a></li>
+<li>34.3.14. <a href="#demo6background">Demostración 6: consideraciones previas</a></li>
+<li>34.3.15. <a href="#demo7">Demostración 7</a></li>
+<li>34.3.16. <a href="#demo7background">Demostración 7: consideraciones previas</a></li>
+<li>34.3.17. <a href="#demo8">Demostración 8</a></li>
+<li>34.3.18. <a href="#demo8background">Demostración 8: consideraciones previas</a></li>
+<li>34.3.19. <a href="#demo9">Demostración 9</a></li>
+<li>34.3.20. <a href="#demo9background">Demostración 9: consideraciones previas</a></li>
+<li>34.3.21. <a href="#demo10">Demostración 10</a></li>
+<li>34.3.22. <a href="#demo10background">Demostración 10: consideraciones previas</a></li>
+<li>34.3.23. <a href="#demo11">Demostración 11</a></li>
+<li>34.3.24. <a href="#demo11background">Demostración 11: consideraciones previas</a></li>
+<li>34.3.25. <a href="#demo12">Demostración 12</a></li>
+<li>34.3.26. <a href="#demo12background">Demostración 12: consideraciones previas</a></li>
+</ul></li>  
+<li>34.4. <a href="#establishingplatformsupporttiers" accesskey="4">Establecer capas de soporte de plataforma</a></li>
+<li>34.5. <a href="#complexformlayouts" accesskey="5"> Composiciones de formulario complejas en la práctica (... en lugar de en teoría)</a></li>
+<li class="especial"><a href="#summary">Resumen</a></li>
+<li class="especial"><a href="#exercises">Preguntas de repaso</a></li>
+<li class="especial"><a href="#bibliography">Lecturas complementarias</a></li>
+</ul>
+
+
+<h2 id="newconcepts">34.1. Conceptos nuevos que presenta este apartado</h2>
+
+<p>En este apartado encontraréis información sobre la implementación de formularios y la composición de interfaces.</p>
+
+<h3 id="ruletokenoverloading">34.1.1. Sobrecarga de reglas y etiquetas</h3>
+
+<p>Se puede decir que si se utilizan muchas etiquetas <code>class</code> e <code>id</code>, se incumple el principio KISS. Sin embargo, las composiciones exigentes a menudo provocan conflictos en la cascada, conflictos que se pueden resolver muy fácilmente añadiendo etiquetas y redactando reglas de hoja de estilo que contengan varios selectores.</p>
+
+<div class="vegeu_tambe">
+<h3>Ved también</h3>
+
+<p>El principio KISS se explica en el apartado 30 de este módulo.</p>
+</div>
+
+<p>Las composiciones más exigentes están llenas de casos límite, que es mejor solucionar asignando un <code>id</code> a los elementos que definen un contexto muy concreto y especial.</p>
+
+
+
+<h3 id="newformelements">34.1.2. Elementos de campo de formulario nuevos</h3>
+
+<p>Un formulario efectivo a menudo debe ser algo más que un conjunto de botones y campos de introducción de texto porque es habitual estructurar las respuestas del usuario en términos de opciones. El HTML proporciona varias opciones para los diseñadores que se encuentren con este requisito.</p>
+
+
+<h3 id="formdesignprinciples">34.1.3. Principios del diseño de formularios</h3>
+
+<p>Los formularios de un sitio web son normalmente puntos centrales para la interacción con el usuario y la obtención de datos. Por lo tanto, suelen ser fundamentales para el éxito de una web, que exige diseñarlos con todo el cuidado posible.</p>
+
+<h3 id="ruleofthirds">34.1.4. La regla de los tercios</h3>
+
+<p>Los usuarios suelen centrar su atención en cuatro puntos de un lienzo (y en las líneas que los atraviesan). Este apartado presenta este fenómeno al lector y ofrece sugerencias para aprovecharlo al máximo con el CSS.</p>
+
+<h3 id="grids">34.1.5. Cuadrículas</h3>
+
+<p>En apartados anteriores ya se ha explicado cómo garantizar unas tipografías consistentes y sacar el máximo provecho del espacio en blanco. Este apartado va un poco más allá y explica cómo se pueden utilizar las unidades <code>em</code> para aplicar un grado de consistencia a la composición que sería imposible sin CSS.</p>
+
+<div class="vegeu_tambe">
+<h3>Ved también</h3>
+
+<p>Podéis ver cómo garantizar unas tipografías consistentes en el apartado 29 de este módulo y cómo sacar el máximo provecho del espacio en blanco en el apartado 10 del módulo "Conceptos de diseño web".</p>
+</div>
+
+
+<h3 id="platformsupport">34.1.6. Capas de soporte de plataforma</h3>
+
+<p>Un requisito habitual de los proyectos comerciales es la representación casi exacta del diseño aprobado de la web en uno o más navegadores. En este apartado, se tratarán brevemente las causas, los efectos y los procesos relacionados en el cumplimiento de este requisito.</p>
+
+
+<h2 id="simpleform">34.2. Un formulario de contacto sencillo</h2>
+
+<p>Los formularios de contacto con los que los visitantes de una web pueden enviar un correo electrónico directamente a una cuenta de correo son muy habituales por razones obvias: son accesibles a cualquier persona que tenga una dirección activa de correo electrónico y son fáciles de filtrar en una carpeta de correo específica.</p>
+
+<div class="vegeu_tambe">
+<h3>Ved también</h3>
+
+<p>Podéis ver los formularios de contacto en el apartado 20 del módulo "El texto central de HTML".</p>
+</div>
+
+<p>El etiquetado que se ha utilizado en un módulo anterior sobre formularios utiliza uno de estos formularios, que se ha decorado mucho.</p>
+
+<div class="vegeu_tambe">
+<h3>Ved también</h3>
+<p>Podéis ver el apartado 20 del módulo "El texto central de HTML".</p>
+</div>
+
+<h3 id="markup">34.2.1. Etiquetado</h3>
+
+<pre><code>&lt;form id="contactForm" method="post" action="/cgi-bin/service_email_script.php"&gt;
+&lt;ul&gt;
+   &lt;li id="nameField" class="required"&gt;&lt;label for="realname"&gt;Name:&lt;/label&gt;
+   &lt;input type="text" name="name" value="" class="medium" id="realname" /&gt;
+   &lt;span class="note"&gt;required&lt;/span&gt;&lt;/li&gt;
+   &lt;li id="addressField" class="required"&gt;&lt;label for="address"&gt;Email:&lt;/label&gt;
+   &lt;input type="text" name="email" value="" class="medium" id="address" /&gt;
+   &lt;span class="note"&gt;required&lt;/span&gt;&lt;/li&gt;
+   &lt;li id="subjectField"&gt;&lt;label for="natureOfInquiry"&gt;General
+    subject:&lt;/label&gt;
+      &lt;select name="subject" class="medium" id="natureOfInquiry"&gt;
+         &lt;option value="support"&gt;Support&lt;/option&gt;
+         &lt;option value="billing"&gt;Accounts &amp; billing&lt;/option&gt;
+         &lt;option value="press"&gt;Press&lt;/option&gt;
+         &lt;option value="other_q"&gt;Other questions&lt;/option&gt;
+      &lt;/select&gt;
+   &lt;/li&gt;
+   &lt;li id="acctTypeField"&gt;&lt;label for="acctNone"&gt;Account type:&lt;/label&gt;
+      &lt;fieldset&gt;
+         &lt;label for="acctGold"&gt;Gold&lt;/label&gt;&lt;input type="radio"
+          name="acct_type" id="goldAcct" class="rInput" /&gt;
+      &lt;label for="acctSilver"&gt;Silver&lt;/label&gt;&lt;input type="radio"
+       name="acct_type" id="acctSilver" class="rInput" /&gt;
+      &lt;label for="acctBronze"&gt;Bronze&lt;/label&gt;&lt;input type="radio" 
+       name="acct_type" id="acctBronze" class="rInput" /&gt;
+      &lt;label for="acctNone"&gt;None&lt;/label&gt;&lt;input type="radio" name="acct_type" 
+       id="acctNone" class="rInput" checked="checked" /&gt;
+      &lt;/fieldset&gt;
+      &lt;span class="note"&gt;required&lt;/span&gt;
+   &lt;/li&gt;
+   &lt;li id="availabilityField"&gt;
+      &lt;label for="availability"&gt;My account is unavailable:&lt;/label&gt;
+      &lt;input type="checkbox" name="is_down" id="availability" 
+       class="rInput" /&gt;&lt;/li&gt;
+   &lt;li id="messageField"&gt;&lt;label for="messageBody"&gt;Comments:&lt;/label&gt;
+   &lt;textarea name="comments" cols="32" rows="8" class="long"
+    id="messageBody"&gt;&lt;/textarea&gt;&lt;/li&gt;
+   &lt;li class="submitField"&gt;&lt;input type="submit" value="Send"
+    class="submitButton"  /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/form&gt;</code></pre>
+
+
+<h3 id="changesfrompreviousform">34.2.2. Cambios con respecto al formulario anterior</h3>
+
+<p>Además de incluir varios elementos nuevos, se han añadido algunas clases e ID al etiquetado a las que se puede hacer referencia desde la hoja de estilo. De esta manera, se puede hacer referencia a cada formulario, pareja de campo/valor y campo de manera individual sea cual sea el contexto.</p>
+
+<p>Los nuevos identificadores también hacen que sea más fácil que el diseñador pueda distinguir los campos que se deben llenar obligatoriamente de los que no.</p>
+
+<p>Para terminar, hay algunas clases nuevas que ofrecen sugerencias de la cantidad y tipos de información que deberían mostrar los elementos de formulario donde están adjuntados. Estas clases permiten aplicar detalles de composición a elementos arbitrarios múltiples de manera simultánea.</p>
+
+           
+<h3 id="shortcomings">34.2.3. Defectos aparentes</h3>
+
+<p>Como se supone que el formulario de demostración es el contenido principal, la <code>legend</code> (leyenda) utilizada en formularios anteriores se ha sustituido por un título.</p>
+<p>Las leyendas son muy adecuadas en los <code>fieldsets</code> (conjuntos de campos) en vez de las <code>labels</code> o etiquetas (que pueden identificarse con controles únicos). En este caso, el elemento <code>legend</code> se ha omitido completamente porque es difícil aplicarle estilos.</p>
+
+<p>Hay que destacar también que es mejor colocar las etiquetas "obligatorio" sobre los campos a los que les corresponda antes que el campo en el código fuente para facilitar las cosas a los usuarios con software de lector de pantalla. No obstante, la propiedad <code>position</code> (de la que no hablaremos en este apartado) es necesaria para disponer estos elementos de manera adecuada. Por lo tanto, las etiquetas "obligatorio" se han colocado <em>después de</em> sus controles asociados en el código fuente (aunque en el mismo contexto).</p>
+
+
+<h3 id="newformfields">34.2.4. ¿Campos de formulario nuevos? ¿Qué es eso?</h3>
+
+<p>En el apartado anterior ya se habló de los campos de texto y de los controles de envío. Como ya se ha mencionado anteriormente, hay varios casos de uso que requieren que el usuario pueda seleccionar una de dos o tres opciones. Estos elementos se describen brevemente a continuación:</p>
+
+<h3 id="checkbox">Elegir descripciones: <code>input type="checkbox"</code></h3>
+
+<pre><code>...
+&lt;label for="availability"&gt;My account is unavailable:&lt;/label&gt;
+&lt;input type="checkbox" name="is_down" id="availability" class="rInput" /&gt;</code></pre>
+
+<p>Las preguntas de participación o no participación suelen gestionarse con uno de estos controles. Otro caso en el que se utilizan es cuando hay que elegir arbitrariamente entre varias opciones, como, por ejemplo, una lista de intereses personales.</p>
+
+
+<h3 id="radio">Elegir uno de dos posibles estados mutuamente exclusivos: <code>input type="radio"</code></h3>
+
+<pre><code>&lt;label for="acctNone"&gt;Account type:&lt;/label&gt;
+&lt;fieldset&gt;
+   &lt;label for="acctGold"&gt;Gold&lt;/label&gt;&lt;input type="radio" 
+    name="acct_type" id="goldAcct" class="rInput" /&gt;
+   &lt;label for="acctSilver"&gt;Silver&lt;/label&gt;&lt;input type="radio"
+    name="acct_type" id="acctSilver" class="rInput" /&gt;
+   &lt;label for="acctBronze"&gt;Bronze&lt;/label&gt;&lt;input type="radio"
+    name="acct_type" id="acctBronze" class="rInput" /&gt;
+   &lt;label for="acctNone"&gt;None&lt;/label&gt;&lt;input type="radio" 
+    name="acct_type" id="acctNone" class="rInput" checked="checked" /&gt;
+&lt;/fieldset&gt;</code></pre> 
+
+<p>Un grupo de éstos permite presentar varias opciones la una al lado de la otra y de las que sólo se puede elegir una. Un buen ejemplo de caso de uso de un conjunto de controles de <code>radio</code> (elección de un elemento entre varios) es la asignación de una nota en una escala de 1 a 5 o de 1 a 10.</p>
+
+<p>Al contrario que otros controles de formulario, los controles de <code>radio</code> no sólo permiten sino que, de hecho, requieren que los controles asociados tengan el mismo <code>name</code> (nombre).</p>
+
+<p>Estos elementos toman su nombre de una interfaz habitual en los aparatos de radio de coche sintonizados mecánicamente. Al contrario que los canales programables típicos de los aparatos de sintonización digital, los botones mecánicos de memoria, cuando se pulsan, suelen centrar el receptor en una gama de frecuencias de la banda que se está sintonizando.</p>
+
+<p>Los controles de <code>checkbox</code> (casilla de selección) y <code>radio</code> permiten un atributo <code>checked</code> (comprobado) que, si se aplica, activa el control por defecto la primera vez que se representa.</p>
+
+<p>Antes de responder a la pregunta de si utilizar controles de <code>radio</code> en lugar de controles de <code>checkbox</code>, hay que tener en cuenta varios factores. Si queréis que el usuario confirme una decisión subjetiva (como por ejemplo ser miembro de una lista de correo), probablemente serán mejores los controles <code>checkbox</code>. Si preferís que el usuario elija entre dos opciones objetivas (como, pongamos por caso, el género), es mejor utilizar los controles de <code>radio</code>.</p>
+
+
+<h3 id="select">Cuando hay demasiadas opciones para elegir: <code>select/option</code></h3>
+
+<pre><code>...
+&lt;label for="natureOfInquiry"&gt;General subject:&lt;/label&gt;
+   &lt;select name="subject" class="medium" id="natureOfInquiry"&gt;
+      &lt;option value="support"&gt;Support&lt;/option&gt;
+      &lt;option value="billing"&gt;Accounts &amp; billing&lt;/option&gt;
+      &lt;option value="press"&gt;Press&lt;/option&gt;
+      &lt;option value="other_q"&gt;Other questions&lt;/option&gt;
+   &lt;/select&gt;</code></pre> 
+
+<p>Los elementos <code>select</code> y <code>option</code> ofrecen resultados parecidos a los proporcionados por una serie de controles de <code>radio</code>, pero ocupan mucho menos espacio. Elegir un elemento <code>select</code> en lugar de una serie de controles de <code>radio</code> suele ser una cuestión de cómo se utiliza el espacio en la interfaz de usuario; una lista larga de zonas geográficas o departamentos en una web de comercio electrónico suele ser más adecuada para elementos <code>select</code>, mientras que una serie más corta de opciones (como sí/no, verdad/mentira, gama de edad, gama de ingresos) debería establecerse como una serie de controles de <code>radio</code>.</p>
+
+<p>Si ponemos a prueba de manera meticulosa nuestra creación, comprobaremos que el nivel de control motriz necesario para manipular una lista <code>select</code> es elevado, pero aumenta ligeramente en proporción con el número de <code>options</code> que incluye. El resultado práctico es que a las listas cortas de opciones mutuamente exclusivas es mejor aplicarles un formato como una serie de controles <code>radio</code> con <code>labels</code> bien escritas.</p>
+
+<h3 id="select2">Agrupar series de controles: <code>fieldset</code></h3>
+
+<p>La función principal del elemento <code>fieldset</code> es asignar un único contexto a una serie de controles íntimamente relacionados (controles <code>text</code> para un número de teléfono, elementos <code>select</code> para una fecha, etc.).</p>
+
+
+
+<h2 id="walkthrough">34.3. De cero hasta un formulario completo</h2>
+
+<p>Ahora que ya hemos presentado brevemente el material nuevo de este apartado, ha llegado el momento de ver este material en acción: las doce demostraciones que siguen progresan a través de varios conceptos de diseño y retos de aplicar estilos que se pueden encontrar a la hora de crear formularios web.</p>
+
+<div class="text-clau">
+<p>Se recomienda a los lectores que guarden el material de demostración en su disco duro y que hagan pruebas con las reglas de hoja de estilo.</p>
+</div>
+
+<div class="note">
+<h3>Nota</h3>
+
+<p>Estas demostraciones avanzan por orden de código fuente en lugar de por el orden de creación de la hoja de estilo. Más adelante en este apartado se habla de los motivos y las implicaciones de esta divergencia.</p>
+</div>
+
+<h3 id="demo1">34.3.1. Demostración 1</h3>
+
+<p>Si empezamos con una regla como: <code>html {margin: 0; padding: 0; }</code>, el primer paso es configurar el <code>body</code> (texto central) de la página.</p>
+
+<pre><code>body{
+   margin: 0;
+   padding: 1.714em;
+   background-image: url(images/bg_grid.gif);
+   font-size: 14px;
+   font-family: Helvetica,Arial,sans-serif;
+   line-height: 1.714em;
+}</code></pre>
+
+<p class="font"><strong>Archivo fuente de:</strong> "<a href="http://dev.opera.com/articles/view/34-styling-forms/demo_form_unstyled.html" hreflang="en">Página sin demasiados estilos</a>"</p>
+
+<p class="font"><strong>Archivo fuente de:</strong> "<a href="http://dev.opera.com/articles/view/34-styling-forms/demo_form01.html" hreflang="en">Página con estilos <code>body</code> aplicados</a>"</p>
+            
+
+<h3 id="demo1background">34.3.2. Demostración 1: consideraciones previas</h3> 
+
+<ul>
+
+<li><p>Cuando el XHTML se sirve con el <code>Content-Type</code> adecuado, para un agente de usuario que lo acepte como es debido, el <code>margin</code> (margen) y/o <code>padding</code> (relleno) de la página por defecto se representan en el elemento <code>html</code>.</p></li>
+
+<li><p>En el resto de casos no descritos en el párrafo anterior, se coloca un canal de 10 píxeles en torno al perímetro de la página; Opera ofrece este elemento como valor de <code>padding</code>, pero otros navegadores populares lo ofrecen (de una manera un poco contraintuitiva) como valor <code>margin</code>. La hoja de estilo de demostración normaliza el resultado.</p></li>  
+
+<li><p>Aunque muchos puristas de la accesibilidad se oponen al valor de tamaño de letra de 14 píxeles, es integral de las propiedades de caja y tipografía que se han especificado en otra parte de la hoja de estilo, básicamente denominados en séptimas partes de un <code>em</code>. Al final del apartado se proporciona una tabla de conversión de fracciones a decimales para aquellos que quieran saber cómo es la aritmética utilizada.</p></li>  
+
+<li><p>Se ha elegido el valor <code>14 px</code> porque es el tamaño más pequeño de texto central que puede leer casi todo el mundo con la vista corregida.</p></li>  
+
+<li><p>Ya que uno de los objetivos de este apartado es demostrar el trabajo que se debe hacer para obtener una cuadrícula extremadamente consistente, se ha aplicado a la página un fondo de cuadrícula en incrementos de 24 píxeles.</p></li>
+</ul>
+
+<h3 id="demo2">34.3.3. Demostración 2</h3>
+
+<p>Ahora que hemos hablado de los contenedores de la página, los próximos dos pasos modifican o eliminan los estilos de agente de usuario.</p>
+
+<pre><code>h3 {
+   margin: 0 0 1.2em 0;
+   border-bottom: .05em solid rgb(0,96,192);
+   font-size: 1.429em;
+   line-height: 1.15em;
+}
+form {
+   width: 35.929em;
+   margin: 0;
+}
+ul {
+   margin: 0;
+   padding: 0;
+   list-style-type: none;
+}</code></pre>
+
+<p class="font"><strong>Archivo fuente de:</strong> "<a href="http://dev.opera.com/articles/view/34-styling-forms/demo_form02.html" hreflang="en">Aplicar estilo al título principal y eliminar los canales no deseados</a>"</p>
+
+<h3 id="demo2background">34.3.4. Demostración 2: consideraciones previas</h3>
+
+<ul>
+
+<li><p>La progresión del tamaño de la letra de los títulos es diferente en cada plataforma; sin embargo, los valores predeterminados siempre son una proporción del valor <code>medium</code> utilizado para el texto de párrafo sin estilo y, por lo tanto, se heredan a través de la cascada. El resultado del valor proporcionado debe cambiar la proporción predeterminada.</p></li>
+
+<li><p>Se considera óptimo utilizar <code>h1</code> para el primer título de una página. En este caso, esta práctica se ignora porque, en un entorno de producción comercial, el título del sitio generalmente se encuentra en un <code>h1</code> de la página y el título de la página debería estar más abajo en la jerarquía de encabezamientos. En muchos casos, la prominencia del formulario será igual a la prominencia de otros contenidos o formularios del mismo documento.</p></li>
+
+<li><p>El objetivo de los estilos de <code>h3</code> es crear una caja de contenido de 24 píxeles de altura con 24 píxeles de canal justo debajo, de manera que:</p></li>
+</ul>
+
+<pre><code>(((14 &#215; 1.429) &#215; 1.15) + (20 &#215; .05)) &#8776; 24
+14 * 1.429 &#8776; 20; 20 * 1.15 == 23; 20 * .05 == 1;
+
+(20 &#215; 1.2) = 24</code></pre>
+
+<ul>
+<li><p>La asignación de un valor <code>width</code> (anchura) tanto en el <code>form</code> (formulario) como en los objetos de la lista es necesaria si los elementos se deben justificar adecuadamente sin confiar en el posicionamiento. El valor utilizado produce un valor estático de 503 píxeles; la única discrepancia de píxeles (teniendo en cuenta una unidad de cuadrícula atómica de 24 píxeles) es un producto de errores producidos por el redondeo y el <em>antialiasing</em>.</p></li>
+
+<li><p>Los estilos predeterminados de agente de usuario para listas varían de un navegador a otro. Internet Explorer da a cada elemento de la lista un margen izquierdo de 40 píxeles y coloca el símbolo de entrada de lista en el canal creado, mientras que otros navegadores aplican relleno en la parte izquierda del bloque de contenido del formulario en general. De la misma manera que las propiedades de composición modificadas en la regla <code>body</code>, esta regla está pensada específicamente para normalizar la presentación en todos los navegadores.</p></li>
+</ul>
+
+
+<h3 id="demo3">34.3.5. Demostración 3</h3>
+
+<p>Pasemos ahora a establecer los contenedores de los elementos del formulario.</p>
+
+<pre><code>li {
+   clear: both;
+   height: 1.714em;
+   margin: 0;
+}
+fieldset {
+   height: 1.429em;
+   margin: 0 0 -.143em 0;
+   border: 0;
+}</code></pre>
+
+<p class="font"><strong>Archivo fuente de:</strong> "<a href="http://dev.opera.com/articles/view/34-styling-forms/demo_form03.html" hreflang="en">Elementos de la lista de estilo (contenedores de la pareja de etiqueta/valor) y del <code>fieldset</code></a>"</p>
+
+
+<h3 id="demo3background">34.3.6. Demostración 3: consideraciones previas</h3>
+
+<ul>
+
+<li><p>Si consideramos el formulario como una serie de <em>filas</em>, veremos que es necesario aplicar estilos a la altura de cada uno para preservar una cuadrícula. Los márgenes de los elementos de la lista se establecen a cero de cara a Internet Explorer y por si acaso de cara al resto.</p></li>
+
+<li><p>Como a muchos de los elementos del formulario se les aplicarán valores <code>float</code>, a los elementos de la lista que incluye se les aplica un valor de <code>clear: both</code> para garantizar que cada uno quedará por debajo de su predecesor automáticamente.</p></li>
+
+<li><p>Aparte de la eliminación del margen (que es parte del estilo por defecto del agente de usuario), las propiedades de composición del <code>fieldset</code> parecen haberse establecido de manera arbitraria. De hecho, se las asignó después de pruebas en todos los navegadores, de las que hablaremos de nuevo brevemente en las notas adjuntas a la Demostración 11.</p></li>
+
+<li><p>Llegados a este punto, no se han asignado valores <code>display</code> ni <code>float</code>, lo que explica por qué el contenido del <code>fieldset</code> choca con el siguiente control <code>select</code>.</p></li>
+</ul>
+
+<h3 id="creatingagrid">34.3.7. Crear una cuadrícula</h3>
+
+<p>Uno de los puntos más significantes del buen diseño gráfico (y, de paso, del buen diseño de interfaces) es que los elementos se disponen a intervalos regulares. A estos intervalos se les suele denominar la <strong>cuadrícula</strong> (o <em>grid</em>, en inglés).</p>
+
+<p>Como ya se ha mencionado anteriormente, la unidad atómica de cuadrícula del formulario de demostración son 24 píxeles cuadrados, pero la composición coherente va más allá de garantizar que los elementos de diseño se sitúen a intervalos pequeños pero regulares. Una cuadrícula realmente efectiva tiene las características siguientes:</p>
+
+<ul>
+<li><p>Los márgenes de columna se sitúan a intervalos consistentes de la cuadrícula en todo el documento.</p></li>
+
+<li><p>Las secciones secuenciales de un mismo documento comparten sus márgenes superiores con los elementos de columnas adyacentes.</p></li>
+
+<li><p>Las ilustraciones de una composición se recortan o se enmascaran hasta que tienen unas dimensiones que respetan las anchuras tanto de las columnas como de los intervalos de cuadrícula atómica.</p></li>
+
+<li><p>Incluso en los casos en los que el contenido está en una sola columna, puntuado por unos cuantos elementos <code>float</code>, todos estos últimos elementos tienen los mismos estándares de tamaño y composición.</p></li>
+</ul>
+
+<p>Las composiciones que manifiestan estas características son más atractivas y fáciles de seguir, lo que contribuye a que el sitio sea más usable.</p>
+
+<h3 id="gridframeworkwithincomposite">Crear la estructura de una cuadrícula en una composición</h3>
+                                                                                                          
+<p>La herramienta que utilizan la mayoría de los profesionales para crear  composiciones para la web es Adobe Photoshop, y una de las ventajas que tiene es el fácil acceso a las líneas de cuadrícula que ofrece. Para visualizar una cuadrícula atómica con Photoshop, se puede seleccionar View (vista) &#8594; Show (mostrar) &#8594; Grid (cuadrícula), con lo que se mostrarán las líneas de la cuadrícula en los intervalos establecidos en Guides &amp; Grid Preferences (guías y preferencias de cuadrícula).</p>
+
+<p>Superponer guías para elementos como las columnas se consigue seleccionando View (vista) &#8594; Rulers (reglas), cambiando a la herramienta Move (mover) y arrastrando el puntero desde la regla como sea necesario.</p>
+
+
+<h3 id="enforcingthegrid">Aplicar la cuadrícula a la hoja de estilo</h3>
+
+<p>Como se comenta en el apartado de los estilos de texto, y refuerzan algunas de las reglas que se incluyen en la hoja de estilo de demostración, la mejor manera de aplicar una cuadrícula atómica en una composición es la de confiar en las unidades em. Sin embargo, sólo con eso no es suficiente; el especialista en estilos también debe mantener la corrección de las conversiones de fracciones a decimales cuando trata con otros tamaños de tipografía, canales y márgenes.</p>
+
+<p>En la hoja de estilo de la demostración se puede ver otra técnica para aplicar cuadrículas: la provisión de etiquetas <code>class</code> (clase) que pueden hacer referencia a varios tamaños de elementos y columnas de un documento. Cuando se utiliza de manera consistente, estas etiquetas se encargan de casi todo el proceso de aplicación de la cuadrícula.</p>
+
+
+
+<h3 id="demo4">34.3.8. Demostración 4</h3>
+
+<p>Mantener los elementos alineados en una cuadrícula significa asignar propiedades de composición en las etiquetas y controles de formulario.</p>
+
+<pre><code>label {
+   display: block;
+   float: left;
+   clear: left;
+   width: 10.286em;
+   overflow: auto;
+   padding-right: 1.714em;
+   text-align: right;
+}
+input {
+   height: 1.143em;
+   border: .071em soli

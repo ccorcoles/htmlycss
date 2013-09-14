@@ -1,0 +1,271 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ca">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
+<meta http-equiv="Content-Language" content="ca" />
+<meta name="language" content="ca" />
+<meta name="author" content="Universitat Oberta de Catalunya" />
+<meta name="description" content="FALTA CONTENIDO" />
+<meta name="title" content="FALTA CONTENIDO" />
+<meta name="keywords" content="FALTA CONTENIDO" />
+
+<title>El texto central de HTML - Contenedores genéricos: los elementos div y span</title>
+<link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
+</head>
+
+<body>
+<div id="cabecera">
+	<img id="logo" src="../../img/logo.gif" alt="Universitat Oberta de Catalunya" />
+    <a href="http://mosaic.uoc.edu/"><img id="logomosaic" src="../../img/logo-mosaic.gif" alt="Logo de Mosaic" title="Abre la página web de Mosaic" /></a>
+	<div id="titulo">El texto central de HTML</div>
+	<div id="subtitulo">Contenedores genéricos: los elementos div y span</div>
+<div id="cierre"></div>
+	<div id="navegador">
+		<a href="../../m0/accessibilitat.html" id="accesibilidad">Accesibilidad</a> <strong>:</strong> 
+		<a rel="prev" href="../ud7/index.html" title="Ir al artículo anterior" accesskey="8"><img src="../../img/fletxa_izq.gif" alt="Ir al artículo anterior" /></a> <strong>:</strong> 
+		<a rel="index" href="../../index.html" title="Ir al índice" accesskey="0"><img src="../../img/indice.gif" alt="Ir al índice" /></a> <strong>:</strong> 
+		<a rel="next" href="../ud9/index.html" title="Ir al artículo siguiente" accesskey="9"><img src="../../img/fletxa_der.gif" alt="Ir al artículo siguiente" /></a>
+	</div>
+</div>
+	
+<div id="main">
+	<h1>22. Contenedores genéricos: los elementos div y span</h1>
+  
+  <p class="by"><a href="../../index.html#francis">Mark Norman Francis</a> 26 de septiembre del 2008. Publicado en: div, span, agrupar, vínculos, semántico</p>
+
+  
+  <p>En este apartado explicaremos cómo y cuándo utilizar los dos elementos de HTML que no se utilizan para describir el contenido. Los elementos <code>span</code> y <code>div</code> no confieren en realidad ningún significado al contenido que rodean; de hecho, son un mecanismo genérico que permite crear una estructura y unas agrupaciones personalizadas de elementos en los lugares en los que no hay ningún otro elemento del HTML que resulte realmente adecuado, a los que entonces se pueden aplicar estilos con CSS o manipular con JavaScript. A pesar de que los elementos <code>div</code> no añaden ningún significado semántico, se puede considerar que éstos representan una división estructural del etiquetado junto con la clase semántica o el nombre de ID adecuados.</p>
+  
+  <p>Son "el último recurso" y sólo se deben utilizar cuando no hay ningún otro elemento del HTML que cumpla los requisitos necesarios, ya que no tienen ningún significado para las tecnologías de asistencia, los motores de búsqueda, etc.</p>
+  
+  <p>Los contenidos de este apartado son los siguientes:</p>
+  
+ 	<ul class="index">
+	<li>22.1. <a href="#semanticallyneutral" accesskey="1">Semánticamente neutros</a></li>
+  <li>22.2. <a href="#inlineblock" accesskey="2">En línea y de bloque</a></li>
+  <li>22.3. <a href="#groupingcontent" accesskey="3">Más explicaciones sobre la agrupación de contenido</a></li>
+  <li>22.4. <a href="#extrainformation" accesskey="4">Información adicional</a></li>
+  <li>22.5. <a href="#hooks" accesskey="5">Enlaces para JavaScript, y también CSS</a></li>
+  <li>22.6. <a href="#divitis" accesskey="6">"Div-itis"</a></li>
+  <li>22.7. <a href="#inappropriatesemantics" accesskey="7">Semántica inadecuada</a>
+	<ul class="index">
+  <li>22.7.1. <a href="#genericparagraphs">Párrafos "genéricos"</a></li>
+  <li>22.7.2. <a href="#presentationalelements">Elementos presentacionales</a></li>
+  </ul></li>
+  <li class="especial"><a href="#summary">Resumen</a></li> 
+  <li class="especial"><a href="#exercises">Preguntas de repaso</a></li> 
+  </ul>
+                              
+  <h2 id="semanticallyneutral">22.1. Semánticamente neutros</h2>
+  
+  <p>La mayoría de los elementos de HTML existen para describir el contenido, como por ejemplo las imágenes, las listas o los títulos, o para ayudar a componer el documento, como por ejemplo <code>head</code>, <code>body</code>, <code>link</code>, <code>meta</code>, etc. Sin embargo, hay dos elementos que no tienen ningún significado asignado. De la especificación del HTML:</p>
+  
+  <blockquote>
+  <p>Los elementos<code> div</code> y <code>span</code>, junto con los atributos <code>id</code> y <code>class</code>, ofrecen un mecanismo genérico para añadir estructura a los documentos.</p>
+  </blockquote>
+  
+  <p>Estos dos elementos se pueden considerar como el andamio de HTML. Dan la posibilidad de agrupar el contenido y de añadir información adicional relativa al contenido y vínculos para incorporar estilos e interactividad. Pero no añaden ningún significado semántico nuevo al documento, ni en sí mismos ni de ellos mismos.</p>
+
+  <h2 id="inlineblock">22.2. En línea y de bloque</h2>
+  
+  <p>Como ya habéis aprendido, los elementos de bloque son elementos que ayudan a informar sobre la estructura de un documento. El elemento <code>div</code>, que es la abreviatura de división, es el contenedor genérico de los bloques. Normalmente se utiliza para rodear otros elementos de bloque con el objetivo de agruparlos. También se puede utilizar para reunir un grupo de elementos insertados y/o texto que no encajan de manera lógica bajo ningún otro elemento de bloque, pero debería ser el último recurso.</p>
+  
+  <div class="vegeu_tambe">
+  <h3>Ved también</h3>
+  <p>Podéis ver el subapartado siguiente, donde encontraréis una explicación más detallada sobre la agrupación del contenido.</p>
+  </div>
+  
+  <div class="text-clau">
+  <p>El elemento <code>span</code> es el contenedor genérico para los elementos en línea. También ayuda a informar sobre la estructura del documento, pero se utiliza para agrupar o rodear otros elementos insertados y/o texto más que elementos de bloque.</p>
+  </div>
+  
+  <p>En un primer momento, la línea de separación entre estos dos tipos diferentes podría parecer arbitraria. La diferencia que hay que tener en cuenta es el tipo de contenido y el modo como debería aparecer al escribirlo sin ningún estilo. Un elemento <code>div</code> se pone alrededor de un grupo de elementos de bloque; por ejemplo, para rodear un título y una lista de enlaces para crear un menú de navegación. Un elemento <code>span</code> rodea un grupo de elementos en línea o (la mayoría de las veces) texto plano. La palabra clave es <em>grupo</em>; si un elemento <code>div</code> rodea sólo un elemento de bloque, o un elemento <code>span</code> sólo un elemento en línea, entonces su uso es innecesario. </p>
+  
+  <p>Por ejemplo, observad el uso que se hace de los elementos div y span en el siguiente etiquetado, que es muy simple:</p>
+  
+  <pre><code>&lt;body&gt;
+   &lt;div id="mainContent"&gt;
+      &lt;h1&gt;Título de la página&lt;/h1&gt;
+      &lt;p&gt;Éste es el primer párrafo de contenido de mi página de ejemplo.&lt;/p&gt;
+      &lt;img src="example.gif" alt="Esta imagen es sólo un ejemplo, no tiene nada de
+       especial"&gt;
+      &lt;p&gt;Éste es el segundo párrafo de contenido de mi página de ejemplo. Es muy
+       parecido al primero, pero aquí hay una &lt;span id="specialAlert"&gt;alerta
+       especial que queremos colorear y cuyo tamaño de texto queremos aumentar
+       mediante CSS&lt;/span&gt;. No se trata de un énfasis estándar, sino más bien un
+       estilo, de manera que &lt;em&gt; i &lt;strong&gt; no son del todo adecuados.&lt;/p&gt;
+   &lt;/div&gt;
+&lt;/body&gt;</code></pre> 
+
+  
+  <p>Ahora podéis seleccionar el contenido del interior de los elementos <code>div</code> y <code>span</code> utilizando sus atributos id y aplicarles estilos y posicionamientos especiales con el CSS.</p>    
+
+  <h2 id="groupingcontent">22.3. Más explicaciones sobre la agrupación de contenido</h2>
+  
+  <p>Si observamos el código fuente de muchas páginas de Internet, veremos muchos elementos <code>div</code> anidados que incluyen algunas metáforas habituales en las <code>class</code> y/o <code>id</code> de los elementos; por ejemplo, <code>header</code>, <code>footer</code>, <code>content</code>, <code>sidebar</code>, etc.</p>
+  
+  <p>Vuestros nombres de <code>class</code> e <code>id</code> deben ser siempre semánticos, lo cual quiere decir que deberían remitir al significado/papel del contenido y no limitarse a hacer referencia a su aspecto visual. Así pues, por ejemplo, <code>barraLateral</code> y <code>mensajeAlerta</code> son buenos nombres de <code>class</code>, mientras que <code>columnaIzquierdaRoja</code> y <code>textoAzulIntermitente</code> no. ¿Qué sucedería si después quisierais cambiar el color de la barra lateral de rojo a azul, o su posición en el sitio web de la izquierda a la derecha? ¿Y si quisierais cambiar vuestros mensajes de alerta de azules intermitentes a verde sin intermitencia?</p>
+
+  <p>Estas divisiones aportan predictibilidad a la hora de crear estructuras de página y, seguramente mucho más importante, cuando se vuelve a revisar el HTML más adelante ofrecen pistas sobre la parte de la página en la que os encontráis. Una página bien dividida se documenta prácticamente en sí misma con respecto a sus intenciones y a su contenido.</p>
+  
+  <p>Con la buena intención de dejarlo todo un poco más claro, ahora veremos una estructura de <code>div</code> de un sitio web real, concretamente la página de inicio de <a href="http://dev.opera.com" hreflang="en">dev.opera.com</a>. Tened en cuenta que este ejemplo de código no incluye ningún contenido, si dejamos de lado algunos otros elementos que hemos puesto porque son importantes para la estructura del sitio. Básicamente, lo que queremos es únicamente reproducir la estructura real del sitio tal como está definida con los elementos <code>div</code>. En el código siguiente, leed con atención los comentarios HTML; los hemos puesto para explicar la estructura del sitio. Mientras vais revisando este código, abrid la <a href="http://dev.opera.com" hreflang="en">página principal de dev.opera.com</a> en una nueva pestaña o ventana del navegador para poder ver el aspecto del sitio mientras exploráis su estructura.</p>
+
+  <pre><code>&lt;body&gt;
+&lt;!-- En primer lugar tenemos un elemento div "wrap", que rodea toda la página y 
+permite un control más preciso de todo él en general --&gt;
+   &lt;div id="wrap"&gt;
+   &lt;!-- Esta lista desordenada contiene la lista de enlaces de todos los sitios 
+   diferentes de Opera, que podéis ver en la parte superior de la página --&gt;
+      &lt;ul id="sitenav" class="hidemobile"&gt;
+         ...
+      &lt;/ul&gt;
+         ...
+      &lt;!-- Éste es el formulario de búsqueda - el cuadro de búsqueda que podéis 
+       ver en la parte superior derecha de la página --&gt;
+      &lt;form action="/search/" method="get" id="search"&gt;
+         &lt;div&gt;
+            ...
+         &lt;/div&gt;
+      &lt;/form&gt;
+      &lt;!-- Esta lista desordenada contiene el menú de navegación principal del 
+       sitio - el menú horizontal de pestañas que hay justo debajo del gráfico del 
+       título principal --&gt;
+      &lt;ul id="menu"&gt;
+         ...
+      &lt;/ul&gt;
+      &lt;!-- Este elemento div anidado forma la estructura del cuadro de inicio de 
+       sesión, en el que introduciréis el nombre de usuario y la contraseña para 
+       acceder al sitio. Sólo lo veréis si aún no habéis iniciado ninguna
+       sesión. --&gt;
+      &lt;div id="loginbox"&gt;
+         &lt;div id="login"&gt;
+            ...
+         &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;!-- Esta serie de elementos div anidados es donde está el contenido
+       principal de la página - todos los resúmenes de los artículos que forman
+       el grueso del contenido de la página --&gt;
+      &lt;div id="content2"&gt;
+         &lt;div id="main"&gt;  
+            ...
+            &lt;div class="major"&gt;
+               ...
+            &lt;/div&gt;
+            &lt;div class="major"&gt;
+               ...
+            &lt;/div&gt;
+            ...
+         &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;!-- Este elemento div contiene la barra lateral de la página - las
+       categorías de artículos, los últimos comentarios, etc --&gt;
+      &lt;div id="side"&gt;
+         ...
+      &lt;/div&gt;
+      &lt;!-- Este elemento div contiene el pie de página, que es donde veréis el 
+       mensaje de copyright y varios enlaces en la parte inferior de la
+       página. --&gt;
+      &lt;div id="footer"&gt;
+         ...
+      &lt;/div&gt;
+   &lt;!-- El final de la página - es la etiqueta de cierre para el elemento div
+    "wrap" --&gt;
+   &lt;/div&gt;
+&lt;/body&gt;</code></pre>  
+                              
+
+  <h2 id="extrainformation">22.4. Información adicional</h2>
+  
+  <p>Algunos contenidos tienen información adicional, que es de utilidad para los agentes de usuario y para otros analizadores, y ésta se debe comunicar por medio de un atributo. Los elementos <code>span</code> son a menudo una buena manera de adjuntar esta información al contenido de una página web, tal como veréis a continuación.</p>
+  
+  <p>Un buen ejemplo de esto es un idioma diferente que aparece en un documento. Por ejemplo:</p>
+
+  <pre><code>&lt;p&gt;&lt;q&gt;Plus ça change, plus c'est la même chose&lt;/q&gt; she said.&lt;/p&gt;</code></pre>
+  
+  <p>Aunque el idioma del documento principal es el inglés, la cita es en francés. Esto se indicaría mediante el uso del atributo <code>lang</code>, de la siguiente manera:</p>
+                                                                                                                           
+  <pre><code>&lt;p&gt;&lt;q lang='fr'&gt;Plus ça change, plus c'est la même chose&lt;/q&gt; she said.&lt;/p&gt;</code></pre>
+  
+  <p>En este ejemplo era muy fácil indicar este cambio de idioma, ya que aparecía sólo en una cita, con lo cual el elemento <code>q</code> era perfecto para rodear el contenido. Hay algunos casos, sin embargo, en los que no existe ningún elemento semántico adecuado fácilmente disponible, con lo cual deberíais recurrir a <code>span</code> o <code>div</code>. Por ejemplo:</p>
+  
+  <pre><code>&lt;p&gt;A screen reader will read the French word chat (cat) as chat (to talk 
+ informally) unless it is properly marked up.&lt;/p&gt;</code></pre>     
+  
+  <p>En este ejemplo, la primera aparición de la palabra <em>chat</em>, que es una palabra en francés en un documento en inglés, debería tener esta diferencia indicada a fin de que no se pudiera interpretar como la palabra inglesa <em>chat</em>. En este caso, la manera correcta de hacerlo es con un elemento <code>span</code> en torno a la palabra <em>chat</em>, ya que no hay ningún otro elemento HTML adecuado para rodear la palabra francesa (no queremos añadir ningún énfasis a la palabra, no es una cita, no es un código, etc.). Como es una única palabra dentro de una frase, estaremos trabajando con un elemento insertado. Por lo tanto, este ejemplo se debería escribir de la manera siguiente:</p>
+                                                                    
+  <pre><code>&lt;p&gt; A screen reader will read the French word &lt;span lang='fr'&gt;chat&lt;/span&gt; (cat) as
+ chat (to talk informally) unless it is properly marked up.&lt;/p&gt;</code></pre>
+  
+  <p>Ésta es la misma técnica que la utilizada en los <a href="http://dev.opera.com/articles/html/" hreflang="en">microformatos</a> para etiquetar formatos de datos comunes en páginas web. Podéis encontrar mucha más información sobre los microformatos en algunos de los apartados más avanzados sobre HTML en dev.opera.com.</p>
+                              
+  <h2 id="hooks">22.5. Enlaces para JavaScript, y también CSS</h2>
+  
+  <p>Antes ya hemos hablado de cómo se pueden utilizar <code>div</code> y <code>span</code> junto con los atributos <code>id</code> y <code>class</code> para ofrecer enganches con los que aplicar estilos y posicionamiento CSS en ciertas partes de vuestro contenido. Lo mismo también se puede hacer para aplicar JavaScript a vuestro documento.</p>
+  
+  <p>Si el JavaScript debe encontrar y manipular un elemento concreto, lo más habitual es aplicarle un <code>id</code> y entonces utilizar la función <code>getElementById</code> para encontrarlo. En la última parte de este curso aprenderéis muchas más cosas sobre JavaScript.</p>                   
+
+  <h2 id="divitis">22.6. "Div-itis"</h2>
+  
+  <p>Una de las cosas que hay que tener en cuenta es un efecto que, entre la comunidad de desarrolladores de webs, se conoce normalmente como "div-itis".</p>
+  
+  <p>Es muy fácil añadir estilos mediante muchos elementos <code>div</code> o <code>span</code> anidados, pero es una tentación en la que deberíamos evitar caer siempre que sea posible. En la mayoría de los casos, se pueden añadir estilos o funciones JavaScript a los elementos ya existentes del documento. El uso de un contenedor genérico debería ser el último recurso; es mejor intentar escribir páginas web empezando sólo con los elementos semánticos y añadir contenedores sólo cuando sea necesario.</p>        
+
+  <h2 id="inappropriatesemantics">22.7. Semántica inadecuada</h2>
+  
+  <p>En esta sección exploraremos algunos de los errores más habituales que se deben tener en cuenta a la hora de etiquetar el contenido con HTML y que se deben evitar siempre que sea posible.</p>
+                                
+  <h3 id="genericparagraphs">22.7.1. Párrafos "genéricos"</h3>
+  
+  <p>Algunas veces es muy tentador utilizar un elemento <code>p</code> (párrafo) en torno a cualquier bloque de texto, pero eso no es demasiado correcto. Tal como ya hemos explicado en el apartado anterior sobre el etiquetado del contenido:</p>
+   
+  <blockquote>
+  <p>"Si son sólo unas cuantas palabras y no una frase propiamente dicha, entonces quizá sería mejor no etiquetarlo como un párrafo."</p>
+  </blockquote>
+  
+  <p>Los elementos correctos para rodear contenido textual inconexo que no tiene ninguna otra relación semántica cubierta por otros elementos del HTML son <code>div</code> o <code>span</code> (según la posición exacta).</p>
+
+  <h3 id="presentationalelements">22.7.2. Elementos presentacionales</h3>
+  
+  <p>Un consejo especialmente malo que se puede encontrar algunas veces en Internet es el de utilizar elementos presentacionales cortos, como <code>b</code> o <code>i</code>, como contenedores genéricos en lugar de <code>span</code>. La razón aportada es normalmente una de las dos siguientes:</p>
+       
+	<ul>
+  <li><p>Los elementos son tres bytes más cortos, con lo cual ahorran ancho de banda tanto en el HTML como el CSS.</p>
+  </li>
+  
+  <li><p>Los estilos necesarios son sólo para el aspecto, y por lo tanto el uso de elementos presentacionales es correcto en estas circunstancias.</p></li>
+	</ul>
+  
+  <p>La primera razón es correcta, pero el ahorro es prácticamente insignificante (si no es que utilizáis una cantidad increíble de efectos presentacionales), especialmente si tenemos en cuenta la compresión moderna aplicada por los servidores web en los documentos antes de enviarlos a través de Internet al navegador. Esto provoca que los documentos sean mucho más cortos de lo que puede conseguir cualquier compresión hecha a mano.</p>
+  
+  <p>La segunda razón revela una falta de comprensión de lo que significa realmente presentacional en el contexto del HTML. Los elementos presentacionales describen el aspecto que debe tener su contenido (<code>b</code> significa simplemente "el texto del interior está en negrita"). No representan ningún vínculo genérico para el estilo de su interior.</p>
+  
+  <p>Si se debe aplicar un estilo a una sección pequeña de texto dentro de un párrafo, o si el JavaScript lo debe usar como destino y no hay ningún elemento semántico aplicable para rodearla, el único elemento correcto que se puede utilizar es <code>span</code>.</p>
+  
+  
+        <h2 id="summary">Resumen</h2> 
+  
+  <p>Aquí acaban nuestras explicaciones sobre los elementos <code>span</code> y <code>div</code>; ahora ya deberíais entender mucho mejor cuál es su finalidad y ser capaces de utilizarlos con toda confianza. Los apartados del módulo "Conceptos básicos de CSS" se detendrán mucho más en su uso para crear maquetaciones de página y para otras finalidades.</p>
+  
+  
+  
+        <h2 id="exercises">Preguntas de repaso</h2> 
+  
+  <ol>
+		<li><p>¿Cuál es la diferencia entre <code>div</code> y <code>span</code>?</p></li>
+    <li><p>Decid dos de los usos principales de estos elementos en las páginas web.</p></li>
+    <li><p>Observad el código fuente de una de las páginas de vuestro sitio web preferido. Mirad qué estructura tiene. ¿Utiliza muchos elementos <code>div</code> y <code>span</code>? ¿Podéis ver algo malo o inadecuado en la manera de utilizarlos? ¿Cómo se podría mejorar?</p></li>
+  </ol>
+
+</div>
+<div><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.es"><img src="../../m0/creative_commons.gif" id="logo_cc" alt="Logo Creative Commons" /></a></div>
+<div id="logo_text">Los contenidos recogidos en este artículo están sujetos a una licencia <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.es">Creative Commons<br /> Reconocimiento, No comercial - Compartir bajo la misma licencia 3.0 No adaptada</a>.
+</div>
+<div id="cierre_autor"></div>
+
+<div id="peu">
+		<a rel="prev" href="../ud7/index.html" title="Ir al artículo anterior" accesskey="8"><img src="../../img/fletxa_izq_inv.gif" alt="Ir al artículo anterior" /></a> <strong>:</strong>
+		<a rel="index" href="../../index.html" title="Ir al índice" accesskey="0"><img src="../../img/indice_inv.gif" alt="Ir al índice" /></a> <strong>:</strong>
+		<a rel="next" href="../ud9/index.html" title="Ir al artículo siguiente" accesskey="9"><img src="../../img/fletxa_der_inv.gif" alt="Ir al artículo siguiente" /></a>
+</div>
+</body>
+</html>

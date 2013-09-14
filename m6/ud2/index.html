@@ -1,0 +1,441 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
+<meta http-equiv="Content-Language" content="es" />
+<meta name="language" content="es" />
+<meta name="author" content="Universitat Oberta de Catalunya" />
+<meta name="description" content="FALTA CONTENIDO" />
+<meta name="title" content="FALTA CONTENIDO" />
+<meta name="keywords" content="FALTA CONTENIDO" />
+
+<title>CSS - Herencia y cascada</title>
+<link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
+</head>
+
+<body>
+<div id="cabecera">
+	<img id="logo" src="../../img/logo.gif" alt="Universitat Oberta de Catalunya" />
+    <a href="http://mosaic.uoc.edu/"><img id="logomosaic" src="../../img/logo-mosaic.gif" alt="Logo de Mosaic" title="Abre la página web de Mosaic" /></a>
+	<div id="titulo">CSS</div>
+	<div id="subtitulo">Herencia y cascada</div>
+<div id="cierre"></div>
+	<div id="navegador">
+		<a href="../../m0/accessibilitat.html" id="accesibilidad">Accesibilidad</a> <strong>:</strong> 
+		<a rel="prev" href="../ud1/index.html" title="Ir al artículo anterior" accesskey="8"><img src="../../img/fletxa_izq.gif" alt="Ir al artículo anterior" /></a> <strong>:</strong> 
+		<a rel="index" href="../../index.html" title="Ir al índice" accesskey="0"><img src="../../img/indice.gif" alt="Ir al índice" /></a> <strong>:</strong> 
+		<a rel="next" href="../ud3/index.html" title="Ir al artículo siguiente" accesskey="9"><img src="../../img/fletxa_der.gif" alt="Ir al artículo siguiente" /></a>
+	</div>
+</div>
+	
+<div id="main">
+<h1>28. Herencia y cascada</h1>
+<p class="by"><a href="../../index.html#olsson">Tommy Olsson</a>. 26 de septiembre del 2008. Publicado en: importancia, fuente, orden, importante, especificidad</p>
+
+<p>La herencia y la cascada son dos conceptos básicos en CSS. Se deben comprender bien para utilizar CSS. Por suerte, no son muy difíciles de entender, aunque algunos detalles pueden ser un tanto complicados de recordar.</p>
+
+<p>Ambos conceptos están relacionados, pero son diferentes. La herencia está relacionada con cómo los elementos del etiquetado de HTML heredan propiedades de sus elementos padres (los que los contienen) y los transmiten a sus hijos, mientras que la cascada tiene que ver con las declaraciones de CSS que se aplican a un documento y cómo las reglas contradictorias se anulan o no entre ellas.</p>
+
+<p>En este apartado, trataremos detalladamente estos dos conceptos. Probablemente, la herencia es un concepto más fácil de captar, de manera que empezaremos con éste y después pasaremos a las particularidades de la cascada.</p>
+
+<div class="note">
+<h3>Nota</h3>
+
+<p>Descargad el código fuente de los ejemplos de este apartado; el fichero "inheritance_cascade_code.zip" contiene el CSS y HTML acabados, además de la plantilla inicial de HTML para que podáis ir trabajando mientras veis los ejemplos.</p>
+<p class="font"><strong>Descargad los ejemplos en:</strong> "<a href="http://dev.opera.com/articles/view/28-inheritance-and-cascade/inheritance_cascade_code.zip" hreflang="en">inheritance_cascade_code.zip</a>"</p>
+</div>
+
+
+<p>Los contenidos de este apartado son los siguientes:</p>
+
+<ul class="index">
+
+<li>28.1. <a href="#inheritance" accesskey="1">Herencia</a>
+<ul class="index">
+<li>28.1.1. <a href="#inheritanceuseful">Para qué sirve la herencia</a></li>
+<li>28.1.2. <a href="#howinheritanceworks">Cómo funciona la herencia</a></li>
+<li>28.1.3. <a href="#inheritanceexample">Un ejemplo de herencia</a></li>
+<li>28.1.4. <a href="#forcinginheritance">Forzar la herencia</a></li>
+</ul></li>
+<li>28.2. <a href="#thecascade" accesskey="2">Cascada</a>
+<ul class="index">
+<li>28.2.1. <a href="#importance">Importancia</a></li>
+<li>28.2.2. <a href="#specificity">Especificidad</a></li>
+<li>28.2.3. <a href="#sourceorder">Orden en las fuentes</a></li>
+</ul></li>
+<li class="especial"><a href="#summary">Resumen</a></li>
+<li class="especial"><a href="#exercises">Preguntas de repaso</a></li>
+</ul>
+
+<h2 id="inheritance">28.1. Herencia</h2>
+
+<div class="text-clau">
+<p>La herencia en CSS es el mecanismo mediante el cual determinadas propiedades de un elemento padre se transmiten a sus hijos. De hecho, se parece mucho a la herencia genética. Si los progenitores tienen los ojos azules, los hijos seguramente también tendrán los ojos azules.</p>
+</div>
+
+<p>No todas las propiedades CSS son heredadas, porque algunas de ellas no tendría sentido que lo fueran. Por ejemplo, los márgenes no se heredan porque es poco probable que un elemento hijo necesite los mismos márgenes que su padre. Normalmente, el sentido común dicta qué propiedades se heredan y cuáles no, pero para estar del todo seguros, debemos consultar cada propiedad en la <a href="http://www.w3.org/TR/CSS21/propidx.html" hreflang="en">tabla de resumen de propiedades de la especificación CSS 2.1</a>.</p>                                               
+
+<h3 id="inheritanceuseful">28.1.1. Para qué sirve la herencia</h3>
+
+<p>¿Por qué tiene CSS un mecanismo de herencia? Probablemente, la manera más sencilla de responder a esta pregunta sea pensar qué pasaría si no existiera la herencia. Se deberían especificar cuestiones como la familia de fuentes, el tamaño de la fuente y el color del texto individualmente para todos y cada uno de los tipos de elemento.</p>
+
+<p>Mediante la herencia, por ejemplo, se pueden especificar las propiedades de las fuentes de los elementos <code>html</code> o <code>body</code> y todo el resto de elementos los heredarán. Se pueden especificar los colores de fondo y de primer plano de un elemento contenedor concreto y todos los elementos hijos de este contenedor heredarán automáticamente el color de primer plano. El color de fondo no se hereda, pero el valor inicial de <code>background-color</code> (color de fondo) es <code>transparent</code>, lo cual significa que el fondo del padre se verá a través de él. El efecto es el mismo que si se heredara el color de fondo, pero pensad qué sucedería si se heredaran las imágenes de fondo: todos los hijos tendrían la misma imagen de fondo como padre y, por lo tanto, todo parecería un rompecabezas creado por alguien con problemas de drogas, ya que el fondo "volvería a empezar desde cero" para cada elemento.</p>
+
+<h3 id="howinheritanceworks">28.1.2. Cómo funciona la herencia</h3>
+
+<p>Todos los elementos de un documento HTML heredan todas las propiedades heredables de su padre excepto el elemento raíz (<code>html</code>), que no tiene progenitor.</p>
+<p>El hecho de que las propiedades heredadas tengan algún efecto o no depende de otros factores, como veremos más adelante cuando hablemos de la cascada. De la misma manera que una madre de ojos azules puede tener un hijo de ojos marrones si el padre tiene los ojos marrones, las propiedades heredadas en CSS pueden anularse.</p>
+
+
+<h3 id="inheritanceexample">28.1.3. Un ejemplo de herencia</h3>
+<ol>
+<li><p>Copiad el siguiente documento HTML en un fichero nuevo del editor de textos que más os guste y guardadlo como <code>inherit.html</code>.</p>
+
+<pre><code>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+ "http://www.w3.org/TR/html4/strict.dtd"&gt;
+&lt;html lang="en"&gt;
+   &lt;head&gt;
+      &lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8"&gt;
+      &lt;title&gt;Herencia&lt;/title&gt;
+   &lt;/head&gt;
+   &lt;body&gt;
+      &lt;h1&gt;Título&lt;/h1&gt;
+      &lt;p&gt;Un párrafo de texto.&lt;/p&gt;
+   &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+<p>Si abrís el documento en el navegador web, veréis un documento bastante aburrido que se muestra según el estilo por defecto de vuestro navegador.</p></li>
+
+<li><p>Cread un nuevo fichero vacío con el editor de textos, copiad dentro la regla CSS que se muestra a continuación y guardad el fichero como <code>style.css</code> en la misma ubicación que el fichero HTML.</p>
+
+<pre><code>html {
+   font: 75% Verdana,sans-serif;
+}</code></pre></li>
+
+<li><p>Enlazad la hoja de estilos en el documento HTML insertando la línea siguiente antes del tag <code>&lt;/head&gt;</code>.</p>
+
+<pre><code>&lt;link rel="stylesheet" type="text/css" media="screen" href="styles.css"&gt;</code></pre></li>
+
+<li><p>Guardad el fichero HTML modificado y recargad el documento en el navegador. La fuente pasará de ser la predeterminada por el navegador (normalmente Times o Times New Roman) a ser Verdana. Si no tenéis Verdana instalada en el ordenador, el texto se mostrará con la fuente Sans Serif especificada por defecto en la configuración del navegador. Además, el texto se verá un 25% más pequeño que en la versión sin estilo.</p>
+
+<p>La regla CSS que hemos especificado se aplica únicamente al elemento <code>html</code>. No hemos especificado ninguna regla para los títulos o los párrafos, pero ahora todo el texto se muestra en Verdana al 75% del tamaño por defecto. ¿Por qué? Por la herencia.</p>
+
+<p>La propiedad <code>font</code> es una propiedad abreviada que establece toda una serie de propiedades relacionadas con las fuentes. Sólo hemos especificado dos, el tamaño de la fuente y la familia de fuentes, pero esta regla equivale a lo siguiente:</p>
+
+<pre><code>html {
+   font-style: normal;
+   font-variant: normal;
+   font-weight: normal;
+   font-size: 75%;
+   line-height: normal;
+   font-family: Verdana,sans-serif;
+}</code></pre>
+
+<p>Todas estas propiedades se heredan, de manera que el elemento <code>body</code> las heredará del elemento <code>html</code> y después las transmitirá a sus hijos: el título y el párrafo.</p>
+
+<p>Pero, ¡un momento! Hay algo que no acaba de quedar claro respecto a la herencia del tamaño de la fuente, ¿verdad? El tamaño de la fuente del elemento <code>html</code> se establece en 75%, pero ¿75% de qué? ¿Y el tamaño de la fuente de <code>body</code> no debería ser el 75% del tamaño de la fuente de su padre y los tamaños de las fuentes del título y del párrafo deberían ser el 75% del tamaño del elemento <code>body</code>?</p>
+
+<p>El valor que se hereda no es el valor especificado, es decir, el valor que escribimos en la hoja de estilo, sino algo que se llama <em>el valor computado</em>. El valor computado es, en el caso del tamaño de la fuente, un valor absoluto medido en píxeles. Para el elemento <code>html</code>, que no tiene un elemento padre del cual heredar, un porcentaje del valor de tamaño de fuente se asocia al tamaño de fuente predeterminada del navegador. La mayoría de los navegadores actuales tienen un tamaño de fuente predeterminada de 16 píxeles. El 75% de 16 son 12, de manera que el valor computado del tamaño de la fuente del elemento <code>html</code> será probablemente 12 píxeles. Éste es el valor que hereda <code>body</code> y que se transmite al título y al párrafo.</p>
+
+<p>(El tamaño de la fuente del título es mayor porque el navegador aplica algunas normas de estilo integradas propias. Podéis ver el tema de la cascada a continuación.)</p></li>
+
+<li><p>Añadid dos declaraciones más a la regla de la hoja de estilo de CSS:<code></code></p>
+
+<pre><code>html {
+   font: 75% Verdana,sans-serif;
+   background-color: blue;
+   color: white;
+}</code></pre></li>
+
+<li><p>Guardad el fichero CSS y recargad el documento en el navegador.</p>
+
+<p>Ahora el fondo es de color azul fuerte y todo el texto es blanco. La regla se aplica al elemento <code>html</code>: el documento entero, cuyo fondo será azul. El elemento <code>body</code> hereda el color blanco de primer plano y se transmite a todos los hijos de <code>body</code>: en este caso, el título y el párrafo. Éstos no heredan el fondo, pero el fondo se establecerá en el valor por defecto de <code>transparent</code>, de manera que el resultado visual final será texto blanco sobre fondo azul.</p></li>
+
+<li><p>Añadid otra regla nueva a la hoja de estilo y guardad y recargad el documento.</p>
+
+<pre><code>h1 {
+   font-size: 300%;
+}</code></pre></li>
+</ol>
+
+<p>Esta regla establece el tamaño de la fuente del título. El porcentaje se aplica al tamaño de fuente heredada (el 75% de la predeterminada por el navegador, que suponemos que es 12 píxeles), de manera que el tamaño del título será el 300% de 12
+píxeles, es decir: 36 píxeles.</p>
+<h3 id="forcinginheritance">28.1.4. Forzar la herencia</h3>
+
+<p>Mediante la palabra clave <code>inherit</code> (heredar) puede forzarse la herencia incluso para propiedades que no se heredan normalmente. Sin embargo, se debe utilizar con mucho cuidado porque Microsoft Internet Explorer (hasta la versión 7 incluida) no es compatible con esta palabra clave.</p>
+
+<p>La regla siguiente hace que todos los párrafos hereden todas las propiedades de fondo de sus padres:</p>
+
+<pre><code>p {
+   background: inherit;
+}</code></pre>
+
+<p>Con las propiedades abreviadas se puede utilizar <code>inherit</code> en vez de los valores normales. Se debe utilizar la versión abreviada o bien para todo o bien para nada en absoluto. En la versión no abreviada no se pueden especificar algunos valores y utilizar <code>inherit</code> para otros porque los valores pueden darse en cualquier orden y no hay manera de especificar qué valores queremos heredar.</p>
+
+<p>Forzar la herencia no es algo que haya que hacer a menudo. Puede ser útil para "deshacer" una declaración de una regla conflictiva o para no tener que introducir los datos de determinados valores directamente en el código fuente. Un ejemplo de esto sería el típico menú de navegación:</p>
+
+<pre><code>&lt;ul id="nav"&gt;
+   &lt;li&gt;&lt;a href="/"&gt;Inicio&lt;/a&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;a href="/news/"&gt;Noticias&lt;/a&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;a href="/products/"&gt;Productos&lt;/a&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;a href="/services/"&gt;Servicios&lt;/a&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;a href="/about/"&gt;Sobre nosotros&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+<p>Para mostrar esta lista de enlaces como menú horizontal, podéis utilizar el CSS siguiente:</p>
+
+<pre><code>#nav {
+   background: blue;
+   color: white;
+   margin: 0;
+   padding: 0;
+}
+#nav li {
+   display: inline;
+   margin: 0;
+   padding: 0 0.5em;
+   border-right: 1px solid;
+}
+#nav li a {
+   color: inherit;
+   text-decoration: none;
+}</code></pre>
+
+<p>En este caso, el color de fondo de toda la lista se establece en azul en la regla de <code>#nav</code>. Así, también se establece el color de primer plano como blanco y todos los elementos de la lista y todos los enlaces heredan el mismo. La regla de los elementos de la lista establece un límite a la derecha, pero no especifica el color del margen, lo que significa que utilizará el color de primer plano heredado (el blanco). Para los enlaces, hemos utilizado <code>color:inherit</code> para forzar la herencia y anular el color de los enlaces predeterminado del navegador.</p>
+
+<p>Lógicamente, también podría haber especificado el blanco como color del margen y del texto de los enlaces, pero lo mejor del hecho de dejar que lo haga la herencia es que, si más adelante decidimos cambiar los colores, sólo deberemos hacer un cambio en este punto.</p>
+
+
+<h2 id="thecascade">28.2. Cascada</h2>
+
+<div class="text-clau">
+<p>CSS significa <em>cascading style sheets</em> (hojas de estilo en cascada) y, por lo tanto, no debería extrañarnos que la cascada sea un concepto importante. Es el mecanismo que controla el resultado final cuando se aplican varias declaraciones CSS contrapuestas al mismo elemento.</p>
+</div>
+
+<p>Hay tres conceptos principales que controlan el orden en el que se aplican las declaraciones de CSS:</p>
+<ol>
+<li><p>Importancia.</p></li>
+<li><p>Especificidad.</p></li>
+<li><p>Orden en las fuentes.</p></li>
+</ol>
+
+<p>A continuación, trataremos con detalle estos conceptos uno a uno.</p>
+
+<p>La importancia es uno de los conceptos más... pues... importantes. Si dos declaraciones tienen la misma importancia, la especificidad de las reglas decidirá cuál se debe aplicar. Si las reglas tienen la misma especificidad, el orden de las fuentes controla el resultado.</p>
+
+<h3 id="importance">28.2.1. Importancia</h3>
+
+<p>La importancia de una declaración de CSS depende de dónde se ha especificado. Las declaraciones contrapuestas se aplicarán en el orden siguiente: las nuevas anularán a las más antiguas.</p>
+
+<ol>
+<li><p>Hoja de estilos de agente de usuario.</p></li>
+<li><p>Declaraciones normales en hojas de estilo de autor.</p></li>
+<li><p>Declaraciones normales en hojas de estilo de usuario.</p></li>
+<li><p>Declaraciones importantes en hojas de estilo de autor.</p></li>
+<li><p>Declaraciones importantes en hojas de estilo de usuario.</p></li>
+</ol>
+
+<p>Una <strong>hoja de estilos de agente de usuario</strong> es la hoja de estilo integrada del navegador. Cada navegador tiene sus propias reglas sobre cómo mostrar varios elementos de HTML si el usuario o diseñador de la página no especifica ningún estilo. Por ejemplo, los enlaces no visitados suelen ser azules y estar subrayados.</p>
+
+<p>Una <strong>hoja de estilos de usuario</strong> es una hoja de estilo que ha especificado el usuario. No todos los navegadores son compatibles con las hojas de estilo de usuario, pero pueden ser muy prácticas, sobre todo para los usuarios con determinados tipos de minusvalía. Por ejemplo, una persona disléxica puede tener una hoja de estilo de usuario que especifique determinadas fuentes y colores que le faciliten la lectura.</p>
+
+<p>Opera permite especificar hojas de estilo de usuario desde <code>Tools</code> (herramientas) (o desde el menú <code>Opera</code> en un Mac) &gt;<code> Preferences...</code> (preferencias) &gt; pestaña <code>Advanced</code> (avanzado) &gt; <code>Content</code> (contenido), haciendo clic en el botón <code>Style Options...</code> (opciones de estilo...) y después señalando la hoja de estilo de usuario del campo de texto <code>My style sheet</code> (mi hoja de estilo) dentro de la pestaña <code>Display</code> (mostrar) de este cuadro de diálogo. También se puede especificar si se quiere que la hoja de estilos de usuario anule la hoja de estilos del autor (el diseñador de la web) en la pestaña <code>Presentation</code> (presentación) e, incluso, que añada un botón a la interfaz de usuario con el que poder cambiar la hoja de estilo del usuario con la del autor. Para hacerlo, salid totalmente del menú <code>Preferences...</code> (preferencias...) haciendo clic en <code>Aceptar</code> y después haced clic con el botón derecho o, mientras apretáis <code>Ctrl</code>, haced clic en algún punto de la interfaz del navegador Opera, seleccionad la vista <code>Customize...</code> (personalizar...) &gt; pestaña <code>Buttons</code> (botones) &gt; <code>Browser</code> (navegador) y arrastrad el botón <code>Author Mode</code> (modo autor) hasta un punto de alguna de las barras de herramientas.</p>
+
+<p>Cuando hablamos de "hojas de estilo", normalmente hacemos referencia a una hoja de estilo de autor. Es la hoja de estilos que ha creado o enlazado el autor del documento (o, más probablemente, el diseñador de la web).</p>
+
+<p>Las declaraciones normales son exactamente lo que su nombre indica: declaraciones normales. Lo contrario son las <strong>declaraciones importantes</strong>, que son las declaraciones que van seguidas de una directiva <code>!important</code>.</p>
+
+<p>Como se puede observar, las declaraciones importantes de una hoja de estilo de usuario tienen prioridad sobre todas las demás, lo cual es lógico. Siguiendo el ejemplo de la persona disléxica, podría ser que quisiera ver todo el texto con Comic Sans MS en caso de que le facilitara la lectura. Entonces podría tener una hoja de estilo de usuario con la regla siguiente:</p>
+
+<pre><code>* {
+   font-family: "Comic Sans MS" !important;
+}</code></pre>
+
+<p>En este caso, independientemente de lo que haya especificado el diseñador, e independientemente de aquello que se haya establecido como familia de fuentes predeterminada del navegador, todo se mostrará con Comic Sans MS.</p>
+
+<p>El método de presentación por defecto del navegador sólo se aplicará si las declaraciones no quedan anuladas por alguna regla de una hoja de estilo de usuario o una hoja de estilo de autor, ya que la hoja de estilo de agente de usuario tiene precedencia menor.</p>
+
+<p>En realidad, la mayoría de los diseñadores no se deben preocupar demasiado de la importancia porque no se puede hacer nada al respecto. No hay ninguna manera de saber si un usuario tiene una hoja de estilos de usuario definida que anule nuestro CSS. Y si la tiene, seguramente sea por alguna buena razón. Aun así, es útil saber qué es la importancia y cómo puede afectar a la presentación de nuestros documentos.</p>
+
+<h3 id="specificity">28.2.2. Especificidad</h3>
+
+<p>La especificidad es algo que todos los autores de CSS deben comprender y tener en cuenta. Puede considerarse una medida de cuán específico es el selector de una regla. Un selector de especificidad baja puede dar como resultado muchos elementos (como <code>*</code>, que da como resultado todos los elementos del documento), mientras que un selector con una especificidad elevada puede que sólo dé como resultado un único elemento de una página (como <code>#nav</code>, que sólo da como resultado el elemento con una <code>id</code> de <code>nav</code>).</p>
+
+<p>La especificidad de un selector puede calcularse fácilmente, como veremos muy pronto. Si dos o más declaraciones entran en conflicto por un elemento determinado y todas las declaraciones tienen la misma importancia, la de la regla con el selector más específico será la que "gane".</p>
+
+<p>La<strong> especificidad</strong> tiene cuatro componentes; por ejemplo a, b, c y d. El componente "a" es el más distintivo y el "d", el que menos.</p>
+   
+<ul>
+<li><p>El componente "a" es bastante sencillo: es 1 para una declaración en un atributo <code>style</code>; si no, es 0.</p></li>
+
+  <li><p>El componente "b" es el número de selectores de <code>id</code> en el selector (los que empiezan con <code>#</code>).</p></li>
+
+<li><p>El componente "c" es el número de selectores de atributo, incluidos los selectores de clase y pseudoclases.</p></li>
+
+<li><p>El componente "d" es el número de tipo de elementos y pseudoelementos del selector.</p></li>
+</ul>
+
+<p>Así, después de contar un poco, podemos unir estos cuatro componentes para conseguir la especificidad de cualquier regla. Las declaraciones de CSS en un atributo <code>style</code> no tienen selector, de manera que su especificidad siempre es 1,0,0,0.</p>
+
+<p>Veamos unos cuantos ejemplos que nos ayudarán a aclarar cómo funciona este proceso.</p>
+
+<table summary="">
+<thead>
+  <tr>
+    <th><strong>Selector</strong></th>
+    <th><strong>a</strong></th>
+    <th><strong>b</strong></th>
+    <th><strong>c</strong></th>
+    <th><strong>d</strong></th>
+    <th><strong>Especificidad</strong></th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td><code>h1</code></td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+    <td>0,0,0,1</td>
+  </tr>
+  <tr>
+    <td><code>.foo</code></td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0,0,1,0</td>
+  </tr>
+  <tr>
+    <td><code>#bar</code></td>
+    <td>0</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0,1,0,0</td>
+  </tr>
+  <tr>
+    <td><code>html &gt;head+body ul#nav *.home a:link</code></td>
+    <td>0</td>
+    <td>1</td>
+    <td>2</td>
+    <td>5</td>
+    <td>0,1,2,5</td>
+  </tr>                    
+</tbody>
+</table>
+
+
+<p>Pasemos ahora a comentar el último ejemplo con más detalle. Se obtiene <code>a=0</code> porque es un selector, no una declaración de un atributo <code>style</code>. Hay un selector ID (<code>#nav</code>), de manera que <code>b=1</code>. Hay un selector de atributos (<code>.home</code>) y una pseudoclase (<code>:link</code>), por lo tanto, <code>c=2</code>. Hay cinco tipos de elemento (<code>html</code>, <code>head</code>, <code>body</code>, <code>ul</code> y <code>a</code>), de manera que <code>d=5</code>. Por lo tanto, la especificidad final es 0,1,2,5.</p>
+<p>Hay que mencionar que los combinadores (como <code>&gt;</code>, <code>+</code> y el espacio en blanco) no afectan a la especificidad de un selector. El selector universal (<code>*</code>) tampoco cuenta para calcular la especificidad.</p>
+
+<p>También hay que tener en cuenta que existe una gran diferencia de especificidad entre un selector <code>id</code> y un selector de atributos que por casualidad haga referencia a un atributo <code>id</code>. Aunque den como resultado el mismo elemento, tienen especificidades muy diferentes. La especificidad de <code>#nav</code> es 0,1,0,0 y la especificidad de<code> [id="nav"]</code> es sólo 0,0,1,0.</p>
+
+<p>Fijémonos en cómo funciona esto en la práctica.</p>
+<ol>
+<li><p>Empezad añadiendo otro párrafo al documento HTML.</p>
+
+<pre><code>&lt;body&gt;
+   &lt;h1&gt;Título&lt;/h1&gt;
+   &lt;p&gt;Un párrafo de texto.&lt;/p&gt;
+   &lt;p&gt;Un segundo párrafo de texto.&lt;/p&gt;
+&lt;/body&gt;</code></pre></li>
+
+<li><p>Añadid una regla a la hoja de estilo para hacer que el texto de los párrafos sea de un color diferente.</p>
+
+<pre><code>p {
+   color: cyan;
+}</code></pre></li>
+
+<li><p>Guardad los dos ficheros y recargad el documento en vuestro navegador. Se deberían ver dos párrafos de color cian.</p></li>
+
+<li><p>Estableced una <code>id</code> en el primer párrafo para que podáis apuntar hacia él fácilmente con un selector CSS.</p>
+
+<pre><code>&lt;body&gt;
+   &lt;h1&gt;Título&lt;/h1&gt;
+   &lt;p id="special" &gt;Un párrafo de texto.&lt;/p&gt;
+   &lt;p&gt;Un segundo párrafo de texto.&lt;/p&gt;
+&lt;/body&gt;</code></pre></li>
+
+<li><p>Añadid una regla para el párrafo especial a la hoja de estilo.</p>
+
+<pre><code>#special {
+   background-color: red;
+   color: yellow;
+}</code></pre></li>
+
+<li><p>Guardad los dos ficheros y recargad el documento en el navegador para ver el resultado, que es bastante colorido.</p></li>
+</ol>
+
+<p>Veamos las declaraciones que se aplican en los dos párrafos.</p>
+
+<p>La primera regla que hemos añadido establece <code>color:cyan</code> para todos los párrafos. La segunda regla establece un color de fondo rojo y establece <code>color:yellow</code> para el único elemento que tiene <code>id</code> de <code>special</code>. El primer párrafo encaja con estas dos reglas; es un párrafo y tiene la <code>id</code> de <code>special</code>.</p>
+
+<p>El fondo rojo no es ningún problema porque sólo se ha especificado para <code>#special</code>. No obstante, ambas reglas incluyen una declaración de la propiedad de <code>color</code>, lo que significa que hay un conflicto. Ambas reglas tienen la misma importancia, se trata de declaraciones normales en la hoja de estilos de autor, de manera que hay que fijarse en la especificidad de los dos selectores.</p>
+
+<p>El selector de la primera regla es <code>p</code>, que tiene una especificidad de 0,0,0,1 según las reglas anteriormente mencionadas, ya que incluye un único tipo de elemento. El selector de la segunda regla es <code>#special</code>, que tiene una especificidad de 0,1,0,0 porque está formado por un selector de <code>id</code>. 0,1,0,0 y es mucho más específico que 0,0,0,1, de manera que la declaración <code>color</code>:<code>yellow</code> gana y se obtiene el texto amarillo sobre fondo rojo.</p>
+
+<h3 id="sourceorder">28.2.3. Orden en las fuentes</h3>
+
+<p>Si dos declaraciones afectan al mismo elemento, tienen la misma importancia y la misma especificidad, la señal distintiva final es el orden en las fuentes. La declaración que se ve más adelante en las hojas de estilo "ganará" a las anteriores.</p>
+
+<p>Si tenéis una única hoja de estilo externa, las declaraciones al final del fichero anularán a las que sucedan antes al fichero en caso de conflicto. Las declaraciones contrapuestas también pueden suceder en diferentes hojas de estilo. En este caso, el orden en el que se enlazan, se incluyen o se importan las hojas de estilo determina qué declaración se aplica, de manera que si se tienen dos hojas de estilo enlazadas en el <code>head</code> a un documento, la enlazada al último anulará a la enlazada al primero. Veamos un ejemplo práctico de cómo funciona esto.</p>
+
+<ol>
+<li><p>Añadid una regla nueva a la hoja de estilo, justo al final del fichero, como por ejemplo:</p>
+
+<pre><code>p {
+   background-color: yellow;
+   color: black;
+}</code></pre></li>
+
+<li><p>Guardad y recargad la página web. Ahora tenéis dos reglas que dan como resultado todos los párrafos. Tienen la misma importancia y la misma especificidad (ya que el selector es el mismo); por lo tanto, el mecanismo final para distinguirlas será el orden de las fuentes.</p></li>
+</ol>
+
+<p>La última regla especifica <code>color:black</code> y anulará a <code>color:cyan</code> de la regla anterior.</p>
+
+<p>Fijaos en cómo esta regla nueva no afecta en absoluto al primer párrafo. Aunque la regla nueva aparece en último lugar, su selector tiene una especificidad más baja que la de <code>#special</code>. Esto demuestra claramente cómo la especificidad tiene prioridad sobre el orden de las fuentes.</p>
+
+
+
+
+<h2 id="summary">Resumen</h2>
+
+<p>Herencia y cascada son conceptos básicos que cualquier diseñador web debe comprender.</p>
+
+<p>La herencia permite declarar propiedades en elementos de nivel alto y que estas propiedades se transmitan a todos los elementos descendientes. Sólo algunas propiedades se heredan por defecto, pero la herencia puede forzarse mediante la palabra clave <code>inherit</code>.</p>
+
+<p>La cascada soluciona los conflictos cuando varias declaraciones afectan a un elemento determinado. Las declaraciones importantes anulan a las que no lo son tanto. Entre declaraciones de igual importancia, la especificidad de la regla controla cuál se aplica. Y, si todas las demás son iguales, el orden de las fuentes supone la distinción definitiva.</p>
+
+
+
+
+<h2 id="exercises">Preguntas de repaso</h2>
+
+<p>Preguntas a las que deberíais poder responder:</p>
+
+<ol>
+<li><p>¿Se puede heredar la propiedad <code>width</code>? Pensad en ello antes de contestar (¿tendría sentido?) y después mirad la respuesta correcta en la <a href="http://www.w3.org/TR/CSS21" hreflang="en">especificación CSS</a>.</p></li> 
+
+<li><p>Si añadimos <code>!important</code> a la declaración <code>color:black</code> de la última regla de la <a href="http://dev.opera.com/articles/view/28-inheritance-and-cascade/inheritance_cascade_code.zip" hreflang="en">hoja de estilo de ejemplo</a>, ¿afectará al color del texto del primer párrafo "especial"?</p></li>
+
+<li><p>¿Qué selector es más específico, "<code>#special</code>" o "<code>html&gt;head+body&gt;h1+p</code>"?</p></li> 
+
+<li><p>¿Qué apariencia debería tener una hoja de estilo de usuario para que nuestro documento de prueba aparezca con Comic Sans MS negra sobre fondo blanco, independientemente de la hoja de estilo del autor?</p></li>
+
+</ol>
+
+ </div>
+<div><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.es"><img src="../../m0/creative_commons.gif" id="logo_cc" alt="Logo Creative Commons" /></a></div>
+<div id="logo_text">Los contenidos recogidos en este artículo están sujetos a una licencia <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.es">Creative Commons<br /> Reconocimiento, No comercial - Compartir bajo la misma licencia 3.0 No adaptada</a>.
+</div>
+<div id="cierre_autor"></div>
+
+<div id="peu">
+		<a rel="prev" href="../ud1/index.html" title="Ir al artículo anterior" accesskey="8"><img src="../../img/fletxa_izq_inv.gif" alt="Ir al artículo anterior" /></a> <strong>:</strong>
+		<a rel="index" href="../../index.html" title="Ir al índice" accesskey="0"><img src="../../img/indice_inv.gif" alt="Ir al índice" /></a> <strong>:</strong>
+		<a rel="next" href="../ud3/index.html" title="Ir al artículo siguiente" accesskey="9"><img src="../../img/fletxa_der_inv.gif" alt="Ir al artículo siguiente" /></a>
+</div>
+</body>
+</html>

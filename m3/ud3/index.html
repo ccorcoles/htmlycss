@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ca">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
+<meta http-equiv="Content-Language" content="ca" />
+<meta name="language" content="ca" />
+<meta name="author" content="Universitat Oberta de Catalunya" />
+<meta name="description" content="FALTA CONTENIDO" />
+<meta name="title" content="FALTA CONTENIDO" />
+<meta name="keywords" content="FALTA CONTENIDO" />
+
+<title>Fundamentos de HTML - Elegir el doctype correcto para los documentos HTML</title>
+<link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
+</head>
+
+<body>
+<div id="cabecera">
+	<img id="logo" src="../../img/logo.gif" alt="Universitat Oberta de Catalunya" />
+    <a href="http://mosaic.uoc.edu/"><img id="logomosaic" src="../../img/logo-mosaic.gif" alt="Logo de Mosaic" title="Abre la página web de Mosaic" /></a>
+	<div id="titulo">Fundamentos de HTML</div>
+	<div id="subtitulo">Elegir el <code>doctype</code> correcto para los documentos HTML</div>
+<div id="cierre"></div>
+	<div id="navegador">
+		<a href="../../m0/accessibilitat.html" id="accesibilidad">Accesibilidad</a> <strong>:</strong> 
+		<a rel="prev" href="../ud2/index.html" title="Ir al artículo anterior" accesskey="8"><img src="../../img/fletxa_izq.gif" alt="Ir al artículo anterior" /></a> <strong>:</strong> 
+		<a rel="index" href="../../index.html" title="Ir al índice" accesskey="0"><img src="../../img/indice.gif" alt="Ir al índice" /></a> <strong>:</strong> 
+		<a rel="next" href="../../m4/ud1/index.html" title="Ir al artículo siguiente" accesskey="9"><img src="../../img/fletxa_der.gif" alt="Ir al artículo siguiente" /></a>
+	</div>
+</div>
+   
+<div id="main">
+<h1>14. Elegir el <code>doctype</code> correcto para los documentos HTML</h1>
+<p class="by"><a href="../../index.html#johansson">Roger Johansson</a>. 8 de julio del 2008. Publicado en: doctype, dtd, html, validación, navegadores</p>
+
+ <p>El apartado anterior analizábamos la anatomía de la sección <code>head</code> de un documento HTML y explicábamos brevemente los diferentes elementos que puede haber en la cabecera y su función. En este apartado estudiaremos el elemento <code>doctype</code> con mucho más detalle: qué hace, cómo ayuda a validar el HTML, cómo elegir un doctype para el documento y la declaración XML, que no necesitaréis casi nunca pero con la que os encontraréis algunas veces.</p>
+ 
+ <p>Los contenidos de este apartado son los siguientes:</p>
+  
+<ul class="index">
+	<li>14.1. <a href="#doctypefirst" accesskey="1">En primer lugar, el <code>doctype</code></a></li>
+ 	<li>14.2. <a href="#doctypeswitching" accesskey="2">Cambios de <code>doctype</code> y modos de representación</a></li>
+	<li>14.3. <a href="#validation" accesskey="3">Validación</a></li>
+	<li>14.4. <a href="#choosingdoctype" accesskey="4">Elegir un <code>doctype</code></a></li>
+	<li>14.5. <a href="#xmldeclaration" accesskey="5">La declaración XML</a></li>
+	<li class="especial"><a href="#summary">Resumen</a></li>
+	<li class="especial"><a href="#exercises">Preguntas de repaso</a></li>
+	<li class="especial"><a href="#furtherreading">Lecturas complementarias</a></li>
+</ul>
+                                 
+     <h2 id="doctypefirst">14.1. En primer lugar, el <code>doctype</code></h2>
+     
+     <p>Lo primero que debéis comprobar que haya en cualquier documento HTML que creéis es una declaración DTD. Si no habéis oído nunca hablar de la declaración DTD, no os preocupéis. Para facilitar las cosas, normalmente se conoce como "<code>doctype</code>", que es el nombre que utilizaremos en este apartado.</p>
+     
+     <p>Es muy posible que os estéis preguntando qué es una DTD o <code>doctype</code>. DTD son las siglas de <span lang="en">document type definition</span> (definición del tipo de documento), que, entre otras cosas, define los elementos y los atributos que se pueden utilizar en una versión concreta del HTML. Sí, no es ningún error, actualmente se utilizan en la Red diferentes versiones del HTML, pero esto no os debe preocupar en absoluto, ya que sólo os deberéis interesar por una.</p>
+     
+     <p>El <code>doctype</code> se utiliza para dos cosas en diferentes tipos de software:</p>
+     
+     <ol>
+       <li><p>Los navegadores web lo utilizan para determinar el modo de representación que deben utilizar (más adelante ya hablaremos de los modos de representación).</p></li>
+    <li><p>Los validadores de etiquetado miran el <code>doctype</code> para determinar las normas con las que deben comprobar el documento (más adelante también hablaremos de ello).</p></li>
+     </ol>
+     
+     <p>Las dos os afectarán, pero de maneras diferentes que ya explicaremos más adelante en este mismo apartado.</p>
+     
+     <p>Aquí tenéis un ejemplo:</p>
+     
+     <pre><code>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/
+ html4/strict.dtd"&gt;</code></pre>
+     
+     <p>Es posible que no le encontréis ningún sentido, por lo que ahora explicaremos de una manera simplificada su construcción. Para una explicación con mucho más detalle de qué significa cada uno de los caracteres, podéis ver el <a href="http://www.blooberry.com/indexdot/html/tagpages/d/doctype.htm" hreflang="en">artículo !DOCTYPE</a>.</p>
+     
+     <p>Las partes más importantes de <code>doctype</code> son las dos cadenas delimitadas por comillas. <code>"-//W3C//DTD HTML 4.01//EN"</code> indica que éste es un documento DTD publicado por el W3C, que la DTD describe la versión 4.01 del HTML y que el idioma utilizado en la DTD es el inglés.</p>
+     
+     <p>La segunda cadena, <code>"http://www.w3.org/TR/html4/strict.dtd"</code>, es una URL que indica el documento DTD utilizado para este <code>doctype</code>.</p>
+     
+     <p>Aunque un <code>doctype</code> puede tener un aspecto un tanto extraño, las especificaciones HTML y XHTML lo exigen. Si no incluís ninguno, aparecerá un error de validación cuando comprobéis la sintaxis de vuestro documento con el validador de etiquetado del W3C u otras herramientas que comprueben los documentos HTML por si contienen errores. Algunos navegadores incluso contienen esta función por defecto, mientras que otros pueden incluirla si se instala una extensión.</p>
+ 
+     <h2 id="doctypeswitching">14.2. Cambios de <code>doctype</code> y modos de representación</h2>
+     
+     <p>Si no proporcionáis ningún <code>doctype</code>, los navegadores seguirán gestionando y mostrando el documento de todos modos; deben intentar mostrar todo tipo de cosas extrañas que se pueden encontrar en la Red, por lo que no pueden ser muy quisquillosos. No obstante, sin un <code>doctype</code> los resultados no siempre serán los esperados a causa de una cosa conocida como <span lang="en">"doctype sniffing"</span> o <span lang="en">"doctype switching"</span>.</p>
+     
+     <p>La mayoría de los navegadores del siglo <span class="versaleta">XXI</span> miran el <code>doctype</code> de todos los documentos HTML que encuentran y lo utilizan para decidir si el autor de los documentos se ha preocupado de escribir adecuadamente el HTML y el CSS según los estándares de la Red.</p>
+     
+     <p>Si encuentran un <code>doctype</code> que indica que el documento está bien codificado, utilizan un modo conocido como "modo de estándares" para maquetar la página. En el modo de estándares, los navegadores intentan normalmente mostrar la página según las especificaciones de CSS; se fían de que la persona que ha creado el documento sabía qué estaba haciendo.</p>
+     
+     <p>Por otra parte, si encuentran un <code>doctype</code> anticuado o incompleto, utilizan el modo Quirks (peculiaridades), que es más compatible con las prácticas y los navegadores antiguos. El modo Quirks presupone que el documento es antiguo o que no se ha creado teniendo en cuenta los estándares de la web; la página web se seguirá mostrando, pero se necesitará más potencia de procesamiento para hacerlo y es muy probable que el resultado sea algo extraño, nada parecido a lo que se esperaba.</p>
+     
+     <p>Las diferencias están básicamente relacionadas con la manera de mostrar el CSS y sólo en unos pocos casos con la manera de tratar el HTML en sí. Como diseñadores o desarrolladores de webs, obtendréis los mejores resultados asegurándoos de que todos los navegadores utilicen su modo de representación de estándares, y por ello deberíais ceñiros a los estándares de la web y utilizar un <code>doctype</code> adecuado.</p>
+
+     <h2 id="validation">14.3. Validación</h2>
+     
+     <p>Como ya hemos comentado, los validadores también utilizan el <code>doctype</code>; ya lo comentaremos con más detalle más adelante en esta serie de apartados. De momento, todo lo que debéis saber es que se utiliza un validador para comprobar que la sintaxis de vuestros documentos HTML sea correcta y que no contenga ningún error. Los programas validadores miran el <code>doctype</code> utilizado para determinar las normas que se deben utilizar. Es algo similar a indicar a un corrector ortográfico el idioma en el que está escrito un documento. Si no lo sabe, no sabrá qué normas ortográficas y de gramática debe utilizar.</p>
+
+     <h2 id="choosingdoctype">14.4. Elegir un <code>doctype</code></h2>
+     
+     <p>Así pues, ahora que ya sabéis que hay que introducir un <code>doctype</code> y para qué se utiliza, ¿cómo podéis saber cuál hay que utilizar? De hecho, no hay uno, sino que hay muchos. Incluso podéis crear uno propio, siempre y cuando tengáis el nivel de conocimientos necesario para hacerlo. Aquí, sin embargo, no hablaremos de muchos <code>doctypes</code> diferentes. Haremos las cosas fáciles y sólo mencionaremos dos.</p>
+     <p>Si vuestro documento es HTML, utilizad el siguiente:</p>
+     
+     <pre><code>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/
+ html4/strict.dtd"&gt;</code></pre>
+     
+     <p>Si vuestro documento es XHTML, utilizad el siguiente:</p>
+     
+     <pre><code>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/
+ xhtml1/DTD/xhtml1-strict.dtd"&gt;</code></pre>
+     
+     <div class="note">
+     <h3>Nota</h3>    
+     <p>El XHTML "real" se debe comunicar al navegador como XML, pero los detalles sobre cómo y cuándo hacerlo, y las implicaciones que tiene, quedan fuera del alcance de este apartado en concreto.</p>
+     </div>
+     
+     <p>Estos dos <code>doctypes</code> garantizarán que los navegadores utilicen su modo de estándares a la hora de trabajar con vuestro documento. El efecto más evidente que tendrá sobre vuestro trabajo es que obtendréis unos resultados más uniformes a la hora de diseñar el documento con CSS. Para ver algunos de los otros <code>doctypes</code> que podéis utilizar, el W3C ha publicado una <a href="http://www.w3.org/QA/2002/04/valid-dtd-list.html" hreflang="en">lista de DTD recomendadas para utilizarlas en vuestro documento web</a>.</p>
+     
+     <p>Es posible que hayáis observado que los dos <code>doctypes</code> que hemos mencionado se llaman "Strict". Aunque pueda parecer un poco extraño, no lo es en absoluto.</p>
+     
+     <p>Tanto el HTML como el XHTML pueden ser estrictos o transicionales. Estrictos, en este caso, significa que los <code>doctypes</code> permiten un etiquetado menos presentacional que los <code>doctypes</code> transicionales. El etiquetado presentacional que no está permitido no debería aparecer de ninguna manera, ya que debéis utilizar el HTML para definir la estructura y el significado de vuestros documentos, y el CSS para determinar el modo como se presentarán. El uso de un <code>doctype</code> estricto os ayudará, ya que el validador os avisará de cualquier elemento o atributo presentacional que se pueda haber escurrido dentro del código.</p>
+
+     <h2 id="xmldeclaration">14.5. La declaración XML</h2>
+     
+     <p>Ya hemos señalado antes que el <code>doctype</code> debe ser la primera cosa que haya dentro de vuestros documentos HTML. Pues bien, eso es en realidad una versión simplificada de la verdad. También hay que tener en cuenta la declaración XML.</p>
+     <p>Es posible que en algunos documentos XHTML hayáis visto un fragmento de código con un aspecto similar al siguiente antes del <code>doctype</code>:</p>
+     
+     <pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;</code></pre>
+     
+     <p>Esto se conoce como declaración XML, y cuando está presente debe estar insertada antes del <code>doctype</code>.</p>
+     
+     <p>La versión 6 de Internet Explorer tiene un problema con esta declaración: hace que pase al modo Quirks y, tal como ya hemos explicado anteriormente, no es muy probable que queráis que eso suceda.</p>
+     
+     <p>Por suerte, la declaración XML no es necesaria si no es que enviáis vuestros documentos XHTML como XML a los navegadores (podéis ver la nota al margen sobre el XHTML) y utilizáis una codificación de caracteres diferente de UTF-8 y vuestro servidor no envía un encabezamiento HTTP que determina la codificación de caracteres.</p>
+     
+     <p>Las probabilidades de que sucedan todas estas cosas al mismo tiempo son muy pequeñas, por lo que la manera más sencilla de solucionar el problema de Internet Explorer es sencillamente omitir la declaración XML. ¡Pero no os olvidéis del <code>doctype</code>!</p>
+
+			<h2 id="summary">Resumen</h2> 
+       
+	     <p>Hay que incluir siempre uno de los <code>doctypes</code> mencionados como primer elemento dentro de todos vuestros documentos HTML. Esto garantizará que los validadores sepan la versión del HTML que utilizáis y así podrán informar correctamente de cualquier error que hayáis cometido. También garantizará que todos los navegadores más nuevos utilizarán su modo de estándares, con lo que obtendréis unos resultados más uniformes cuando diseñéis el documento con el CSS.</p>
+
+			 <h2 id="exercises">Preguntas de repaso</h2>
+
+	     <p>Después de leer este apartado, deberíais poder responder a las siguientes preguntas:</p>
+
+	     <ol>
+	       <li><p>Cuáles son los dos objetivos principales de incluir un doctype en los documentos HTML?</p></li>
+	       <li><p>Cuáles son las ventajas de utilizar un <code>doctype</code> estricto en lugar de uno transicional?</p></li>
+	       <li><p>Por qué es problemática la declaración XML?</p></li>
+	       <li><p>Un <code>doctype</code> que no hemos mencionado en este apartado es el de definición de marcos; intentad descubrir qué hace y por qué no se debe utilizar.</p></li>
+	     </ol>                  
+                            
+	     <h2 id="furtherreading">Lecturas complementarias</h2>
+
+	     <ul>
+	       <li><p>"<a href="http://www.w3.org/QA/Tips/Doctype" hreflang="es">Don't forget to add a doctype</a>"</p></li>
+	  	 <li><p>"<a href="http://www.w3.org/QA/2002/04/valid-dtd-list.html" hreflang="en">Recommended DTDs to use in your Web document</a>"</p></li>    
+	     <li><p>"<a href="http://www.alistapart.com/articles/doctype/" hreflang="en">Fix Your Site With the Right DOCTYPE!</a>"</p></li>
+			 <li><p>"<a href="http://hsivonen.iki.fi/doctype/" hreflang="en">Activating Browser Modes with Doctype</a>"</p></li>
+	     <li><p>"<a href="http://www.opera.com/docs/specs/doctype/" hreflang="en">The Opera 9 DOCTYPE switches</a>"</p></li>
+	 		<li><p>"<a href="http://www.quirksmode.org/css/quirksmode.html" hreflang="en">Quirks mode and strict mode</a>"</p></li>
+	     <li><p>"<a href="http://24ways.org/2005/transitional-vs-strict-markup" hreflang="en">Transitional vs. StrictMarkup</a>"</p></li>
+				</ul>
+	    
+</div>
+<div><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.es"><img src="../../m0/creative_commons.gif" id="logo_cc" alt="Logo Creative Commons" /></a></div>
+<div id="logo_text">Los contenidos recogidos en este artículo están sujetos a una licencia <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.es">Creative Commons<br /> Reconocimiento, No comercial - Compartir bajo la misma licencia 3.0 No adaptada</a>.
+</div>
+<div id="cierre_autor"></div>
+
+<div id="peu">
+		<a rel="prev" href="../ud2/index.html" title="Ir al artículo anterior" accesskey="8"><img src="../../img/fletxa_izq_inv.gif" alt="Ir al artículo anterior" /></a> <strong>:</strong>
+		<a rel="index" href="../../index.html" title="Ir al índice" accesskey="0"><img src="../../img/indice_inv.gif" alt="Ir al índice" /></a> <strong>:</strong>
+		<a rel="next" href="../../m4/ud1/index.html" title="Ir al artículo siguiente" accesskey="9"><img src="../../img/fletxa_der_inv.gif" alt="Ir al artículo siguiente" /></a>
+</div>
+</body>
+</html>

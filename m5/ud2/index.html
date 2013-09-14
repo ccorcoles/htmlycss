@@ -1,0 +1,318 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
+<meta http-equiv="Content-Language" content="es" />
+<meta name="language" content="es" />
+<meta name="author" content="Universitat Oberta de Catalunya" />
+<meta name="description" content="FALTA CONTENIDO" />
+<meta name="title" content="FALTA CONTENIDO" />
+<meta name="keywords" content="FALTA CONTENIDO" />
+
+<title>Accesibilidad - Pruebas de accesibilidad</title>
+<link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
+</head>
+
+<body>
+<div id="cabecera">
+	<img id="logo" src="../../img/logo.gif" alt="Universitat Oberta de Catalunya" />
+    <a href="http://mosaic.uoc.edu/"><img id="logomosaic" src="../../img/logo-mosaic.gif" alt="Logo de Mosaic" title="Abre la página web de Mosaic" /></a>
+	<div id="titulo">Accesibilidad</div>
+	<div id="subtitulo">Pruebas de accesibilidad</div>
+<div id="cierre"></div>
+	<div id="navegador">
+		<a href="../../m0/accessibilitat.html" id="accesibilidad">Accesibilidad</a> <strong>:</strong> 
+		<a rel="prev" href="../ud1/index.html" title="Ir al artículo anterior" accesskey="8"><img src="../../img/fletxa_izq.gif" alt="Ir al artículo anterior" /></a> <strong>:</strong> 
+		<a rel="index" href="../../index.html" title="Ir al índice" accesskey="0"><img src="../../img/indice.gif" alt="Ir al índice" /></a> <strong>:</strong> 
+		<a rel="next" href="../../m6/ud1/index.html" title="Ir al artículo siguiente" accesskey="9"><img src="../../img/fletxa_der.gif" alt="Ir al artículo siguiente" /></a>
+	</div>   
+</div>
+
+				<div id="main">
+				<h1>26. Pruebas de accesibilidad</h1>
+				<p class="by"><a href="../../index.html#hawkes">Benjamin Hawkes Lewis</a>. 26 de septiembre del 2008. Publicado en: usuario, personajes, verificador, prueba, inspeccionar.</p>
+
+		    <p>Las pruebas de accesibilidad web son un subgrupo de las pruebas de usabilidad en las que los usuarios que se tienen en cuenta tienen discapacidades que afectan a su manera de utilizarlo. El objetivo final, tanto con respecto a la usabilidad como a la accesibilidad, es descubrir la facilidad con la que se puede utilizar un sitio web y utilizar esta información para mejorar futuros diseños e implementaciones.</p>
+
+		    <p>La evaluación de la accesibilidad está más formalizada, en general, que las pruebas de usabilidad. Las leyes y la opinión pública desaprueban totalmente la discriminación de las personas con discapacidades. Para ser justos con todo el mundo, los gobiernos y otras organizaciones intentan cumplir varios estándares de accesibilidad de la web, como por ejemplo la legislación de la Sección 508 del Gobierno Federal de Estados Unidos y las directrices de accesibilidad del contenido web (WCAG) del W3C.</p>
+
+		    <div class="vegeu_tambe">
+		    <h3>Ved también</h3>
+
+		    <p>Podéis ver la legislación de la Sección 508 y las directrices de accesibilidad del contenido web en el apartado anterior de este módulo didáctico.</p>
+		    </div>
+
+		    <p>No obstante, es importante distinguir entre cumplir un estándar y maximizar la accesibilidad de un sitio web. En una situación ideal, ambas cosas serían la misma, pero cualquier estándar puede fallar a la hora de cumplir con los objetivos siguientes:</p>
+
+		    <ul>
+		      <li><p>Satisfacer las necesidades de todas las personas con discapacidades.</p></li>
+
+		      <li><p>Encontrar el equilibrio entre las necesidades de las personas con diferentes discapacidades.</p></li>
+
+		      <li><p>Hacer corresponder estas necesidades con las técnicas óptimas.</p></li>
+
+		      <li><p>Utilizar un lenguaje claro para expresar las necesidades o las técnicas.</p></li>
+		    </ul>
+
+		    <p>Estos puntos débiles pueden hacer que las personas con las mejores intenciones vayan por el mal camino y pueden ser aprovechados por los que pretenden la aprobación oficial de productos inaccesibles.</p>
+
+		    <p>Además, la accesibilidad web es un objetivo y no una cuestión de sí o no. Es un nexo entre las necesidades humanas y la tecnología. A medida que nuestro conocimiento de las necesidades humanas vaya evolucionando y a medida que la tecnología se vaya adaptando a estas necesidades, los requisitos de accesibilidad cambiarán y los estándares actuales quedarán desfasados. Los diferentes sitios web, y las distintas webs, satisfarán necesidades diferentes con tecnologías diferentes. Los servicios de chat por voz, como Skype, son ideales para las personas ciegas, mientras que los <a hreflang="en" href="http://developer.yahoo.net/blog/archives/2008/05/yahoo_live_empo.html">servicios de chat por vídeo</a> son una gran ayuda para los usuarios del lenguaje de signos.</p>
+
+		    <p>A la hora de determinar la facilidad de uso de un producto, las discapacidades plantean unos retos especiales, ya que pueden introducir unos huecos adicionales entre usuarios y evaluadores. La evaluación de la accesibilidad debe tener en cuenta cómo se puede experimentar la web con los diferentes sentidos y con diferentes capacidades cognitivas, y también las distintas opciones de configuración inusuales y el software especializado que permitirá el acceso a la web a las personas con discapacidades concretas.</p>
+
+		    <p>Si intentáis evaluar la usabilidad o la accesibilidad de vuestro sitio web, es muy difícil que os podáis poner en el lugar de un adolescente amante del cine o de un director de banco de 59 años que utilizan vuestro sitio, incluso antes de tener en cuenta las discapacidades. Pero ¿qué sucede si el adolescente amante del cine es sordo y necesita que las películas estén subtituladas? ¿Y si el director de banco es ciego y utiliza una tecnología especial (como un lector de pantalla) para interactuar con su entorno de escritorio y el navegador web con la que el evaluador no está nada familiarizado?</p>
+
+		    <p>Las directrices y las herramientas de accesibilidad ayudan a salvar estas faltas de experiencia. A pesar de ello, no dejan de ser un complemento, y no una sustitución, para la imaginación empática, la ingenuidad técnica y las conversaciones con los usuarios.</p>
+
+		    <p>En este apartado hablaremos de varios enfoques para evaluar la accesibilidad de la web, tanto desde la perspectiva del establecimiento de la conformidad formal como desde la perspectiva de la maximización de la accesibilidad.</p>
+
+
+		    <p>Los contenidos de este apartado son los siguientes:</p>
+
+				<ul class="index">
+					<li>26.1. <a href="#whentotest" accesskey="1">¿Cuándo se deben realizar las pruebas?</a></li>
+				    <li>26.2. <a href="#understandingrequirements" accesskey="2">Entender los requisitos</a>
+					<ul class="index">
+				    <li>26.2.1. <a href="#externalreqs">Requisitos externos</a></li>
+				    <li>26.2.2. <a href="#conformance">Detalles de la conformidad</a></li>
+				    <li>26.2.3. <a href="#exceedingexpectations">Superar las expectativas</a></li>
+				    <li>26.2.4. <a href="#importanceUI">La importancia de la interfaz de usuario</a></li>
+				    <li>26.2.5. <a href="#personas">Personajes con discapacidades</a></li>
+				    <li>26.2.6. <a href="#choosingastandard">Elegir un estándar de accesibilidad</a></li>
+				    <li>26.2.7. <a href="#spiritofthelaw">El espíritu de la ley</a></li>
+				</ul></li>
+				    <li>26.3. <a href="#whoshouldtest" accesskey="3">¿Quién debe hacer las pruebas?</a></li>
+				    <li>26.4. <a href="#experttesting" accesskey="4">Pruebas avanzadas</a>
+					<ul class="index">
+				    <li>26.4.1. <a href="#semiautomatedcheckers">Comprobadores de accesibilidad semiautomatizados</a></li>
+				    <li>26.4.2. <a href="#structuralinspectors">Inspectores estructurales</a></li>
+				    <li>26.4.3. <a href="#screening">Simulación y uso de tecnologías de asistencia de usuario final</a></li>
+				    <li>26.4.4. <a href="#detailedinspection">Inspección detallada</a>
+				    <ul class="index">
+				    <li><a href="#perceivability">Perceptibilidad</a></li>
+				    <li><a href="#operability">Operatividad</a></li>
+				    <li><a href="#understandability">Comprensibilidad</a></li>
+				    <li><a href="#robustness">Robustez</a></li>
+				</ul></li>
+				</ul></li>
+				    <li>26.5. <a href="#usertesting" accesskey="5">Pruebas de usuario</a>
+					<ul class="index">
+				    <li>26.5.1. <a href="#recruitingtesters">Encontrar verificadores</a></li>
+				    <li>26.5.2. <a href="#practicalconsiderations">Consideraciones prácticas</a></li>
+				    <li>26.5.3. <a href="#choosingtasks">Elegir las tareas</a></li>
+				    <li>26.5.4. <a href="#interpretingresults">Interpretar los resultados</a></li>
+				</ul></li>
+				    <li>26.6. <a href="#communicatingresults" accesskey="6">Comunicar los resultados de las pruebas de accesibilidad</a></li>
+					<li class="especial"><a href="#summary">Resumen</a></li>
+					<li class="especial"><a href="#exercises">Preguntas de repaso</a></li>
+				</ul>
+
+
+		<h2 id="whentotest">26.1. ¿Cuándo se deben realizar las pruebas?</h2>
+
+		    <p>Uno de los dichos de siempre del mundo de la ingeniería de software es "probad pronto y probad a menudo". El hecho de realizar las pruebas al final de todo el proceso de desarrollo implica dos riesgos:</p>
+
+		    <ol>
+		      <li><p>Los proyectos suelen durar más de lo previsto y tener un precio más alto del presupuestado. A causa de estas presiones, las pruebas se hacen normalmente con prisas, no se hacen o se ignoran.</p></li>
+
+		      <li><p>Normalmente, supone más trabajo solucionar los problemas que se descubren una vez que el proceso ya está muy adelantado que hacerlo ya desde el principio.</p></li>
+		    </ol>
+
+		    <div class="text-clau">
+		    <p>Así pues, para garantizar la calidad y ahorrar tiempo y dinero, las evaluaciones de accesibilidad deberían empezar ya desde el primer momento del diseño del producto y se deberían incluir en todas las versiones de desarrollo siguientes hasta la entrega del producto acabado.</p>
+		    </div>
+
+		<h2 id="understandingrequirements">26.2. Entender los requisitos</h2>
+
+		    <p>Antes de empezar a evaluar la accesibilidad de un proyecto, debéis determinar cuáles son los requisitos clave teniendo en cuenta su entorno, el público al que va destinado y los recursos. Algunos requisitos vendrán impuestos por terceros como gobiernos y clientes; otros los podréis elegir por vuestra cuenta.</p>
+
+		<h3 id="externalreqs">26.2.1. Requisitos externos</h3>
+
+		    <p>Normalmente los requisitos vienen impuestos desde fuera, como por ejemplo:</p>
+
+		    <ul>
+		      <li><p><strong>Gobiernos</strong>. Los requisitos adoptan normalmente la forma de una legislación general contra la discriminación de las personas con discapacidades, y muy pocas veces exigen el uso de un estándar concreto o enumeran unos requisitos precisos de conformidad. Una excepción importante es cuando la legislación obliga al sector público a utilizar un estándar concreto. Por ejemplo, la <a hreflang="en" href="http://www.section508.gov/">Sección 508</a> forma parte de la legislación de Estados Unidos y obliga a los sitios web producidos por agencias federales a satisfacer como mínimo un grupo concreto de requisitos definidos. La <a hreflang="en" href="http://www.w3.org/WAI/Policy/">página de las políticas de la WAI relativas a la accesibilidad de la web</a> ofrece una lista parcial de legislaciones similares. Pero si queréis saber exactamente qué obligaciones tenéis en vuestra jurisdicción, consultad a un abogado.</p></li>
+
+		      <li><p><strong>Políticas del cliente</strong>. Por ejemplo, Shell está intentando garantizar que sus sitios web cumplan el nivel de conformidad "Doble A" del WCAG 1.0, por lo que, si estáis desarrollando un sitio web para Shell, deberéis satisfacer (como mínimo) este estándar.</p></li>
+
+		      <li><p><strong>Utilidad como marketing</strong>. La conformidad con un estándar concreto, como por ejemplo la Sección 508, puede ayudar a vender un proyecto a clientes que se preocupan por la accesibilidad.</p></li>
+
+		      <li><p><strong>Política de accesibilidad interna en vuestra organización</strong>. Por ejemplo, los productos producidos para la BBC deben satisfacer las <a hreflang="en" href="http://www.bbc.co.uk/guidelines/futuremedia/accessibility/">directrices de accesibilidad de la BBC v1.3</a>.</p></li>
+		    </ul>
+
+		<h3 id="conformance">26.2.2. Detalles de la conformidad</h3>
+
+		    <p>Es muy importante tener tan claro como sea posible cuáles son los requisitos externos. Algunos estándares de accesibilidad incorporan más de un nivel o tipo de conformidad, por lo que hay que concretar muy bien cuál es el que se exige. Por ejemplo, el WCAG 1.0 tiene tres niveles de conformidad:</p>
+
+		    <ol>
+		      <li><p>Las personas con alguna discapacidad "no podrán acceder de ninguna manera a la información" de un documento que no supere el "nivel A".</p></li>
+
+		      <li><p>Las personas con alguna discapacidad "lo tendrán difícil para acceder a la información" de un documento que no supere el nivel "Doble A".</p></li>
+
+		      <li><p>Las personas con alguna discapacidad "encontrarán algunas dificultades para acceder a la información" de un documento que no supere el nivel "Triple A".</p></li>
+		    </ol>
+
+		    <p>El borrador de WCAG 2.0 también incorpora tres niveles, pero las posibilidades de conformidad son más complicadas. Cuando un recurso forma parte de una serie de recursos que forman todo un proceso (por ejemplo la búsqueda, selección, compra y pago de un producto en una tienda en línea), el nivel de conformidad para todos los recursos de la serie es el del recurso con el nivel más bajo.</p>
+
+		    <p>Las declaraciones de conformidad se deben basar en la tecnología de contenido "compatible con la accesibilidad". Para poder ser una tecnología de contenido compatible con la accesibilidad, una tecnología debe hacer lo siguiente:</p>
+
+		    <ul>
+		      <li><p>Haber demostrado que funciona con la tecnología de asistencia de los usuarios.</p></li>
+
+		      <li><p>Tener unos agentes de usuario (navegadores, conectores, etc.) que funcionen con la tecnología de asistencia de los usuarios y estar disponible para los usuarios con discapacidades sin ningún coste superior al que tiene un usuario sin ninguna discapacidad.</p></li>
+		    </ul>
+
+		    <p>Tened en cuenta que en un entorno de intranet quizá sí podréis garantizar que estos agentes de usuario estarán disponibles para los usuarios, pero en la web será imposible. Por ejemplo, es posible que una aplicación se pueda utilizar sin ninguna tecnología comercial, pero que sea accesible sólo con lectores de pantalla con un conector comercial para el que la organización ha comprado una licencia. Esta aplicación podría ser conforme a las WCAG 2.0 cuando se utiliza en la intranet de la organización, pero no cuando se utiliza en la web pública.</p>
+
+		    <p>El WCAG 2.0 también permite unas declaraciones de conformidad más limitadas. Un recurso no accesible puede ser conforme si se ofrece una alternativa accesible. Los editores pueden hacer una declaración de conformidad parcial cuando se añada contenido procedente de otras fuentes.</p>
+
+		<h3 id="exceedingexpectations">26.2.3. Superar las expectativas</h3>
+
+		    <p>La determinación de los requisitos externos debería ser sólo el principio de todo el proceso; estos requisitos se deberían considerar como los requisitos mínimos a los que hay que añadir unos objetivos más altos con el fin de maximizar la accesibilidad. Como evaluadores de accesibilidad, vuestra tarea es estimular la concienciación sobre la accesibilidad, ya que sois los expertos en el tema.</p>
+
+		    <p>Cuando entreguéis un informe final, es posible que debáis distinguir los dos aspectos. Por ejemplo, las instrucciones de un cliente para un supermercado en línea pueden especificar que la tienda sea accesible para los usuarios ciegos. Teniendo en cuenta al público al que va dirigida, también deberíais evaluar si la tienda será accesible para usuarios con otras discapacidades.</p>
+
+		    <p>Tened en cuenta que los requisitos externos de conformidad con un estándar concreto no impiden necesariamente la aplicación de directivas de buenas prácticas de otros estándares. Por ejemplo, podéis evaluar un sitio web de una agencia federal pensado para su uso por parte de personas de la tercera edad y que debe cumplir con la Sección 508. La Sección 508 estipula lo siguiente:</p>
+
+		    <blockquote>
+		    <p>"&#167; 1194.22 (c) Las páginas web deben diseñarse de manera que toda la información que se transmita mediante colores esté disponible también sin colores, por ejemplo a partir del contexto o del etiquetado".</p>
+		    </blockquote>
+
+		    <p>Esta disposición ayuda a los usuarios, que saben cómo adaptar la presentación del contenido de la web, pero no maximiza la accesibilidad de la presentación por defecto del contenido en la audiencia destino, ya que no garantiza que habrá el contraste suficiente entre los colores sugeridos. Por suerte, no hay nada que impida que un sitio web satisfaga este requisito y, además, satisfaga las disposiciones del siguiente nivel del borrador de las directrices de accesibilidad del contenido web 2.0.</p>
+
+		    <blockquote>
+		    <h3>Borrador de las directrices de accesibilidad del contenido web 2.0.</h3>
+
+		    <p>"1.4.3 Contraste (mínimo): El texto y las imágenes de texto tienen una relación de contraste de como mínimo 5:1, excepto en los casos siguientes (nivel AA):</p>
+
+		    <ul>
+		      <li><p>Texto grande: El texto y las imágenes de texto de tamaño grande tienen una relación de contraste de 3:1 como mínimo.</p></li>
+
+		      <li><p>Secundario: El texto o las imágenes de texto que forman parte de un componente inactivo de la interfaz de usuario, que son puramente decorativos, que son texto secundario en una imagen o que no son visibles para nadie, no tienen ningún requisito de contraste mínimo.</p></li>
+		    </ul>
+
+		    <p>1.4.6 Contraste (mejorado): El texto y las imágenes de texto tienen una relación de contraste de como mínimo 7:1, excepto en los casos siguientes (nivel AAA):</p>
+
+		    <ul>
+		      <li><p>Texto grande: El texto y las imágenes de texto de tamaño grande tienen una relación de contraste de 5:1 como mínimo.</p></li>
+
+		      <li><p>Secundario: El texto o las imágenes de texto que forman parte de un componente inactivo de la interfaz de usuario, que son puramente decorativos, que son texto secundario dentro de una imagen o que no son visibles para nadie, no tienen ningún requisito de contraste mínimo.</p></li>
+		    </ul>
+
+		    <p>Los criterios 1.4.3 y 1.4.6 se pueden satisfacer mediante un control de contraste disponible en la página o desde ésta".</p>
+		    </blockquote>
+
+		    <div class="note">
+		    <h3>Nota</h3>    
+		    <p>Cuando habla del control de contraste, este criterio se refiere al hecho de que deberíais ofrecer una manera de cambiar los colores o una variación de alto contraste. Para comprobar los esquemas de control de contraste, podéis utilizar el<a href="http://juicystudio.com/services/luminositycontrastratio.php" hreflang="en"> analizador de contraste de color de Juicystudio</a>.</p>
+		    </div>
+
+		    <p>Las WCAG 2.0 se están diseñando para que tengan una gran compatibilidad con versiones anteriores de otros estándares, especialmente WCAG 1.0 y la Sección 508.</p>
+
+		<h3 id="importanceUI">26.2.4. La importancia de la interfaz de usuario</h3>
+
+		    <p>Pensad en la importancia que tiene el hecho de conseguir que la interfaz de usuario de un sitio web sea accesible. Aunque el contenido no esté disponible de una manera adecuada, una interfaz de usuario accesible puede ayudar a los usuarios a identificar el contenido de interés y solicitar ayuda externa para convertirlo a un formato en el que lo pueda utilizar. Por ejemplo, una persona con una discapacidad auditiva se puede encontrar con un vídeo de una charla o en un sitio donde se comparten vídeos sin subtítulos. Como la URL identifica el vídeo de una manera exclusiva, y como la persona puede seguir utilizando el reproductor para ver el vídeo, lo podrá enviar a un tercero, como por ejemplo el servicio gratuito <a hreflang="en" href="http://www.projectreadon.com/">Project readOn</a>, para añadir subtítulos.</p>
+
+
+		<h3 id="personas">26.2.5. Personajes con discapacidades</h3>
+
+		    <p>Un enfoque ideal es integrar las discapacidades clave para vuestro proyecto directamente en los personajes que actuarán como <a hreflang="en" href="http://www.usability.gov/analyze/personas.html">usuarios</a>: unos usuarios ficticios que harán de arquetipos para ver el modo como algunos tipos de usuarios particulares utilizarán un sitio web. Imaginémonos que estáis evaluando prototipos para un sitio donde se compartirán vídeos y que vuestros personajes incluyen:</p>
+
+		    <ul>
+		      <li><p>James Smith, de 23 años, que está loco por el fútbol y que lo que desea por encima de cualquier otra cosa es compartir imágenes interesantes de deportes con sus amigos.</p></li>
+
+		      <li><p>Sarah Maddison, de 34 años, una madre trabajadora que normalmente no tendría tiempo para dedicarse a visitar un sitio como éste. Pero resulta que su hija de tres años es muy aficionada a ver vídeos, y por eso Sarah quiere sentarse con ella y ayudarla a encontrar los vídeos adecuados que quiere ver.</p></li>
+		    </ul>
+
+		    <p>Podéis seleccionar a estos personajes e incorporarles discapacidades, como por ejemplo:</p>
+
+		    <ul>
+		      <li><p>discapacidad visual</p></li>
+		      <li><p>daltonismo</p></li>
+		      <li><p>ceguera</p></li>
+		      <li><p>sordera</p></li>
+		      <li><p>discapacidad auditiva</p></li>
+		      <li><p>sordoceguera</p></li>
+		      <li><p>epilepsia</p></li>
+		      <li><p>dislexia</p></li>
+		    </ul>
+
+		    <p>Por ejemplo, podéis decidir que James también es sordo y que quiere subtítulos de los comentarios que se escuchan en los vídeos, y que Sarah ve mal y tiene problemas para ver los tipos de letra de fantasía y el texto de tamaño muy pequeño. Estos personajes os sirven de guía para rechazar prototipos que no incluyan la utilidad de subtítulos en el reproductor de vídeo o que utilicen unos tipos de letra muy elaborados que exigirían imágenes.</p>
+
+		    <p><em><a hreflang="en" href="http://www.w3.org/WAI/EO/Drafts/PWD-Use-Web/">How People with Disablities Use the Web</a></em> de la WAI y <em><a hreflang="en" href="http://www.uiaccess.com/accessucd/personas.html">Just Ask: Integrating Accessibility Throughout Design</a></em> de Shawn Lawton Henry contienen otros ejemplos de personajes afectados por discapacidades que podéis utilizar para empezar a trabajar en este aspecto.</p>
+
+		    <p>No debería ser necesario decirlo, pero no penséis que las personas con discapacidades son todas iguales. La discapacidad es un fenómeno increíblemente variado y, además, las personas con discapacidades son tan variadas como las personas sin discapacidades; sus diferencias (por ejemplo) pueden ser de género, edad, intereses, valores y habilidades (y quizá las más importantes son las relacionadas con su experiencia informática).</p>
+
+		    <p>De nuevo, la comparación de productos en cuanto a las directrices de accesibilidad puede ayudar a llenar los huecos que vuestros personajes no cubren. Por ejemplo, quizá seguís las WCAG 2.0 con el sitio para compartir vídeos pero vuestros personajes no incluyen a ningún usuario con epilepsia. Aun así, podéis leer la Directriz 2.3 ("Ataques: no se debe diseñar el contenido de ninguna manera que pueda provocar ataques") y decidir que el sistema debe poder filtrar los vídeos cargados antes de mostrarlos por si contienen centelleos.</p>
+
+		<h3 id="choosingastandard">26.2.6. Elegir un estándar de accesibilidad</h3>
+
+		    <p>Si debéis elegir un estándar de accesibilidad para gestionar las cuestiones de accesibilidad de la web en un equipo o sencillamente para utilizarlo como guía durante las pruebas, aconsejamos las WCAG 2.0 por estos motivos:</p>
+
+		    <ul>
+		      <li><p>Están diseñadas a partir de las necesidades humanas básicas, aplicables a tecnologías diferentes de HTML y CSS (como Flash).</p></li>
+
+		      <li><p>Documentan de manera muy esmerada las razones de cada uno de los criterios de conformidad.</p></li>
+
+		      <li><p>Sugieren técnicas prácticas para satisfacer los criterios de conformidad utilizando tecnologías actuales.</p></li>
+
+		      <li><p>Garantizan que todas las disposiciones se puedan someter a pruebas.</p></li>
+
+		      <li><p>Incorporan estudios más recientes que las alternativas actuales.</p></li>
+
+		      <li><p>Están diseñadas para ser claramente compatibles con los estándares de accesibilidad existentes.</p></li>
+
+		      <li><p>Serán un estándar internacional.</p></li>
+		    </ul>
+
+		    <p>Podéis citar la conformidad con un borrador concreto de WCAG 2.0; por cuestiones de marketing, lo mejor es buscar también la conformidad con estándares acabados como la Sección 508 y WCAG 1.0, además de este borrador.</p>
+
+		<h3 id="spiritofthelaw">26.2.7. El espíritu de la ley</h3>
+
+		    <p>A la hora de hacer pruebas en comparación con unas directrices, es importante tener en cuenta la base fundamental de cualquier orientación técnica específica, que es cumplir el espíritu de la ley y no sólo su letra.</p>
+
+		    <p>A continuación se explica una historia muy aleccionadora. La Sección 508 (&#167; 1194.22) incluye un requisito que dice: "Se ofrecerá un equivalente de texto para todos los elementos que no sean de texto (por ejemplo, con <code>alt</code>, <code>longdesc</code> o en el contenido del elemento)".</p>
+
+		    <p>De manera similar, el WCAG 1.0 incluye un punto de control que dice: "Ofreced un equivalente de texto para todos los elementos que no sean de texto (por ejemplo, con <code>alt</code>, <code>longdesc</code> o en el contenido del elemento). Esto incluye: imágenes, representaciones gráficas de texto (incluyendo símbolos), regiones de mapa de imagen, animaciones (GIF animados, por ejemplo), miniaplicaciones y objetos programáticos, arte ascii, marcos, <em>scripts</em>, imágenes utilizadas como picos para listas, separadores, botones gráficos, sonidos (reproducidos con interacción del usuario o sin), archivos de audio autónomos, pistas de audio de vídeo y vídeo".</p>
+
+		    <p>Desafortunadamente, mucha gente que lee esta directriz interpreta mal lo que debe ser un equivalente de texto genuino para un separador y los elementos decorativos y generan un etiquetado como el siguiente:</p>
+
+		<pre><code>&lt;img alt="borde decorativo" src="fancy-border.gif" border="0"&gt;</code></pre>
+
+		    <p>De hecho, como estas imágenes no transmiten ninguna información nueva y no tienen ninguna función, su equivalente de texto correcto sería una cadena vacía <code>(alt=""</code>), que hace que el lector de pantalla pase por alto el atributo <code>alt</code> y no lo lea. Para un usuario de un lector de pantalla es muy molesto tener que oír en voz alta un texto como "borde decorativo" una y otra vez cuando en realidad no les ofrece ninguna información útil.</p>
+
+		    <p>Las WCAG 2.0 intentan ser más claras. La <a hreflang="en" href="http://www.w3.org/TR/WCAG20/#text-equiv">directriz equivalente</a> dice: "Todo el contenido que no sea texto tiene una alternativa de texto que presenta una información equivalente, excepto para las situaciones enumeradas más abajo". Una de estas situaciones es: "Decoración, formato, invisible: si es puramente decoración, o si se utiliza sólo para el formato visual, o si no se presenta a los usuarios, entonces se implementa de manera que la tecnología de asistencia la pueda ignorar". Y también, muy importante, WCAG 2.0 intenta detallar el razonamiento que hay tras la <a hreflang="en" href="http://www.w3.org/TR/2007/WD-UNDERSTANDING-WCAG20-20071211/text-equiv.html#text-equiv">directriz</a>:</p>
+
+		    <blockquote>
+		    <p>"El objetivo de esta directriz es garantizar que todo el contenido que no sea texto también esté disponible como texto. «Texto» se refiere al texto electrónico y no a una imagen de texto. El texto electrónico tiene la ventaja especial de que es neutro con respecto a la presentación. Es decir, que se puede reproducir visualmente, por audio, por tacto o en cualquier combinación. Así pues, la información enviada como texto electrónico se puede presentar en la forma que mejor satisfaga las necesidades del usuario. También se puede ampliar muy fácilmente, se puede enviar con una voz fácil de entender o se puede reproducir en el formato táctil que mejor se adecue a las necesidades de un usuario".</p>
+		    </blockquote>
+
+		<h2 id="whoshouldtest">26.3. ¿Quién debe hacer las pruebas?</h2>
+
+		    <div class="text-clau">
+		    <p>Hay básicamente dos grupos que realizan pruebas: expertos y usuarios.</p>
+
+		    <p>Las pruebas realizadas por expertos son importantes porque éstos entienden el modo como interactúan las tecnologías web subyacentes, pueden actuar como nexo de unión para el conocimiento sobre los diferentes grupos de usuarios y tienen una inclinación a aprender a utilizar herramientas de pruebas especializadas.</p>
+
+		    <p>Las pruebas realizadas por usuarios son cruciales porque éstos son los verdaderos expertos sobre sus capacidades y su tecnología de asistencia. Las pruebas hechas por usuarios también pueden poner de manifiesto los problemas de usabilidad entre usuarios más y menos técnicos, y entre personas familiarizadas con el sitio web en cuestión (como por ejemplo los verificadores expertos) y personas que no lo están (usuarios nuevos).</p>
+		    </div>
+
+		    <p>Es muy improbable que un desarrollador web que sepa cómo utilizar un lector de pantalla explore un sitio de la misma manera que un usuario normal de un lector de pantalla; y también es muy improbable que los usuarios de lectores de pantalla que programan sus <em>scripts</em> exploren el sitio utilizando las mismas estrategias que los usuarios de lectores de pantalla que se limitan a hacer las tareas informáticas normales, como por ejemplo escribir mensajes electrónicos.</p>
+
+		    <p>La próxima vez que se realicen pruebas (ya sean otras pruebas del mismo proyecto o pruebas de un proyecto totalmente diferente), el conocimiento adquirido con las pruebas de usuarios se incorpora al proceso de pruebas avanzadas. Las pruebas de usuarios también tienen una ventaja más sutil. Por el hecho de humanizar la accesibilidad y de reunir desarrolladores y usuarios finales, estas pruebas pueden hacer aumentar la motivación para construir sitios web accesibles.</p>
+
+		<h2 id="experttesting">26.4. Pruebas avanzadas</h2>
+
+		    <p>Las pruebas avanzadas incluyen cuatro componentes:</p>
+
+		    <ul>
+		      <li><p><strong>Evaluación guiada por herramientas</strong>: en las que una herramienta localiza problemas de accesibilidad y los presenta al evaluador (esto incluiría los comprobadores de accesibilidad y los analizadores de código).</p></li>
+
+		      <li><p><strong>Simulación</strong>: en las que el experto simula una experiencia de usuario final del sitio web. A menudo no será necesario que busquéis mucho para encontrar problemas de accesibilidad. Es posible que no tengáis que hacer nada más que cargar la página en vuestro navegador y ya veréis que el texto es muy difícil de leer.</p></li>
+
+		      <li><p><strong>Inspección basada en herramientas</strong>: cuando el evaluador utiliza una herramienta para investigar el modo como funcionan juntas las diferentes partes de un sitio web.</p></li>
+
+		      <li><p><strong>Revisión del código</strong>: el evaluador mira directamente el código y los activos de un sitio web para localizar problemas.</p></li>
+		    </ul>
+
+		    <p>Es muy probable que los principiantes dependan especialmente de la evaluación guiada por herramientas, pero los evaluadores de todos los niveles de experiencia se pueden beneficiar de cada uno de los componentes. Incluso los principiantes pueden detectar elementos <code>img</code> sin equivalentes de texto en un etiquetado HTML y, a medida que vais ganando experiencia, os será cada vez más fácil detectar problemas antes de que paséis a pruebas más rigurosas. Para los expertos en grandes proyectos, la revisión manual de todo el código del cliente o la inspección de todas las partes de un sitio web puede no ser factible; en estos casos, una evaluación guia

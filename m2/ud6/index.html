@@ -1,0 +1,233 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
+<meta http-equiv="Content-Language" content="es" />
+<meta name="language" content="es" />
+<meta name="author" content="Universitat Oberta de Catalunya" />
+<meta name="description" content="FALTA CONTENIDO" />
+<meta name="title" content="FALTA CONTENIDO" />
+<meta name="keywords" content="FALTA CONTENIDO" />
+
+<title>Conceptos de diseño web - La tipografía en la web</title>
+<link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estilo normal" />
+</head>
+
+<body>
+
+<div id="cabecera">
+	<img id="logo" src="../../img/logo.gif" alt="Universitat Oberta de Catalunya" />
+    <a href="http://mosaic.uoc.edu/"><img id="logomosaic" src="../../img/logo-mosaic.gif" alt="Logo de Mosaic" title="Abre la página web de Mosaic" /></a>
+	<div id="titulo">Conceptos de diseño web</div>
+	<div id="subtitulo">La tipografía en la web</div>
+<div id="cierre"></div>
+	<div id="navegador">
+		<a href="../../m0/accessibilitat.html" id="accesibilidad">Accesibilidad</a> <strong>:</strong> 
+		<a rel="prev" href="../ud5/index.html" title="Ir al artículo anterior" accesskey="8"><img src="../../img/fletxa_izq.gif" alt="Ir al artículo anterior" /></a> <strong>:</strong> 
+		<a rel="index" href="../../index.html" title="Ir al índice" accesskey="0"><img src="../../img/indice.gif" alt="Ir al índice" /></a> <strong>:</strong> 
+		<a rel="next" href="../../m3/ud1/index.html" title="Ir al artículo siguiente" accesskey="9"><img src="../../img/fletxa_der.gif" alt="Ir al artículo siguiente" /></a>
+	</div>
+</div>
+	
+<div id="main">
+<h1>11. La tipografía en la web</h1>
+<p class="by"><a href="../../index.html#haine">Paul Haine</a>. 8 de julio del 2008. Publicado en: entidades, citas, tipo de letra, tipografía, interletraje</p>
+
+<p>¿Qué es la tipografía? Para decirlo de una manera sencilla, es el arte, el diseño y la configuración del texto (al que nos referiremos como tipo). Es un concepto tomado prestado de la impresión tradicional. Se trata tanto de saber aquello que no se debe hacer nunca con el tipo, como de saber qué se debe hacer. En la web, normalmente se presta muy poca atención a la tipografía y hay algunas limitaciones tecnológicas que hacen que la tipografía de la web tenga menos posibilidades que la tipografía de la imprenta. No obstante, con las herramientas disponibles no existe ninguna razón por la que el tipo no se pueda presentar en la web en una amplia variedad de formas elegantes y atractivas.</p>
+<p>En este apartado explicaremos exactamente por qué la tipografía está tan limitada en la web (en comparación con el diseño de imprenta) y daremos algunos consejos para conseguir una buena tipografía en ella, junto con un ejemplo de una página web que demuestra algunos de estos consejos. De momento no es necesario que os preocupéis si no entendéis el código CSS y HTML; de lo que se trata es de que penséis en el diseño. A medida que vais leyendo el apartado, puede ser una buena idea tener un lápiz o un bolígrafo a mano y una hoja de papel para poder ir esbozando ideas sobre la maquetación del texto.</p>
+<p>Los contenidos de este apartado son los siguientes:</p>
+<ul class="index">
+	<li>11.1. <a href="#limitations" accesskey="1">Limitaciones de la tipografía de la web</a>
+	<ul class="index">
+		<li>11.1.1. <a href="#reducedfonts">Selección reducida de tipo de letra</a></li>
+		<li>11.1.2. <a href="#hyphenation">Partición de palabras</a></li>
+		<li>11.1.3. <a href="#kerning">Interletraje</a></li>
+		<li>11.1.4. <a href="#lackofcontrol">Falta de control</a></li>
+	</ul></li>
+	<li>11.2. <a href="#howtypographyweb" accesskey="2">¿Cómo se realiza la tipografía en la web?</a></li>
+	<li>11.3. <a href="#quicktips" accesskey="3">Algunos consejos rápidos</a>
+	<ul class="index">
+		<li>11.3.1. <a href="#selectfonts">Selección de una serie de tipos de letras</a></li>
+		<li>11.3.2. <a href="#linelength">Longitud de línea</a></li>
+		<li>11.3.3. <a href="#lineheight">Interlineado</a></li>
+		<li>11.3.4. <a href="#dropcaps">Iniciales</a></li>
+		<li>11.3.5. <a href="#smallcaps">Versalitas</a></li>
+		<li>11.3.6. <a href="#hanging">Puntuación libre</a></li>
+		<li>11.3.7. <a href="#correctentities">Puntuación tipográficamente correcta y otras entidades</a></li>
+		<li>11.3.8. <a href="#pullquotes">Destacados</a></li>
+	</ul></li>
+	<li class="especial"><a href="#summary">Resumen</a></li>
+	<li class="especial"><a href="#exercises">Preguntas de repaso</a></li>
+</ul>
+
+<h2 id="limitations">11.1. Limitaciones de la tipografía de la web</h2>
+<p>Los diseñadores de la imprenta tradicional tienen un montón de posibilidades a su disposición con respecto a la tipografía, que incluyen toda la gran cantidad de tipos de letras disponibles y muchas opciones para la distribución del texto. La tipografía de la web es mucho más limitada, ya que hay que crear el diseño utilizando tipos de letras, distribuciones de texto, etc., que sabemos de entrada que estarán disponibles en los ordenadores de todos los usuarios que naveguen por Internet. ¡No sirve de nada diseñar la web pensando sólo en uno mismo!</p>
+<p>Algunas de las limitaciones de la tipografía de la web son:</p>
+
+<ul>
+	<li><p>Poca variedad de tipo de letra.</p></li>
+	<li><p>No se pueden partir palabras, con lo que el texto justificado queda feo para las columnas de texto muy estrechas.</p></li>
+	<li><p>Control limitado del interletraje (el espacio entre las letras).</p></li>
+	<li><p>Falta de control sobre la visualización del resultado final. Los diseñadores deben tener en cuenta la gran variedad de dimensiones de pantallas, resoluciones y entornos.</p></li>
+</ul>
+
+<p>A continuación comentaremos cada uno de estos puntos con más detalle.</p>
+
+<h3 id="reducedfonts">11.1.1. Selección reducida de tipo de letra</h3>
+<p>La poca variedad de fuentes es normalmente lo primero con lo que os encontraréis a la hora de definir el estilo del texto. Aunque podéis especificar el tipo de letra que queráis en el código CSS, las personas que visiten vuestros sitios web sólo verán el texto en este tipo de letra si la tienen instalada en su ordenador; si no la tienen, su navegador utilizará el tipo de letra alternativo que hayáis especificado en el CSS o recurrirá al tipo de letra por defecto (normalmente, Times New Roman). Puede ser que os guste ver todo el cuerpo de texto con tipos de letra especiales como Trump Medieval o Avant Garde pero, a no ser que vuestro público objetivo no tenga una cierta propensión hacia los diseñadores, es muy probable que no puedan apreciar nunca vuestros esfuerzos. Por ello, muchos diseñadores de webs se limitan a utilizar los tipos de letras disponibles más habitualmente en todos los sistemas, que normalmente son sólo los siguientes:</p>
+
+<ul>
+	<li><p>Andale Mono</p></li>
+	<li><p>Times New Roman</p></li>
+	<li><p>Georgia</p></li>
+	<li><p>Verdana</p></li>
+	<li><p>Arial/Arial Black</p></li>
+	<li><p>Courier/Courier New</p></li>
+	<li><p>Trebuchet MS</p></li>
+	<li><p>Comic Sans (muchos creen que esta fuente es poco profesional y muy fea; no la utilicéis si no es con mucha moderación y en sitios web destinados a niños)</p></li>
+	<li><p>Impact</p></li>
+</ul>
+
+<p>La figura 1 muestra el aspecto de estos tipos de letras.</p>
+<div class="imagen">
+	<img src="76510_m2_40.gif" alt="Tipografías web disponibles habitualmente" />
+	<p>Figura 1. Los tipos de letras disponibles más habitualmente en todos los sistemas se limitan a éstos.</p>
+</div>
+
+<p>Si especificáis cualquiera de los tipos de letra anteriores, tendréis muchas posibilidades de que también lo tengan la mayoría de las personas que os visiten. Microsoft creó seis tipos de letra nuevos diseñados para su uso en pantalla en Windows Vista y XP cuyos nombres, curiosamente, empiezan por la letra C. Si las queréis utilizar, son Cambria, Calibri, Candara, Consolas, Constantia y Corbel. Sin embargo, nosotros no aconsejaríamos su uso porque es muy probable que no estén disponibles en las plataformas Mac o Linux.</p>
+<p>Por lo tanto, en comparación con los millares de tipos de letra disponibles para los diseñadores gráficos, los diseñadores de sitios web sólo pueden seleccionar entre poco más de una docena. Pero ¿se trata de una limitación problemática? La tipografía es mucho más que el hecho de seleccionar un tipo de letra atractivo; también hay que tener en cuenta las longitudes de línea, el interletraje y el espacio en blanco. Recordad que los tipógrafos anteriores a las tipografías electrónicas también se habían de enfrentar a unas limitaciones similares.</p>
+
+<h3 id="hyphenation">11.1.2. Partición de palabras</h3>
+<p>Cuando se trata de alinear el texto dentro del espacio disponible hay cuatro opciones: alineado a la izquierda, alineado a la derecha, centrado y justificado. El texto justificado, en el que los márgenes izquierdo y derecho del bloque están alineados con los lados verticales del espacio que lo contiene, puede tener un aspecto más atractivo que el texto con un margen "irregular" y se puede ver mucho en revistas y libros. En la web, sin embargo, esto es problemático a causa de la falta de la partición de palabras automática, que en otros soportes rompe las palabras en los puntos apropiados a fin de que encajen mejor dentro de la línea. Con el fin de justificar el bloque de texto, lo único que puede hacer el navegador es ajustar el espacio entre las palabras, lo cual puede provocar que aparezcan "ríos de espacio en blanco" que fluyan verticalmente por el bloque de texto; esto suele pasar normalmente cuando la longitud de línea del bloque de texto es demasiado corta y no hay suficiente espacio para realizar unos ajustes sutiles, tal como muestra la figura 2.</p>
+<div class="imagen">
+	<img src="76510_m2_41.gif" alt="Los ríos de espacio en blanco son feos" />
+	<p>Figura 2. Los ríos de espacio en blanco pueden estropear los bloques de texto justificados.</p>
+</div>
+
+<p>Tal como podéis ver en esta figura, el hecho de que no se partan las palabras para cortarlas en los puntos naturales provoca que el espaciado entre algunas palabras llegue a tener unas dimensiones inaceptables. Para evitarlo, en la web la mayoría de las veces hay que utilizar el texto alineado a la izquierda.</p>
+
+
+<h3 id="kerning">11.1.3. Interletraje</h3>
+<p>El interletraje es el proceso de ajustar el espaciado entre parejas de letras concretas cuando el tipo de letra utilizado es proporcional (como Times New Roman, en el que el espacio entre los caracteres varía según los caracteres de los que se trate) y no de anchura fija (como Courier, en el que el espacio entre los caracteres es siempre el mismo). El interletraje se utiliza en imprenta para ajustar el espacio entre letras que se alinean de una manera natural, como por ejemplo una W seguida de una A, y puede dar un aspecto más profesional al texto. Los tipos de letra más profesionales ya incorporan instrucciones de interletraje con el fin de dar información sobre el espaciado al dispositivo que deba reproducir el tipo. La figura 3 muestra la diferencia que representa el uso del interletraje.</p>
+<div class="imagen">
+	<img src="76510_m2_42.gif" alt="El interletraje en acción" />
+	<p>Figura 3. El interletraje puede mejorar mucho el aspecto del texto.</p>
+</div>
+
+<p>En la figura anterior, la primera palabra está imprimida sin el interletraje ajustado. En la segunda palabra, en cambio, se ha reducido el espaciado entre la W y la A, mientras que el espacio entre la A y la S se ha aumentado ligeramente.</p>
+<p>En la web, es totalmente imposible aplicar el interletraje con este grado de precisión. Lo único que se le parece un poco es la posibilidad de utilizar el espaciado entre caracteres, lo cual, en el mundo de la impresión, significa ajustar la separación entre los caracteres en todo el texto, sean cuales sean éstos. De esta manera, se puede reducir el espacio entre la W y la A, pero ello también afectará al espacio entre todas las otras letras. En la web, el espaciado entre letras se controla con CSS; podemos ver un ejemplo en la figura 4.</p>
+<div class="imagen">
+	<img src="76510_m2_43.gif" alt="Espaciado general de letras o interletraje" />
+	<p>Figura 4. En la web no se puede utilizar el interletraje propiamente dicho, lo más parecido es el espaciado de letra general.</p>
+</div>
+
+<p>En la figura anterior se ha aumentado el espaciado entre cada uno de los caracteres en la misma medida. Esto ha servido para separar la A y la S, pero ahora el espacio entre la W y A es demasiado grande. A causa de esta característica de todo o nada, es muy difícil utilizar el espaciado de letra con CSS de una manera adecuada; por ello, hay que utilizarlo con mucha moderación.</p>
+
+<h3 id="lackofcontrol">11.1.4. Falta de control</h3>
+<p>Después de todas estas explicaciones sobre el mundo de la imprenta, hay algo muy importante que cabe tener siempre en cuenta, y es que <strong><em>la web no es una imprenta</em></strong>. Así que, mientras el diseñador gráfico no se debe preocupar de si la persona que ve su trabajo redimensiona el texto, de si no tiene los tipos de letra necesarios o de sí no ha activado el <span lang="en">aliasing</span>, nosotros, sin embargo, sí que nos hemos de preocupar, y normalmente caemos en la tentación de forzar un diseño concreto para el espectador, por ejemplo, definiendo un texto de un tamaño rígido, metiendo el texto en un espacio de una anchura y una altura fijas o incluso sustituyendo fragmentos de texto por imágenes.</p>
+<p>Esta falta de control, sin embargo, no ha de ser necesariamente un problema. Sólo es necesario tener en cuenta que la gente querrá leer el contenido de la web utilizando muchos dispositivos diferentes con entornos diferentes y de maneras diferentes. Lo que no debéis hacer es intentar que no lo hagan o ponerles dificultades. Si quieren leer vuestro contenido lo han de poder hacer de la manera más sencilla posible. Quizá quieren leer el contenido de la web desde su dispositivo móvil mientras vuelven hacia casa después del trabajo; quizá prefieren imprimirlo y leerlo en papel y no en la pantalla, o quizá tienen alguna discapacidad visual y deben aumentar el tamaño del tipo de letra. Cuando definís el estilo del texto de la web, lo que estáis haciendo en realidad es ofrecer una guía para todos los diferentes dispositivos de navegación sobre cómo preferís que se visualice este texto. Evidentemente, los dispositivos pueden ignorar todo lo que vosotros les decís, pero esto no es ningún problema. Lo que realmente importa es que no intentéis imponer decisiones de diseño a todo vuestro público.</p>
+
+
+<h2 id="howtypographyweb">11.2. ¿Cómo se trabaja la tipografía en la web?</h2>
+<p>La tipografía en la web se controla totalmente con CSS; y con CSS se consigue un control importante: no sólo se controla el tamaño, el color y el tipo de letra, sino también el interlineado, el espaciado de letra, el uso de las mayúsculas (todo mayúsculas, mayúsculas iniciales, versalitas o sin ninguna mayúscula) e incluso se controla el estilo de la primera letra o de la primera línea del texto.</p>
+<p>Cuando se define el bloque que contiene el texto también se controla el grado de justificación del texto y la longitud de línea. Y no sólo eso; sólo es necesario crear unas normas de estilo en un lugar concreto (la hoja de estilo) y después aplicar estas normas a todo el texto de todo el sitio web (o también se puede ser más específico y aplicarlas a párrafos o partes concretas de la página). Además, si nunca os encontráis con que debéis aumentar el tamaño del texto de la página web, o si debéis cambiar el tipo de letra, sólo deberéis cambiar este valor en la hoja de estilo.</p>
+
+<h2 id="quicktips">11.3. Algunos consejos rápidos</h2>
+<p>A continuación encontraréis algunos consejos rápidos sobre la tipografía de la web.</p>
+
+<h3 id="selectfonts">11.3.1. Selección de una serie de tipos de letra</h3>
+<p>Cuando especifiquéis el tipo de letra de pantalla preferido, es aconsejable incluir algunas selecciones alternativas. Es decir, en lugar de especificar sólo <code>"Georgia"</code>, podéis especificar <code>"Georgia, Cambria, "Times New Roman", Times, serif"</code>. De esta manera, el navegador intentará en primer lugar utilizar el tipo de letra Georgia, pero si no está instalado lo probará con Cambria, después con Times New Roman, después con Times y finalmente con el tipo de letra que el sistema operativo tenga asignado en la palabra clave <code>"serif"</code>.</p>
+
+
+<h3 id="linelength">11.3.2. Longitud de línea</h3>
+<p>Para facilitar la lectura, la longitud de línea media del texto que se encuentra dentro de un bloque debería ser de 40-60 caracteres por línea, aunque este valor puede variar mucho en función del público objetivo (los niños prefieren unas líneas más cortas y los adultos más largas). La figura 5 muestra una longitud de línea ideal:</p>
+<div class="imagen">
+	<img src="76510_m2_44.gif" alt="60 caracteres por línea" />
+	<p>Figura 5. 60 caracteres por línea, la longitud de línea ideal.</p>
+</div>
+
+<p>El texto de esta captura de pantalla tiene aproximadamente unos 60 caracteres por línea. Si las líneas son más largas, el lector debe empezar a mover los ojos, o incluso la cabeza, poder seguir el texto, lo cual puede hacer que aumente la fatiga ocular y sea más difícil asimilar el texto.</p>
+
+<h3 id="lineheight">11.3.3. Interlineado</h3>
+<p>La interlínea es el espacio vertical que hay entre las líneas; el texto será más fácil de leer si esta interlínea es un poco mayor que el valor predeterminado del navegador (esto también hará que haya espacio disponible para los caracteres de subíndice y superíndice). La figura 6 muestra la diferencia entre dos párrafos:</p>
+<div class="imagen">
+	<img src="76510_m2_45.gif" alt="Muestra de interlineado" />
+	<p>Figura 6. La interlínea puede hacer que el aspecto del texto sea muy diferente.</p>
+</div>
+
+<p>El primer párrafo de la figura anterior tiene la interlínea predeterminada, lo que le da un aspecto un poco apretado. El segundo párrafo tiene una interlínea mayor, con lo cual el texto tiene más espacio para respirar y es más fácil de leer. No obstante, una interlínea excesiva también hará que el texto sea difícil de leer, de modo que hay que ir con cuidado.</p>
+
+<h3 id="dropcaps">11.3.4. Iniciales</h3>
+<p>Si definimos el pseudoelemento <code>first-letter</code> con algo similar a <code>p:first-letter { }</code>, podremos crear un estilo diferente del del resto del texto para la primera letra. Estas primeras letras se conocen normalmente como iniciales, que son unas letras que ocupan el espacio de unas 3 o 4 líneas. Podéis ver la figura 7.</p>
+<div class="imagen">
+	<img src="76510_m2_46.gif" alt="Las letras capitulares son un efecto muy bonito" />
+	<p>Figura 7. Una inicial típica.</p>
+</div>
+
+
+<h3 id="smallcaps">11.3.5. Versalitas</h3>
+<p>A menudo los tipos de letras incorporan una variante en versalitas, que son unas letras en mayúsculas pero que tienen el tamaño de la versión en minúsculas. Las versalitas son útiles cuando queremos escribir algo en mayúsculas pero no queremos destacarlo de una manera excesiva; se pueden utilizar, por ejemplo, para las siglas. Aunque el sistema no tenga ninguna variante en versalitas del tipo de letra especificado, ello no será ningún problema; el navegador generará su versión propia utilizando las letras en mayúsculas y reduciendo los caracteres finos aproximadamente 70% de su tamaño. La figura 8 muestra una frase en versalitas.</p>
+<div class="imagen">
+	<img src="76510_m2_47.gif" alt="Les versalitas pueden ser interesantes" />
+	<p>Figura 8. Una frase en versalitas.</p>
+</div>
+
+
+<h3 id="hanging">11.3.6. Puntuación libre</h3>
+<p>Si una frase empieza con comillas, se puede utilizar un efecto tipográfico muy efectivo. Se puede utilizar la propiedad CSS <code>text-indent</code> combinada con un valor negativo (ya sea un valor en ems (-10 em), puntos (-10 pt.), píxeles (-10 px.) o porcentaje (-10%) para desplazar las comillas hacia la izquierda y mantener la línea vertical izquierda del bloque de texto, tal como se puede ver en la figura 9:</p>
+<div class="imagen">
+	<img src="76510_m2_48.gif" alt="La puntuación libre bien utilizada" />
+	<p>Figura 9. Puntuación libre.</p>
+</div>
+
+
+<h3 id="correctentities">11.3.7. Puntuación tipográficamente correcta y otras entidades</h3>
+<p>Se puede dar un aspecto más profesional y elegante al texto mediante la amplia variedad de entidades tipográficas HTML disponibles, como las comillas "altas" o "inglesas" y los guiones cortos  y largos . Muchos programas para la publicación de textos en bloques y de procesamiento de textos pueden hacerlo automáticamente mientras se escribe. Estos programas convierten las comillas rectas en las comillas altas tipográficamente correctas y convierten las cadenas de guiones en guiones cortos o largos. La figura 10 muestra algunos ejemplos de puntuación tipográficamente correcta.</p>
+<div class="imagen">
+	<img src="76510_m2_49.gif" alt="Comillas inglesas" />
+	<p>Figura 10. Puntuación tipográficamente correcta.</p>
+</div>
+
+<p>Una vez empecéis a rellenar vuestro texto con signos de puntuación inteligentes, éste adquirirá un aspecto mucho más elegante y profesional, parecerá más el texto de una revista o de un libro que un texto en línea. Es necesario tener en cuenta, sin embargo, que este tipo de puntuación podrá tener un aspecto un poco pixelado cuando se vea en pantallas un poco viejas o con el <em>aliasing</em> desactivado, por lo que hay que utilizarla con precaución.</p>
+<p>Por otra parte, tenemos las entidades, que son códigos HTML especiales que podéis insertar en el texto para generar caracteres especiales que normalmente no están disponibles desde el teclado. La figura 11 contiene varias entidades:</p>
+<div class="imagen">
+	<img src="76510_m2_50.gif" alt="Entidades HTML" />
+	<p>Figura 11. Entidades HTML.</p>
+</div>
+
+<p>Estas entidades se pueden introducir a mano, pero hay muchos gestores de contenido que permiten convertirlas o insertarlas muy fácilmente.</p>
+
+
+<h3 id="pullquotes">11.3.8. Destacados</h3>
+<p>Un destacado es un fragmento corto del texto que aparece en algún otro punto de la página con caracteres de un tamaño mayor y algunas veces también con un tipo de letra diferente a fin de que el lector se fije en él. Prácticamente, todas las revistas utilizan los destacados y son una manera muy efectiva de dividir el texto y destacar las citas o las frases más importantes. Además, son muy fáciles de hacer en la web sólo con unas cuantas etiquetas y definiendo el estilo. Sólo hay que hacer que el texto tenga un tamaño más grande, quizá definir un tipo de letra diferente, colocarlo de manera que el texto normal lo rodee y listos. También hay algunas soluciones más avanzadas que utilizan JavaScript para seleccionar el texto y crear automáticamente un destacado. Estas soluciones provocan que no haya que escribir el mismo texto dos veces en la etiqueta.</p>
+
+
+
+<h2 id="summary">Resumen</h2>
+<p>Ya hemos repasado todo lo que había que decir sobre la tipografía y la tipografía en la web; esperamos que ahora ya tengáis claro que el texto en línea no debe limitarse a Verdana, <em>small</em>, #333333, sino que existen un montón de recursos y trucos tipográficos que os pueden ayudar a hacer que el texto destaque por encima del resto. La gente visita básicamente los sitios web para leer lo que han escrito sus autores; por lo tanto, lo más sensato es hacer que la lectura sea tan agradable como sea posible.</p>
+
+
+<h2 id="exercises">Preguntas de repaso</h2>
+<ol>
+	<li><p>¿Qué diferencia existe entre el interletraje y el espaciado entre letras? ¿Cuál está disponible para el diseñador de webs?</p></li>
+	<li><p>¿Cómo se puede evitar que haya "ríos de espacio en blanco" en medio del texto?</p></li>
+	<li><p>Nombrad cuatro usos diferentes de las mayúsculas disponibles con CSS.</p></li>
+	<li><p>¿Cuál es la longitud de línea ideal para el cuerpo del texto, y qué factores le afectan?</p></li>
+	<li><p>¿Qué diferencia hay entre un tipo de letra con <em>serif</em> y un tipo de letra de palo seco? Dad un ejemplo de cada uno.</p></li>
+	<li><p>¿Qué diferencia hay entre la puntuación libre y la puntuación normal?</p></li>
+	<li><p>Para insertar un símbolo de <em>copyright</em> dentro del texto se utiliza una entidad HTML. Navegad por Internet e intentad encontrar todas las otras entidades HTML. ¡Hay unas 250!</p></li>
+</ol>
+
+</div>
+<div><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.es"><img src="../../m0/creative_commons.gif" id="logo_cc" alt="Logo Creative Commons" /></a></div>
+<div id="logo_text">Los contenidos recogidos en este artículo están sujetos a una licencia <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.es">Creative Commons<br /> Reconocimiento, No comercial - Compartir bajo la misma licencia 3.0 No adaptada</a>.
+</div>
+<div id="cierre_autor"></div>
+
+<div id="peu">
+		<a rel="prev" href="../ud5/index.html" title="Ir al artículo anterior" accesskey="8"><img src="../../img/fletxa_izq_inv.gif" alt="Ir al artículo anterior" /></a> <strong>:</strong>
+		<a rel="index" href="../../index.html" title="Ir al índice" accesskey="0"><img src="../../img/indice_inv.gif" alt="Ir al índice" /></a> <strong>:</strong>
+		<a rel="next" href="../../m3/ud1/index.html" title="Ir al artículo siguiente" accesskey="9"><img src="../../img/fletxa_der_inv.gif" alt="Ir al artículo siguiente" /></a>
+</div>
+</body>
+</html>

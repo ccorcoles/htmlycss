@@ -1,0 +1,397 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ca">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
+<meta http-equiv="Content-Language" content="ca" />
+<meta name="language" content="ca" />
+<meta name="author" content="Universitat Oberta de Catalunya" />
+<meta name="description" content="FALTA CONTENIDO" />
+<meta name="title" content="FALTA CONTENIDO" />
+<meta name="keywords" content="FALTA CONTENIDO" />
+
+<title>El texto central de HTML - Enlaces HTML: ¡construimos una web!</title>
+<link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
+</head>
+
+<body>
+<div id="cabecera">
+	<img id="logo" src="../../img/logo.gif" alt="Universitat Oberta de Catalunya" />
+    <a href="http://mosaic.uoc.edu/"><img id="logomosaic" src="../../img/logo-mosaic.gif" alt="Logo de Mosaic" title="Abre la página web de Mosaic" /></a>
+	<div id="titulo">El texto central de HTML</div>
+	<div id="subtitulo">Enlaces HTML: ¡construimos una web!</div>
+<div id="cierre"></div>
+	<div id="navegador">
+		<a href="../../m0/accessibilitat.html" id="accesibilidad">Accesibilidad</a> <strong>:</strong> 
+		<a rel="prev" href="../ud3/index.html" title="Ir al artículo anterior" accesskey="8"><img src="../../img/fletxa_izq.gif" alt="Ir al artículo anterior" /></a> <strong>:</strong> 
+		<a rel="index" href="../../index.html" title="Ir al índice" accesskey="0"><img src="../../img/indice.gif" alt="Ir al índice" /></a> <strong>:</strong> 
+		<a rel="next" href="../ud5/index.html" title="Ir al artículo siguiente" accesskey="9"><img src="../../img/fletxa_der.gif" alt="Ir al artículo siguiente" /></a>
+	</div>
+</div>
+	
+<div id="main">
+
+	<h1>18. Enlaces HTML: ¡construimos una web!</h1>
+
+  <p class="by"><a href="../../index.html#heilmann">Christian Heilmann</a>. 8 de julio del 2008. Publicado en: alt, href, ancla, título, enlace</p>
+  
+  <p>En este apartado encontraréis información sobre uno de los inventos más revolucionarios de toda la historia de Internet: los enlaces. Los enlaces permiten que el lector de un documento los siga para ir hacia otro documento y pueda pasar de un servidor a otro sin necesidad de desconectarse y volver a conectarse cada vez. Desde que se inventaron han pasado muchas cosas, pero hay una que no ha cambiado nada: los enlaces son una parte muy importante de la experiencia en Internet, y según cómo los utilicéis podéis poner las cosas fáciles o difíciles a las personas que visiten vuestra web. </p>
+  
+  <p>Cuando hayáis leído este apartado, sabréis cómo crear enlaces que sean fáciles de entender y que funcionen en cualquier entorno. Además, también aprenderéis cómo los enlaces afectan a vuestra popularidad en los motores de búsqueda y recibiréis algunos consejos sobre su descripción. </p>
+  
+  <div class="note">
+  <h3>Nota</h3>
+  <p>Como ya es habitual, este apartado va acompañado de un archivo "<a href="http://dev.opera.com/articles/view/18-html-links-let-s-build-a-web/links_code.zip" hreflang="en">links_code.zip</a>" que contiene varios archivos a los que iremos haciendo referencia. </p>
+  </div>
+  
+  <p>Los contenidos de este apartado son los siguientes:</p>
+  
+  <ul class="index">
+	<li>18.1. <a href="#whatarelinks" accesskey="1">¿Qué son los enlaces?</a></li>
+  <li>18.2. <a href="#anchoranatomy" accesskey="2">La anatomía de un enlace ancla</a></li>
+  <li>18.3. <a href="#linkortarget" accesskey="3">¿Enlace o destino? Los atributos <code>id</code> y <code>href</code></a></li>
+  <li>18.4. <a href="#noambiguity" accesskey="4">No permitáis ninguna ambigüedad en los enlaces</a>
+   <ul class="index">  
+	<li>18.4.1. <a href="#extrainfotitle">Ofrecer información adicional con un atributo <code>title</code></a></li>
+  <li>18.4.2. <a href="#linktononhtml">Enlaces a recursos no HTML: no obliguéis a los visitantes a hacer conjeturas</a></li>
+  <li>18.4.3. <a href="#externalinternal">Enlaces externos y enlaces internos</a></li>
+  </ul></li>
+	<li>18.5. <a href="#badhabits" accesskey="5">Marcos y ventanas emergentes: ¡ni hablar!</a></li>
+  <li>18.6. <a href="#linkbenefits" accesskey="6">Ventajas de los enlaces de salida y de los enlaces de entrada</a></li>
+  <li>18.7. <a href="#linkwording" accesskey="7">Descripción de los enlaces</a></li>
+  <li>18.8. <a href="#linkstyling">Estilos de los enlaces</a></li>
+  <li class="especial"><a href="#summary">Resumen</a></li> 
+  <li class="especial"><a href="#exercises">Preguntas de repaso</a></li> 
+  </ul>
+                        
+  <h2 id="whatarelinks">18.1. ¿Qué son los enlaces?</h2>
+  
+  <p>Los enlaces son partes de un sitio web (normalmente creado con HTML, pero no siempre) que apuntan hacia otros recursos, como por ejemplo otros documentos HTML, archivos de texto, PDF, etc. Hay enlaces que el navegador debe seguir automáticamente y que se crean con elementos <code>link</code> (ya habéis encontrado algunos en apartados anteriores, que se utilizaban para importar archivos CSS a un documento HTML) y también hay enlaces que el usuario puede activar opcionalmente. Éstos se conocen como <strong>anclas</strong> y podéis añadirlos al documento con el elemento <code>a</code>. </p>
+
+  <h2 id="anchoranatomy">18.2. La anatomía de un enlace ancla</h2>
+  
+  <div class="text-clau">
+  <p>Podéis convertir cualquier elemento insertado en el documento en un enlace ancla añadiendo un elemento
+<code>a</code> delante y detrás. </p>
+  </div>
+  
+  <p>Por ejemplo, en el siguiente documento HTML el texto <code>Yahoo Developer Network</code> se convierte en un enlace.</p>
+                      
+  <pre><code>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/
+ html4/strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta http-equiv="content-type" content="text/html; charset=utf-8"&gt;
+&lt;title&gt;Link Example&lt;/title&gt;
+&lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+   &lt;h1&gt;A link to the YDN&lt;/h1&gt;
+   &lt;p&gt;&lt;a href="http://developer.yahoo.com"&gt;Yahoo Developer Network&lt;/a&gt;&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre> 
+
+<p class="font"><strong>Archivo fuente:</strong> "<a href="http://dev.opera.com/articles/view/18-html-links-let-s-build-a-web/linkexample.html" hreflang="en">linkexample.html</a>"</p>
+
+  <p>Las personas que visiten la web y activen este enlace (al hacer clic con el ratón o al activarlo con el teclado o, en algunos casos, con la voz) dejarán el lugar actual y pasarán a la YDN. El enlace en sí experimenta otros cambios, que ya veremos cuando hablemos de los estilos de los enlaces.</p>
+  
+  <p>El ancla tiene varios atributos que podéis añadir: </p>
+  
+  <ul>
+	<li><p><code>href</code>: el recurso hacia el que apunta (ya sea un archivo externo o un ID de ancla).</p></li>
+  
+  <li><p><code>id</code>: el ID de ancla si el ancla es un destino y no un enlace.</p></li>
+  
+  <li><p><code>title</code>: información adicional sobre el recurso externo.</p></li>
+  </ul> 
+
+  <p>Ahora veremos en primer lugar los atributos más importantes y después hablaremos sobre lo que podéis hacer a fin de que todo sea más comprensible para las personas que visiten vuestra web. </p>  
+
+  <h2 id="linkortarget">18.3. ¿Enlace o destino? Los atributos <code>id</code> y <code>href</code></h2>
+  
+  <p>Un elemento <code>a</code> puede tener varias funciones según los atributos que defináis. El atributo más habitual que utilizaréis es <code>href</code>, que define el recurso al que apunta el enlace. Este atributo puede contener diferentes valores: </p>
+  
+  <ul>
+	<li><p>Una URL en la misma carpeta (help.html), relativa a la carpeta actual (por ejemplo "../../help/help.html"; los 2 puntos significan "sube un nivel dentro de la jerarquía de carpetas del sitio") o absoluta en la raíz del servidor. Por ejemplo "/help/help.html"; una barra inclinada al principio de la dirección significa que ésta empieza en la raíz del ordenador en el que se encuentra la página.</p></li>
+  
+  <li><p>Una URL en un servidor totalmente diferente. Por ejemplo "http://wait-till-i.com" o "ftp://ftp.opera.com/" o "http://developer.yahoo.com/yui".</p></li>
+  
+  <li><p>Un identificador de fragmento o un nombre de ancla precedido de una almohadilla. Éste apunta a un destino dentro del mismo documento. Por ejemplo <code>"#menu"</code>.</p></li>
+  
+  <li><p>Una combinación de URL e identificadores de fragmentos: podéis enlazar directamente con una sección de un documento diferente haciendo que el atributo <code>href</code> apunte hacia una URL seguida de un identificador de fragmento. Por ejemplo, "http://developer.yahoo.com/yui/#cheatsheets".</p></li>
+	</ul>
+  
+  <p>Cualquiera de estos valores lo convertirá en un enlace, ya que apuntará hacia otro lugar. Por otra parte, un atributo <code>id</code> lo convertirá en un ancla dentro de la página; algo a lo que apunta otro enlace. Esto puede ser un poco confuso, ya que ambos utilizan el elemento de ancla (<code>a</code>). Para poder recordarlo más fácilmente, podéis verlo de la manera siguiente: un atributo <code>id</code> convierte un enlace en un ancla y lo podéis utilizar para enlazar con secciones específicas del documento. </p>
+  
+  <p>El siguiente bloque de código HTML contiene ejemplos de todos los tipos diferentes de enlaces:</p>                                                                                          
+
+  <pre><code>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/
+ html4/strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta http-equiv="content-type" content="text/html; charset=utf-8"&gt;
+&lt;title&gt;Different Link Example&lt;/title&gt;
+&lt;link rel="stylesheet" href="linkexamplestyles.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+   &lt;h1&gt;Different Link examples&lt;/h1&gt;
+
+   &lt;h2&gt;Example of in-page navigation with fragment identifiers, links and anchors&lt;/h2&gt;
+   &lt;div id="nav"&gt;
+      &lt;ul id="toc"&gt;
+         &lt;li&gt;&lt;a href="#sec1"&gt;Section One&lt;/a&gt;&lt;/li&gt;
+         &lt;li&gt;&lt;a href="#sec2"&gt;Section Two&lt;/a&gt;&lt;/li&gt;
+         &lt;li&gt;&lt;a href="#sec3"&gt;Section Three&lt;/a&gt;&lt;/li&gt;
+         &lt;li&gt;&lt;a href="#sec4"&gt;Section Four&lt;/a&gt;&lt;/li&gt;
+         &lt;li&gt;&lt;a href="#sec5"&gt;Section Five&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+   &lt;/div&gt;  
+
+   &lt;div id="content"&gt;
+      &lt;div&gt;
+         &lt;h2&gt;&lt;a id="sec1"&gt;Section #1&lt;/a&gt;&lt;/h2&gt;
+         &lt;p&gt;&lt;a href="#toc"&gt;Back to menu&lt;/a&gt;&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div&gt;
+         &lt;h2&gt;&lt;a id="sec2"&gt;Section #2&lt;/a&gt;&lt;/h2&gt;
+         &lt;p&gt;&lt;a href="#toc"&gt;Back to menu&lt;/a&gt;&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div&gt;
+         &lt;h2&gt;&lt;a id="sec3"&gt;Section #3&lt;/a&gt;&lt;/h2&gt;
+         &lt;p&gt;&lt;a href="#toc"&gt;Back to menu&lt;/a&gt;&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div&gt;
+         &lt;h2&gt;&lt;a id="sec4"&gt;Section #4&lt;/a&gt;&lt;/h2&gt;
+         &lt;p&gt;&lt;a href="#toc"&gt;Back to menu&lt;/a&gt;&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div&gt;
+         &lt;h2&gt;&lt;a id="sec5"&gt;Section #5&lt;/a&gt;&lt;/h2&gt;
+         &lt;p&gt;&lt;a href="#toc"&gt;Back to menu&lt;/a&gt;&lt;/p&gt;
+      &lt;/div&gt;
+   &lt;/div&gt;
+
+   &lt;h2&gt;Some other link examples&lt;/h2&gt;
+   &lt;ul&gt;
+      &lt;li&gt;&lt;a href="http://developer.yahoo.com"&gt;Yahoo Developer Network&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="http://dev.opera.com/articles/view/the-freelancing-
+       business-part-1-pricing/#marketing"&gt;Tips on marketing yourself&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="ftp://get.opera.com/pub/opera/win/"&gt;Download different
+       Opera versions&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="http://farm1.static.flickr.com/56/188791635_0b8bdd808d.jpg?v=0"&gt;
+       Photo of my book&lt;/a&gt;&lt;/li&gt;
+   &lt;/ul&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>   
+
+<p class="font"><strong>Archivo fuente:</strong> "<a href="http://dev.opera.com/articles/view/18-html-links-let-s-build-a-web/linkexamples.html" hreflang="en">linkexample.html</a>"</p>
+
+  <p>Abrid este archivo en el navegador y experimentad. Veréis que si activáis cualquiera de los enlaces de la primera lista, pasaréis a la sección correspondiente del documento. Esto es así porque están conectados por el mismo identificador de fragmento; el primer enlace de la lista, por ejemplo, tiene un atributo <code>href</code> de <code>#sec1</code>, que coincide con el valor ID del enlace que hay en el interior del primer elemento <code>h2</code> del contenido. Esto es todo lo que necesitáis para conectar dos elementos de ancla en un documento; utilizad el mismo valor precedido por una almohadilla si lo enlazáis en un atributo <code>href</code>. También puede que os hayáis dado cuenta de que la URL de la barra de ubicación del navegador ha cambiado y que ahora muestra un identificador de segmento al final, lo cual significa que los visitantes pueden añadir esta sección a las direcciones de interés o enviar el enlace por correo electrónico a otras personas para indicarles exactamente dónde deben ir. </p>
+  
+  <p>No obstante, si activáis cualquiera de los enlaces "Back to menu" (volver al menú) ocurrirá lo mismo. ¿Cómo puede ser? Los identificadores de fragmento pueden ser cualquier elemento con un ID.</p>
+  
+  <p>Para recapitular: </p>
+  
+  <ul>
+		<li><p>Los enlaces de ancla pueden tener un identificador de fragmento como valor del atributo <code>ref</code>; este identificador de fragmento debe empezar con una almohadilla (<code>#</code>).</p></li>
+  
+  <li><p>Al activarlo, este enlace llevará hacia cualquier elemento HTML con un <code>id</code> de este valor. Estos ID de cada página deben ser únicos.</p></li>
+  
+  <li><p>Los ID siguen algunas convenciones con respecto a los nombres. Las más importantes es que deben empezar con un carácter alfanumérico y que no pueden contener espacios.</p></li>
+   </ul> 
+
+  <p>Todo esto cubre el menú y las diferentes secciones del ejemplo, pero ¿qué sucede con los otros enlaces? Si los probáis, veréis que apuntan hacia destinos diferentes: uno va a otro sitio, otro muestra una fotografía y el tercero muestra una sección concreta de otra página web (que se encuentra pasando a un ID específico). Si todo ha funcionado bien, ¡perfecto! Pero ¿qué sucede si no habéis entendido, o el navegador no ha entendido, algunos de estos recursos? </p>
+
+
+  <h2 id="noambiguity">18.4. No permitáis ninguna ambigüedad en los enlaces</h2>
+  
+  <p>Lo más importante que debéis recordar sobre los enlaces es que son una parte básica para vuestra relación con las personas que os visiten. Estas personas se fían de que cuando les ofrezcáis un enlace podrán seguirlo y acceder a información de calidad y pertinente. Si vuestros enlaces no funcionan porque el recurso al que apuntan no está disponible o se encuentra en un formato que el visitante no puede leer, habréis traicionado su confianza y habréis perdido credibilidad. No debéis permitir nunca que esto suceda.</p>
+                         
+  <h3 id="extrainfotitle">18.4.1. Ofrecer información adicional con un atributo <code>title</code></h3>
+  
+  <div class="text-clau">
+  <p>Igual que con cualquier otro elemento HTML, podéis añadir un atributo <code>title</code> a un elemento <code>a</code> para añadir información adicional. Los navegadores mostrarán lo que se conoce como un indicador de función cuando los visitantes pasen el cursor del ratón sobre el enlace. Este indicador de función les indica la naturaleza de este enlace. </p>
+  </div>
+  
+  <p>Por ejemplo, podéis escribir una pequeña introducción al contenido y la ubicación del documento enlazado:</p>
+                      
+
+  <pre><code>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/
+ html4/strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta http-equiv="content-type" content="text/html; charset=utf-8"&gt;
+&lt;title&gt;Adding extra information with a title attribute&lt;/title&gt;
+&lt;link rel="stylesheet" href="linkexamplestyles.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+   &lt;h1&gt;Adding extra information with a title attribute&lt;/h1&gt;
+   &lt;ul&gt;
+      &lt;li&gt;Find more information on the &lt;a title="The Yahoo Developer
+       Network is the main hub for all the developer tools Yahoo offers,
+       including the Yahoo User Interface Library (YUI) and the Design
+       Patterns repository" href="http://developer.yahoo.com"&gt;Yahoo
+       Developer Network&lt;/a&gt;.&lt;/li&gt;
+   &lt;/ul&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>  
+
+<p class="font"><strong>Archivo fuente:</strong> "<a href="http://dev.opera.com/articles/view/18-html-links-let-s-build-a-web/titleexample.html" hreflang="en">titleexample.html</a>"</p>
+                                    
+	<div class="imagen">
+			<img src="06510_m4_10.gif" alt="" />
+			<p>Figura 1. Añadir un atributo de título para mostrar la información como un indicador de función cuando los visitantes pasen por encima el enlace.</p>
+		</div>
+
+  <p>Pero no podéis esperar que los visitantes tengan la suficiente paciencia y coordinación mano-ojo para poder fiaros de este recurso para dar información crucial. Es muy probable que los usuarios con alguna discapacidad visual, que no pueden ver la página, no puedan acceder a esta información. Aunque los lectores de pantalla incluyen la opción de leer en voz alta los atributos
+<code>title</code> para el usuario final, esta opción está desactivada por defecto; por este motivo, no deberíais utilizar nunca el atributo <code>title</code> para dar información crucial sobre el enlace. Esa información crucial podría ser: </p>
+  
+  <ul><li><p>Enlazar con recursos no HTML, como archivos PDF, imágenes, vídeos, archivos de sonido o descargas.</p></li>
+  
+  <li><p>Hacer que salgamos del sitio actual y que pasemos a otro servidor (enlaces externos versus enlaces internos).</p></li>
+  
+  <li><p>Enlazar con un documento que se abrirá en un marco diferente o en una ventana emergente.</p></li>
+	</ul>                         
+	
+  <h3 id="linktononhtml">18.4.2. Enlaces a recursos no HTML: no obliguéis a los visitantes a hacer conjeturas</h3>
+  
+  <p>Puede ser muy molesto hacer clic en un enlace y que el navegador no sepa qué hacer con aquello a lo que apunta el. No obstante, no es nada extraño ver sitios web que enlazan con imágenes, documentos PDF y vídeos sin avisar a los visitantes para que estén preparados. Los vídeos son una causa muy habitual de problemas de los navegadores. Además, también es posible que el recurso tenga un volumen muy grande (un PDF de 20 MB, por ejemplo), lo que significa que quizá los visitantes preferirían descargarlo en lugar de abrirlo dentro del navegador y añadirlo así a un consumo de memoria que ya es considerable; o quizá incluso decidirían no acceder a él. </p>
+  
+  <div class="text-clau">
+  <p>Uno de los factores principales del éxito de un producto web es el hecho de no obligar a las personas que lo visitan a hacer conjeturas sobre qué pasará cuando hagan algo; siempre se debe explicar claramente qué efectos tendrán sus acciones. En el caso de los enlaces, todo lo que debéis hacer para evitar muchas frustraciones es explicar bien a los visitantes qué es el recurso al que lleva el enlace. </p>
+  </div>
+  
+  <p>Aquí encontraréis algunos ejemplos:</p>
+  
+  <pre><code>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/
+ strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta http-equiv="content-type" content="text/html; charset=utf-8"&gt;
+&lt;title&gt;Linking non-HTML resources&lt;/title&gt;
+&lt;link rel="stylesheet" href="linkexamplestyles.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+   &lt;h1&gt;Linking non-HTML resources&lt;/h1&gt;
+  
+   &lt;ul&gt;
+      &lt;li&gt;Find more information on the &lt;a href="http://developer.yahoo
+       .com"&gt;Yahoo Developer Network site (external)&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;Download the &lt;a href="http://www.wait-till-i.com/stuff/JavaScript
+       -DOM-Cheatsheet.pdf"&gt;Dom Cheatsheet (PDF, 85KB)&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;Pick and &lt;a href="ftp://get.opera.com/pub/opera/win/"&gt;download
+       different Opera versions from their FTP (external)&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;Check out a &lt;a href="http://farm1.static.flickr.com/56/188791635_
+       0b8bdd808d.jpg?v=0"&gt;Photo of my book (JPG, 200KB)&lt;/a&gt;&lt;/li&gt;
+   &lt;/ul&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>   
+
+<p class="font"><strong>Archivo fuente:</strong> "<a href="http://dev.opera.com/articles/view/18-html-links-let-s-build-a-web/linkingnonhtml.html" hreflang="en">linkingnonhtml.html</a>"</p>
+
+  <p>Si ofrecéis toda esta información sobre el archivo enlazado y el espacio que ocupa, los visitantes podrán decidir qué harán y no deberéis suponer que tienen el navegador configurado de una manera concreta o algunos programas instalados. Si lo combináis con unos estilos inteligentes, incluso podréis conseguir que tenga un buen aspecto y que todo sea muy intuitivo. Si os queréis asegurar del todo, también podéis ofrecer una sección de ayuda que explique qué son los diferentes formatos de archivo y dónde se pueden conseguir los programas necesarios para abrirlos. </p>
+
+
+  <h3 id="externalinternal">18.4.3. Enlaces externos y enlaces internos</h3>
+  
+  <p>Una de las cosas que más temen los responsables de los negocios con respecto a los sitios web de sus compañías es que la gente que los visite salga de ellos prematuramente. Ésta es a menudo la razón para no ofrecer nunca enlaces hacia terceros (a menos que éstos terceros paguen dinero por el privilegio del redireccionamiento del tráfico hacia ellos). Más adelante ya volveremos a hablar de este criterio tan equivocado; de momento, hablaremos de lo que hace la gente para evitar que los visitantes abandonen su sitio y las consecuencias que tienen estas medidas para el éxito del sitio web. </p>  
+
+  <h2 id="badhabits">18.5. Marcos y ventanas emergentes: ¡ni hablar!</h2>
+  
+  <p>El temor a perder visitantes que van hacia otros sitios web, combinado con el deseo de seguir enlazando con estos otros sitios, nos ha traído algunos inventos en el desarrollo de las webs que se han convertido durante años en un verdadero problema para la usabilidad de los sitios: los marcos y las ventanas emergentes. </p>
+  
+  <p>El uso de marcos HTML significa que estáis separando la página que aparece en el navegador en diferentes documentos. La ventaja es que el documento sigue siendo aparentemente el mismo incluso al cargar partes de éste, ya sea desde el servidor propio o desde servidores de terceros. Pero aquí es donde acaba su utilidad; los marcos son una experiencia terrible para el usuario y, de hecho,  perniciosos: </p>
+  
+  <ul>
+		<li><p>Los motores de búsqueda no pueden indexar nunca toda la página, sino que en los resultados de la búsqueda sólo muestran partes que no tienen ningún sentido fuera de contexto.</p></li>
+  
+  <li><p>Los visitantes no pueden añadir la página a la lista de direcciones de interés; la próxima vez que abran la página desde esta lista verán el estado inicial del conjunto de marcos y no la página tal como la dejaron la última vez.</p></li>
+  
+  <li><p>Los visitantes que dependan de tecnologías de asistencia lo tienen muy difícil para navegar por conjuntos de marcos.</p></li>
+  
+  <li><p>Es posible que los sitios web de terceros no quieran aparecer dentro de un conjunto de marcos y que utilicen <em>scripts</em> "rompedores de marcos", que sustituirán a los conjuntos de marcos para la URL real cuando intentéis incrustarlos. Esto se hace, por ejemplo, para evitar que los delincuentes consigan con engaños que los usuarios de Internet introduzcan información como el número de la tarjeta de crédito en un sitio web que aparentemente parece de un banco (lo que se conoce como <em>phishing</em>).</p></li>
+	</ul>
+  
+  <div class="text-clau">
+  <p>Los enlaces dentro de un conjunto de marcos utilizan el atributo <code>target</code> del ancla para dirigirse al marco correcto. Cada uno de los marcos de un conjunto de marcos tiene un nombre concreto y al activar el enlace se abre el documento definido en el atributo <code>href</code> de este marco. Si el conjunto de marcos no está disponible (por ejemplo, cuando un visitante ha encontrado el documento con los enlaces por medio de un motor de búsqueda), cada uno de los enlaces se abre en una nueva instancia del navegador. </p>
+  </div>
+  
+  <p>Abrir una nueva instancia del navegador es otra de las maneras habituales de enlazar con sitios web de terceros, ya sea con una ventana emergente de scripts o con un atributo <code>target</code> con el valor <code>_blank</code>. El hecho de que todos los navegadores modernos tengan un bloqueador de ventanas emergentes ya es toda una indicación de si es seguro o no fiarse de esta técnica... ¡No lo es en absoluto!</p>
+  
+  <p>Claro y conciso: <strong>no utilicéis el atributo <code>target</code> para crear enlaces a no ser que sepáis exactamente qué estáis haciendo</strong>. De todas maneras, ésta ya es una idea anticuada; actualmente la mayoría de los navegadores tienen interfaces con pestañas, con lo cual los usuarios pueden abrir sitios de terceros en el fondo para volver a ellos más tarde y mientras tanto quedarse en vuestro sitio web. En algunas circunstancias, es posible que queráis indicar la diferencia entre los enlaces externos e internos, pero debéis dejar siempre que sea el visitante quien decida qué hará con ellos.</p>
+
+
+  <h2 id="linkbenefits">18.6. Ventajas de los enlaces de salida y de los enlaces de entrada</h2>
+  
+  <p>Hay algunas buenas razones para enlazar con sitios de terceros incluso cuando éstos son de la competencia.</p>
+  
+  <ul><li><p>Os da credibilidad ante vuestros visitantes; estáis tan seguros de la calidad de vuestro contenido, que no os asustáis ante la competencia.</p>
+  </li>
+  
+  <li><p>Es una oportunidad para ofrecer un servicio completo; os podéis vincular al contenido y a artículos o incluso a productos de otros sitios web que vosotros no ofrecéis pero que pueden ser de interés para los visitantes que quieren ampliar más en el tema en cuestión.</p>
+  </li>
+  
+  <li><p>Podéis demostrar que tenéis razón mencionando un artículo anterior de un tercero y ofreciendo una solución mejor o diferente y hacer referencia a este artículo mediante un enlace.</p>
+  </li>
+  </ul>
+
+  <p>La utilidad de los enlaces de entrada (los enlaces que apuntan desde el sitio web de un tercero hacia el vuestro) genera mucho menos debate. Cuantos más sitios web válidos y de alta calidad se enlacen con el vuestro con las palabras clave pertinentes, más arriba apareceréis en los motores de búsqueda como Google. Pero antes de que eso suceda, debéis demostrar que no tenéis miedo de enlazaros con otros sitios. </p>
+  
+  <p>Las palabras clave pertinentes nos llevan hacia otra parte muy importante de la creación de unos buenos enlaces: cómo describirlos. </p>        
+
+  <h2 id="linkwording">18.7. Descripción de los enlaces</h2>
+  
+  <p>Ya hemos hablado un poco de ellos en el subapartado sobre los enlaces hacia recursos no HTML, pero siempre es bueno recordar que los enlaces no sólo son parte del texto de la página, sino que también son unos elementos interactivos del documento. </p>
+  
+  <p>Algunas tecnologías de asistencia ofrecen una lista de los enlaces en vez de todo el documento con el fin de permitir a los usuarios que puedan navegar rápidamente por él, lo que significa que debéis comprobar que los textos de vuestros enlaces tengan sentido fuera del contexto en el que se encuentran. Podéis comprobarlo muy fácilmente en Opera abriendo cualquier sitio web y seleccionando "Tools" &gt; "Links" (herramientas > enlaces) en el menú o presionando "Ctrl" + "Mayúsculas" + "L". Se abrirá una pestaña nueva en la que podréis ver todos los enlaces del documento y hacia dónde apuntan. </p>
+  
+  <p>Esto significa que debéis comprobar no sólo que todos los textos de los enlaces tengan sentido, sino también que no haya varios enlaces con la misma descripción pero que apunten hacia recursos diferentes. El error clásico que se comete es el de los enlaces "haced clic aquí" que se describen, por ejemplo, como "Para descargar la última versión de nuestra herramienta, haced clic aquí". Es mucho mejor utilizar un texto de enlace que explique hacia dónde apunta; en este caso, "Podéis descargar y probar la última versión de nuestra herramienta".</p>
+  
+  <p>Esto mismo también se aplica a los enlaces "más". Los encontraréis en los sitios de noticias, en los que veréis un titular y un texto resumido y un enlace "más" o "noticia completa" que se debe seguir. La solución a este problema es utilizar una imagen "más" enlazada y darle un texto alternativo único o añadir un espacio dentro del enlace después de "más" y ocultarlo con el CSS. Explicaremos todos estos trucos más detalladamente en el apartado sobre los menús y la navegación, que encontraréis más adelante en este curso. </p>
+  
+  <div class="vegeu_tambe">
+  <h3>Ved también</h3>
+  
+  <p>Podéis ver el apartado 23 de este módulo.</p>
+  </div>           
+
+  <h2 id="linkstyling">18.8. Estilos de los enlaces</h2>
+  
+  <p>Todavía no ha llegado el momento de hablar del CSS, pero en este punto es útil tener en cuenta que el aspecto de los enlaces es muy importante y que hay varios y diferentes estados de enlaces que hay que considerar. Los estados de los enlaces (que más adelante se relacionan con los pseudoselectores del CSS; puede sonar complejo, pero no lo es) son: </p>
+  
+  <ul>
+		<li><p><code>link</code>: es el estado por defecto; define el aspecto que deben tener los enlaces en una parte concreta del documento. Por defecto, los enlaces no visitados son de color azul.</p></li>
+  
+  <li><p><code>visited</code>: el estilo de un enlace que ya se ha visitado (y que quizá ya se encuentra en la memoria caché del navegador). Por defecto, los enlaces ya visitados son de color púrpura.</p></li>
+  
+  <li><p><code>hover</code>: el estilo de un enlace mientras el cursor del ratón se encuentra sobre él.</p></li>
+  
+  <li><p><code>active</code>: el estilo del enlace mientras está activado; es decir, mientras está en curso la conexión con el otro sitio; también es el estilo del último enlace activado cuando llegáis al documento al ir atrás en el navegador.</p></li>            
+	</ul>
+  
+  <h2 id="summary">Resumen</h2> 
+  
+  <p>Esta vez hemos explicado muchas cosas, pero es muy importante recordar el funcionamiento de los enlaces y qué deben hacer. A lo largo de vuestra trayectoria profesional como desarrolladores web, aprenderéis muchos trucos y técnicas para anular estos comportamientos por defecto, y esperamos que os paréis a pensar si lo que queréis hacer es realmente necesario. </p>
+  
+  <p>Hemos hablado de:</p>
+  
+  <ul><li><p>La anatomía del elemento <code>a</code> y sus atributos (no desaprobados).</p></li>
+  
+  <li><p>La diferencia entre los elementos <code>a</code> como enlaces (con un atributo  <code>href</code>) y como anclas (con un atributo <code>name</code>).</p></li>
+  
+  <li><p>La necesidad de que el nombre de un ancla sea único.</p></li>
+  
+  <li><p>La necesidad de explicar a los visitantes qué pueden esperar cuando siguen un enlace (el formato del archivo y si es muy grande). </p></li>
+  
+  <li><p>Cómo añadir información con el atributo de título que se muestra como un indicador de función; y por qué ésta no es una manera segura de ofrecer información crucial.</p></li>
+  
+  <li><p>La diferencia entre los enlaces externos (que apuntan hacia sitios web de terceros) y los internos (que apuntan hacia documentos del mismo servidor).</p></li>
+  
+  <li><p>Las prácticas anticuadas, como las ventanas emergentes y los marcos, y por qué hay que evitarlas.</p></li>
+  
+  <li><p>Las ventajas de enlazarse con otros sitios y que otros sitios se enlacen con el vuestro.</p></li>
+  
+  <li><p>Cómo describir adecuadamente los enlaces de manera que tengan sentido fuera de contexto, y por qué es necesario.</p></li>
+  
+  <li><p>Los antecedentes de los estilos básicos de los enlaces.</p></li>
+	</ul>
+  
+  <p>Con todos estos conocimientos, deberíais ser capaces de escribir documentos HTML que se enlacen adecuadamente, y ya estáis preparados para empezar a pensar en los menús y la navegación del

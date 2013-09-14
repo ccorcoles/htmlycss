@@ -1,0 +1,275 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
+<meta http-equiv="Content-Language" content="es" />
+<meta name="language" content="es" />
+<meta name="author" content="Universitat Oberta de Catalunya" />
+<meta name="description" content="FALTA CONTENIDO" />
+<meta name="title" content="FALTA CONTENIDO" />
+<meta name="keywords" content="FALTA CONTENIDO" />
+
+<title>Accesibilidad - Conceptos básicos de accesibilidad</title>
+<link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
+</head>
+
+<body>
+<div id="cabecera">
+	<img id="logo" src="../../img/logo.gif" alt="Universitat Oberta de Catalunya" />
+    <a href="http://mosaic.uoc.edu/"><img id="logomosaic" src="../../img/logo-mosaic.gif" alt="Logo de Mosaic" title="Abre la página web de Mosaic" /></a>
+	<div id="titulo">Accesibilidad</div>
+	<div id="subtitulo">Conceptos básicos de accesibilidad</div>
+<div id="cierre"></div>
+	<div id="navegador">
+		<a href="../../m0/accessibilitat.html" id="accesibilidad">Accesibilidad</a> <strong>:</strong> 
+		<a rel="prev" href="../../m4/ud10/index.html" title="Ir al artículo anterior" accesskey="8"><img src="../../img/fletxa_izq.gif" alt="Ir al artículo anterior" /></a> <strong>:</strong> 
+		<a rel="index" href="../../index.html" title="Ir al índice" accesskey="0"><img src="../../img/indice.gif" alt="Ir al índice" /></a> <strong>:</strong> 
+		<a rel="next" href="../ud2/index.html" title="Ir al artículo siguiente" accesskey="9"><img src="../../img/fletxa_der.gif" alt="Ir al artículo siguiente" /></a>
+	</div>
+</div>
+	
+<div id="main">
+<h1>25. Conceptos básicos de accesibilidad</h1>
+<p class="by"><a href="../../index.html#hughes">Tom Hughes-Croucher</a>. 26 de septiembre del 2008. Publicado en: wcag, alt, 508, sección, legal.</p>
+    
+    <p>Cuándo creéis un sitio web, la accesibilidad (conseguir que todo el mundo lo pueda utilizar, sean cuales sean sus capacidades o discapacidades) debería ser una de las preocupaciones más importantes. En este curso, hasta ahora la accesibilidad ha estado siempre implícita en todos los ejemplos que hemos visto, incluso aunque no os dierais cuenta. En este apartado, sin embargo, hablaremos de ello explícitamente para que podáis entender bien qué es, por qué es importante, cómo se garantiza que los sitios sean accesibles y qué directrices existen para definir los sitios accesibles.</p>
+    
+    <p>Antes de hablar concretamente de la accesibilidad en la web, empezaremos hablando de la accesibilidad en general; al fin y al cabo, la accesibilidad no es sólo una cuestión asociada a los sitios web; es un aspecto que, potencialmente, debe tener en cuenta todos los servicios, objetos o tecnologías con los que os encontréis.</p>
+    
+    <div class="note">
+    <h3>Nota</h3>
+    <p>Tened en cuenta que un tema asociado sobre el que os deberíais informar es <a hreflang="en" href="http://www.w3.org/WAI/intro/aria">WAI ARIA</a>: la iniciativa <em>Web Accessibility Initiative's Accessible Rich Internet Applications</em>, que es básicamente una metodología que permite la creación de aplicaciones con Ajax/JavaScript más accesibles. Podéis encontrar un artículo muy bueno de <a hreflang="en" href="http://dev.opera.com/articles/view/introduction-to-wai-aria/">introducción al ARIA en dev.opera.com</a>.</p>
+    </div>
+    
+    <p>Los contenidos de este apartado son los siguientes:</p>
+    
+		<ul class="index">
+			<li>25.1. <a href="#whatisaccessibility" accesskey="1">¿Qué es la accesibilidad?</a></li>
+		 	<li>25.2. <a href="#whyisitimportant" accesskey="2">¿Por qué es importante la accesibilidad?</a>
+			<ul class="index">
+			<li>25.2.1. <a href="#legalities">Los aspectos legales de la accesibilidad</a></li>
+			<li>25.2.2. <a href="#potentialmarkets">Mercados potenciales</a></li>
+			<li>25.2.3. <a href="#searchengines">Motores de búsqueda</a></li>
+			<li>25.2.4. <a href="#ethics">Ética y marcas</a></li>
+			</ul></li>
+			<li>25.3. <a href="#designingaccessibility" accesskey="3">Diseñar pensando en la accesibilidad</a></li>
+			<li>25.4. <a href="#interoprequirements" accesskey="4">Requisitos de interoperabilidad</a></li>
+			<li>25.5. <a href="#accessiblefeatures" accesskey="5">Características de una página web accesible</a>
+			<ul class="index">
+			<li>25.5.1. <a href="#semanticstructure">Estructura semántica</a></li>
+			<li>25.5.2. <a href="#alternativecontent">Contenido alternativo</a></li>
+			<li>25.5.3. <a href="#interaction">Definir la interacción</a></li>
+			</ul></li>
+			<li>25.6. <a href="#accessibilitystandards" accesskey="6">Estándares de accesibilidad</a>
+			<ul class="index">
+			<li>25.6.1. <a href="#WCAG1">Directrices de accesibilidad del contenido web 1.0</a></li>
+			<li>25.6.2. <a href="#WCAG2">Directrices de accesibilidad del contenido web 2.0</a></li>
+			<li>25.6.3. <a href="#section508">Sección 508</a></li>
+			<li>25.6.4. <a href="#otherstandards">Otros estándares</a></li>
+			</ul></li>
+			<li class="especial"><a href="#summary">Resumen</a></li>
+			<li class="especial"><a href="#exercises">Preguntas de repaso</a></li>
+		</ul>
+                       
+
+    <h2 id="whatisaccessibility">25.1. ¿Qué es la accesibilidad?</h2>
+    
+    <p>Mirad a vuestro alrededor. Es muy posible que veáis a otras personas; si no es así, ¿por qué no vais a dar un paseo rápido? Probablemente lo disfrutaréis y os sentará bien. Todas las personas que veréis serán diferentes: algunas tienen el pelo castaño, otras no. Algunas tienen los ojos azules, otras no. Otras llevan gafas, otras no. No hay dos personas exactamente iguales. Algunas diferencias, como el color del pelo o de los ojos, son puramente estéticas; es decir, no afectan de ninguna manera importante a nuestra vida. Algunas diferencias, como el hecho de llevar gafas, sí que la afectan. La accesibilidad es algo muy sencillo, una filosofía, aunque en algunos países también forma parte de la ley.</p>
+    
+    <div class="text-clau">
+    <p>La accesibilidad es tratar a todo el mundo igual, sean cuales sean sus capacidades.</p>
+    </div>
+    
+    <p>Somos muy conscientes de que esta afirmación está abierta a interpretación. La mayoría de las discusiones sobre accesibilidad empiezan hablando sobre la discapacidad. Esto implica que las personas con alguna discapacidad merecen un tratamiento especial. Pero la accesibilidad no es eso; en realidad es un síntoma del modo como la gente ha construido tradicionalmente edificios, sitios web y muchas otras cosas.</p>
+    
+    <p>Cuando se construyen cosas presuponiendo que todo el mundo es igual que nosotros, podéis estar seguros de que siempre funcionarán mal para algunas personas. La gente presupone que la accesibilidad es ayudar a las personas con alguna discapacidad, ya que la accesibilidad añadida es algo muy presente en nuestra sociedad. Por ejemplo, muchos edificios que se construyeron sólo con escaleras han incorporado de repente unas rampas baratas y muy feas. Pero la accesibilidad ha sido durante mucho tiempo una cuestión importante en el diseño militar. ¿Por qué? Pues porque a menudo es vital para la supervivencia; con unas fuerzas g muy elevadas, los pilotos de los aviones de combate no pueden hacer lo mismo que hacen cuando están en el suelo. Si los diseñadores no tuvieran en cuenta las necesidades de los pilotos en entornos tanto de gravedad alta como baja, habría muchos más accidentes de avión.</p>
+    
+    <p>Pero ¿qué significa esto para los desarrolladores de sitios web? La respuesta rápida es que debéis intentar ser más conscientes de las necesidades de todo el público potencial que puede visitar vuestro sitio web. Una respuesta más larga implicaría, por vuestra parte, ser mínimamente conscientes de los diferentes niveles de capacidades que puede tener la gente y del uso que hacen de los ordenadores. Aplicando las técnicas que se describen en este apartado y en otros apartados relacionados podréis crear unos sitios web que funcionen bien con muchas formas de interacción. Vuestros sitios web deben poder ser utilizados por personas:</p>
+    
+    <ul>
+      <li><p>Ciegas o con deficiencias visuales graves que escuchen los sitios web utilizando un lector de pantalla o que los lean en una pantalla braille.</p></li>
+      <li><p>Miopes que aumenten el tipo de letra hasta el 200% de su tamaño.</p></li>
+      <li><p>Con discapacidades motrices que no puedan utilizar las manos para manipular un ratón y que, por lo tanto, utilicen un dispositivo de señalización para manipular el teclado o incluso un puntero visual para manipular el sitio web.</p></li>
+      <li><p>Utilicen ratones de bola u otros tipos de sistemas de control del ordenador menos habituales.</p></li>
+    </ul>
+    
+    <p>De momento, no es necesario que os preocupéis por los detalles concretos de estas interacciones; ya los iremos viendo paso a paso.</p>
+                        
+
+
+		    <h2 id="whyisitimportant">25.2. ¿Por qué es importante la accesibilidad?</h2>
+
+		    <p>La accesibilidad es importante por una razón principal y por muchas otras razones pequeñas. La principal es que <code>todos somos diferentes pero todos tenemos el mismo derecho a utilizar los sitios web</code>, pero hay muchas otras razones por las que deberíais tener en cuenta la accesibilidad a la hora de crear sitios web:</p>
+
+		<ul>
+		    <li><p>En algunos países es obligatorio por ley.</p></li>
+		    <li><p>No se deben excluir clientes/visitantes potenciales de vuestro sitio web.</p></li>                                                                                
+		    <li><p>Los sitios accesibles suelen estar mejor situados en los motores de búsqueda.</p></li>                                                                            
+		    <li><p>Demostraréis una buena ética, algo que los clientes sabrán valorar.</p></li>                                                                                      
+		    <li><p>Si creáis los sitios web siguiendo los estándares web, no necesitaréis hacer prácticamente nada más para hacerlos accesibles, lo cual aporta muchas ventajas; además, también hay muchas similitudes entre los sitios más accesibles y los sitios más compatibles con los navegadores de teléfonos móviles, que es otra circunstancia que dificulta el uso de los sitios web, aunque por unas circunstancias diferentes. De hecho, se han realizado algunos estudios de análisis de la relación entre la accesibilidad de la web y las mejores prácticas del desarrollo de la web móvil; <a hreflang="en" href="http://www.w3.org/WAI/mobile/">podéis ver la página del WAI "Web Content Accessibility and Mobile Web"</a>, donde encontraréis más información sobre esto.</p></li>    
+		    <li><p>Las técnicas que ayudan a la gente con discapacidades benefician a todos los usuarios.</p></li>
+		  </ul>
+
+		    <p>Ahora pasaremos a ver algunos de estos puntos más detalladamente.</p>
+
+		    <h3 id="legalities">25.2.1. Los aspectos legales de la accesibilidad</h3>
+
+		    <div class="note">
+		    <h3>Nota</h3>
+
+		    <p>Es muy importante entender los fundamentos de los aspectos legales, pero si no es que sois abogados y sabéis bien de qué estáis hablando, sería necesario que fuerais con mucho cuidado a la hora de dar una opinión sobre cuestiones legales.</p>
+		    </div>
+
+		    <p>En el Reino Unido, según la <a hreflang="en" href="http://www.direct.gov.uk/en/DisabledPeople/index.htm">DDA</a>, es ilegal discriminar a las personas discapacitadas a la hora de contratar trabajadores y ofrecer servicios o educación. La discriminación se define como no hacer "ajustes razonables" para dar apoyo a todo el mundo, sean cuales sean sus capacidades o discapacidades. Esto se aplica, evidentemente, a los servicios y la educación disponibles a través de sitios web.</p>
+
+		    <p>En Estados Unidos y en la Unión Europea también hay exigencias para los sitios web gubernamentales. En Estados Unidos, los sitios web del gobierno federal (y de algunos gobiernos estatales) deben cumplir la <a hreflang="en" href="http://www.section508.gov/">Sección 508</a>. La Sección 508 es un documento que intenta definir los requisitos mínimos para conseguir la accesibilidad. La Sección 508 no afecta sólo a los sitios web, sino que también hace referencia a cualquier otra tecnología que puedan utilizar los empleados federales. En Europa, la Comisión Europea ha reconocido la web Accessibility Initiative (WAI) de W3C y recomienda su uso a todos los Estados miembros. La <a hreflang="en" href="http://w3.org/WAI">WAI</a> publica directrices para sitios web, fabricantes de herramientas de creación de webs y navegadores web (por ejemplo, el WCAG, del que hablaremos más adelante).</p>
+
+		    <h3 id="potentialmarkets">25.2.2. Mercados potenciales</h3>
+
+		    <p>Si creáis sitios web (o cualquier otra cosa) para un tipo de personas concretas, estaréis excluyendo otros tipos de personas incluso aunque no os deis cuenta de ello, y toda esta gente excluida puede representar fácilmente una cuota de mercado importante (o incluso mayoritaria). En el año 2000, la cadena de supermercados Tesco del Reino Unido puso en marcha un proyecto para crear una versión diferente de su sitio de comestibles en línea pensado específicamente para las personas con discapacidades visuales. Julie Howell, de RNIB, comentó que "El trabajo realizado por Tesco.com para conseguir que su servicio de comestibles fuera más accesible para las personas ciegas ha dado como resultado un aumento de los ingresos de 13 millones de libras anuales, unos ingresos que no estaban al alcance de la compañía cuando el sitio web no era accesible para los clientes ciegos". Así pues, si Tesco no hubiera pensado en la gente con discapacidades visuales, no habría llegado nunca a un mercado de clientes con un valor de 13 millones de libras como mínimo.</p>
+
+		    <p>La lección que debemos extraer es que todo el mundo, sean cuales sean sus capacidades, necesita los mismos servicios: comestibles, taxis, electricidad, etc. y deben poder disfrutar de las mismas cosas: películas, música, bares, etc. Presuponer que la situación vital personal de alguien hace que cambien sus capacidades o sus deseos de participar en todos los aspectos de la sociedad se ha demostrado una y una otra vez como un gran error.</p>
+
+		    <h3 id="searchengines">25.2.3. Motores de búsqueda</h3>
+
+		    <p>Los motores de búsqueda no son personas. A menudo, cuando alguien crea un sitio web lo hace sin tener en cuenta cómo se podrá encontrar en Google, Yahoo!, etc. Los motores de búsqueda son sólo programas informáticos y para indexar la página sólo pueden utilizar la información que pueden entender. Eso les hace ser muy similares a los lectores de pantalla que pueden utilizar las personas con alguna discapacidad visual.</p>
+
+		    <p>El ejemplo más obvio de los efectos que esto tiene sobre el diseño de webs son las imágenes. Los ordenadores muestran imágenes a partir de una lista con los colores que deben tener todos los píxeles y envían esta información al monitor. Si ponéis en una página web una imagen que contiene texto, como por ejemplo un logotipo, el ordenador no tiene ni idea de qué dice el texto y ni siquiera sabe que la imagen contiene texto. En HTML, el elemento de imagen contiene una manera de describir con texto el contenido de una imagen, que es el atributo <code>alt</code>. Debéis ofrecer un texto para describir todas las imágenes no decorativas de vuestro sitio, y nunca deberíais representar párrafos completos como imágenes (o Flash); las personas ciegas y los motores de búsqueda no tendrán ni idea de qué dice el texto. Como resultado, la posición en un motor de búsqueda (es decir, la facilidad de encontrar vuestro sitio web con motores de búsqueda como Google) se verá afectada y quedaréis innecesariamente fuera de un mercado muy valioso.</p>
+
+		    <h3 id="ethics">25.2.4. Ética y marcas</h3>
+
+		    <p>Todo el mundo debería tener en cuenta la accesibilidad, pero esto no quiere decir que todo el mundo lo haga. Si tenéis en cuenta la accesibilidad, estaréis actuando en beneficio de la comunidad. Eso es algo de lo que os podréis enorgullecer; si demostráis que tenéis en cuenta a todos los que integran nuestra sociedad, conseguiréis mejorar mucho vuestra imagen de marca. Como profesionales, nuestra obligación es intentar conseguir los resultados de la mejor calidad posible. En una sociedad que nos valora como personas individuales, es importante no excluir a alguien por el hecho de que tenga unas necesidades diferentes.</p>
+
+		    <p>Si seguís unos principios responsables y demostráis de una manera genuina que los aplicáis, podréis crear una imagen de marca extraordinariamente positiva. Las compañías que demuestran que se preocupan por sus clientes los fidelizarán mucho más que las que no lo hacen.</p>
+
+		    <h2 id="designingaccessibility">25.3. Diseñar pensando en la accesibilidad</h2>
+
+		    <div class="text-clau">
+		    <p>La clave para la accesibilidad es pensar en un problema y decidir solucionarlo para más de un tipo de usuarios.</p>
+		    </div>
+
+		    <p>Si pretendéis tratar la accesibilidad como algo que ya añadiréis una vez que hayáis acabado todos los demás trabajos, sólo conseguiréis tener algo mal hecho y mal integrado. Necesitaréis más tiempo, no funcionará bien y tendrá un aspecto horrible.</p>
+
+		    <p>La mejor manera de conseguir una solución bien hecha es diseñar la web teniendo en cuenta todas las necesidades desde el primer momento. Eso no quiere decir que no podáis cambiar vuestros planes o añadir algo que os hubiera pasado por alto, pero deberíais intentar ser conscientes de cuál es el problema general que pretendéis solucionar con vuestro diseño. En el caso de los sitios web, eso implica crear una solución usable por todos los usuarios, incluyendo a quienes quizá no pueden utilizar un ratón, un teclado, un monitor, etc.</p>
+
+		    <h2 id="interoprequirements">25.4. Requisitos de interoperabilidad</h2>
+
+		    <p>Los requisitos de interoperabilidad pueden variar mucho de una situación a otra:</p>
+
+		    <ul>
+		      <li><p>A menudo se introducen nuevas tecnologías que no incorporan funciones de accesibilidad.</p>
+
+		    <div class="exemple">
+		    <h3>Ejemplo</h3>
+		    <p>El nuevo conector Silverlight de Microsoft no presenta la información a través de los API de accesibilidad utilizados por los lectores de pantalla y otras tecnologías de asistencia, aunque sí que está previsto incorporar funciones de accesibilidad en el futuro.</p>
+		    </div></li>
+
+		      <li><p>En los casos en los que estas funciones de accesibilidad están teóricamente disponibles, puede ser necesario un cierto tiempo para que las tecnologías de asistencia las utilicen.</p>
+
+		    <div class="exemple">
+		    <h3>Ejemplo</h3>
+		    <p>Los lectores de pantalla más nuevos funcionan mucho mejor con las actualizaciones con JavaScript de las estructuras HTML que los lectores de pantalla más antiguos.</p>
+		    </div></li>
+
+		      <li><p>Incluso cuando ya están establecidas desde hace mucho tiempo, las características de accesibilidad pueden continuar difiriendo entre las distintas plataformas.</p>
+		    <div class="exemple">
+		    <h3>Ejemplo</h3>
+		    <p>El conector Adobe Flash Player expone desde hace mucho tiempo la información en el API de accesibilidad de Windows, pero no en el equivalente de Apple o GNOME.</p>
+		    </div></li>
+
+		      <li><p>También suele haber un cierto retraso entre la llegada de la tecnología y su distribución generalizada. Actualmente, los navegadores y los conectores suelen ser gratuitos, mientras que las tecnologías de asistencia mayoritarias pueden llegar a ser muy caras.</p>
+
+		    <div class="exemple">
+		    <h3>Ejemplo</h3>
+		    <p>Uno de los lectores de pantalla más populares es JAWS, de Freedom Scientific, para Windows. Prácticamente cada año aparece una versión nueva. El precio de JAWS Profesional para el consumidor final es de 1.095 dólares, y aunque os gastéis 200 dólares adicionales para disfrutar de un contrato de mantenimiento de software para las dos versiones siguientes, las actualizaciones seguirán costando 500 dólares o más. Por lo tanto, a pesar de que la última versión es la 9, todavía encontraréis a muchos usuarios de JAWS que utilicen versiones anteriores.</p>
+		    </div></li>
+		  </ul>
+
+		    <p>Cuando queráis construir sitios para la web pública, por lo tanto, deberéis incorporar una cierta interoperabilidad con una combinación muy variada de usuarios y tecnologías. Hay cuatro enfoques posibles:</p>
+
+		    <ul>
+		      <li><p>Mejorar progresivamente vuestro sitio web e ir comprobando la compatibilidad a medida que vayáis avanzando.</p></li>
+
+		      <li><p>Permitir que todos los usuarios puedan desactivar las mejoras problemáticas.</p></li>
+
+		      <li><p>Ofrecer versiones alternativas con el mismo contenido o las mismas funciones.</p></li>
+
+		      <li><p>Avisar a los clientes de las tecnologías que deben incorporar y dar ejemplos de compañías que sean compatibles con estas tecnologías.</p></li>
+		    </ul>
+
+		    <p>En las intranets, la compatibilidad con versiones anteriores y la variedad son un problema mucho más pequeño. Una organización concreta puede garantizar, por ejemplo, que todos los empleados con discapacidades tengan acceso a una tecnología de asistencia que acepte bien el DHTML. En estas circunstancias, y con las pruebas pertinentes con la tecnología de asistencia ofrecida, sería razonable tomar el JavaScript como mínimo.</p>
+
+		    <p>Sin embargo, la compatibilidad con versiones posteriores y la compatibilidad entre plataformas sí que siguen siendo un problema, por lo que se deberían preferir las tecnologías abiertas y estándar sobre las tecnologías propietarias y no estándares.</p>
+
+		    <p>Podríais desarrollar, por ejemplo, una aplicación de formación de la intranet para una gran corporación. Os han pedido que garanticéis que la aplicación sea accesible, pero no os han especificado ningún estándar al que os debáis adaptar. Habláis con el departamento de informática y descubrís que todo el mundo tiene la última versión de la Internet Explorer con el JavaScript habilitado y Flash instalado y activado, y también que todo el mundo dispondrá de la tecnología de asistencia moderna necesaria para poder utilizar todos estos programas. Aunque la compañía pase a una plataforma Unix, seguirá habiendo la tecnología de asistencia necesaria para el JavaScript, pero el texto y los controles en Flash sólo son accesibles desde Windows. Podríais hacer que el <em>script</em> y el Flash fueran una referencia obligatoria para vuestra aplicación. Pero decidís utilizar el Flash sólo para reproducir vídeo y construir los grupos de controles para el vídeo Flash a partir de los estándares web, ya que la tecnología de asistencia sólo puede acceder a los controles del Flash desde la plataforma Windows. Así, la aplicación continuaría siendo accesible aunque la compañía migrara a Unix.</p>
+
+		    <p>Las políticas de TI de la organización pueden cambiar, y todos los esfuerzos mejor intencionados para hacer que las funciones JavaScript sean operativas y para explotar los grupos de funciones de accesibilidad de los conectores pueden fallar; por lo tanto, continúa siendo una buena idea realizar una mejora progresiva de la referencia tecnológica a partir de una capa HTML básica.</p>
+
+		<h2 id="accessiblefeatures">25.5. Características de una página web accesible</h2>
+
+		    <p>En este subapartado explicaremos las funciones de accesibilidad diferentes de un sitio web; es decir, qué debe contener un sitio web accesible. Explicaremos cada una de ellas con detalle.</p>
+
+		    <h3 id="semanticstructure">25.5.1. Estructura semántica</h3>
+
+		    <p>Una de las bases de los estándares de la web es el uso de la estructura semántica en el HTML. La estructura semántica también es sumamente importante para la accesibilidad. Es así porque ofrece un marco de referencia para la información de la página. Cuando la gente no puede ver el estilo visual de la página, la estructura semántica ayuda a explicarles varias cosas. Les puede indicar su posición en la jerarquía del documento y los modos como pueden interactuar con los diferentes elementos de la página; también ofrece énfasis en el contenido textual en los lugares adecuados.</p>
+
+		    <p>Un buen ejemplo de la importancia de la estructura semántica de un documento para la accesibilidad es la navegación. Un menú de navegación bien estructurado es una lista de puntos. Podéis etiquetarlo como una lista HTML:</p>
+
+<pre><code>&lt;ul&gt;
+   &lt;li&gt;Entrada del menú 1&lt;/li&gt;
+   &lt;li&gt;Entrada del menú 2&lt;/li&gt;
+   &lt;li&gt;Entrada del menú 3&lt;/li&gt;
+&lt;/ul&gt;</code></pre>  
+
+		    <p>Con unos menús de navegación estructurados como listas, los usuarios de lectores de pantalla podrán saber muy fácilmente que es una lista aunque no la puedan ver. Eso es así porque los lectores de pantalla les dicen que es una lista. Si no utilizáis el etiquetado de lista, entonces el lector de pantalla no tiene ninguna manera de saber que es una lista y no lo puede decir al usuario.</p>
+
+		    <div class="vegeu_tambe">
+		    <h3>Ved también</h3>
+
+		    <p>Podéis encontrar más información sobre el uso de la semántica correcta en vuestro HTML en muchos de los apartados anteriores de este curso, básicamente en los que hablan del HTML.</p>
+		    </div>             
+
+		<h3 id="alternativecontent">25.5.2. Contenido alternativo</h3>
+
+		    <p>Tal como se menciona en el subapartado sobre los motores de búsqueda, es esencial que haya una alternativa accesible al contenido y la navegación. El texto se considera la moneda universal del contenido, pero al respecto hay que hacer una advertencia, tal como veréis más adelante. Un lector de pantalla puede leer el texto sin ninguna dificultad, se puede hacer más pequeño o más grande, se puede modificar el contraste muy fácilmente y se pueden hacer muchas más transformaciones. Como el texto es tan fácil de manipular, todas las formas más exóticas de contenido deberían tener siempre una alternativa basada en texto. Algunos formatos, como las versiones más modernas de Flash, ya integran el acceso en texto con el fin de poder acceder directamente a su contenido textual directamente sin necesidad de tener que ofrecer una alternativa para todo el soporte.</p>
+
+		    <div class="vegeu_tambe">
+		    <h3>Ved también</h3>
+		    <p>Podéis ver los motores de búsqueda en el subapartado 25.2.3 de este módulo.</p>
+		    </div>
+
+		    <div class="text-clau">
+		    <p>El único grupo con discapacidad para el que una alternativa de texto puede no tener ninguna utilidad es el grupo de personas con discapacidades cognitivas.</p>
+		    </div>
+
+		    <p>La dificultad que presentan las personas con discapacidades cognitivas es que normalmente necesitan un contenido diferente y no el mismo contenido en un soporte diferente. Con eso no queremos decir que no haya que hacerlo. La simplificación del lenguaje y de la terminología utilizada en vuestro sitio web representará un beneficio para todo el mundo. Algunos grupos, como la <a hreflang="en" href="http://www.clearest.co.uk/">Plain Language Commission</a>, recomiendan un enfoque de "lenguaje sencillo" para el material que utilizan las compañías para dar a sus clientes la información importante, como los requisitos legales y los términos y las condiciones. Estos grupos ofrecen un <a hreflang="en" href="http://www.clearest.co.uk/?id=46">léxico muy sencillo</a> que contiene los términos que se pueden utilizar para una comunicación efectiva utilizando el lenguaje más simple posible.</p>
+
+		    <p>¿Cómo podéis incluir alternativas de texto en vuestro sitio web? El primer paso es identificar los elementos que todavía no son texto. En el HTML hay muchos elementos que todavía no son texto. Las imágenes son el ejemplo más evidente de esto.</p>
+
+		    <p>Aquí tenéis un ejemplo de uso accesible de una imagen:</p>
+
+<pre><code>&lt;p&gt;An interesting piece of art is Michelangelo's "God creates
+Adam" &lt;img src="images/adam.jpg" alt="A painting of a man
+reaching up to touch God's hand reaching down. It is cracked with age."
+longdesc="adam.html"&gt;.&lt;/p&gt;</code></pre> 
+
+		    <p>La imagen de este ejemplo forma parte integral del contenido. El atributo <code>alt</code> contiene una breve descripción de la imagen para las personas (o para los motores de búsqueda) que quizá no pueden verla correctamente. El atributo <code>longdesc</code> permite enlazar con una página HTML que contiene una descripción completa de la imagen. Esto se utiliza normalmente sólo para describir imágenes complejas que se utilizan como parte importante del contenido. Y también tiene el inconveniente de que los navegadores no lo aceptan completamente. La mayoría de las veces sólo utilizaréis el atributo <code>alt</code>.</p>
+
+		    <p>Al usar las imágenes para cosas diferentes que no son contenidos, como la navegación o simplemente como decoración visual, las deberíais tratar diferente de las imágenes de contenido. Las imágenes utilizadas para hacer más atractivos los botones o la navegación de la página deben tener un atributo <code>alt</code> que coincida con el texto de la imagen. El atributo <code>alt</code> funciona sencillamente como una manera simple para permitir que el ordenador lea el texto contenido en la imagen (y lo lea a un usuario de un lector de pantalla).</p>
+
+		    <p>En el caso de las imágenes puramente decorativas, las imágenes utilizadas para el seguimiento de anuncios o cualquier otra imagen que no tenga en principio ningún interés para el usuario o con el que no tenga que interactuar, el atributo <code>alt</code> debería quedar vacío. Esto no quiere decir que se deba omitir este atributo, sino que se debe definir como <code>alt=""</code>. Esto es así a causa de una táctica que utilizan los lectores de pantalla para ayudar a sus usuarios a hacer frente a páginas muy inaccesibles. Cuando una imagen no tiene ningún atributo <code>alt</code>, especialmente cuando forma parte de un enlace, el lector de pantalla lee la URL de la imagen al usuario. Lo hace así para que los usuarios puedan saber que es la imagen a partir de la URL, por ejemplo si la imagen tiene un nombre similar a <code>anadir_al_carrito.gif</code>. Así pues, deberíais definir <code>alt=""</code> para las imágenes que sepáis que no tendrán ningún interés para el usuario, de manera que los lectores de pantalla no lean todas y cada una de las URL de las imágenes, lo cual podría llegar a ser muy frustrante para el usuario del lector de pantalla.</p>
+
+		    <p>No todas las formas de contenido son tan simples como una imagen. Los soportes más complejos, como Flash (los archivos Flash pueden ser sitios web enteros en sí mismos) o las películas exigen unas descripciones más complejas. Las versiones más recientes de Flash permiten ofrecer alternativas de texto para los elementos de una película Flash, igual que en el HTML.</p>
+
+		<h3 id="interaction">25.5.3. Definir la interacción</h3>
+
+		    <p>Muchas webs actuales implican el uso de tecnologías más allá del HTML. Incluso algo tan básico como el CSS se puede utilizar de maneras que hagan que una página o una interacción sean mucho menos accesibles.</p>
+
+		    <div class="text-clau">
+		    <p>La clave para la accesibilidad de la interacción se encuentra en el hecho de empezar con las interacciones más sencillas y utilizarlas como componentes básicos para las interacciones más complejas.</p>
+		    </div>
+
+		    <div class="note">
+		    <h3>Nota</h3>
+
+		    <p>Tened en cuenta que el objetivo de este ejemplo es haceros ver la función que tienen los diferentes elementos de las páginas web. Para garantizar que sean accesibles, deben ser semánticamente solventes en términos tanto de los elementos HTML como de las metáforas visuales que se utilicen. Si lo encontráis todo un poco confuso, podéis volver a leer el ejemplo unas cuantas veces y mirad también unos cuantos menús y otros componentes de páginas web mientras vais comprobando no sólo si se utiliza el HTML correcto, sino también si el aspecto del componente tiene sentido en relación con su fun

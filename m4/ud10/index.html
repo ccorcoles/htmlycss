@@ -1,0 +1,336 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ca">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
+<meta http-equiv="Content-Language" content="ca" />
+<meta name="language" content="ca" />
+<meta name="author" content="Universitat Oberta de Catalunya" />
+<meta name="description" content="FALTA CONTENIDO" />
+<meta name="title" content="FALTA CONTENIDO" />
+<meta name="keywords" content="FALTA CONTENIDO" />
+
+<title>El texto central de HTML - Validar el HTML</title>
+<link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
+</head>
+
+<body>
+<div id="cabecera">
+	<img id="logo" src="../../img/logo.gif" alt="Universitat Oberta de Catalunya" />
+    <a href="http://mosaic.uoc.edu/"><img id="logomosaic" src="../../img/logo-mosaic.gif" alt="Logo de Mosaic" title="Abre la página web de Mosaic" /></a>
+	<div id="titulo">El texto central de HTML</div>
+	<div id="subtitulo">Validar el HTML</div>
+<div id="cierre"></div>
+	<div id="navegador">
+		<a href="../../m0/accessibilitat.html" id="accesibilidad">Accesibilidad</a> <strong>:</strong> 
+		<a rel="prev" href="../ud9/index.html" title="Ir al artículo anterior" accesskey="8"><img src="../../img/fletxa_izq.gif" alt="Ir al artículo anterior" /></a> <strong>:</strong> 
+		<a rel="index" href="../../index.html" title="Ir al índice" accesskey="0"><img src="../../img/indice.gif" alt="Ir al índice" /></a> <strong>:</strong> 
+		<a rel="next" href="../../m5/ud1/index.html" title="Ir al artículo siguiente" accesskey="9"><img src="../../img/fletxa_der.gif" alt="Ir al artículo siguiente" /></a>
+	</div>
+</div>
+	
+<div id="main">
+	      <h1>24. Validar el HTML</h1>
+
+	      <p class="by"><a href="../../index.html#francis">Mark Norman Francis</a>. 26 de septiembre de 2008. Publicado en: estándares, web, w3c, html, validador</p>
+
+	      <p>Ahora ya habéis escrito unas cuantas páginas en HTML y parece que se ven bastante bien, pero hay unas cuantas cosas que no son del todo correctas. ¿Cuál es la mejor manera de encontrar aquello que no funciona y garantizar que estas páginas (y todas las páginas que escribáis en el futuro) se vean correctamente con todos los navegadores sin ningún error?</p>
+
+	      <p>La respuesta es la validación. Hay muchas herramientas disponibles, del W3C y de otros sitios, que os permiten validar el código de vuestros sitios web. Los tres validadores más habituales que utilizaréis son:</p>
+
+	      <ul>
+					<li><p>El <a href="http://validator.w3.org/" hreflang="en">validador de marcado del W3C</a>: Busca el doctype del (X)HTML que utilizáis para el documento que le dais para comprobar, revisa todo el documento y señala los lugares donde el HTML no sigue correctamente el doctype (es decir, donde hay errores en el HTML).</p>
+	      </li>
+
+	      <li><p>El <a href="http://validator.w3.org/checklink" hreflang="en">comprobador de enlaces de W3C</a>: Esta herramienta revisa todo el documento que le deis para comprobar y prueba todos los enlaces que encuentra para garantizar que funcionen (es decir, que los valores href no apunten hacia recursos que no existen).</p>
+	      </li>
+
+	      <li><p>El <a href="http://jigsaw.w3.org/css-validator/" hreflang="en">validador del CSS de W3C</a>: Tal como probablemente ya os imagináis, esta herramienta revisa un documento CSS (o HTML/CSS) y comprueba que el CSS siga correctamente las especificaciones del CSS.</p>
+	      </li>
+				</ul>
+
+	      <p>En este apartado explicaremos el primero de estos tres validadores y la manera de utilizarlo y cómo interpretar los tipos de resultados típicos que da. El comprobador de enlaces es muy obvio, y sobre el validador del CSS no habrá que explicar mucho nada más una vez que hayáis leído este apartado y los apartados relativos al CSS que encontraréis más adelante en este curso.</p>
+
+	      <div class="vegeu_tambe">
+	      <h3>Ved también</h3>
+
+	      <p>Podéis ver los contenidos del módulo "CSS" de este curso.</p>
+	      </div>
+
+	      <p>Los contenidos de este apartado son los siguientes:</p>
+
+	      <ul class="index">
+				<li>24.1. <a href="#errors" accesskey="1">Errores</a></li>
+	      <li>24.2. <a href="#whatisvalidation" accesskey="2">¿Qué es la validación?</a></li>
+	      <li>24.3. <a href="#whyvalidate" accesskey="3">¿Por qué validar?</a></li>
+	      <li>24.4. <a href="#differentbrowserinterpretation" accesskey="4">Los diferentes navegadores interpretan el HTML no válido de una manera diferente</a>
+	      <ul class="index">
+				<li>24.4.1. <a href="#quirksmode">El "quirks mode"</a></li>
+				</ul></li>
+	      <li>24.5. <a href="#howtovalidate" accesskey="5">Cómo validar las páginas</a>
+	      <ul class="index">
+				<li>24.5.1. <a href="#w3chtmlvalidator">El validador de HTML del W3C</a></li>
+				</ul></li>
+	      <li class="especial"><a href="#summary">Resumen</a></li> 
+	      <li class="especial"><a href="#exercises">Preguntas de repaso</a></li> 
+	    	<li class="especial"><a href="#futhertools">Otras herramientas que podéis utilizar</a></li>
+	      </ul>
+
+
+	      <h2 id="errors">24.1. Errores</h2>
+
+	      <p>En general, en la programación informática hay dos tipos de problemas con el código:</p>
+
+	      <ul><li><p>Errores sintácticos, que se dan cuando un error de escritura del código hace que el ordenador sea incapaz de ejecutar o compilar el programa adecuadamente.</p>
+	      </li>
+
+	      <li><p>Errores de programación (o lógicos), que se dan cuando el código no refleja completamente la intención del programador.</p>
+	      </li>
+         </ul>
+	      <p>La mayoría de los lenguajes de programación detectan muy fácilmente el primer error, ya que el programa no se ejecuta o no se compila hasta que se soluciona. Esto provoca que encontrar y solucionar estos tipos de problemas en los momentos de desconcierto en los que os preguntáis: "¿por qué no hace lo que debería hacer?" sea mucho más fácil.</p>
+
+	      <p>HTML no es un lenguaje de programación. Los errores de sintaxis de una página web no hacen normalmente que el navegador web se niegue a abrir la página (a pesar de que XHTML suele ser más estricto que HTML, por lo menos cuando se sirve como datos <code>application/xhtml+xml</code> o <code>text/xml</code>, según se quiera; y algunos doctypes rechazarán el uso de ciertos tipos de elementos HTML). Ésta es una de las razones principales de la rápida adopción y difusión de la web.</p>
+
+	      <p>El <a href="http://www.w3.org/People/Berners-Lee/WorldWideWeb.html" hreflang="en">primer navegador web, WorldWideWeb</a> (creado por Tim Berners-Lee) era también un editor, y permitía crear páginas web sin tener que aprender HTML. Este editor creaba HTML no válido. Esto se podría haber solucionado, pero estableció un precedente importante que aún existe en todos los navegadores web actuales: es más importante que la gente pueda acceder al contenido que quejarse de errores que la gente no entenderá o que no podrá solucionar.</p>
+
+	      <h2 id="whatisvalidation">24.2. ¿Qué es la validación?</h2>
+
+	      <p>Los navegadores web aceptarán las páginas web malas (el término que utilizamos aquí es "<em>no válidas"</em>) y harán todo lo que puedan para reproducir el código intentando adivinar cuáles eran las intenciones del autor, pero también se puede comprobar si el HTML se ha escrito correctamente; de hecho, tal como veréis a continuación, vale la pena hacerlo. Eso se conoce como <strong>"validar" el HTML</strong>.</p>
+	      <p>El programa de validación compara el código HTML de la página web con las normas de su <code>doctype</code> y dice si no se han respetado estas normas y dónde.</p>
+
+	   		<div class="vegeu_tambe">
+	      <h3>Ved también</h3>
+	      <p>Podéis ver el <code>doctype</code> en el apartado 14 del módulo "Fundamentos de HTML".</p>
+	      </div>
+
+				<h2 id="whyvalidate">24.3. ¿Por qué validar?</h2>
+
+	      <p>Algunos desarrolladores de webs opinan que si una página web se ve bien en los navegadores, el hecho de que no se valide no tiene ninguna importancia. Consideran que la validación es un objetivo ideal, pero ni mucho menos, obligatorio.</p>
+
+	      <p>Esta actitud no deja de ser sabia. La especificación HTML no es perfecta, y ahora incluso ha quedado un poco anticuada. Algunos detalles que son perfectamente correctos (como por ejemplo empezar una lista ordenada en un punto diferente de 1) no son válidas en HTML. </p>
+
+	      <div class="vegeu_tambe">
+	      <h3>Ved también</h3>
+
+	      <p>Podéis ver cómo empezar una lista ordenada en un punto diferente de 1 en el apartado 16 de este módulo.</p>
+	      </div>
+
+	      <p>Sin embargo, tal como dice el dicho:</p>
+	      <blockquote>
+	      <p>"Aprende las normas para así saber cómo infringirlas correctamente."</p>
+	      </blockquote>
+
+	      <p>Hay dos razones muy potentes para validar el HTML mientras lo vais escribiendo.</p>
+
+	      <ul>
+					<li><p>Las personas no son perfectas, igual que tampoco lo es el código; todos cometemos errores, y vuestras páginas web serán de una calidad superior (es decir, funcionarán mejor) si los elimináis.</p></li>
+
+	      <li><p>Los navegadores cambian. En el futuro es muy probable que los navegadores sean menos condescendientes cuando analicen un código no válido, y no al revés.</p></li>
+	</ul>
+
+	      <p>La validación es vuestro sistema de alerta precoz ante la introducción de problemas en vuestras páginas que entonces se pueden manifestar de maneras realmente interesantes y difíciles de determinar. Cuando un navegador encuentra código HTML no válido, debe tomar una decisión bien fundamentada sobre cuáles eran vuestras intenciones, y los diferentes navegadores pueden llegar a respuestas diferentes.</p>
+
+
+	      <h2 id="differentbrowserinterpretation">24.4. Los diferentes navegadores interpretan el HTML no válido de una manera diferente</h2>
+
+	      <p>El HTML válido es el único contrato que tenéis con los fabricantes de los navegadores. La especificación de HTML dice cómo lo deberíais escribir vosotros y cómo deberían interpretar vuestro documento los navegadores. Actualmente, la conformidad de los navegadores con los estándares ha llegado al punto en el que, si escribís un código válido, todos los navegadores principales interpretarán vuestro código de la misma manera. Con el HTML eso sucede prácticamente siempre, mientras que los demás estándares se pueden encontrar con algunas otras diferencias aquí y allí con respecto a su aceptación.</p>
+
+	      <p>Pero ¿qué sucede si enviáis un código no válido a un navegador? ¿Qué consecuencias tiene? La respuesta es que entra en acción la gestión de errores del navegador para decidir qué hay que hacer con el código. Básicamente, lo que hace es decir: "De acuerdo, este código no se puede validar, pero ¿cómo podemos presentar esta página al usuario final? Llenaremos los huecos de la manera siguiente".</p>
+
+	      <p>Suena muy bien, ¿no? Si la página contiene algunos errores, ¿el navegador llenará los huecos por vosotros? Pues no exactamente, porque cada navegador hace las cosas a su manera. Por ejemplo:</p>
+
+
+	      <pre><code>&lt;p&gt;&lt;strong&gt;Este texto debería estar en negrita&lt;/p&gt;
+&lt;p&gt;¿Este texto debería estar en negrita? ¿Cómo queda el HTML cuando
+ se representa?&lt;/p&gt;
+ 
+&lt;p&gt;&lt;a href="#"&gt;&lt;/strong&gt;Este texto debería ser un enlace&lt;/p&gt;
+&lt;p&gt;¿Este texto debería ser un enlace? ¿Cómo queda el HTML cuando se
+ representa?&lt;/p&gt;</code></pre>
+
+	      <p>Los errores son que el elemento <code>strong</code> se encuentra anidado incorrectamente a través de múltiples elementos de bloque y que el elemento de ancla no se ha cerrado. Cuando se intenta verlo con diferentes navegadores, éstos interpretan el código de maneras muy diferentes:</p>
+
+	      <ul>
+					<li><p>Opera convierte los elementos consecutivos en hijos del elemento negrita.</p></li>
+
+	      <li><p>Firefox añade elementos negrita adicionales entre los párrafos que no estaban presentes en el etiquetado.</p></li>
+
+	      <li><p>Internet Explorer pone el texto "Este texto debería ser un enlace" fuera de la etiqueta de ancla que crea el enlace.</p></li>
+				</ul>
+
+	      <div class="note">
+	      <h3>Nota</h3>
+
+	      <p>Podéis encontrar la versión original de este ejemplo en el artículo de Hallvord Steen "<a href="http://www.thinkvitamin.com/features/dev/same-dom-errors-different-browser-interpretations" hreflang="en">Same DOM errors, different browser interpretations</a>"; si lo leéis, encontraréis un tratamiento mucho más detallado de los errores del HTML e información sobre las herramientas de depuración.</p>
+	      </div>
+
+	      <p>Ninguno de los comportamientos de los diferentes navegadores es incorrecto; todos intentan reparar los errores de vuestro código incorrecto. La conclusión es, pues, que hay que evitar siempre que sea posible el etiquetado no válido en vuestra página.</p>
+
+	      <h3 id="quirksmode">24.4.1. El "quirks mode"</h3>
+
+	      <p>Otra cosa que deberíais conocer es lo que se conoce como "<strong>Quirksmode</strong>" o "<strong>mode quirks</strong>" (<em>peculiaridades</em>). Es el modo al que pasa el navegador cuando encuentra una página con un doctype incorrecto, o sin doctype. En este modo, el navegador hace todo lo que puede para saber qué serie de reglas debe utilizar para validar el código y repara los errores lo mejor que sabe. Este modo existe realmente para permitir la visualización de las páginas más antiguas, y no se debe utilizar nunca para crear una página nueva.</p>
+
+
+	      <h2 id="howtovalidate">24.5. Cómo validar las páginas</h2>
+
+	      <p>Ahora que ya hemos explorado toda la parte teórica que hay detrás de la validación del HTML, ya podemos pasar a la parte más sencilla: la validación en sí. Bien, de hecho, no es exactamente así. Poner una URL en un validador y ver si la página es válida o no es muy fácil; descubrir qué es lo que está mal y solucionar los errores no es siempre tan fácil, porque los mensajes de error en ocasiones son algo crípticos. A continuación veremos algunos ejemplos.</p>
+	      <p>Lo que miraremos en este subapartado es lo siguiente (también os lo podéis descargar o ver su HTML):</p>
+
+	      <pre><code>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml" lang="en"&gt;
+   &lt;head&gt;
+      &lt;title&gt;Validating your HTML&lt;/title&gt;
+   &lt;/head&gt;
+   &lt;body&gt;
+      &lt;h2&gt;The tale of Herbet Gruel&lt;/h2&gt;
+      &lt;p&gt;Welcome to my story. I am a slight whisp of a man, slender and fragile,
+       features wrinkled and worn, eyes sunken into their sockets like rabbits
+       cowering in their burrows. The &lt;em&gt;years have not been kind to me&lt;/em&gt;,
+       but yet I hold no regrets, as I have overcome all that sought to ail me,
+       and have been allowed to bide my time, making mischief as I travel to and
+       fro, 'cross the unyielding landscape of the &lt;a href="http://outer-rim-
+       rocks.co.uk" colspan="3"&gt;outer rim&lt;/a&gt;.&lt;/p&gt;
+
+      &lt;h3&gt;Buster&lt;/h3&gt;
+      &lt;p&gt;Buster is my guardian angel. Before that, he was my dog. Before that,
+       who knows? I lost my dog many moons ago while out hunting geese in the
+       undergrowth. A shot rang  out from my rifle, and I called for Buster to
+       collect the goose I had felled. He ran off towards where the bird had
+       landed, but never returned. I never found his body, but I comfort myself
+       with the thought that he did not die; rather he transcended to a higher
+       place, and now watches over me, to ensure my well-being.
+       
+      &lt;h3&gt;My possessions&lt;/h3&gt;
+      &lt;p&gt;A travelling man needs very little to accompany him on the road:&lt;/p&gt;
+      &lt;ul&gt;
+         &lt;li&gt;My hat full of memories&lt;/li&gt;
+         &lt;li&gt;My trusty walking cane&lt;/li&gt;
+         &lt;li&gt;A purse that did contain gold at one time&lt;/li&gt;
+         &lt;li&gt;A diary, from the year 1874&lt;li&gt;
+         &lt;li&gt;An empty glasses case&lt;/li&gt;
+         &lt;li&gt;A newspaper, for when I need to look busy&lt;/li&gt;
+      &lt;/ul&gt;
+   &lt;/body&gt;</code></pre>   
+
+	  <p class="font"><strong>Archivo fuente:</strong> "<a href="http://dev.opera.com/articles/view/24-validating-your-html/example_validation.html" hreflang="en">example_validation.html</a>"</p>
+
+	      <p>Esta página tan sencilla está formada por tres títulos, tres párrafos, un enlace y una lista no ordenada. Utiliza el doctype XHTML 1.0 Strict como serie de reglas de validación. El documento contiene algunos errores, que descubriréis más adelante con el validador de HTML del W3C.</p>
+
+	      <h3 id="w3chtmlvalidator">24.5.1. El validador de HTML del W3C</h3>
+
+	      <p>Como ya hemos comentado, el W3C ofrece un validador en línea. Os será muy útil poder cambiar entre diferentes pestañas para ir alternando entre el validador y este apartado mientras vais siguiendo este ejemplo.</p>
+
+	      <div class="text-clau">
+	      <p>Tened en cuenta que también podéis validar páginas con el validador del W3C directamente desde el navegador Opera sencillamente haciendo clic con el botón derecho del ratón o con un "Ctrl" + clic y seleccionando la opción "Validate" (validar).</p>
+	      </div>
+
+	      <p>Veréis que el validador tiene tres pestañas en la parte superior del interfaz:</p>
+
+	      <ul>
+					<li><p>Validate by URI (validar por URI): permite introducir la dirección de una página que ya se encuentra en Internet para su validación.</p>
+	      </li>
+
+	      <li><p>Validate by File Upload (validar por carga de archivo): permite cargar un archivo HTML para su validación.</p>
+	      </li>
+
+	     <li><p>Validate by Direct Input (validar por entrada directa): permite pegar el contenido de un archivo HTML en la ventana para su validación.</p>
+	      </li>
+				</ul>
+
+	      <p>Sea cual sea el método que utilicéis, el resultado debería ser el mismo; creemos que lo más sencillo es comprobar la página de ejemplo que tenemos aquí copiando todo el código anterior y pegándolo en una tercera pestaña. Si lo hacéis, deberíais obtener el resultado que podéis ver en la figura 1:</p>
+
+				<div class="imagen">
+					<img src="06510_m4_20.gif" alt="Resultats de la validació del document de mostra: 17 errors!" />
+					<p>Figura 1. Resultados de la validación del documento de muestra, ¡17 errores!</p>
+				</div>                                                                                         
+
+	      <p>Puede parecer muy preocupante, especialmente si os digo que en este documento ¡no hay realmente 17 errores! No os desesperéis; dice que hay más errores de los que hay realmente porque normalmente un error al principio de la página tiene un efecto en cascada, que hace que el validador informe de más errores a medida que va bajando por la página, ya que parece que hay más elementos que no están cerrados o que no están correctamente anidados. Sólo es necesario que penséis en el significado del mensaje de error y que encontréis los errores obvios de etiquetado. La siguiente tabla muestra todos los errores que hemos reparado para poder validar la página, junto con las deducciones para averiguar qué era lo que no funcionaba y la solución aplicada.</p>
+
+	      <table summary="">
+	        <thead>
+	          <tr>
+	            <th>Mensaje de error</th>
+	            <th>Deducción</th>
+	            <th>Reparación</th>
+	          </tr>
+	        </thead>
+		      <tfoot>
+						<tr><th colspan="3">Tabla 1. Los errores reparados para validar la página de ejemplo</th></tr>
+					 </tfoot>
+					 <tbody>
+	        <tr>
+	          <td>Línea 8, columna 461: no hay ningún atributo "colspan"</td>
+	          <td>Sabemos que hay un atributo <code>colspan</code> y que es un HTML válido; por lo tanto, ¿por qué dice que no lo hay? Esperad; quizá quiere decir que se utiliza en un elemento en el que no se debería utilizar. Evidentemente, se utiliza en un elemento<code> a</code>. ¡Mal!</td>
+	          <td>Hemos eliminado el atributo <code>colspan</code> del elemento <code>a</code>.</td>
+	        </tr>
+	        <tr>
+	          <td>Línea 13, columna 7: el tipo de documento no permite el elemento "h3" aquí; falta una etiqueta de apertura de "object", "applet", "map", "iframe", "button", "ins", "del". &lt;h3&gt;My possessions&lt;/h3&gt;</td>
+	          <td>A primera vista también parece extraña, ya que el elemento <code>h3</code> está cerrado y en este contexto está permitido. Debéis tener en cuenta que, a menudo, este mensaje de error significa que hay un elemento no cerrado cerca...</td>
+	          <td>Hemos añadido una etiqueta de cierre <code>p</code> a la línea que hay sobre el título en cuestión.</td>
+	        </tr>
+	        <tr>
+	          <td>Línea 19, columna 40: el tipo de documento no permite el elemento "li" aquí; falta una etiqueta de apertura de "ul", "ol", "menu", "dir". &lt;li&gt;A diary, from the year 1874&lt;li&gt;</td>
+	          <td>Éste es muy fácil; en la línea indicada podéis ver rápidamente que la etiqueta <code>li</code> final no tiene la barra inclinada de cierre (/)</td>
+	          <td>Hemos añadido una barra inclinada de cierre a la línea en cuestión.</td>
+	        </tr>
+	        <tr>
+	          <td>Línea 23, columna 9: no está la etiqueta de cierre para "html", pero se ha especificado OMITTAG NO. &lt;/body&gt;</td>
+	          <td>En este caso también es muy fácil ver que falta la etiqueta <code>html</code> final. Incluso la explicación del mensaje de error empieza diciendo que quizá habéis olvidado cerrar un elemento.</td>
+	          <td>Hemos añadido el elemento <code>html</code> final que faltaba.</td>
+	        </tr>
+					</tbody>
+	      </table>
+
+	      <p>Después de corregir estos errores, el validador da un mensaje bastante satisfactorio, tal como muestra la figura 2:</p>
+
+				<div class="imagen">
+					<img src="06510_m4_21.gif" alt="Missatge satisfactori que diu que ja s'han reparat tots els errors" />
+					<p>Figura 2. Un mensaje satisfactorio que dice que ya se han reparado todos los errores.</p>
+				</div>
+
+	      <p>Eso es todo lo que había que hacer. Sólo necesitáis no poneros nerviosos y que recordéis el doctype que utilizáis para validar la página. </p>
+
+				<p class="font"><strong>Descargaos o mirad la versión correcta del HTML en: "</strong>
+	        <a href="http://dev.opera.com/articles/view/24-validating-your-html/example_validation_fixed.html" hreflang="en">example_validation_fixed.html</a>"</p>
+
+	      <h2 id="summary">Resumen</h2> 
+
+	      <p>Después de leer este apartado, deberíais poder trabajar con comodidad con el validador en línea de W3C para validar vuestro HTML. Esto, sin embargo, es sólo la punta del iceberg con respecto a la validación; a continuación encontraréis una lista con unas herramientas más complicadas que os pueden ayudar cuando vuestras páginas se vayan haciendo grandes y se vayan complicando.</p>
+
+
+	      <h2 id="exercises">Preguntas de repaso</h2> 
+
+	      <ol>
+	        <li><p>¿Qué sucede cuando un navegador analiza un HTML no válido?</p></li>
+	        <li><p>¿Qué problema hay?</p></li>
+	        <li><p>¿El uso de un conjunto de marcos en un documento validado con el doctype HTML 4 Strict generará un error?</p></li>
+	      </ol>
+
+
+	      <h2 id="futhertools">Otras herramientas que podéis utilizar</h2>
+
+	      <p>El <a href="http://dragonfly.opera.com/app/debugmenu/DebugMenu.ini" hreflang="en">menú de depuración de Opera</a></p>
+
+	      <p><a href="http://www.squarefree.com/bookmarklets/validation.html" hreflang="en">Bookmarklet de validación general</a></p>
+
+	      <p>La <a href="http://chrispederick.com/work/web-developer/" hreflang="en">extensión Web Developer de Firefox</a></p>
+
+	      <p>La <a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=e59c3964-672d-4511-bb3e-2d5e1db91038&amp;displaylang=en" hreflang="en">barra de herramientas del desarrollador de IE</a></p>
+
+	      <p><a href="http://zappatic.net/safaritidy/" hreflang="en">Safari tidy</a></p>
+
+	      <p><a href="http://tidy.sourceforge.net/" hreflang="en">HTML tidy</a></p>
+
+</div>
+<div><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.es"><img src="../../m0/creative_commons.gif" id="logo_cc" alt="Logo Creative Commons" /></a></div>
+<div id="logo_text">Los contenidos recogidos en este artículo están sujetos a una licencia <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.es">Creative Commons<br /> Reconocimiento, No comercial - Compartir bajo la misma licencia 3.0 No adaptada</a>.
+</div>
+<div id="cierre_autor"></div>
+
+<div id="peu">
+		<a rel="prev" href="../ud9/index.html" title="Ir al artículo anterior" accesskey="8"><img src="../../img/fletxa_izq_inv.gif" alt="Ir al artículo anterior" /></a> <strong>:</strong>
+		<a rel="index" href="../../index.html" title="Ir al índice" accesskey="0"><img src="../../img/indice_inv.gif" alt="Ir al índice" /></a> <strong>:</strong>
+		<a rel="next" href="../../m5/ud1/index.html" title="Ir al artículo siguiente" accesskey="9"><img src="../../img/fletxa_der_inv.gif" alt="Ir al artículo siguiente" /></a>
+</div>
+</body>
+</html>

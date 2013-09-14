@@ -1,0 +1,342 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
+<meta http-equiv="Content-Language" content="es" />
+<meta name="language" content="es" />
+<meta name="author" content="Universitat Oberta de Catalunya" />
+<meta name="description" content="FALTA CONTENIDO" />
+<meta name="title" content="FALTA CONTENIDO" />
+<meta name="keywords" content="FALTA CONTENIDO" />
+
+<title>Introducción al mundo de los estándares web - El modelo de estándares web: HTML, CSS y JavaScript</title>
+<link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estilo normal" />
+</head>
+
+<body>
+
+<div id="cabecera">
+	<img id="logo" src="../../img/logo.gif" alt="Universitat Oberta de Catalunya" />
+    <a href="http://mosaic.uoc.edu/"><img id="logomosaic" src="../../img/logo-mosaic.gif" alt="Logo de Mosaic" title="Abre la página web de Mosaic" /></a>
+	<div id="titulo">Introducción al mundo de los estándares web</div>
+	<div id="subtitulo">El modelo de estándares web: HTML, CSS y JavaScript</div>
+<div id="cierre"></div>
+	<div id="navegador">
+		<a href="../../m0/accessibilitat.html" id="accesibilidad">Accesibilidad</a> <strong>:</strong> 
+		<a rel="prev" href="../ud2/index.html" title="Ir al artículo anterior" accesskey="8"><img src="../../img/fletxa_izq.gif" alt="Ir al artículo anterior" /></a> <strong>:</strong> 
+		<a rel="index" href="../../index.html" title="Ir al índice" accesskey="0"><img src="../../img/indice.gif" alt="Ir al índice" /></a> <strong>:</strong> 
+		<a rel="next" href="../ud4/index.html" title="Ir al artículo siguiente" accesskey="9"><img src="../../img/fletxa_der.gif" alt="Ir al artículo siguiente" /></a>
+	</div>
+</div>
+	
+<div id="main">
+<h1>4. El modelo de estándares web: HTML, CSS y JavaScript</h1>
+<p class="by"><a href="../../index.html#lane">Jonathan Lane</a>. 8 de julio del 2008. Publicado en: html, javascript, web, css, estándares</p>
+
+<p>En el último apartado hemos visto brevemente las herramientas de construcción básicas de la web: HTML (o XHTML), CSS y JavaScript. Ahora es el momento de ampliar un poco más y observarlos individualmente: qué hacen y cómo interactúan interaccionan entre ellos para crear una página web. </p>
+<p>Los contenidos de este apartado son los siguientes:</p>
+<ul class="index">
+	<li>4.1. <a href="#whyseparate" accesskey="1">¿Por qué separar?</a></li>
+	<li>4.2. <a href="#markup" accesskey="2">Etiquetado, la base de cada página</a>
+	<ul class="index">
+		<li>4.2.1. <a href="#xhtml">¿Qué es el XHTML?</a></li>
+		<li>4.2.2. <a href="#validation">Validación, ¿qué es eso?</a></li>
+	</ul></li>
+	<li>4.3. <a href="#css" accesskey="3">CSS: a&ntilde;adimos un poco de estilo</a></li>
+	<li>4.4. <a href="#javascript" accesskey="4">JavaScript: adición de comportamiento a las páginas web</a></li>
+	<li>4.5. <a href="#example" accesskey="5">Una página de ejemplo</a>
+	<ul class="index">
+		<li>4.5.1. <a href="#index"><code>index.html</code></a></li>
+		<li>4.5.2. <a href="#styles"><code>styles.css</code></a></li>
+	</ul></li>
+	<li class="especial"><a href="#summary">Resumen</a></li>
+	<li class="especial"><a href="#exercises">Preguntas de repaso</a></li>
+</ul>
+
+<h2 id="whyseparate">4.1. ¿Por qué separar?</h2>
+<p>Ésta es, generalmente, la primera pregunta que se formula sobre los estándares web. Se puede crear el contenido, el estilo y el formato sólo utilizando HTML: elementos de tipo de letra para el estilo y tablas HTML para el formato, de manera que, ¿por qué preocuparse de este asunto de XHTML/CSS? El uso de tablas para el formato, etc., es como se solía hacer en los malos tiempos del dise&ntilde;o web, y mucha gente todavía lo hace de esta manera (aunque no se debería de hacer) y, de hecho, es uno de los motivos por los que hemos creado este curso. Aquí no trataremos estos métodos. Éstas son las razones más importantes para utilizar CSS y HTML en vez de métodos obsoletos:</p>
+<ol>
+<li><p><strong>Eficiencia del código</strong>: cuanto mayores sean los archivos, más tardarán en descargarse y más dinero le costará a algunas personas (algunas personas todavía pagan por megabyte descargado). Por lo tanto, no se debe malgastar el ancho de banda con páginas grandes abarrotadas de información de estilo y de formato en cada archivo HTML. Una alternativa mucho mejor es que los archivos HTML estén desglosados y limpios, e incluir la información de estilo y de formato sólo una vez en un archivo CSS independiente o en varios.</p>
+<div class="exemple">
+	<h3>Eficiencia del código</h3>
+<p>Para ver un caso real de este hecho en acción, podéis ver el artículo sobre la reescritura de Slashdot, en <a href="http://www.alistapart.com/articles/slashdot" hreflang="en">A List Apart Slashdot</a>, donde el autor tomó una página web muy popular y la reescribió en XHTML/CSS.</p>
+</div></li>
+<li><p><strong>Facilidad de mantenimiento</strong>: en relación con el último punto, si la información de estilo y formato sólo se especifica en un sitio, quiere decir que sólo habrá que hacer actualizaciones en un lugar si se quiere cambiar el aspecto de la página web. ¿Preferiríais tener que actualizar esta información en cada página de vuestra web? No lo creo.</p></li>
+<li><p><strong>Accesibilidad</strong>: los usuarios de la web con problemas visuales pueden utilizar una tipo de software conocido como "lector de pantalla" para acceder a la información mediante el sonido en vez de la vista; literalmente, les lee la página. Además, el software de introducción de datos mediante la voz que utilizan las personas con problemas de movilidad también se beneficia de las páginas web con una semántica bien construida. De manera muy parecida al lector de pantalla que utiliza las instrucciones del teclado para navegar por los encabezamientos, enlaces y formularios, un usuario que interaccione interaccione mediante voz utilizará instrucciones con su voz. Los documentos web marcados semánticamente, en vez de presentacionalmente, pueden resultar más fáciles de navegar y la información que contienen es más fácil de encontrar por parte del usuario.  En otras palabras, cuanto más rápidamente "entre en materia" (el contenido), mejor. Los lectores de pantalla no pueden acceder al texto dentro de imágenes y encuentran confusos algunos usos de JavaScript. Aseguraos de que el contenido más importante está disponible para todo el mundo.</p></li>
+<li><p><strong>Compatibilidad de dispositivos</strong>: ya que vuestra página XHTML es simplemente etiquetado normal, sin información de estilo, se puede reformatear para diferentes dispositivos con atributos ampliamente variados (por ejemplo, el tama&ntilde;o de pantalla), simplemente aplicando una hoja de estilos alternativa; podéis hacerlo de varias maneras. Podéis ver los <a href="http://dev.opera.com/articles/mobile/" hreflang="en">artículos de dev.opera.com</a> para obtener recursos al respecto. CSS también permite especificar hojas de estilo diferentes a nivel nativo para distintos métodos de presentación o tipos de soporte (por ejemplo, visualización en pantalla, impresión, visualización en un dispositivo móvil, etc.).</p></li>
+<li><p><strong>Motores de búsqueda en la web</strong>: probablemente os interesará que vuestras páginas web sean fáciles de encontrar al buscar en Google o en otros motores de busca. Un motor de búsqueda utiliza un <em>crawler</em> o ara&ntilde;a web, que es una pieza de software especializada para leer vuestras páginas. Si esta ara&ntilde;a tuviera problemas para encontrar el contenido de vuestras páginas o interpretara mal lo que es importante porque no habéis definido los encabezamientos como encabezamientos, etc., entonces seguro que vuestra posición en los resultados de busca se verá afectada.</p></li>
+<li><p><strong>Es simplemente una buena práctica</strong>: se trata de un motivo un poco del tipo "porque lo digo yo", pero hablad con cualquier desarrollador o dise&ntilde;ador web profesional consciente de los estándares y seguro que os dice que separar el contenido, el estilo y el comportamiento es la mejor manera de desarrollar una aplicación.</p></li>
+</ol>
+
+<h2 id="markup">4.2. Etiquetado, la base de cada página</h2>
+<div class="text-clau">
+<p>HTML y XHTML son lenguajes de etiquetado formados por elementos que contienen atributos (algunos opcionales y otros obligatorios). Estos elementos se utilizan para etiquetar los diferentes tipos de contenidos en los documentos, especificando que cada trozo de contenido se debe entregar supuestamente como en los navegadores web (por ejemplo, encabezamientos, párrafos, tablas, listas con vi&ntilde;etas, etc.).</p>
+</div>
+<p>Como sería de esperar, los <strong>elementos</strong> definen el tipo de contenido actual, mientras que los <strong>atributos</strong> definen información adicional sobre estos elementos, como una ID para identificar el elemento o una ubicación para que le se&ntilde;ale un enlace. Deberíais tener en cuenta que se supone que el etiquetado es el más semántico posible, es decir, se supone que debe describir la función del contenido de la manera más cuidada posible. La figura 1 muestra la anatomía de un elemento (X)HTML característico.</p>
+<div class="imagen">
+	<img src="76510_m1_05.gif" alt="Un elemento típico de HTML consiste de un inicio, como por ejemplo div id='footer' y de un final, que en este caso sería /div. Además, el id='footer' es un atributo del elemento." />
+	<p>Figura 1. Anatomía de un elemento (X)HTML.</p>
+</div>
+<p>Teniendo esto en cuenta, ¿cuál es la diferencia entre HTML y XHTML?</p>
+
+<h3 id="xhtml">4.2.1. ¿Qué es el XHTML?</h3>
+<p>La <em>X</em> de XHTML quiere decir "extensible", es decir, ampliable. Una de las preguntas más habituales para los que empiezan es: "¿he de utilizar HTML o XHTML, y qué diferencia hay?". Son casi lo mismo; la principal diferencia radica en la estructura. Podéis consultar la tabla 1 para ver las diferencias.</p>
+<table summary="Diferencias entre HTML y XHTML">
+	<thead>
+	<tr>
+		<th>HTML</th>
+		<th>XHTML</th>
+	</tr>
+	</thead>
+	<tfoot>
+		<tr><th colspan="2">Tabla 1. Diferencias entre HTML y XHTML.</th></tr>
+	</tfoot>
+	<tbody>
+	<tr><td>Los elementos y atributos no distinguen entre mayúsculas y minúsculas, <code>&lt;h1&gt;</code> es lo mismo que <code>&lt;H1&gt;</code>.</td>
+			<td>Los elementos y atributos distinguen entre mayúsculas y minúsculas; todos están en minúsculas.</td>
+	</tr>
+	<tr><td>Algunos elementos no necesitan una etiqueta de cierre (por ejemplo, párrafos, <code>&lt;p&gt;</code>), mientras que otros (denominados <em>elementos vacíos</em>) prohíben la marca de cierre (por ejemplo, las imágenes, <code>&lt;img&gt;</code>).</td>
+			<td>Todos los elementos se deben cerrar claramente (por ejemplo, <code>&lt;p&gt;A paragraph&lt;/p&gt;</code>). Los elementos sin contenido se pueden cerrar utilizando una barra inclinada en la marca inicial (por ejemplo, <code>&lt;hr&gt;&lt;/hr&gt;</code> y <code>&lt;hr/&gt;</code> significan lo mismo).<br/>
+			Si servís el texto XHTML como <code>text/html</code>, deberéis utilizar la sintaxis abreviada en todos los <a href="http://www.cs.tut.fi/~jkorpela/html/empty.html" hreflang="en">elementos que están definidos como "vacíos"</a> y colocar un espacio antes de la barra inclinada. Deberíais utilizar la forma larga (con marcas inicial y final independientes) en cualquier elemento que no esté definido como vacío, aunque no tenga ningún contenido.</td>
+	</tr>
+	<tr><td>Algunos valores de atributos pueden estar escritos sin estar entre comillas.</td>
+			<td>Los valores de los atributos se han de incluir entre comillas.</td>
+	</tr>
+	<tr><td>Algunos atributos se pueden abreviar (por ejemplo, <code>&lt;option selected&gt;</code>).</td>
+			<td>Se debe utilizar la forma de atributo entera para todos los atributos (por ejemplo, <code>&lt;option selected="selected"&gt;</code>).</td>
+	</tr>
+	<tr><td>Los servidores habrían de servir el HTML al cliente con un tipo de medio <code>text/html</code>.</td>
+			<td>El XHTML debería utilizar el tipo de medio <code>application/xhtml+xml</code> pero se puede utilizar <code>application/xml</code>, <code>text/xml</code> o <code>text/html</code>. Si se utiliza <code>text/html</code>, se deberían seguir las <a href="http://www.w3.org/TR/xhtml1/guidelines.html" hreflang="en">directrices de compatibilidad de HTML</a> porque los navegadores lo tratarán como HTML (y utilizar la recuperación de errores para representar las diferencias entre idiomas).</td>
+	</tr>
+	</tbody>
+</table>
+
+<p>Por ahora, os recomendamos que no os preocupéis mucho sobre si estáis escribiendo HTML o XHTML. Seguid los consejos que se dan a lo largo de este curso y utilizad el tipo de documento HTML e iréis por el buen camino.</p>
+<div class="vegeu_tambe">
+<h3>Ved también</h3>
+<p>Para obtener más información sobre tipos de documentos HTML, podéis consultar el apartado 14 del módulo "Fundamentos de HTML".</p>
+</div>
+
+<h3 id="validation">4.2.2. Validación, ¿qué es eso?</h3>
+<p>Como HTML y XHTML son estándares establecidos (y CSS también, en realidad), el World Wide Web Consortium (W3C) ha creado una gran herramienta denominada <strong>validador</strong> que comprueba automáticamente las páginas que queráis y se&ntilde;ala cualquier problema-error que pueda tener vuestro código, como la falta de etiquetas de cierre o la falta de comillas alrededor de los atributos.</p>
+<div class="vegeu_tambe">
+<h3>Ved también</h3>
+<p>Encontraréis más información sobre la validación en el apartado 20 del módulo "El texto central de HTML". También encontraréis más información sobre los tipos de documentos en el apartado 14 del módulo "Fundamentos de HTML".</p>
+</div>
+
+<ul>
+	<li><p>El validador de HTML está disponible en línea en <a href="http://validator.w3.org/" hreflang="en">http://validator.w3.org/</a>. Detectará automáticamente si estáis utilizando HTML o XHTML y qué tipo de documento estáis usando.</p></li>
+	<li><p>Si queréis comprobar el CSS, el validador está disponible en <a href="http://jigsaw.w3.org/css-validator/" hreflang="en">http://jigsaw.w3.org/css-validator/</a></p></li>
+	</ul>
+
+<h2 id="css">4.3. CSS: a&ntilde;adimos un poco de estilo</h2>
+<div class="text-clau">
+<p>Las <strong>hojas de estilo en cascada</strong> permiten un control preciso sobre el formato y la disposición del documento. Podéis cambiar o a&ntilde;adir colores, fondo, tipo de letra, tama&ntilde;os y estilos de tipo de letra, e incluso la posición de elementos de vuestra página web en diferentes lugares.</p>
+</div>
+<p>Hay tres maneras básicas de aplicar estilos mediante CSS: redefinición de un elemento, aplicación de un estilo a una ID o aplicación de un estilo a una clase. Echemos un vistazo a cada uno de ellos:</p>
+<ol>
+	<li><p><strong>Redefinición de un elemento</strong>. Podéis cambiar la forma en la que cualquier elemento de (X)HTML se muestra mediante la definición de una regla de estilo.</p>
+	<div class="exemple">
+	<h3>Ejemplo de redefinición de un elemento</h3>
+	<p>Si queréis que todos los párrafos sean a doble espacio y en verde, podéis a&ntilde;adir esta declaración en CSS:</p>
+
+<pre><code>p {
+   line-height: 2;
+   color: green;
+}</code></pre>
+
+	<p>Ahora, todo el contenido incluido entre las etiquetas <code>&lt;p&gt;&lt;/p&gt;</code> tendrá una altura de línea doble y será de color verde.</p>
+	</div></li>
+
+	<li><p><strong>Definición de una ID</strong>. Podéis darle a un elemento un atributo <code>id</code> para identificarlo de manera única en una página (cada ID se puede utilizar sólo una vez por página), por ejemplo <code>id="navigation_menu"</code>. Esto os permite un control más preciso sobre el formato de una página.</p>
+<div class="exemple">
+	<h3>Ejemplo de definición de una ID</h3>
+<p>Si sólo queréis que un párrafo determinado sea a doble espacio y destacado con texto verde, asignad una ID.</p>
+<pre><code>&lt;p id="highlight"&gt;Paragraph content&lt;/p&gt;</code></pre>
+<p>Y entonces aplicadle una regla CSS, tal como se indica a continuación:</p>
+<pre><code>#highlight {
+   line-height: 2;
+   color: green;
+}</code></pre>
+<p>Esto sólo aplicará la regla CSS al párrafo de la página con un atributo <code>id</code> del tipo <code>highlight</code> (el símbolo de almohadilla es sólo una convención de CSS para indicar que se trata de una ID).</p>
+</div></li>
+<li><p><strong>Definición de una clase</strong>. Las clases son como las ID, excepto que se  puede tener más de un elemento de la misma clase en cada página.</p>
+
+<div class="exemple">
+	<h3>Ejemplo de definición de una clase</h3>
+<p>Siguiendo con nuestro ejemplo de doble espacio, si queréis que los dos primeros párrafos de una página sean a doble espacio y estén destacados, les habríais de a&ntilde;adir clases como:</p>
+<pre><code>&lt;p class="highlight"&gt;Paragraph content&lt;/p&gt;
+&lt;p class="highlight"&gt;The content of the second paragraph&lt;/p&gt;</code></pre>
+<p>Y entonces aplicadles una regla CSS como se indica a continuación:</p>
+<pre><code>.highlight {
+   line-height: 2;
+   color: green;
+}</code></pre>
+<p>En este caso, <code>highlight</code> es una clase, no una ID: el punto sólo es una convención de CSS para indicar que se trata de una clase.</p>
+</div></li>
+</ol>
+<p>El ejemplo siguiente os dará una idea mejor de cómo CSS aplica estilos a HTML.</p>
+<div class="vegeu_tambe">
+<h3>Ved también</h3>
+<p>Empezaremos a ver el CSS con más detalle en el apartado 22 del módulo "El texto central de HTML".</p>
+</div>
+
+<h2 id="javascript">4.4. JavaScript: adición de comportamiento a las páginas web</h2>
+<p>Por último, JavaScript es el lenguaje de <span lang="en">script</span> que se utiliza para a&ntilde;adir comportamiento a sus páginas web.</p>
+<div class="text-clau">
+<p>JavaScript se puede utilizar para validar los datos que se introducen en un formulario (discriminar si están en el formato correcto o no), para ofreceros la funcionalidad de arrastrar y soltar, para cambiar estilos sobre la marcha, para animar elementos de las páginas como los menús, para tratar las funciones de los botones y un millón de cosas más.</p>
+</div>
+<p>La mayoría del JavaScript moderno funciona localizando un elemento HTML de destino y después haciéndole algo, igual que el CSS, pero la manera de funcionamiento, la sintaxis, etc., es bastante diferente.</p>
+<p>El JavaScript es un tema más complicado y extenso que el HTML y el CSS, de modo que para poner las cosas simples y evitar confusiones tan pronto no lo incluimos en el ejemplo siguiente.</p>
+<div class="vegeu_tambe">
+<h3>Ved también</h3>
+<p>De hecho, no volveréis a ver el JavaScript hasta una asignatura posterior.</p>
+</div>
+
+<h2 id="example">4.5. Una página de ejemplo</h2>
+<p>Hay muchos detalles que no hemos incluido, pero lo trataremos todo durante este curso de dise&ntilde;o web. Por ahora, os presentaremos una página real de ejemplo, sólo para que veáis una peque&ntilde;a muestra de aquello con lo que trabajaréis durante el resto de apartados.</p>
+<p>El ejemplo que presentamos a continuación es una página de referencias que se puede utilizar para citar referencias al final de, pongamos por caso, un ensayo psicológico sobre la dinámica de grupo de un equipo de desarrollo web, o un informe para trabajar sobre el uso de Internet de banda ancha en Estados Unidos. Tened en cuenta que si sois muy estrictos con la redacción académica canónica, este ejemplo muestra el formato APA (tenía que elegir uno). <a href="http://dev.opera.com/articles/view/4-the-web-standards-model-html-css-a/article4_examples.zip" hreflang="en">Descargaos el código</a>.</p>
+
+<h3 id="index">4.5.1. <code>index.html</code></h3>
+<pre><code>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"&gt;
+&lt;head&gt;
+  &lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8"/&gt;
+  &lt;title&gt;References&lt;/title&gt;
+  &lt;style type="text/css"&gt;
+    @import url("styles.css");
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div id="bggraphic"&gt;&lt;/div&gt;
+  &lt;div id="header"&gt;
+    &lt;h1&gt;References&lt;/h1&gt;
+  &lt;/div&gt;
+  &lt;div id="references"&gt;
+    &lt;cite class="article"&gt;Adams, J. R. (2008). The Benefits of Valid Markup:
+     A Post-Modernistic Approach to Developing Web Sites. &lt;em&gt;The Journal
+     of Awesome Web Standards, 15:7,&lt;/em&gt; 57-62.&lt;/cite&gt;
+    &lt;cite class="book"&gt;Baker, S. (2006). &lt;em&gt;Validate Your Pages....
+     Or Else!.&lt;/em&gt; Detroit, MI: Are you out of your mind publishers.&lt;/cite&gt;
+    &lt;cite class="article"&gt;Lane, J. C. (2007). Dude, HTML 4, that's like
+     so 2000. &lt;em&gt;The Journal that Publishes Genius, 1:2, &lt;/em&gt; 12-34.&lt;/cite&gt;
+    &lt;cite class="website"&gt;Smith, J. Q. (2005). &lt;em&gt;Web Standards and You.&lt;/em&gt;
+     Retrieved May 3, 2007 from &lt;a href="http://www.webstandardsandyou.com/"&gt;
+     Web standards and you&lt;/a&gt;.&lt;/cite&gt;
+  &lt;/div&gt;
+  &lt;div id="footer"&gt;
+    &lt;p&gt;The content of this page is copyright &copy; 2007 
+      &lt;a href="mailto:jonathanlane@gmail.com"&gt;J. Lane&lt;/a&gt;&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p>No haremos una disección de este archivo línea por línea, ya que veréis muchos ejemplos en futuros apartados; sin embargo, a continuación se indican algunos elementos importantes que cabe tener en cuenta.</p>
+<p>La línea 1 es lo que se denomina <em>declaración de tipo de documento</em> o <span lang="en">doctype</span>. En este caso, la página es "XHTML 1.0 Transitional". El tipo de documento especifica una serie de reglas que debe seguir el etiquetado y gracias a las que se puede validar.</p>
+<div class="vegeu_tambe">
+<h3>Ved también</h3>
+<p>Podéis ver el apartado 14 del módulo "Fundamentos de HTML" para encontrar más información sobre tipo de documentos.</p>
+</div>
+<p>Las líneas 5 a 7 importan un archivo CSS a la página: los estilos contenidos en este archivo se aplicarán a los diferentes elementos de la página. En el siguiente subapartado veréis el contenido del archivo CSS que trata todo el formato de la página.</p>
+<p>Hemos asignado una clase diferente a cada uno de los diferentes tipos de referencia. Hacerlo de esta manera nos permite aplicar un estilo diferente a cada tipo de referencia, así, en nuestro ejemplo hemos puesto un color diferente a la derecha de cada referencia para que sea más fácil analizar la lista.</p>
+<p>Ahora demos un vistazo al CSS que aplica estilo al HTML.</p>
+
+<h3 id="styles">4.5.2. <code>styles.css</code></h3>
+<pre><code>body{
+  background: #fff url('images/gradbg.jpg') top left repeat-x;
+  color: #000;
+  margin: 0;
+  padding:0;
+  border: 0;
+  font-family: Verdana, Arial, sans-serif; font-size: 1em;
+}
+div {
+  width: 800px;
+  margin: 0 auto;
+}
+#bggraphic {
+  background: url('images/pen.png') top left no-repeat;
+  height: 278px;
+  width: 362px;
+  position: absolute;
+  left: 50%;
+  z-index: 100;
+}
+h1 {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1.5em;
+  margin-bottom: 30px;
+  background: url('images/headbg.png') top left repeat;
+  padding: 10px 0;
+}
+#references cite {
+  margin: 1em 0 0 3em;
+  text-indent: -3em;
+  display: block;
+  font-style: normal;
+  padding-right: 3px;
+}
+.website {
+  border-right: 5px solid blue;
+}
+.book {
+  border-right: 5px solid red;
+}
+.article {
+  border-right: 5px solid green;
+}
+#footer {
+  font-size: 0.5em;
+  border-top: 1px solid #000;
+  margin-top: 20px;
+}
+#footer a {
+  color: #000;
+  text-decoration: none;
+}
+#footer a:hover{
+  text-decoration: underline;
+}</code></pre>
+<p>Hemos exagerado un poco con el estilo de esta página y hemos a&ntilde;adido algunos bonitos efectos de fondo para mostraros algunas de las cosas que se pueden conseguir con el CSS.</p>
+<p>La línea 1 establece algunos valores predeterminados para el documento, como el color del texto y del fondo, el ancho del borde que se debe a&ntilde;adir en torno al texto, etc. Algunas personas no se preocuparán de indicar explícitamente valores predeterminados como éstos, y la mayoría de los navegadores modernos aplicarán sus propios valores predeterminados, pero es una buena idea, ya que le permite un control mayor sobre cómo se verá vuestra página web en diferentes navegadores.</p>
+<p>En la línea siguiente hemos establecido la anchura de página en 800 px (aunque en este caso podríamos haber especificado un porcentaje para que la página se expanda/contraiga en función del tama&ntilde;o de la ventana del navegador). La configuración de márgenes que hemos utilizado garantizará que el contenido de la página siempre se mantenga centrado en la ventana.</p>
+<p>Las imágenes PNG semitransparentes no funcionan en Internet Explorer 6 o versiones anteriores, pero funcionan prácticamente en todos los navegadores modernos; podéis consultar la <a href="http://code.google.com/p/ie7-js/" hreflang="en">corrección de JavaScript para el IE</a> de Dean Edwards para una solución para IE 6 a este problema, que también resuelve algunos de los problemas de compatibilidad con CSS de IE 6.</p>
+
+<p>Pasemos ahora a fijarnos en las imágenes de fondo utilizadas en la página (se aplican utilizando las declaraciones de fondo: url). En esta página tenemos 3 elementos de fondos diferentes. El primero es una gradación de azul a blanco que empieza desde la parte superior de la página. En segundo lugar, hemos utilizado un PNG semitransparente para el gráfico de la pluma para crear un poco de contraste con el texto que tiene encima y respetar la gradación. Por último, hemos utilizado otro PNG para el fondo del encabezamiento de página. Le da al título un poco más de contraste y ofrece un efecto de calidad.</p>
+<p>El ejemplo queda como se ve en la figura 2.</p>
+<div class="imagen">
+	<img src="76510_m1_06.gif" alt="El ejemplo terminado" />
+	<p>Figura 2. El ejemplo acabado con los estilos aplicados.</p>
+</div>
+
+<h2 id="summary">Resumen</h2>
+<p>XHTML, CSS y JavaScript no tienen nada de complicado. Son simplemente una evolución de la web. Si ya habéis tenido un poco de contacto con HTML, lo podéis aprovechar perfectamente. Todo lo que sabéis sigue siendo válido, sólo hay que tratar algunos conceptos de manera diferente (y tener un poco más de cuidado con el etiquetado).</p>
+<p>Aparte de tener la satisfacción de un trabajo bien hecho, el desarrollo de los estándares web es totalmente lógico. Los argumentos en contra del desarrollo con estándares son que se debe invertir mucho tiempo y es muy pesado hacer que un dise&ntilde;o funcione en distintos navegadores. Se podría utilizar el argumento contrario para hacer que un formato no basado en estándares funcione en diferentes dispositivos y con futuras versiones de navegadores. ¿Cómo se puede tener la certeza de que un etiquetado que se sostiene con agujas se verá bien en Opera 12.0, Firefox 5.0 e IE 10.0? No se puede, a no ser que se sigan algunas reglas.</p>
+
+<h2 id="exercises">Preguntas de repaso</h2>
+<ol>
+	<li><p>¿Cuál es la diferencia entre una clase y una ID?</p></li>
+	<li><p>¿Para qué sirven XHTML, CSS y JavaScript en una página web?</p></li>
+	<li><p>Tomad el archivo index.html del ejemplo y cambiad el formato utilizando sólo CSS (os recomendamos editar el archivo utilizando un editor de texto como el Bloc de Notas o Text Wrangler). No hagáis ningún cambio al HTML.</p>
+	<ol class="lletres">
+		<li><p>A&ntilde;adid un icono para cada uno de los diferentes tipos de referencia (un icono diferente para artículos, libros y recursos web). Generad vuestros propios iconos para este propósito y haced que aparezcan junto con los diferentes tipos de referencia utilizando sólo CSS.</p></li>
+		<li><p>Ocultad el aviso de <em>copyright</em> de la parte inferior de la página.</p></li>
+		<li><p>Cambiad el aspecto del título, conseguid que destaque.</p></li>
+	</ol></li>
+	<li><p>¿Qué tipo de cosas podríais hacer con CSS para lograr que este ejemplo funcione bien con un navegador de teléfono móvil?</p></li>
+</ol>
+
+</div>
+<div><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.es"><img src="../../m0/creative_commons.gif" id="logo_cc" alt="Logo Creative Commons" /></a></div>
+<div id="logo_text">Los contenidos recogidos en este artículo están sujetos a una licencia <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.es">Creative Commons<br /> Reconocimiento, No comercial - Compartir bajo la misma licencia 3.0 No adaptada</a>.
+</div>
+<div id="cierre_autor"></div>
+
+<div id="peu">
+		<a rel="prev" href="../ud2/index.html" title="Ir al artículo anterior" accesskey="8"><img src="../../img/fletxa_izq_inv.gif" alt="Ir al artículo anterior" /></a> <strong>:</strong>
+<a rel="index" href="../../index.html" title="Ir al índice" accesskey="0"><img src="../../img/indice_inv.gif" alt="Ir al índice" /></a> <strong>:</strong>
+<a rel="next" href="../ud4/index.html" title="Ir al artículo siguiente" accesskey="9"><img src="../../img/fletxa_der_inv.gif" alt="Ir al artículo siguiente" /></a>
+</div>
+</body>
+</html>

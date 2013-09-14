@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
+<meta http-equiv="Content-Language" content="es" />
+<meta name="language" content="es" />
+<meta name="author" content="Universitat Oberta de Catalunya" />
+<meta name="description" content="FALTA CONTENIDO" />
+<meta name="title" content="FALTA CONTENIDO" />
+<meta name="keywords" content="FALTA CONTENIDO" />
+
+<title>Introducción al mundo de los estándares web - ¿Cómo funciona Internet?</title>
+<link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estilo normal" />
+</head>
+
+<body>
+
+<div id="cabecera">
+	<img id="logo" src="../../img/logo.gif" alt="Universitat Oberta de Catalunya" />
+    <a href="http://mosaic.uoc.edu/"><img id="logomosaic" src="../../img/logo-mosaic.gif" alt="Logo de Mosaic" title="Abre la página web de Mosaic" /></a>
+	<div id="titulo">Introducción al mundo de los estándares web</div>
+	<div id="subtitulo">¿Cómo funciona Internet?</div>
+<div id="cierre"></div>
+	<div id="navegador">
+		<a href="../../m0/accessibilitat.html" id="accesibilidad">Accesibilidad</a> <strong>:</strong> 
+		<a rel="prev" href="../ud1/index.html" title="Ir al artículo anterior" accesskey="8"><img src="../../img/fletxa_izq.gif" alt="Ir al artículo anterior" /></a> <strong>:</strong> 
+		<a rel="index" href="../../index.html" title="Ir al índice" accesskey="0"><img src="../../img/indice.gif" alt="Ir al índice" /></a> <strong>:</strong> 
+		<a rel="next" href="../ud3/index.html" title="Ir al artículo siguiente" accesskey="9"><img src="../../img/fletxa_der.gif" alt="Ir al artículo siguiente" /></a>
+	</div>
+</div>
+	
+<div id="main">
+<h1>3. ¿Cómo funciona Internet?</h1>
+<p class="by"><a href="../../index.html#lane">Jonathan Lane</a>. 8 de julio del 2008. Publicado en: dinámico, servidor, estático, web, HTTP</p>
+<p>Muy de vez en cuando es posible conseguir ver los engranajes y las correas que actúan entre bastidores. Hoy es vuestro día de suerte. Os llevaré a dar una vuelta tras los telares de una de las tecnologías más interesantes que, posiblemente, ya conocéis bien: la web.</p>
+<p>Este apartado trata sobre la tecnología subyacente que hace funcionar la web:</p>
+
+<ul>
+<li><p>Lenguaje de etiquetado de hipertexto (HTML).</p></li>
+<li><p>Protocolo de transferencia de hipertexto (HTTP).</p></li>
+<li><p>Sistema de nombres de dominio (DNS).</p></li>
+<li><p>Servidores web y navegadores web.</p></li>
+<li><p>Contenido estático y dinámico.</p></li>
+</ul>
+
+<p>Son materias bastante básicas y, aunque la mayor parte de lo que aquí se explica no os ayudará a construir una página web mejor, sí que os proporcionará el lenguaje adecuado para hablar con clientes y otras personas sobre Internet. Es como lo que una institutriz muy inteligente dijo una vez en <em>Sonrisas y lágrimas</em>: "Cuando leemos, empezamos por ABC. Cuando cantamos, empezamos por Do Re Mi". En este apartado describiremos brevemente cómo los ordenadores se comunican realmente utilizando HTTP y TCP/IP, y después nos fijaremos en los diferentes lenguajes que se combinan para crear las páginas web que conforman Internet. </p>
+<p>Los contenidos de este apartado son los siguientes:</p>
+<ul class="index">
+	<li>3.1. <a href="#internetcommunication" accesskey="1">¿Cómo se comunican los ordenadores a través de Internet?</a>
+	<ul class="index">
+		<li>3.1.1. <a href="#requestresponse">Disección de un ciclo de solicitud-respuesta</a></li>
+	</ul></li>
+	<li>3.2. <a href="#contenttypes" accesskey="2">Tipos de contenido</a>
+	<ul class="index">
+		<li>3.2.1. <a href="#plaintext">Texto normal</a></li>
+		<li>3.2.2. <a href="#webstandards">Estándares web</a></li>
+		<li>3.2.3. <a href="#dynamicpages">Páginas web dinámicas</a></li>
+		<li>3.2.4. <a href="#proprietaryformats">Formatos que requieren otras aplicaciones o conectores</a></li>
+	</ul></li>
+	<li>3.3. <a href="#staticdynamic" accesskey="3">Páginas web estáticas o dinámicas</a></li>
+	<li class="especial"><a href="#summary">Resumen</a></li>
+	<li class="especial"><a href="#exercises">Preguntas de repaso</a></li>
+	<li class="especial"><a href="#furtherreading">Lecturas complementarias</a></li>
+</ul>
+
+<h2 id="internetcommunication">3.1. ¿Cómo se comunican los ordenadores a través de Internet?</h2>
+<p>Por suerte, hemos mantenido las cosas simples para los ordenadores. Cuando se trata de la web, la mayoría de las páginas están escritas utilizando el mismo lenguaje, el HTML, que pasa de un sitio a otro utilizando un protocolo común: <strong>HTTP</strong> (<span lang="en">hypertext transfer protocol</span> o protocolo de transferencia de hipertexto). El HTTP es el dialecto (especificación) común de Internet que permite, por ejemplo, que un equipo con Windows cante en armonía con un ordenador que ejecute la versión más reciente y más fantástica de Linux (¡Do Re Mi!). Mediante el uso de un navegador web un software especial que interpreta el HTTP y entrega el HTML en una manera legible para los humanos, las páginas web creadas con HTML y con cualquier tipo de ordenador se pueden leer en cualquier medio, incluyendo teléfonos, PDA e incluso en los sistemas de videojuegos más populares.</p>
+<p>Aunque hablen el mismo lenguaje, los diferentes dispositivos que acceden a la web han de tener algunas normas establecidas para poder hablar entre ellos; es como aprender a alzar la mano para preguntar en clase. El HTTP establece estas normas básicas para Internet. Gracias al HTTP, un equipo cliente (como vuestro ordenador) sabe que debe ser él quien inicie una petición de una página web desde un <strong>servidor</strong>. Un servidor es un ordenador donde residen las páginas web; cuando escribís una dirección web en vuestro navegador, un servidor recibe la petición, encuentra la página web que deseáis y la envía a vuestro ordenador para que se vea en vuestro navegador.</p>
+
+<h3 id="requestresponse">3.1.1. Disección de un ciclo de solicitud-respuesta</h3>
+<p>Ahora que hemos visto todas las partes que permiten a los ordenadores comunicarse a través de Internet, trataremos con más detalle el ciclo de solicitud-respuesta de HTTP. A continuación, se presentan una serie de pasos numerados para que podáis trabajar siguiéndolos y, así, os podremos demostrar algunos conceptos de manera más eficaz:</p>
+<ol class="lletres">
+	<li><p>Todas las solicitudes-respuestas empiezan cuando se escribe un URL (<span lang="en">universal resource locator</span>, localizador universal de recursos) en la barra de direcciones del navegador web, como http://dev.opera.com. Abrid un navegador para hacerlo ahora mismo.</p>
+	<p>Algo que quizá no sabéis es que los navegadores realmente no utilizan los URL para solicitar páginas web en los servidores; utilizan el <strong>Protocolo de Internet</strong> o <strong>direcciones IP</strong> (que son casi como números de teléfono o direcciones postales que identifican los servidores.) Por ejemplo, la dirección IP de http://dev.opera.com es 213.236.208.98.</p></li>
+	<li><p>Abrid una nueva pesta&ntilde;a o ventana del navegador, escribid http://www.apple.com y pulsad <em>intro</em>; a continuación, escribid http://17.149.160.10/ y pulsad <kbd>intro</kbd>: llegaréis al mismo sitio. Escribid http://213.236.208.98 en la barra de direcciones y pulsad <kbd>intro</kbd>: iréis a parar al mismo sitio que en el paso 1, pero obtendréis un error 403 "Acceso Denegado", esto es porque no tenéis permiso para acceder a la raíz real de este servidor.</p>
+	<p>http://www.apple.com actúa básicamente como un alias para http://17.149.160.10/, pero ¿por qué? ¿Y cómo? Ello se debe a que a las personas les resulta más fácil recordar palabras que largas cadenas de números. El sistema que realiza este trabajo se denomina <span lang="en">Domain name system</span> (DNS) o Sistema de nombres de dominio, que es esencialmente un directorio automático completo de todos los ordenadores conectados a Internet. Cuando escribís http://dev.opera.com en la barra de direcciones y apretáis <kbd>intro</kbd>, esta dirección se envía a un servidor de nombres que intenta asociarla a vuestra dirección IP. Hay muchos ordenadores conectados a Internet, y no todos los servidores DNS tienen un listado de cada ordenador que hay conectado, de manera que hay un sistema creado donde se puede dirigir la solicitud al servidor correcto para atenderla.</p>
+	<p>Así pues, el sistema DNS busca la página web www.opera.com, averigua que se encuentra en 17.149.160.10 y devuelve la dirección IP al navegador.</p>
+	<p>El ordenador envía una solicitud al ordenador de la dirección IP especificada y espera obtener una respuesta. Si todo va bien, el ordenador del servidor envía un breve mensaje de retorno al cliente que dice que todo es correcto (podéis ver la figura 1) seguido de la propia página web. Este tipo de mensaje está incluido en un <strong>encabezamiento HTTP</strong>.</p>
+	
+	<div class="imagen">
+	<img src="76510_m1_02.gif" alt="Ciclo exitoso de solicitud y respuesta" />
+	<p>Figura 1. En este caso todo es correcto y el servidor devuelve la página web correcta.</p>
+	</div>
+
+	<p>Si algo va mal, por ejemplo, si se escribe incorrectamente el URL, en su lugar se obtendrá un <strong>error</strong> <strong>HTTP: </strong>el famoso error 404 "no se encuentra la página" es el ejemplo más común que se puede encontrar.</p></li>
+	<li><p>Escribid http://dev.opera.com/joniscool.html: la página no existe, o sea que obtendréis un error 404. Probadlo con algunas páginas, en diferentes páginas web que no existan y os devolverán páginas diferentes. Esto se debe al hecho de que algunos desarrolladores web han dejado que el servidor web sólo emita la página de error predeterminada y otros han codificado páginas de error personalizadas para que aparezcan cuando se devuelve una página no existente. Se trata de una técnica avanzada que no trataremos en este curso, pero que afortunadamente se verá pronto en un artículo aparte en dev.opera.com.</p></li>
+</ol>
+
+<p>Por último, una nota sobre los URL: generalmente el primer URL al que se accede en una página web no tiene un nombre de archivo real al final (por ejemplo, http://www.mysite.com/), y a continuación las páginas subsiguientes a veces tienen y a veces no. Siempre se accede a archivos reales, pero en ocasiones el desarrollador web ha configurado el servidor web para que no muestre los nombres de archivo en el URL; esto a menudo permite conseguir URL más limpios y fáciles de recordar, que conducen a una mejor experiencia para el usuario de vuestra página web.</p>
+
+<h2 id="contenttypes">3.2. Tipos de contenido</h2>
+<p>Ahora que ya os hemos ense&ntilde;ado una solicitud-respuesta HTTP, queremos que os fijéis en los diferentes tipos de contenido que pueden encontrarse en Internet. Los hemos agrupado en 4 tipos: texto normal, estándares web, páginas web dinámicas y formatos que requieren otras aplicaciones o conectores.</p>
+<h3 id="plaintext">3.2.1. Texto normal</h3>
+<p>Durante los primeros días de Internet, antes de que apareciera cualquier estándar web o conector, Internet era principalmente imágenes y texto normal, archivos con una extensión .txt o similar. Cuando se encuentra un texto normal en Internet, el navegador lo muestra tal como es, sin ningún tipo de proceso. Todavía pueden encontrarse ficheros de texto normal en páginas web universitarias.</p>
+
+<h3 id="webstandards">3.2.2. Estándares web</h3>
+<p>Las herramientas de construcción básicas de la web son los tres principales estándares web: HTML (o XHTML, aquí utilizaremos ambos indistintamente para nuestras finalidades), CSS y JavaScript:</p>
+<ol class="lletres">
+	<li><p><strong>Lenguaje de marcado de hipertexto</strong> (HTML), es un nombre realmente bueno con respecto a la definición de su objetivo. El HTML se utiliza para dividir un documento, especificar sus contenidos y su estructura, y definir el significado de cada parte (es lo que incluye todo el texto, etc., que se ve en las páginas web). Utiliza elementos para identificar los diferentes componentes de una página.</p></li>
+	<li><p> Las <strong>hojas de estilo en cascada</strong> (CSS) dan un control total sobre cómo se visualiza un elemento.</p>
+	<div class="exemple">
+		<h3>Cambios de formato</h3>
+	<p>Utilizando declaraciones de estilo es muy sencillo cambiar todos los párrafos para que queden a doble espacio:</p>
+
+<p><code>line-height: 2em;</code></p>
+<p>O hacer que todos los encabezamientos de segundo nivel sean verdes:</p>
+<p><code>color: green;[/courier-new]</code></p>
+	</div>
+	
+	<p>Existen muchas ventajas para separar la estructura del formato y lo veremos con más detalle en el siguiente apartado. Para demostrar la potencia de HTML y CSS utilizados de manera combinada, la figura 2 muestra a la izquierda HTML normal, sin ningún formato a&ntilde;adido, mientras que a la derecha puede verse exactamente el mismo HTML con algunos estilos de CSS aplicados.</p>
+
+<div class="imagen">
+	<img src="76510_m1_03.gif" alt=" " />
+	<p>Figura 2. HTML normal a la izquierda, HTML con CSS aplicado a la derecha.</p>
+</div></li>
+	<li><p>Por último, el <strong>lenguaje JavaScript</strong> aporta funciones dinámicas a las páginas web. Se pueden escribir peque&ntilde;os programas en JavaScript que se ejecutarán en el ordenador cliente y que no requieren que haya ningún software especial instalado en el servidor. JavaScript permite a&ntilde;adir algunas funciones básicas e interactividad a las páginas web, pero tiene sus limitaciones, lo que nos lleva a hablar de lenguajes de programación del lado del servidor y a páginas web dinámicas.</p></li>
+</ol>
+
+
+<h3 id="dynamicpages">3.2.3. Páginas web dinámicas</h3>
+<p>En ocasiones, cuando naveguéis por Internet os encontraréis páginas web que no tienen una extensión .html: es posible que tengan una extensión .php. asp, .aspx, .jsp, u otras extensiones extra&ntilde;as. Todos son ejemplos de tecnologías web dinámicas que se pueden utilizar para crear páginas web que tengan secciones dinámicas: código que muestra diferentes resultados según los valores que reciba, por ejemplo, de una base de datos, de un formulario o de otra fuente de datos. Trataremos estos tipos de páginas web en el subapartado "Páginas web estáticas o dinámicas", a continuación.</p>
+
+<h3 id="proprietaryformats">3.2.4. Formatos que requieren otras aplicaciones o conectores</h3>
+<p>Como los navegadores web sólo están equipados para interpretar y mostrar determinadas tecnologías como estándares web, si solicitáis un URL que apunta a un formato de archivo complejo o a una página web que contiene una tecnología que requiere conectores (<span lang="en">plugins</span>), se descargará en vuestro ordenador o se abrirá utilizando el conector necesario si el navegador lo tiene instalado.</p>
+<div class="exemple">
+	<h3>Ejemplos de conectores</h3>
+<p>Si os encontráis un documento de Word, de Excel, PDF, un fichero comprimido (por ejemplo, ZIP o SIT), un fichero de imágenes complejas como Photoshop PSD, u otro fichero complejo que el navegador no comprende, generalmente el navegador os preguntará si deseáis descargar o abrir el fichero. Ambas acciones normalmente tienen resultados similares, excepto que la última hará que el fichero se descargue y a continuación se abra con una aplicación que lo comprende, si está instalada.</p>
+<p>Si os encontráis una página que contenga una película Flash, MP3 u otro formato de música, MPEG u otro formato de vídeo, el navegador lo reproducirá utilizando un conector, si hay uno instalado. En caso contrario, se proporcionará un enlace para instalar el conector necesario, o el archivo se descargará y buscará una aplicación de escritorio para ejecutarlo.</p>
+</div>
+<p>Naturalmente, hay algunas áreas grises: por ejemplo, SVG (<span lang="en">scalable vector graphics</span>, gráficos vectoriales escalables) es un estándar web que se ejecuta de manera nativa en algunos navegadores, como Opera, pero no en otros, como Internet Explorer. El IE necesita un conector para comprender los SVG. Hay una serie de navegadores que incluyen algunos conectores previamente instalados, de modo que es posible que no seáis conscientes de que el contenido se está visualizando mediante un conector y de manera no nativa en el navegador.</p>
+
+
+<h2 id="staticdynamic">3.3. Páginas web estáticas o dinámicas</h2>
+<p>Así pues, ¿qué son las páginas web estáticas y dinámicas y cuál es la diferencia entre ambas? Como en una caja de bombones, todo se basa en el relleno.</p>
+<div class="text-clau">
+<p>Una <strong>página web estática</strong> es una página web donde el contenido, el HTML y los gráficos, son siempre estáticos se sirve a cualquier visitante de la misma manera, a no ser que la persona que ha creado la web decida cambiar manualmente su copia en el servidor, exactamente lo que hemos estado repasando en la mayor parte de este apartado.</p>
+<p>Por el contrario, en una <strong>página web dinámica</strong>, el contenido del servidor es el mismo, pero en vez de ser sólo HTML, también contiene código dinámico, que puede mostrar datos diferentes según la información que suministre a la página web.</p>
+</div>
+<div class="exemple">
+	<h3>Página web dinámica</h3>
+<p>Podéis ver un ejemplo de página web dinámica: id a <a href="http://www.amazon.com" hreflang="en">Amazon</a> con vuestro navegador web y buscad cinco productos diferentes. Amazon no os ha enviado cinco páginas diferentes, os ha enviado la misma página cinco veces, pero con diferente información dinámica completada cada vez. Esta información diferente se guarda en una base de datos, que entrega la información correspondiente cuando se solicita, y la envía al servidor web para insertarla en la página dinámica.</p>
+</div>
+
+<p>Otra cosa que cabe tener en cuenta es que se debe instalar un software especial en el servidor para crear una página web dinámica. Mientras que los ficheros HTML estáticos normales se guardan con una extensión de fichero .html, estos ficheros contienen código dinámico especial además del HTML y se guardan con extensiones de archivo especiales para indicarle al servidor web que necesitan un procesado adicional antes de enviarlos al cliente (como, por ejemplo, que se inserten los datos desde la base de datos); los archivos PHP, por ejemplo, generalmente tienen una extensión de archivo .php.</p>
+<p>Hay muchos lenguajes dinámicos que se pueden elegir: el PHP que hemos mencionado antes y otros como Python, Ruby on Rails, ASP.NET y Coldfusion. En definitiva, todos estos lenguajes tienen más o menos las mismas capacidades, como hablar con bases de datos, validar la información introducida en los formularios, etc., pero hacen las cosas de manera ligeramente diferente y tienen algunas ventajas e inconvenientes. Todo se reduce a la forma más sencilla que mejor se adapte.</p>
+
+
+<h2 id="summary">Resumen</h2>
+<p>Hasta aquí el recorrido por la sala de máquinas de Internet. Este apartado realmente sólo trata de pasada muchos de los temas que incluye, pero resulta útil porque los pone en perspectiva entre ellos y muestra cómo se relacionan y funcionan entre sí. Todavía queda mucho por aprender sobre la sintaxis real del lenguaje que conforma el HTML, el CSS y JavaScript, y esto es lo que haremos a continuación: el apartado siguiente se centra en el modelo de estándares web HTML, CSS y JavaScript de desarrollo web, y da un vistazo al código de la página web.</p>
+
+
+<h2 id="exercises">Preguntas de repaso</h2>
+<ol>
+<li><p>Realizad una breve descripción de HTML y HTTP y explicad la diferencia entre los dos.</p></li>
+<li><p>Explicad la función de un navegador web.</p></li>
+<li><p>Navegad por Internet durante 5-10 minutos e intentad encontrar algunos tipos diferentes de contenidos: texto normal, imágenes, HTML, páginas dinámicas como páginas PHP y .NET (.aspx), PDF, documentos de Word, películas Flash, etc. Acceded a algunos de estos contenidos y pensad cómo os los muestra el ordenador.</p></li>
+<li><p>¿Cuál es la diferencia entre una página estática y una página dinámica?</p></li>
+<li><p>Encontrad una lista de códigos de error HTTP, enumerad cinco y explicad qué significa cada uno de ellos.</p></li>
+</ol>
+
+<h2 id="furtherreading">Lecturas complementarias</h2>
+<p>En este curso ya no volveremos a hablar de los lenguajes dinámicos, pero hemos creado una lista de recursos en caso de que queráis leéroslos:</p>
+
+<ul>
+<li><p>Rails: Fernandez, Obie. (2007). <cite>The Rails Way. Addison-Wesley Professional Ruby Series</cite>.</p></li>
+<li><p><a href="http://www.rubyonrails.org/screencasts" hreflang="en"><em>Rails screencasts</em></a></p></li>
+<li><p>PHP: Powers, David (2006). <cite>PHP Solutions: Dynamic web development made easy, friends of ED</cite>.</p></li>
+<li><p><a href="http://www.php.net/docs.php" hreflang="en">Documentación en línea de PHP</a></p></li>
+<li><p>ASP.NET: Lorenz, Patrick. (2003). <cite>ASP.NET 2.0 Revealed</cite>. Apress.</p></li>
+<li><p><a href="http://asp.net/" hreflang="en">ASP.NET</a>: documentación y guías en línea de ASP.NET</p></li>
+</ul>
+
+</div>
+<div><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.es"><img src="../../m0/creative_commons.gif" id="logo_cc" alt="Logo Creative Commons" /></a></div>
+<div id="logo_text">Los contenidos recogidos en este artículo están sujetos a una licencia <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.es">Creative Commons<br /> Reconocimiento, No comercial - Compartir bajo la misma licencia 3.0 No adaptada</a>.
+</div>
+<div id="cierre_autor"></div>
+
+<div id="peu">
+		<a rel="prev" href="../ud1/index.html" title="Ir al artículo anterior" accesskey="8"><img src="../../img/fletxa_izq_inv.gif" alt="Ir al artículo anterior" /></a> <strong>:</strong>
+<a rel="index" href="../../index.html" title="Ir al índice" accesskey="0"><img src="../../img/indice_inv.gif" alt="Ir al índice" /></a> <strong>:</strong>
+<a rel="next" href="../ud3/index.html" title="Ir al artículo siguiente" accesskey="9"><img src="../../img/fletxa_der_inv.gif" alt="Ir al artículo siguiente" /></a>
+</div>
+</body>
+</html>

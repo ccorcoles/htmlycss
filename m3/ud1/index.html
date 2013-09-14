@@ -1,0 +1,201 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ca">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
+<meta http-equiv="Content-Language" content="ca" />
+<meta name="language" content="ca" />
+<meta name="author" content="Universitat Oberta de Catalunya" />
+<meta name="description" content="FALTA CONTENIDO" />
+<meta name="title" content="FALTA CONTENIDO" />
+<meta name="keywords" content="FALTA CONTENIDO" />
+
+<title>Fundamentos de HTML - Conceptos básicos de HTML</title>
+<link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
+</head>
+
+<body>
+<div id="cabecera">
+	<img id="logo" src="../../img/logo.gif" alt="Universitat Oberta de Catalunya" />
+    <a href="http://mosaic.uoc.edu/"><img id="logomosaic" src="../../img/logo-mosaic.gif" alt="Logo de Mosaic" title="Abre la página web de Mosaic" /></a>
+	<div id="titulo">Fundamentos de HTML</div>
+	<div id="subtitulo">Conceptos básicos de HTML</div>
+<div id="cierre"></div>
+	<div id="navegador">
+		<a href="../../m0/accessibilitat.html" id="accesibilidad">Accesibilidad</a> <strong>:</strong> 
+		<a rel="prev" href="../../m2/ud6/index.html" title="Ir al artículo anterior" accesskey="8"><img src="../../img/fletxa_izq.gif" alt="Ir al artículo anterior" /></a> <strong>:</strong> 
+		<a rel="index" href="../../index.html" title="Ir al índice" accesskey="0"><img src="../../img/indice.gif" alt="Ir al índice" /></a> <strong>:</strong> 
+		<a rel="next" href="../ud2/index.html" title="Ir al artículo siguiente" accesskey="9"><img src="../../img/fletxa_der.gif" alt="Ir al artículo siguiente" /></a>
+	</div>
+</div>
+	
+<div id="main">
+<h1>12. Conceptos básicos de HTML</h1>
+<p class="by"><a href="../../index.html#francis">Mark Norman Francis</a>. 8 de julio del 2008. Publicado en: en línea, atributo, html, elemento, etiqueta.</p>
+
+<p>En este apartado aprenderemos los conceptos básicos de HTML: qué es, qué hace, un resumen de su historia y qué estructura tiene un documento en HTML. Los apartados que encontraréis después de éste explican cada una de las partes específicas de HTML con mucho más detalle. </p>
+    <p>Los contenidos de este apartado son los siguientes:</p>
+    
+<ul class="index">
+	<li>12.1. <a href="#whatishtml" accesskey="1">Qué es el HTML</a></li>
+ 	<li>12.2. <a href="#htmllooks" accesskey="2">Aspecto del HTML</a></li>
+	<li>12.3. <a href="#htmlhistory" accesskey="3">La historia del HTML</a></li>
+	<li>12.4. <a href="#htmlstructure" accesskey="4">La estructura de un documento HTML</a></li>
+	<li>12.5. <a href="#htmlsyntax" accesskey="5">La sintaxis de los elementos HTML</a></li>
+	<li>12.6. <a href="#blockinline" accesskey="6">Elementos de bloque y en línea</a></li>
+	<li>12.7. <a href="#characterreferences" accesskey="7">Referencias de carácter</a></li>
+	<li class="especial"><a href="#summary">Resum</a></li>
+</ul>
+
+
+ <h2 id="whatishtml">12.1. Qué es el HTML </h2>
+  
+  <p>La mayoría de las aplicaciones de escritorio que pueden leer y escribir ficheros utilizan un formato de fichero especial. Por ejemplo, Microsoft Word entiende los ficheros .doc y Microsoft Excel entiende los .xls. Estos ficheros contienen las instrucciones para reconstruir el documento cuando se vuelve a abrir y para saber cuál es su contenido, además de los "metadatos" sobre el artículo, como por ejemplo el autor, la fecha de la última modificación del documento e incluso cosas como la lista de cambios realizados con el fin de poder recuperar todas sus diferentes versiones.</p>
+  
+  <div class="text-clau">
+  <p>El <strong>HTML</strong> (<strong>HyperText Markup Language</strong>) es un lenguaje para describir el contenido de los documentos de la web. Utiliza una sintaxis especial que contiene marcadores (conocidos como "elementos") que rodean al texto que hay dentro del documento para indicar a los agentes de usuario cómo deben interpretar esta parte del documento.</p>
+  </div>
+  
+  <p>Utilizamos el término técnico agentes de usuario en lugar de navegadores web. Un agente de usuario es cualquier software que se utilice para acceder a las páginas web en nombre de los usuarios. Aquí debemos hacer una distinción muy importante: todos los tipos de navegadores de escritorio (Internet Explorer, Opera, Firefox, Safari, etc.) y los navegadores alternativos para otros dispositivos (como el canal de Internet de la Wii y los navegadores para teléfonos móviles como Opera Mini y WebKit para el iPhone) son agentes de usuario, pero no todos los agentes de usuario son navegadores. Los programas automatizados que utilizan Google y Yahoo! para indexar la web y que ejecutan en sus motores de búsqueda también son agentes de usuario, pero no hay ningún ser humano que los controle directamente.</p>         
+
+  <h2 id="htmllooks">12.2. Aspecto del HTML</h2>
+  
+  <p>El HTML es sólo una representación textual del contenido y de su significado general. Por ejemplo, el código para el encabezamiento "Aspecto del HTML" es el siguiente:</p>
+  
+  <pre><code>&lt;h2 id="htmllooks"&gt;Aspecto del HTML &lt;/h2&gt;</code></pre>
+  
+  <p>La parte <code>&lt;h2&gt;</code> es un marcador (que se conoce como "etiqueta") que significa "lo que sigue se debe considerar como un título de segundo nivel". <code>&lt;/h2&gt;</code> es una etiqueta que indica dónde acaba el título de segundo nivel (y se conoce como "etiqueta de cierre"). La etiqueta de apertura, la etiqueta de cierre y todo lo que hay entre ellas se conoce como "elemento". Mucha gente utiliza los términos elemento y etiqueta indistintamente, lo cual no es del todo correcto. <code>id="htmllooks"</code> es un atributo; ya hablaremos de los atributos más adelante.</p>
+  
+  <p>La mayoría de los navegadores incorporan una opción "Código fuente" o "Ver el código fuente", normalmente bajo el menú "Ver". Si vuestro navegador incorpora esta opción, seleccionadla y dedicad unos momentos a mirar el código fuente HTML de esta página.</p>
+
+  <h2 id="htmlhistory">12.3. La historia del HTML</h2>
+  
+  <p>Cuando Tim Berners-Lee inventó la web, creó tanto el primer servidor web como la <a href="http://www.w3.org/History/19921103-hypertext/hypertext/WWW/MarkUp/MarkUp.html" hreflang="en">primera versión del HTML</a>.</p>
+  
+  <div class="vegeu_tambe">
+  <h3>Ved también</h3>
+  
+  <p>En el apartado 2 del módulo "Introducción al mundo de los estándares web" visteis resumidamente la aparición de la web moderna. </p>
+  </div>
+  
+  <p>El HTML ha cambiado de una manera muy importante desde aquellos primeros días, pero una buena parte del contenido del HTML actual ya se encontraba en esta primera documentación y más de la mitad de las "etiquetas" descritas en el documento "Etiquetas HTML" original todavía existen.</p>
+  
+  <p>A medida que fue habiendo cada vez más gente que escribía páginas web y alternativas al navegador original, también se fueron añadiendo más funciones a HTML. Muchas se adoptaron universalmente (como el elemento <code>img</code> utilizado para insertar una imagen en un documento, que se utilizó por primera vez en NCSA Mosaic). Otras etiquetas eran propias y sólo se utilizaban en uno o dos navegadores. Cada vez había una necesidad mayor de estandarización a fin de que los autores de otros navegadores pudieran tener un documento (conocido como "especificación") que describiera de manera definitiva el aspecto de HTML para así poder juzgar si se saltaban algunas partes de la implantación de HTML.</p>
+  
+  <p>El IETF (<span lang="en">Internet Engineering Task Force</span>, un organismo definidor de estándares que se preocupa por la interoperabilidad a través de Internet) publicó en el año 1993 un borrador de propuesta de HTML. Esta propuesta caducó en el año 1994 sin haberse convertido en un estándar, pero provocó que el IETF creara un grupo de trabajo para estudiar la estandarización del HTML.</p>
+  
+  <p>En el año 1995 se redactó "HTML 2.0", que aprovechaba ideas del borrador de HTML original. Dave Raggett escribió una propuesta alternativa conocida como HTML+; esta propuesta se utilizó como base para muchos de los elementos nuevos implantados por los navegadores (como el método para insertar imágenes en documentos, que se utilizó por primera vez en NCSA Mosaic).</p>
+  
+  <p>Más tarde, en aquel mismo año apareció un borrador de HTML 3.0, pero se dejó de trabajar en esta versión a causa de la falta de apoyo por parte de los creadores de navegadores en cuanto a la dirección que se debía seguir. HTML 3.2 suprimió muchas de las funciones nuevas de la versión 3.0 y, en lugar de éstas, adoptó muchas de las creaciones de los navegadores más populares de entonces: Mosaic y Netscape Navigator.</p>
+  
+  <p>En el año 1997, el W3C publicó HTML 4.0 como recomendación que adoptaba más extensiones específicas de navegadores, pero que también intentaba racionalizar y perfeccionar HTML. Esto se hizo marcando varios elementos como desaprobados (deprecated), que significa que los elementos están obsoletos y que, aunque todavía aparecen en esta versión, se eliminarán en una revisión posterior. Esto se hizo para impulsar un uso mejor y más semántico de HTML en documentos.</p>
+  
+  <div class="vegeu_tambe">
+  <h3>Ved también</h3>
+  
+  <p>Podéis ver la evolución de HTML en el apartado 4 del módulo "Introducción al mundo de los estándares web".</p>
+  </div>
+  
+  <p>En el año 1999 se publicó HTML 4.01, con algunas erratas corregidas en el año 2001. Ésta es la última versión de HTML, aunque actualmente se está trabajando en la versión HTML 5.</p>
+  
+  <p>En el año 2000, el W3C también publicó la especificación XHTML 1.0, que era HTML reestructurado para ser un documento XML válido.</p>             
+                     
+  <h2 id="htmlstructure">12.4. La estructura de un documento HTML</h2>
+  
+  <p>El documento HTML válido más pequeño posible sería algo similar a esto:</p>
+  
+  
+<pre><code>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/
+ strict.dtd"&gt;
+&lt;html&gt;
+   &lt;head&gt;
+      &lt;title&gt;Pàgina d'exemple&lt;/title&gt;
+   &lt;/head&gt;
+   &lt;body&gt;
+      &lt;h1&gt;Hola a todos&lt;/h1&gt;
+   &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+  
+  <p>El documento empieza con un elemento de tipo de documento o doctype. Este elemento describe el tipo de HTML que se utiliza para que los agentes de usuario puedan determinar cómo se debe interpretar el documento y saber si sigue las normas que dice que seguirá.</p>
+  
+  <div class="vegeu_tambe">
+  <h3>Ved también</h3>
+  
+  <p>El <code>doctype</code> se describe con más detalle en el apartado 14 de este módulo.</p>
+  </div>
+  
+  <p>A continuación, se puede ver la etiqueta de apertura del elemento <code>html</code>. Éste es un elemento que incluye a todo el documento. La etiqueta <code>html</code> de cierre es lo último que hay en cualquier documento HTML.</p>
+  
+  <p>Dentro del elemento <code>html</code> está el elemento <code>head</code>. Éste es un elemento que contiene información sobre el documento (los metadatos). Este elemento se describe más detalladamente en el apartado siguiente. En la cabecera está el elemento <code>title</code>, que define el título "Página de ejemplo" de la barra del menú.</p>
+  
+  <p>Después del elemento <code>head</code> está el elemento  <code>body</code>, que es el elemento que incluye el contenido real de la página; en este caso sólo hay un elemento de encabezamiento de nivel uno (<code>h1</code>), que contiene el texto "Hola a todos". Y éste es todo nuestro documento.</p>
+  
+  <p>Como se puede ver, a menudo los elementos contienen otros elementos. El cuerpo del documento incluirá inevitablemente muchos otros elementos. Las divisiones de página crean la estructura general del documento y contendrán subdivisiones. Éstas contendrán títulos, párrafos, listas, etc. Los párrafos pueden contener elementos que creen enlaces hacia otros documentos, citas, énfasis, etc. A medida que vayáis avanzando en esta serie, iréis sabiendo más cosas sobre estos elementos.</p>
+
+  <h2 id="htmlsyntax">12.5. La sintaxis de los elementos HTML</h2>
+  
+  <p>Como ya hemos visto, un elemento básico en HTML consiste en dos marcadores al principio y al final de un bloque de texto. Hay algunos elementos que no rodean al texto y, en la mayoría de los casos, los elementos pueden contener subelementos (como <code>html</code> que contiene <code>head</code> y <code>body</code> en el ejemplo anterior).</p>
+  
+  <p>Los elementos también pueden tener atributos, que pueden modificar el comportamiento del elemento e introducir un significado adicional.</p>
+  
+<pre><code>&lt;div id="masthead"&gt;
+   &lt;h1&gt;Conceptos básicos del 
+      &lt;abbr title="lenguaje de marcado de hipertexto"&gt;HTML&lt;/abbr&gt;
+   &lt;/h1&gt;
+&lt;/div&gt;</code></pre>
+  
+  <p>En este ejemplo hay un elemento <code>div</code> (división de página, una manera de partir los documentos en bloques lógicos) con un atributo <code>id</code> añadido que tiene el valor de <code>masthead</code>. El elemento <code>div</code> contiene un elemento <code>h1</code> (encabezamiento de primer nivel o más importante), que al mismo tiempo contiene texto. Parte de este texto está incluido en un elemento <code>abbr</code> (que se utiliza para especificar la expansión de las siglas), que tiene el atributo <code>title</code>, cuyo valor está definido como <em>lenguaje de marcado de hipertexto</em> (<span lang="en">Hypertext Markup Language</span>).</p>
+  
+  <p>Muchos de los atributos de HTML son comunes para todos los elementos, aunque algunos son específicos de uno o varios elementos concretos. Éstos tienen siempre la forma <code>keyword="value"</code>. El valor debe aparecer siempre entre comillas simples o dobles (en algunas circunstancias se pueden omitir las comillas, pero no es una práctica recomendable con respecto a la predictibilidad, la comprensión y la claridad; se deben poner siempre los valores entre comillas).</p>
+  
+  <p>La mayoría de los <a href="http://www.w3.org/TR/html401/index/attributes.html" hreflang="en">atributos y sus valores posibles están definidos por las especificaciones HTML</a>; no es posible crear atributos propios sin invalidar el HTML, ya que ello puede confundir a los agentes de usuario y provocar problemas a la hora de interpretar correctamente la página web. Las únicas excepciones reales son los atributos <code>id</code> y <code>class</code>; sus valores están totalmente bajo vuestro control, ya que sirven para añadir significado y semántica propias a vuestros documentos.</p>
+  
+  <p>Un elemento que se encuentra dentro de otro elemento se conoce como "hijo" de este elemento. Así pues, en el ejemplo anterior, <code>abbr</code> es hijo del elemento <code>h1</code>, que al mismo tiempo es hijo de <code>div</code>. Y al revés, el elemento <code>div</code> sería "padre" del elemento <code>h1</code>. Este concepto de padre/hijo es muy importante, ya que es la base de CSS y se utiliza mucho en JavaScript.</p>
+
+  <h2 id="blockinline">12.6. Elementos de bloque y en línea</h2>
+  
+  <p>En el HTML hay dos categorías generales de elementos que corresponden a dos tipos de contenidos y estructuras que representan estos elementos: elementos de bloque y elementos en línea.</p>
+  
+  <div class="text-clau">
+  <p>Los <strong>elementos de bloque</strong> son elementos de nivel superior y normalmente definen la estructura del documento. Puede ser útil ver los elementos de bloque como aquellos que empiezan en una línea nueva y que representan una ruptura con lo anterior. </p>
+  </div>
+  
+  <p>Algunos elementos de bloque comunes incluyen los párrafos, las listas, los títulos y las tablas.</p>
+  
+  <div class="text-clau">
+  <p>Los <strong>elementos en línea</strong> son aquellos que se encuentran incluidos en los elementos estructurales de bloque y que incluyen sólo partes pequeñas del contenido del documento, y no párrafos enteros ni grupos de contenido. </p>
+  </div>
+  
+  <p>Un elemento en línea no hará que aparezca una línea nueva en el documento; son los tipos de elementos que aparecen dentro de un párrafo de texto. Algunos elementos en línea comunes son los vínculos de hipertexto, las palabras o frases destacadas o las citas breves.</p>            
+
+  <h2 id="characterreferences">12.7. Referencias de carácter</h2>
+  
+  <p>Un último aspecto que hay que mencionar de un documento HTML es la manera de incluir caracteres especiales. En el HTML, los caracteres &lt;, &gt; i &amp; son especiales.  Estos caracteres inician y finalizan partes del documento HTML, y no representan los caracteres de "menor que", "mayor que" y "et".</p>
+  
+  <p>Uno de los primeros errores que puede cometer un autor de webs es utilizar un carácter "et" en un documento y entonces ver que aparece algo inesperado. Por ejemplo, si se escribe la frase "Imperial units measure weight in stones&amp;pounds" puede ser que en algunos navegadores se vea "...stones&pound;s".</p>
+  
+  <p>Esto sucede porque en HTML la cadena literal "&amp;pound;" éses en realidad una referencia de carácter. Una referencia de carácter es una manera de incluir en un documento un carácter que es difícil o imposible de escribir desde un teclado, o en una codificación de documento concreta.</p>
+  
+  <p>El símbolo "et" (&amp;) introduce la referencia, y el punto y coma (;) la acaba. No obstante, muchos agentes de usuario pueden ser muy condescendientes a la hora de perdonar errores en el HTML, como por ejemplo el de olvidar el punto y coma, e interpretarán "&amp;pound" como una referencia de carácter. Las referencias pueden ser números (referencias numéricas) o palabras abreviadas (referencias de entidades).</p>
+  
+  <div class="text-clau">
+  <p>Un símbolo "et" se debe introducir en un documento como "&amp;amp;", que es la referencia de entidad de carácter, o como "&amp;#38;" que es la referencia numérica. <a href="http://www.evolt.org/article/A_Simple_Character_Entity_Chart/17/21234/" hreflang="en">En evolt.org</a> encontraréis una tabla completa de las referencias de caracteres.</p>
+  </div>
+
+
+<h2 id="summary">Resumen</h2>
+  
+  <p>En este apartado hemos aprendido los conceptos básicos del HTML, de dónde proviene y algunas ideas sobre la estructura de un documento HTML. A continuación, explicaremos la sección <code>&lt;head&gt;</code> de un documento HTML más detalladamente y después continuaremos explicando el contenido de <code>&lt;body&gt;</code>.</p> 
+
+</div>
+<div><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.es"><img src="../../m0/creative_commons.gif" id="logo_cc" alt="Logo Creative Commons" /></a></div>
+<div id="logo_text">Los contenidos recogidos en este artículo están sujetos a una licencia <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.es">Creative Commons<br /> Reconocimiento, No comercial - Compartir bajo la misma licencia 3.0 No adaptada</a>.
+</div>
+<div id="cierre_autor"></div>
+
+<div id="peu">
+		<a rel="prev" href="../../m2/ud6/index.html" title="Ir al artículo anterior" accesskey="8"><img src="../../img/fletxa_izq_inv.gif" alt="Ir al artículo anterior" /></a> <strong>:</strong>
+		<a rel="index" href="../../index.html" title="Ir al índice" accesskey="0"><img src="../../img/indice_inv.gif" alt="Ir al índice" /></a> <strong>:</strong>
+		<a rel="next" href="../ud2/index.html" title="Ir al artículo siguiente" accesskey="9"><img src="../../img/fletxa_der_inv.gif" alt="Ir al artículo siguiente" /></a>
+</div>
+</body>
+</html>

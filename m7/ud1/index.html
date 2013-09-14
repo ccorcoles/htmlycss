@@ -1,0 +1,381 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
+<meta http-equiv="Content-Language" content="es" />
+<meta name="language" content="es" />
+<meta name="author" content="Universitat Oberta de Catalunya" />
+<meta name="description" content="FALTA CONTENIDO" />
+<meta name="title" content="FALTA CONTENIDO" />
+<meta name="keywords" content="FALTA CONTENIDO" />
+
+<title>Encabezamientos, pies, columnas y plantillas - Encabezamientos, pies, columnas y plantillas</title>
+<link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
+</head>
+
+<body>
+<div id="cabecera">
+	<img id="logo" src="../../img/logo.gif" alt="Universitat Oberta de Catalunya" />
+    <a href="http://mosaic.uoc.edu/"><img id="logomosaic" src="../../img/logo-mosaic.gif" alt="Logo de Mosaic" title="Abre la página web de Mosaic" /></a>
+	<div id="titulo">Encabezamientos, pies, columnas y plantillas</div>
+	<div id="subtitulo">Encabezamientos, pies, columnas y plantillas</div>
+<div id="cierre"></div>
+	<div id="navegador">
+		<a href="../../m0/accessibilitat.html" id="accesibilidad">Accesibilidad</a> <strong>:</strong> 
+		<a rel="prev" href="../../m6/ud11/index.html" title="Ir al artículo anterior" accesskey="8"><img src="../../img/fletxa_izq.gif" alt="Ir al artículo anterior" /></a> <strong>:</strong> 
+		<a rel="index" href="../../index.html" title="Ir al índice" accesskey="0"><img src="../../img/indice.gif" alt="Ir al índice" /></a> <strong>:</strong> 
+		<img src="../../img/fletxa_der.gif" alt="Ir al artículo siguiente" />
+	</div>
+</div>
+	
+<div id="main">
+<h1>38. Encabezamientos, pies, columnas y plantillas</h1>
+<p class="by"><a href="../../index.html#henick">Ben Henick</a>. 3 de febrero del 2009. Publicado en: pies, composición, CSS, columnas, encabezamientos</p>
+
+<p>Hasta ahora, los artículos de este curso se han centrado en temas concretos, desde conceptos "blandos" como la tipografía y el color hasta una instrucción técnica "dura" sobre partes de CSS 2.1. Este artículo tiene un enfoque más amplio; su finalidad es mostrar al lector cómo utilizar el material tratado hasta ahora para construir la plantilla de una web completa.</p>
+  
+  <p>La principal asunción de este material es que ya estáis familiarizados con las propiedades <code>float</code> (flotar), <code>display</code> (visualitzar) i <code>position</code> (posició) de CSS.</p>
+  
+  <p>Los lectores autodidactas que deseen pasar directamente al jugo del CSS están invitados (contra nuestra voluntad) a pasar directamente al subapartado 4 de este módulo, pero deberán tener en cuenta que, al hacerlo, se perderán la lección sobre cómo una planificación satisfactoria del proyecto conduce a la composición e implementación de un sitio web.</p>
+
+    <div class="vegeu_tambe">
+    <h3>Ved también</h3>
+    <p>Podéis ver el subapartado 38.4 de este módulo.</p>
+    </div>
+
+<p>Aquellas almas impacientes que ignoren las advertencias del párrafo anterior también deberán descargar las plantillas para una, dos y tres columnas que se facilitan en este artículo y se les enlazará de nuevo a su conclusión.</p>
+
+<div class="font">
+  <p><strong>Archivo fuente:</strong> "<a href="http://dev.opera.com/articles/view/38-headers-footers-columns-templates/template_1col.html.txt">Composición a una columna</a>"</p>
+  <p><strong>Archivo fuente:</strong> "<a href="http://dev.opera.com/articles/view/38-headers-footers-columns-templates/template_2col.html.txt">Composición a dos columnas</a>"</p>
+  <p><strong>Archivo fuente:</strong> "<a href="http://dev.opera.com/articles/view/38-headers-footers-columns-templates/template_3col.html.txt">Composición a tres columnas</a>"</p>
+</div>
+    <p>La estructura de este artículo es la siguiente:</p>
+    
+<ul class="index">
+	<li>38.1. <a href="#criticalprocesssteps" accesskey="1">Los pasos críticos del proceso del estilista</a>
+ 	  <ul class="index"> 
+		<li>38.1.1. <a href="#gatheringobjectives">Recopilación de objetivos</a></li>
+	<li>38.1.2. <a href="#contentclassification1">Clasificación de contenidos</a></li>
+	<li>38.1.3. <a href="#collaborativesketching">Esbozo colaborativo y creación de un compuesto</a></li>
+	<li>38.1.4. <a href="#establishmentdocumentstructure">Establecimiento de una estructura entre y dentro de documentos</a></li>
+	</ul></li>
+	<li>38.2. <a href="#requirementsclassificationnamespaces" accesskey="2">Requisitos, clasificación e imbricación de elementos con más detalle</a>
+	 <ul class="index">
+	<li>38.2.1. <a href="#definingbusinessobjectives">Definición de objetivos empresariales</a></li>
+	<li>38.2.2. <a href="#definingvisitorobjectives">Definición y cumplimiento de los objetivos de los visitantes</a></li>
+	<li>38.2.3. <a href="#contentclassification2">Clasificación de contenidos</a></li>
+	<li>38.2.4. <a href="#sourceorder">Orden del código: accesibilidad y otras consideraciones</a></li>
+	<li>38.2.5. <a href="#namespacecreation">Asignación de <em>id</em>, clases y elementos contenedores</a></li>
+	</ul></li>
+	<li>38.3. <a href="#singlecolumn" accesskey="3">Implementación de la composición a una columna</a>
+	<ul class="index"> 
+	<li>38.3.1. <a href="#centeringlayout">Centrado de la composición</a></li>
+	<li>38.3.2. <a href="#documentcontainernecessary">¿Es estrictamente necesario un contenedor de toda la anchura del documento?</a></li>
+	</ul></li> 
+	<li>38.4. <a href="#doublecolumnlayout" accesskey="4">Implementación de la composición a dos columnas</a>
+	<ul class="index"> 
+	<li>38.4.1. <a href="#compositionissues">Problemas de composición en relación con las disposiciones a una y dos columnas</a>
+	<ul class="index"> 
+	<li><a href="#sidebarplacement">Colocación de <code>#sidebar</code> a la izquierda en vez de en su orden original</a></li> 
+	<li><a href="#fauxcolumns">Columnas falsas: uso de una imagen de fondo para alinear las longitudes de las columnas cuando la longitud de su contenido es diferente</a></li> 
+	<li><a href="#primarynavigationsecondcolumn">Desplazamiento de la navegación principal en la segunda columna mientras se mantiene el orden de origen</a></li> 
+	</ul></li>
+	</ul></li>
+	<li>38.5. <a href="#triplecolumnlayout" accesskey="5">Implementación de la composición a tres columnas</a></li> 
+	<li>38.6. <a href="#headersandfooters" accesskey="6">Visión amplia de los encabezamientos y pies</a>
+	<ul class="index">
+	<li>38.6.1. <a href="#cindyli">Sitio personal: Cindy Li</a>
+	<ul class="index"> 
+	<li><a href="#identitycindyli">Identidad</a></li> 
+	<li><a href="#contrastcindyli">Contraste</a></li>
+	</ul></li> 
+	<li>38.6.2 <a href="#facebook">Redes sociales: Facebook</a></li> 
+	<li>38.6.3. <a href="#BNSF">Marketing de empresa y servicio al cliente: BNSF Railway</a>
+	<ul class="index"> 
+	<li><a href="#identityrevisited">Repaso de la identidad</a></li> 
+	</ul></li>
+	<li>38.6.4. <a href="#headerandfooterdesign">Diseño de encabezamiento y pie: los detalles de bajo nivel</a>
+	<ul class="index">
+	<li><a href="#moreaboutnavigationlayout">Más información sobre la implementación de la composición de navegación</a></li> 
+	</ul></li>
+	 </ul></li>
+	<li>38.7. <a href="#varyingcolumnsites" accesskey="7">Webs con diferentes números de columnas: hacer trampa con <code>class</code> y <code>display</code></a></li> 
+	<li class="especial"><a href="#summary">Resumen</a></li>
+	<li class="especial"><a href="#exercises">Preguntas de repaso</a></li>
+	<li class="especial"><a href="#biblio">Lecturas complementarias</a></li>
+</ul>
+
+
+<div class="note">
+	<h3>Nota</h3>
+  
+  <p>Podéis descargar todo el código de ejemplo en un cómodo paquete para hacer pruebas en vuestro equipo local.</p>
+    <p class="font"><strong>Podéis descargar el código de ejemplo en:</strong> "<a href="http://dev.opera.com/articles/view/38-headers-footers-columns-templates/layout_templates.zip">layout_template_code.zip</a>"</p>
+</div>             
+
+<p>Una web construida adecuadamente suele ser el producto de un proceso deliberado, principalmente por entregas, aunque el sitio lo creen una o dos personas en vez de un equipo entero de especialistas. En la figura 1 se describe una representación bastante elaborada de este proceso y de los diez pasos que aquí se describen; este artículo se centra en cuatro, en concreto:</p>
+  
+  <ol>
+    <li>Recogida de requisitos en función de los objetivos empresariales y los consiguientes objetivos de los visitantes</li>
+    <li>Clasificación de contenidos</li>
+    <li>Borrador colaborativo y creación de un compuesto</li>
+    <li>Establecimiento de la estructura de los documentos que se deben utilizar en la web</li>
+  </ol>
+  
+  <p>Una vez completados estos cuatro pasos, el estilista tiene la mayor parte de la información que necesita para crear las disposiciones de la web, que generalmente tendrán una, dos o tres columnas. Independientemente de la forma general de la composición, habrá diferencias de una sección de una web a otra, que a su vez influirá en cómo algunos elementos y selectores de estilo pasan a formar parte del diseño global de la web.</p>
+  
+  <p>Incluso después de haber hecho las selecciones de diseño y estructurales, queda la cuestión de cómo se tratará la producción si la web se debe crear sobre un sistema de gestión de contenidos (CMS) como Wordpress o Drupal.</p>
+  
+  <p>Este artículo subraya la importancia de los cuatro pasos mencionados anteriormente; proporciona un marco único para la clasificación de contenidos y describe cómo componer una web con todos los encabezamientos, pies y columnas.</p>
+
+
+
+ <h2 id="criticalprocesssteps">38.1. Los pasos críticos del proceso del estilista</h2>
+
+	<p>Las dos secciones siguientes se facilitan como embellecimiento de otros artículos de este currículo, con un énfasis en la planificación y el proceso más que en la implementación. El mensaje principal es: "Mirad antes de saltar"; en otras palabras, debéis comprender claramente lo que vais a implementar antes de empezar con el etiquetado, las hojas de estilos y el código.</p>
+
+<div class="imagen">
+	<img src="76510_m7_01.gif" alt="1. Recogida de requisitos 2. Escenarios de conducta 3. Wireframe 4. Esbozo, compuesto, asignación de espacio de nombres 5. Escribir guía de estilo 6. Crear plantillas 7. Escribir código y poblar el sitio 8. Probar 9. Reparar 10. Publicar" />
+	<p>Figura 1. Diez pasos comunes del proceso de creación de una web. Los que son especialmente relevantes para este artículo se muestran en el tramo inverso.</p>
+</div>
+
+<h3 id="gatheringobjectives">38.1.1. Recopilación de objetivos</h3>
+
+
+
+<p>El buen CSS se basa en una cadena de dependencias:</p>
+  <ul>
+    <li><p>el CSS se basa en una estructura para trabajar;</p></li>
+    <li><p>la estructura se informa mediante el contenido;</p></li>
+    <li><p>el contenido necesita un ámbito;</p></li>
+    <li><p>el ámbito del contenido se define mediante los posibles objetivos de visitantes, y</p></li>
+    <li><p>a su vez, los objetivos de los visitantes están relacionados con los objetivos empresariales.</p></li>
+
+</ul>
+
+  
+  <p>La cuestión de esta cadena de requisitos es que las necesidades de vuestros visitantes señalarán directamente la estructura que debéis crear para vuestro sitio y, por lo tanto, impulsarán los selectores y las técnicas aplicadas a vuestros estilos.</p>
+  
+  <p>Cuando el proceso de recogida de requisitos se gestiona incorrectamente, los especialistas en estilos se enfrentan a retos como los siguientes:</p>
+  
+  <ul>
+    <li><p>Falta de activos</p></li>
+    <li><p>Falta de orientación respecto a la relación entre el comportamiento de la composición y la geometría de las ventanas</p></li>
+    <li><p>Falta de definición de los niveles de soporte de plataformas</p></li>
+</ul>
+  
+  <div class="vegeu_tambe">
+  <h3>Ved también</h3>
+  <p>Podéis ver el apartado 34 del módulo "CSS".</p>
+  </div>
+
+<ul>  
+      <li><p>Solicitudes frecuentes de cambios, ya que los requisitos se acoplan durante el proceso de implementación</p></li>
+    <li><p>Falta de herramientas actuales</p></li>
+  </ul>
+
+<h3 id="contentclassification1">38.1.2. Clasificación de contenidos</h3>
+
+<p>Una vez que hayáis determinado el ámbito del contenido de vuestra web, debéis definir su importancia para el sitio en conjunto y decidir qué herramientas de navegación proporcionaréis a los visitantes para encontrarlo.</p>
+  
+  <p>También debéis tener en cuenta la cuestión de qué hacer con la publicidad, las listas de enlaces, las galerías y los comentarios.</p>
+  
+  <p>Una vez clasificados, los contenidos se pueden asociar entonces a la navegación de la web y ponderarlos. La ponderación de contenidos se tratará aquí en un contexto primario/secundario/terciario, dado que la importancia de un bloque de contenidos la debería reflejar su posición en el orden original del documento.</p>
+
+
+<h3 id="collaborativesketching">38.1.3. Esbozo colaborativo y creación de un compuesto</h3>
+<p>Si estáis trabajando en un proyecto en el que el diseño gráfico y la implementación de estilos son tareas asignadas a diferentes personas (como suele ser el caso en los proyectos comerciales), el diseñador gráfico deberá basarse en los diagramas de mapa del sitio y los esqueletos (si es el caso) para empezar a crear el aspecto general de la web. Puede ser útil empezar con borradores sencillos, como manera de definir elementos como el motivo general del sitio, sus características consistentes y los detalles que podrían complicar el etiquetado o la asignación de <code>class</code> e <code>id</code>.</p>
+  
+  <p>Una vez acordados los borradores, el diseñador gráfico puede pasar entonces a los compuestos acabados, que deberían ser parecidos a capturas de pantalla que se podrían generar en el navegador de desarrollo una vez puesta la web en producción.</p>
+  
+  <p>De ahora en adelante, en este artículo, el diseño gráfico se tratará de una manera rápida porque ya se ha explicado en los artículos sobre esqueletos y compuestos/modelos.</p>
+  
+<h3 id="establishmentdocumentstructure">38.1.4. Establecimiento de una estructura entre y dentro de documentos</h3>
+
+<p>Con los compuestos a mano, el especialista en estilos puede empezar a escribir el etiquetado y los CSS. El primer paso de este trabajo es decidir el orden de los contenidos, el anidado de elementos, classes e ids que se utilizarán en la web de producción; un trabajo que sólo se puede hacer bien si el especialista en estilos comprende completamente el contenido que se debe ofrecer en la web y cómo se debe disponer.</p>
+
+<h2 id="requirementsclassificationnamespaces">38.2. Requisitos, clasificación e imbricación de elementos con más detalle</h2>
+<p>Si se siguen las buenas prácticas modernas y se adopta el paradigma de diseño centrado en el usuario (UCD, User Centered Design) para motivar las decisiones de diseño y desarrollo, entonces los objetivos de los visitantes influyen en cada uno de los pasos del proceso de diseño.</p>
+  
+  <p>No obstante, de hecho los objetivos del patrocinador (o editor) de la web tienen prioridad desde el punto de vista del equipo de diseño, porque sin un conocimiento de aquellos objetivos, el equipo de diseño no tiene manera de prever los objetivos de los visitantes.</p>
+
+<h3 id="definingbusinessobjectives">38.2.1. Definición de objetivos empresariales</h3>
+
+<p>Los objetivos "empresariales" de la web entrarán en una o varias de las siguientes definiciones generales:</p>
+  
+
+<ul>
+  <li><p>Generación directa de ingresos (comercio electrónico)</p></li>
+  <li><p>Ofrecimiento de publicidad, mensajes y/o servicios de almacenamiento mediante una interfaz web (como, por ejemplo, Blogger, Flickr, Scribd, YouSendIt o Basecamp)</p></li>
+  <li><p>Comercialización de un producto o servicio</p></li>
+  <li><p>Facilitación de información</p></li>
+  <li><p>Entretenimiento del visitante</p></li>
+  </ul>
+  
+  <p>Una vez establecidos los objetivos generales, habrá más perfeccionamiento en función de cualquiera de una serie de factores, como la demografía, los objetivos de conversión y las limitaciones de diseño impuestas por el presupuesto del proyecto o la naturaleza del propio contenido (como podría ser el caso con el vídeo Flash).</p>
+  
+  <p>La experiencia es, de lejos, la mejor guía en esta parte del proceso de recogida de requisitos.</p>
+
+<h3 id="definingvisitorobjectives">38.2.2. Definición y cumplimiento de los objetivos de los visitantes</h3>
+
+<p>Una vez establecidos los objetivos empresariales, es decir: "esto es lo que queremos que vean y hagan nuestros visitantes", el paso siguiente es atraer y conducir a los visitantes a aquellos destinos y tipos de funcionalidades que les resulten más adecuados.</p>
+  
+  <p>La principal asunción de esta parte del proceso de diseño es que "los visitantes odian los obstáculos". Las mejores maneras de tener en cuenta este supuesto son las siguientes:</p>
+ 
+<ul> 
+    <li><p>Definir y diseñar una navegación que se adapte de la mejor manera posible a las estrategias de búsqueda más probables del visitante. Estas estrategias pueden incluir búsqueda de texto completo, listas tradicionales taxonómicas de enlaces o "etiquetado" (ya sea moderado o definido por el usuario).</p></li>
+</ul>
+  
+ <div class="note">
+  <h3>Nota</h3>
+  
+  <p>Es conveniente que tengáis en cuenta que una web puede contemplar más de una estrategia de búsqueda.</p>
+</div>
+  
+<ul>
+  <li><p>Ofrecer siempre indicaciones para que el visitante sepa dónde se encuentra en la web en conjunto. Entre los medios habituales de hacerlo están los "rastros de migas de pan" o "breadcrumbs", enlaces a contenido relacionado e indicaciones visuales como, por ejemplo, el diseño de enlaces de navegación dependientes del contexto.</p></li>
+  <li><p>Reforzar el estilo visual y escrito de la manera más rígida posible, sin caer en una consistencia ridícula. Esta práctica está íntimamente relacionada con la necesidad de dar al visitante pistas consistentes sobre la ubicación; la diferencia es que mientras el color y la disposición de la navegación ofrecen al usuario orientación por toda la web, una presentación consistente a lo largo de las páginas es <em><strong>esencial</strong></em> para orientarse en una única página.</p></li>
+  
+<li><p>Indicar siempre en lenguaje sencillo las consecuencias de seguir un enlace o enviar un formulario. A veces esto es tan sencillo como etiquetar un botón de enviar con la palabra "Búsqueda", pero en ocasiones es posible que debáis añadir una nota para dar más instrucciones a los visitantes de la web.</p></li>
+  <li><p>Proporcionar una distinción clara entre los elementos de diseño que responderán a la interacción del usuario y cualquier otra cosa. Los estilos que hacen que los enlaces sean casi indistinguibles del texto normal, el diseño inconsistente de los botones y los estilos de <code>cursor</code> atípicos son muy comunes y confusos. Los colores con un contraste elevado, el uso meditado de <code>padding</code> (para ampliar el espacio que ocupan los elementos de diseño interactivos), y los <code>title</code> informativos suelen ser más eficaces.</p></li>
+  
+  <li><p>Minimizar la cantidad de interacción del usuario (especialmente el número de clics en enlaces o botones) necesaria para alcanzar un objetivo común, como una compra o el servicio de recursos populares. En la práctica, esto generalmente requiere ponerse en la piel del visitante y analizar sus opciones desde su punto de vista. A no ser que estas tareas se puedan completar y hasta que esto sea posible, el atajo para cumplir esta directriz es seguir el espíritu del principio <a href="http://dev.opera.com/articles/view/opera-web-standards-curriculum-glossary/#kiss" hreflang="en">KISS</a>.</p></li>
+  </ul>
+  
+  <p>Cuando se trata de etiquetado y hojas de estilos, hay ciertas técnicas muy sencillas que hacen que estas reglas sean fáciles de seguir:</p>
+  
+<ul>
+
+  <li><p><strong>A la hora de elaborar vuestra hoja de estilos, debéis asignar las máximas propiedades posibles con reglas mediante selectores de elementos simples.</strong>
+  <br />Las <code>id</code>, por definición, son únicas y, para ser útiles, las clases se deben reservar preferentemente para casos poco comunes (o para requisitos de presentación que los navegadores antiguos no aceptarían correctamente de otra forma). No obstante, moderando su uso, los especialistas en estilos más atentos están al tanto de las ocasiones en las que el diseñador gráfico insiste en niveles de detalle potencialmente caros en sus diseños.</p></li>
+  
+  <li><p><strong>Debéis asignar una id al <code>body</code> de cada página.</strong>
+  <br />Si se asignan etiquetas de hojas de estilos a documentos determinados (y no sólo en las secciones de una web), los casos de presentación únicos son más fáciles de solucionar. Otra ventaja de colocar una id en el texto principal de cada página es que cuando se utiliza conjuntamente con elementos de navegación ponderados de manera similar, el estilista puede proporcionar indicaciones visuales en la navegación primaria para elementos como la sección o web visualizada actualmente, sin necesidad de utilizar lógica verbosa en el lado del servidor.</p></li>
+  
+    <li><p><strong>Debéis evitar los diseños que exigen un elevado control motriz por parte del visitante.</strong>
+    <br />Una manera más directa de describir esta instrucción es "debéis evitar los menús volantes como los creados mediante las técnicas Suckerfish, también conocidos como menús desplegables". Hay casos claros de uso de estos diseños y todos implican webs grandes basadas en disposiciones de una y dos columnas, pero a menudo se pueden evitar. Por otra parte, los usuarios sin experiencia y con discapacidad de control motriz a menudo encuentran problemáticos los menús desplegables:</p>
+  
+   
+	<div class="vegeu_tambe" id="suckerfish">
+	<p>Podéis ver "<a href="http://www.alistapart.com/articles/dropdowns/" hreflang="en">Suckerfish Dropdowns</a>", de Patrick Griffiths i Dan Webb.</p>
+	<p>Podéis ver "<a href="http://www.htmldog.com/articles/suckerfish/dropdowns/" hreflang="en">Son of Suckerfish Dropdowns</a>", de Patrick Griffiths i Dan Webb.</p>
+	</div>
+	
+  <ul class="guions">
+  <li><p>&ndash; Para ser efectivos, estos elementos suelen requerir que los enlaces que contienen sean más pequeños que el tamaño predeterminado del tipo de letra del texto, una indicación visual contraintuitiva que hace que los elementos de menú tenga menos aspecto de enlaces que otros elementos de la página que les rodean.</p></li>
+  
+  <li><p>&ndash; El nivel de control motriz necesario para utilizar estos elementos frustra fácilmente a los visitantes sin experiencia, ocasionales y discapacitados.</p></li>
+  
+  <li><p>&ndash; La variedad de posibles destinos disponibles que hay en una sección determinada de la web permanece oculta hasta que el visitante interactúa con estos elementos y esto limita su capacidad de mantener un sentido de ubicación en la web hasta que alcanzan experiencia en su uso.</p></li>
+</ul></li>
+</ul>
+
+<h3 id="contentclassification2">38.2.3. Clasificación de contenidos</h3>
+
+<p>Una vez calculado el alcance de los contenidos que se deben presentar en la web, podéis crearle una arquitectura. La arquitectura de un sitio se puede elaborar de varias maneras (podéis ver algunos ejemplos en el artículo 23).</p>
+  
+  <p>Generalmente, podréis asignar prioridades a vuestros contenidos, que informarán de las composiciones posibles:</p>
+  
+<ol>
+  <li><p><strong>Los contenidos primarios</strong> son la materia en torno a la que se construyen los documentos de destino individuales, como artículos, álbumes de fotos o conjuntos de datos.</p></li>
+  <li><p><strong>Los contenidos secundarios</strong> incluyen metadatos legibles para las personas que están adjuntas a los contenidos primarios, y también contenidos de barra lateral (por ejemplo, texto de exposición; extractos de críticas; enlaces a artículos relacionados en el sitio; listas de gráficos, mapas o tablas).</p></li>
+  <li><p><strong>Los contenidos terciarios</strong> comprenden los enlaces salientes a materiales relacionados (como la lista de enlaces amigos de un blog), instantáneas persistentes de contenidos de otras fuentes como webs de redes sociales o entradas de comentarios y publicidad.</p></li>
+  </ol>
+  
+  <p>Además de los contenidos, vuestro formato casi seguro incluirá dos secciones más:</p>
+  
+  <p>El <strong>encabezamiento</strong> incluirá el título de la web (que a menudo enlaza con la portada de la web), la navegación principal, enlaces a metadatos de la cuenta de usuario (en una aplicación) y, por último, el formulario de búsqueda de contenidos principales (si está implementado).</p>
+  
+  <p>El <strong>pie</strong> contiene la declaración de copyright, como mínimo. Los enlaces a documentos compuestos de metadatos (como canales RSS, sitemaps y la parte de metacontenidos de la web de la información de contacto) también encuentran su camino en la navegación secundaria de una web, que suele formar parte del pie.</p>
+  
+  <p>La navegación principal y el título de una web casi siempre forman parte de (o están al mismo nivel que) el encabezamiento en un contexto visual; cada implementador puede decidir si deberán formar parte del encabezamiento de la web a nivel de etiquetado.</p>
+
+<h3 id="sourceorder">38.2.4. Orden del código: accesibilidad y otras consideraciones</h3>
+
+<p>Uno de los primeros pasos del diseño de plantillas web es decidir el orden de sus contenidos en el código, que debería ser consistente a lo largo de la web en conjunto.</p>
+  
+  <p>El orden del código del documento de manera que se pueda leer correctamente sin la ventaja de las hojas de estilo es esencial por motivos de accesibilidad y soporte entre medios. En el primer caso, los usuarios con discapacidad visual pueden utilizar lo que se denomina lectores de pantallas: aplicaciones de software que leen los contenidos en voz alta al visitante, contenidos que no tienen ningún sentido si están ordenados de cualquier manera por motivos de presentación.</p>
+  
+  <p>...Y de la misma manera que la información dispuesta en el orden adecuado para la visualización en pantalla probablemente exige claridad para ser leída en voz alta, aplicar estilos puede resultar imposible en otros medios como visualizaciones impresas o móviles. En este caso, el resultado suele ser la duplicidad de contenidos, lo que presenta una serie de inconvenientes:</p>
+  
+<ul>
+  <li><p>Como mínimo, se debe implementar lógica adicional en la capa de vista para tener en cuenta el hecho de que la salida de un registro individual de una base de datos se puede ofrecer de más de una manera.</p></li>
+ 
+  
+  <li><p>En el peor de los casos, los contenidos se duplican no sólo en el entorno en el que se encuentra el visitante, sino también en la base de datos o en el sistema de archivos del sistema principal. El resultado será la duplicidad de algunos gastos de mantenimiento.</p></li>
+  </ul>
+  
+  <p>Por lo tanto, lo más habitual es disponer las secciones más exteriores en el orden siguiente:</p>
+<ol>  
+  <li><p>Encabezamiento</p>
+		<ul>
+    <li><p>Título [preferiblemente enlazado con la página de inicio]</p></li>
+    <li><p>Navegación principal</p></li>
+		</ul></li>
+    <li><p>Contenido principal</p>
+			<ul>        
+				<li><p>Título del documento</p></li>
+<li><p>Texto central</p></li>
+</ul></li>
+
+<li><p>Contenido secundario</p></li>
+<li><p>Contenido terciario</p></li>
+<li><p>Pie</p>
+<ul>        
+<li><p>Navegación secundaria</p></li>
+<li><p>Partes adicionales (por ejemplo, aviso de <em>copyright</em>)</p></li>
+</ul></li>
+</ol>
+  
+  <p>La manera como se imbricarán estas secciones dependerá de una serie de requisitos variables, de los que el más habitual es el número de columnas estáticas en la disposición de la web.</p>
+
+<h3 id="namespacecreation">38.2.5. Asignación de <em>id</em>, clases y elementos contenedores</h3>
+
+   <p>Cuestiones de taxonomía al margen, podemos asumir que cualquier web dada cubrirá una serie de temas relacionados dentro de un ámbito entendido, ya sean operaciones y productos de una empresa, tipos específicos de acontecimientos, o tipos específicos de entretenimiento, por nombrar algunos ejemplos con los que suelen contar para atraer el interés de públicos no técnicos.
+ </p>
+      
+      <p>Por lo tanto, el estilista se encontrará probablemente asociando las etiquetas de hojas de estilos tanto con elementos estructurales de los contenidos de la web (por ejemplo, fragmentos de navegación, encabezamiento, texto principal) como con abanicos de contenidos, más o menos amplios.</p>
+      
+      <p>Las prácticas varían, pero el autor generalmente asigna las siguientes etiquetas de formato a sus plantillas, etiquetas que verán su uso en este módulo.</p>
+     
+<ul>
+
+<li><p><code>#main</code>: lienzo de contenidos</p></li>
+<li><p><code>h1</code> (únic): título de la web</p></li>
+<li><p><code>ul#nav</code>: código de navegación del sitio</p></li>
+<li><p><code>#breadcrumb</code>: rastro de "migas de pan" (si se utiliza)</p></li>
+<li><p><code>#bodyCopy</code>: artículo principal</p></li>
+<li><p><code>#bodyCopy&gt;h2</code> (único): título de documento principal</p></li>
+<li><p><code>#sidebar</code>: contenido secundario</p></li>
+<li><p><code>#footer</code>: código del pie</p></li>
+<li><p><code>ul#secondaryNav</code>: navegación secundaria</p></li>
+</ul>
+      
+      <p>Además de éstos y mucho más importante, se añade una <code>id</code> al <code>body</code> de cada página (como se ha mencionado anteriormente) que da alguna indicación del ámbito del contenido primario asociado con todo el documento. Algunos proyectos también generan un requisito para la asignación de <code>classes</code> a los elementos <code>body</code>.</p>
+
+<h2 id="singlecolumn">38.3. Implementación de la composición a una columna</h2>
+
+<div class="imagen">
+	<img alt=""  src="76510_m7_02.gif"/>
+	<p>Figura 2. Elementos de la composición de una columna; probablemente el etiquetado se imbricará como se muestra aquí.</p>
+</div>
+  
+  <p>La figura 2 muestra que <code>#main</code> está immediatamente dentro de <code>body</code>, y que a la vez contiene todo el <code>#header</code>, <code>#bodyCopy</code> i <code>#footer</code>.</p>
+
+<h3 id="centeringlayout">38.3.1. Centrado de la composición</h3>
+
+<p>El centrado del lienzo de contenidos es una cuestión de insertar (en este caso) <code>#main {width: 960px; margin: auto; }</code> en vuestra hoja de estilos (el valor <code>width</code> elegido es arbitrario).</p>
+
+<h3 id="documentcontainernecessary">38.3.2. ¿Es estrictamente necesario un contenedor de toda la anchura del documento?</h3>
+
+<p>En una web que se basa completamente en composiciones de una sola columna, no es absolutamente necesario incluir <code>#main</code>; se podrían aplicar igual de fácilmente los mismos pares de propiedad/valor de composición utilizados anteriormente en <code>#header</code>, <code>#bodyCopy</code> i <code>#footer</code> de manera combinada. No obstant això, no hi ha res semánticamente incorrecto en incluir <code>#main</code> y su inclusión ofrece al especialista en estilos más flexibilidad en relación con elementos como las reglas, los canales, las imágenes de fondo y la construcción de la prominencia de determinados elementos en la estructura de la plantilla.</p>
+
+<h2 id="doublecolumnlayout">38.4. Implementación de la composición a dos columnas</h2>
+
+<div class="imagen">
+	<img alt="Dentro del lienzo tenemos un primer elemento de bloque #header, ocupando toda anchura, seguido de dos elementos #sidebar y #bodyCopy uno al lado de otro y, finalmente, un #footer que, de nuevo, ocupa todo el ancho del lienzo, dentro de un bloque #main" src="76510_m7_03.gif"/>
+	<p>Figura 3. Elementos de una composición en dos columnas; probablemente el etiquetado estará anidado como se muestra aquí, con la condición de que <code>#sidebar</code> seguirá de hecho a <code>#bodyCopy</code> en el orden de origen.</p>
+</div>
+  
+  <p>La diferencia entre las composiciones a una y dos columnas es el añadido de un segundo elemento contenedor para el contenido secundario (<code>#sidebar</code>, que de hecho sigue a <code>#bodyCopy</code> en el orden de origen), y algunos cambios en la hoja de estilos que probablemente se utilizarán para una disposición a una c

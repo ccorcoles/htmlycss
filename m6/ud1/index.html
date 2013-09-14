@@ -1,0 +1,473 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
+<meta http-equiv="Content-Language" content="es" />
+<meta name="language" content="es" />
+<meta name="author" content="Universitat Oberta de Catalunya" />
+<meta name="description" content="FALTA CONTENIDO" />
+<meta name="title" content="FALTA CONTENIDO" />
+<meta name="keywords" content="FALTA CONTENIDO" />
+
+<title>Conceptos básicos de CSS</title>
+<link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
+</head>
+
+<body>
+<div id="cabecera">
+	<img id="logo" src="../../img/logo.gif" alt="Universitat Oberta de Catalunya" />
+    <a href="http://mosaic.uoc.edu/"><img id="logomosaic" src="../../img/logo-mosaic.gif" alt="Logo de Mosaic" title="Abre la página web de Mosaic" /></a>
+	<div id="titulo">CSS</div>
+	<div id="subtitulo">Conceptos básicos de CSS</div>
+<div id="cierre"></div>
+	<div id="navegador">
+		<a href="../../m0/accessibilitat.html" id="accesibilidad">Accesibilidad</a> <strong>:</strong> 
+		<a rel="prev" href="../../m5/ud2/index.html" title="Ir al artículo anterior" accesskey="8"><img src="../../img/fletxa_izq.gif" alt="Ir al artículo anterior" /></a> <strong>:</strong> 
+		<a rel="index" href="../../index.html" title="Ir al índice" accesskey="0"><img src="../../img/indice.gif" alt="Ir al índice" /></a> <strong>:</strong> 
+		<a rel="next" href="../ud2/index.html" title="Ir al artículo siguiente" accesskey="9"><img src="../../img/fletxa_der.gif" alt="Ir al artículo siguiente" /></a>
+	</div>
+</div>
+	
+<div id="main">
+<h1>27. Conceptos básicos de CSS</h1>
+<p class="by"><a href="../../index.html#heilmann">Christian Heilmann</a>. 26 de septiembre deL 2008. Publicado en: externo, selectores, regla, incrustado, comentarios.</p>
+
+<p>En este curso ya hemos hablado sobre el contenido de los sitios web y cómo estructurar el contenido con HTML. Esto es muy importante, ya que quiere decir que damos significado y estructura a nuestros documentos para que otras tecnologías se puedan relacionar con ellos sin problemas. La tecnología web más importante que discutiremos a continuación es el CSS (<em>Cascading Style Sheets</em>, hojas de estilos en cascada), que se utiliza para aplicar estilos al HTML y situarlo en la página web. En este apartado, hablaremos del CSS: qué es, cómo aplicarlo al HTML y cuál es su sintaxis básica. </p>
+
+<div class="vegeu_tambe">
+<h3>Ved también</h3>    
+<p>Podéis ver cómo estructurar el contenido de los sitios web en el módulo "Fundamentos de HTML"</p>
+</div>
+
+<p>Los contenidos de este apartado son los siguientes:</p>
+
+<ul class="index">
+<li>27.1. <a href="#whatiscss" accesskey="1">¿Qué es el CSS?</a></li>
+<li>27.2. <a href="#definingstylerules" accesskey="2">Definir las reglas de los estilos</a>
+<ul class="index">
+<li>27.2.1. <a href="#csscomments">Comentarios del CSS</a></li>
+<li>27.2.2. <a href="#groupingselectors">Agrupar selectores</a></li>
+</ul></li>
+<li>27.3. <a href="#advancedselectors" accesskey="3">Selectores avanzados de CSS</a>
+<ul class="index">
+<li>27.3.1. <a href="#universal">Selectores universales</a></li>
+<li>27.3.2. <a href="#attribute">Selectores de atributos</a></li>
+<li>27.3.3. <a href="#child">Selectores de hijos</a></li>
+<li>27.3.4. <a href="#descendent">Selectores de descendientes</a></li>
+<li>27.3.5. <a href="#adjacent">Selectores de hermanos adyacentes</a></li>
+<li>27.3.6. <a href="#pseudoclasses">Pseudoclases</a></li>
+<li>27.3.7. <a href="#pseudoelements">Pseudoelementos</a></li>
+</ul></li>
+<li>27.4. <a href="#shorthand" accesskey="4">CSS abreviado</a>
+<ul class="index">
+<li>27.4.1. <a href="#comparingvalues">Comparar valores individuales y abreviados</a></li>
+<li>27.4.2. <a href="#lessthanfourvalues">Dar menos de cuatro valores para una propiedad abreviada</a></li>
+<li>27.4.3. <a href="#singlepropertyorshorthandvalue">Elegir entre utilizar una propiedad única o un valor abreviado</a></li>
+<li>27.4.4. <a href="#shorthandreference">Referencia abreviada</a></li>
+</ul></li>
+<li>27.5. <a href="#applyingcsstohtml" accesskey="5">Aplicar el CSS al HTML</a>
+<ul class="index">
+<li>27.5.1. <a href="#inline">Estilos en línea</a></li>
+<li>27.5.2. <a href="#embedded">Estilos incrustados</a></li>
+<li>27.5.3. <a href="#external">Hojas de estilos externos</a></li>
+<li>27.5.4. <a href="#import">Importar hojas de estilos con @import</a></li>
+</ul></li>
+<li class="especial"><a href="#summary">Resumen</a></li>
+<li class="especial"><a href="#exercises">Preguntas de repaso</a></li>
+</ul>
+
+<h2 id="whatiscss">27.1. ¿Qué es el CSS?</h2>
+
+<div class="text-clau">
+<p>Mientras que el HTML estructura el documento e indica a los navegadores cuál es la función de un elemento concreto (¿es un vínculo hacia otra página?, ¿es un título?), el CSS da instrucciones al navegador sobre cómo debe mostrar un elemento concreto: estilo, espaciado y posición. Si el HTML son los puntales y los ladrillos que forman la estructura de una casa, el CSS es el yeso y la pintura que la decoran.</p>
+</div>
+
+<p>Esto se consigue al utilizar un sistema de reglas cuya sintaxis exacta veremos más abajo. Estas reglas dicen qué elementos de HTML deben tener estilos añadidos, y en cada regla enumeran las propiedades (por ejemplo, color, tamaño, tipo de letra, etc.) de aquellos elementos HTML que quieren manipular y los valores nuevos que les quieren aplicar.</p>
+
+<div class="exemple">
+<h3>Ejemplo</h3>
+<p>Una regla del CSS podría decir, por ejemplo: "Quiero encontrar todos los elementos <code>h2</code> y aplicarles el color verde", o: "Quiero encontrar todos los párrafos con el nombre de clase <code>author-name</code>, aplicarles un fondo de color rojo, hacer que el texto de su interior sea el doble de grande que el texto de los párrafos normales y añadir 10 píxeles de espaciado a su alrededor".</p>
+</div>
+
+<p>El CSS no es un lenguaje de programación como JavaScript ni tampoco es un lenguaje de etiquetas como HTML; de hecho, no hay nada con lo que se le pueda comparar. Las tecnologías que definían las interfaces antes del desarrollo de la web mezclaban siempre la presentación y la estructura. Sin embargo, en un entorno que cambia tan a menudo como la web, ésta no es una manera muy inteligente de hacer las cosas, y por ello se inventó el CSS.</p>
+
+<h2 id="definingstylerules">27.2. Definir las reglas de los estilos</h2>
+
+<p>Así pues, veamos un ejemplo de código del CSS y después lo analizaremos:</p>
+                        
+<pre><code>selector {
+   propiedad1:valor;
+   propiedad2:valor;
+   propiedad3:valor;
+}</code></pre>
+
+<p>Las partes pertinentes son las siguientes:</p>
+
+<ul>
+<li><p>El selector identifica los elementos del HTML a los que se aplicará la regla, que se identifican con el nombre del elemento en sí, como por ejemplo <code>body</code>, o con algún otro método, como los valores del atributo <code>class</code>; ya volveremos a hablar de ello más adelante.</p></li>
+
+<li><p>Las llaves contienen las parejas de propiedad/valor, que se separan entre ellas con un signo de punto y coma; las propiedades se separan de sus valores respectivos con el signo de dos puntos.</p></li>
+
+<li><p>Las propiedades definen lo que queréis hacer con los elementos que habéis seleccionado. Pueden ser muy variadas y pueden modificar el color, el color de fondo, la posición, los márgenes, la separación, el tipo de letra y muchos otros aspectos del elemento.</p></li>
+
+<li><p>Los valores son los valores a los que queréis cambiar cada una de las propiedades de los elementos seleccionados. Los valores dependen de la propiedad; por ejemplo, las propiedades que afectan al color pueden tener valores hexadecimales como #336699, valores RGB como rgb (12,134,22) o nombres de colores (en inglés) como <em>red</em>, <em>green</em> o <em>blue</em>. Las propiedades que afectan a la posición, los márgenes, la anchura, la altura... se pueden medir en píxeles, ems, porcentajes, centímetros u otras unidades similares.</p></li>
+</ul>     
+   
+<p>Veamos ahora un ejemplo concreto:</p>
+
+<pre><code>p {
+   margin:5px;
+   font-family:arial;
+   color:blue;
+}</code></pre> 
+
+<p>El elemento HTML que selecciona esta regla es <code>p</code>; esta regla se aplicará a todos los <code>p</code> de los documentos HTML que utilicen este CSS, a menos que haya reglas más concretas que se les apliquen, ya que en este caso las reglas más concretas tendrán prioridad sobre esta regla. Las propiedades que se ven afectadas por esta regla son los márgenes alrededor de los párrafos, el tipo de letra del texto de los párrafos y el color de este texto. Los márgenes están definidos en 5 píxeles, el tipo de letra está definido en Arial y el color del texto es azul.</p>
+
+
+<p>Ya volveremos a hablar de todos estos detalles más adelante; el objetivo principal de este apartado es explicar las bases del CSS y no sus detalles menores.</p>
+
+<p>Todas estas reglas se unen para formar una hoja de estilos. Ésta es la sintaxis más básica de CSS. Hay más cosas, pero no muchas más; probablemente, lo mejor que tiene CSS es su sencillez.</p>
+
+<h3 id="csscomments">27.2.1. Comentarios del CSS</h3>
+
+<p>Una de las primeras cosas que hay que saber es cómo hacer comentarios en CSS. Podéis añadir comentarios poniéndolos entre <code>/*</code> y <code>*/</code>. Los comentarios pueden ocupar varias líneas, que el navegador ignorará:</p>
+
+<pre><code>/* Éstos son selectores de elementos básicos */
+selector{
+   propiedad1:valor;
+   propiedad2:valor;
+   propiedad3:valor;
+}</code></pre> 
+
+<p>Podéis añadir comentarios entre reglas o en un bloque de propiedades; por ejemplo, en el siguiente CSS las propiedades segunda y tercera se encuentran entre delimitadores de comentario, por lo que el navegador las ignorará. Esto puede ser muy útil cuando queráis comprobar los efectos que tienen partes concretas del CSS en vuestra página web; podéis eliminarlas convirtiéndolas en comentarios, guardar el CSS y volver a cargar el HTML.</p>
+
+<pre><code>selector{
+   propiedad1:valor;
+   /*
+   propiedad2:valor;
+   propiedad3:valor;
+   */
+}</code></pre>
+
+<p>A diferencia de otros lenguajes, el CSS sólo tiene comentarios de bloque; los comentarios de línea no existen. Evidentemente, si lo queréis, podéis restringir el comentario a una única línea, pero deberéis seguir incluyendo los delimitadores de apertura y de cierre de comentario (<code>/*</code> y <code>*/</code>).</p>
+
+<h3 id="groupingselectors">27.2.2. Agrupar selectores</h3>
+
+<p>También podéis agrupar diferentes selectores. Pongamos por caso que queréis aplicar el mismo estilo a <code>h1</code> y <code>p</code>; podríais escribir el siguiente CSS:</p>
+
+<pre><code>h1 {color:red}
+p {color:red}</code></pre>
+
+<p>Sin embargo, ésta no es la manera ideal de hacer las cosas, ya que repetís información idéntica. Por lo tanto, podéis acortar el CSS agrupando los selectores con una coma; las reglas entre llaves se aplican a ambos selectores:</p>
+<pre><code>h1, p {color:red}</code></pre>
+<p>Hay varios selectores, y cada uno se corresponde con una parte diferente del etiquetado. Los tres más básicos que encontraréis más a menudo son los siguientes:</p>
+
+<ul>
+<li><p><code>p {}</code>: selector de elementos.
+<br />Se corresponde con todos los elementos de este nombre de la página (en el caso anterior, elementos<code> p</code>).</p></li>
+
+<li><p><code>.example{}</code>: selector de clase.
+<br />Se corresponde con todos los elementos que tienen el atributo <code>class</code> con el valor especificado; por lo tanto, el selector anterior se correspondería con <code>&lt;p class="example"&gt;</code>, <code>&lt;li class="example"&gt;</code> o <code>&lt;div class="example"&gt;</code>, o con cualquier otro elemento con <code>class</code> definido como <code>example</code>. Tened en cuenta que los selectores de clase no comprueban ningún nombre de elemento concreto.</p></li>
+
+<li><p><code>#example{}</code>: selector de <code>id</code>.
+<br />Se corresponde con todos los elementos que tienen un atributo <code>id</code> con el valor especificado; así pues, el selector anterior se correspondería con <code>&lt;p id="example"&gt;</code>, <code>&lt;li id="example"&gt;</code> o <code>&lt;div id="example"&gt;</code>, o con cualquier otro elemento con <code>id</code> definido como <code>example</code>. Tened en cuenta que los selectores de ID no comprueban ningún nombre de elemento y que sólo podéis tener un ID de cada por documento HTML, ya que son únicos para cada página.</p></li>
+</ul>
+
+<p>En los siguientes ejemplos podéis ver los selectores anteriores en acción. Observad que cuando abrís el ejemplo en un navegador, el estilo <code>warning</code> se aplica tanto al punto de la lista como al párrafo (si desaparece el pico, es porque definís un color de texto blanco sobre un fondo blanco).</p>
+
+<ul>
+<li><p>"<a href="http://dev.opera.com/articles/view/27-css-basics/example-selectors.html" hreflang="en">Ejemplo de selectores</a>"</p></li>
+                                  
+<li><p> "<a href="http://dev.opera.com/articles/view/27-css-basics/selectors.css" hreflang="en">Selectors.css</a>"</p></li>
+</ul>
+
+<p>También podéis unir varios selectores para definir unas reglas aún más específicas:</p>
+
+<ul>
+<li><p><code>p.warning{}</code>. Se corresponde con todos los párrafos cuya  <code>class</code> es <code>warning</code> de <code>class</code>.</p></li>
+
+<li><p><code>div#example{}</code>. Se corresponde con el elemento con <code>example</code> como atributo <code>id</code>, pero sólo cuando es un <code>div</code>.</p></li>
+
+<li><p><code>p.info</code>, <code>li.highlight{}</code>. Se corresponde con los párrafos cuya <code>class</code> sea <code>info</code> y con los puntos de lista con el valor <code>highlight</code> en <code>class</code>.</p></li>
+</ul>
+<p>En el siguiente ejemplo, utilizamos selectores específicos para diferenciar los diferentes estilos de advertencias.</p>
+<ul>
+<li><p>"<a href="http://dev.opera.com/articles/view/27-css-basics/example-specificselectors.html" hreflang="en">Specificselectors example</a>"</p></li>
+               
+<li><p>"<a href="http://dev.opera.com/articles/view/27-css-basics/specificselectors.css" hreflang="en">Specificselectors.css</a>"</p></li>
+</ul>
+
+<h2 id="advancedselectors">27.3. Selectores avanzados de CSS</h2>
+
+<p>En el subapartado anterior hemos explicado los selectores más básicos de CSS, que son los selectores de elemento, clase e identificador. Con estos selectores se pueden hacer muchas cosas, pero eso no lo es todo; hay otros selectores que permiten seleccionar elementos para aplicarlos en función de criterios más específicos:</p>
+
+<ul>
+<li><p>Selectores universales: los selectores universales se pueden utilizar para seleccionar todos los elementos de la página.</p></li>
+
+<li><p>Selectores de atributo: tal como indica su nombre, los selectores de atributos permiten seleccionar elementos en función de sus atributos.</p></li>
+
+<li><p>Selectores de hijos: si queréis seleccionar elementos concretos que son hijos de otros elementos concretos, podéis utilizar este selector.</p></li>
+
+<li><p>Selectores de descendientes: si queréis seleccionar elementos concretos que son descendientes de otros elementos concretos (no sólo hijos directos, sino también más abajo del árbol), podéis utilizar este tipo de selector</p></li>
+
+<li><p>Selectores de hermanos adyacentes: si queréis seleccionar sólo elementos concretos que siguen a otros elementos concretos, utilizad estos selectores.</p></li>
+
+<li><p>Pseudoclases: permiten aplicar estilos a elementos, no en función de qué son los elementos, sino en función de factores más raros como, por ejemplo, el estado de los enlaces (por ejemplo, si se está encima o si ya se han visitado).</p></li>
+
+<li><p>Pseudoelementos: permiten aplicar estilos a partes concretas de los elementos y no a todo el elemento (por ejemplo, la primera letra de este elemento); también os permiten insertar contenido antes o después de elementos concretos.</p></li>
+</ul>
+
+<div class="note">
+<h3>Nota</h3>                  
+<p>A medida que vayáis progresando por este curso, encontraréis referencias a algunos de estos selectores más complicados. Si no los entendéis a la primera, no debéis preocuparos; ya los iréis dominando a medida que ganéis experiencia en los estilos de las páginas web. Lo mejor es empezar con los tres selectores básicos mencionados en el subapartado anterior e ir utilizando los otros una vez que os vayáis sintiendo más seguros.</p>
+</div>
+
+<h3 id="universal">27.3.1. Selectores universales</h3>
+
+<p>Para decirlo rápidamente, los selectores universales seleccionan todos los elementos de una página para aplicarles estilos. Por ejemplo, la regla siguiente dice que todos los elementos de la página deben tener un borde sólido de color negro de 1 píxel:</p>
+
+<pre><code>* {
+   border: 1px solid #000000;
+}</code></pre>
+
+<h3 id="attribute">27.3.2. Selectores de atributos</h3>
+
+<p>Los selectores de atributos permiten seleccionar elementos en función de los atributos que contienen. Por ejemplo, con el selector siguiente podéis seleccionar todos los elementos <code>img</code> con un atributo <code>alt</code>:</p>
+
+<pre><code>img[alt]{
+   border: 1px solid #000000;
+}</code></pre>   
+
+<p>Tened en cuenta los corchetes.</p>
+
+<p>Con el selector anterior quizá podríais definir un borde negro en torno a todas las imágenes con un atributo<code> alt</code> y un borde rojo alrededor de todas las demás imágenes, algo muy útil para las pruebas de accesibilidad.</p>
+<p>Pero los atributos os pueden ser mucho más útiles si tenéis en cuenta que podéis hacer selecciones a partir del valor de los atributos, y no sólo a partir de sus nombres. La regla siguiente se aplica a todas las imágenes que tienen un atributo <code>src</code> con el valor <code>alert.gif</code>:</p>
+
+<pre><code>img[src="alert.gif"]{
+   border: 1px solid #000000;
+}</code></pre>
+
+<p>Quizá penséis que no es muy útil, pero puede serlo mucho para la depuración. Y aún mucho más útil es la posibilidad de seleccionar partes concretas de atributos, como por ejemplo extensiones de archivos. Y eso ya está llegando: CSS 3 introduce tres tipos nuevos de selectores de atributos que pueden hacer selecciones en función de las cadenas de texto de los valores de los atributos (al principio, al final o en cualquier punto del valor). Podéis leer el artículo de Christopher Schmitt sobre los <a href="http://dev.opera.com/articles/view/css-3-attribute-selectors/" hreflang="en">selectores de atributos del CSS 3</a>.</p>
+
+<h3 id="child">27.3.3. Selectores de hijos</h3>
+<p>Si queréis seleccionar elementos concretos que son hijos de otros elementos concretos, podéis utilizar este selector. Por ejemplo, la regla siguiente pondrá de color azul el texto de los elementos <code>strong</code> hijos de elementos <code>h3</code>, pero ninguno de los demás elementos <code>strong</code>:</p>
+
+<pre><code>h3 &gt; strong {
+   color: blue;
+}</code></pre>
+
+<div class="note">
+<h3>Nota</h3>    
+<p>IE 6 y sus versiones anteriores no aceptan los selectores de hijos.</p>
+</div>
+
+<h3 id="descendent">27.3.4. Selectores de descendientes</h3>
+
+<p>Los selectores de descendientes son muy similares a los selectores de hijos, excepto que estos últimos seleccionan sólo a los descendientes<strong> </strong>directos; los selectores de descendientes seleccionan los elementos pertinentes en cualquier punto de la jerarquía del elemento, y no sólo los descendientes directos. Fijémonos bien en qué quiere decir esto. Pongamos por caso el siguiente fragmento de HTML:</p>
+
+<pre><code>&lt;div&gt;
+   &lt;em&gt;hello&lt;/em&gt;
+   &lt;p&gt;In this paragraph I will say
+      &lt;em&gt;goodbye&lt;/em&gt;.
+   &lt;/p&gt;
+&lt;/div&gt;</code></pre> 
+
+<p>En este fragmento, el elemento <code>div</code> es el padre de todos los demás. Tiene dos hijos, un <code>em</code> y un <code>p</code>. El elemento <code>p</code> tiene un único elemento hijo, que es otro <code>em</code>.</p>
+
+<p>Podéis utilizar un selector de hijos para seleccionar sólo el elemento <code>em</code> que hay inmediatamente dentro de <code>div</code>, de la siguiente manera:</p>
+
+<pre><code>div &gt; em {
+   ...
+}</code></pre>
+
+<p>Si utilizáis un selector de descendientes de la siguiente manera:</p>
+
+<pre><code>div em {
+   ...
+}</code></pre>
+
+<p>entonces se seleccionarán los dos elementos <code>em</code>.</p>
+
+<h3 id="adjacent">27.3.5. Selectores de hermanos adyacentes</h3>
+
+<p>Estos selectores permiten seleccionar un elemento concreto que aparece directamente después de otro elemento concreto en el mismo nivel de la jerarquía del elemento. Por ejemplo, si quisierais seleccionar todos los elementos <code>p</code> que aparecen inmediatamente después de los elementos<code> h2</code>, pero no los demás elementos<code> p</code>, podríais utilizar la siguiente regla:</p>
+
+<pre><code>h2 + p {
+   ...
+}</code></pre>  
+
+<div class="note">
+<h3>Nota</h3>    
+<p>IE 6 y sus versiones anteriores no aceptan los selectores de hermanos adyacentes.</p>
+</div>
+
+<h3 id="pseudoclasses">27.3.6. Pseudoclases</h3>
+
+<p>Las pseudoclases se utilizan para definir estilos, no para los elementos, sino para varios estados de los elementos. El uso más habitual que haréis de ellas es para aplicar estilos en los estados de los enlaces; por lo tanto, son los que veremos en primer lugar. La lista siguiente especifica las diferentes pseudoclases y describe el estado del enlace que seleccionan:</p>
+
+<ul>
+<li><p><code>:link</code>: el estado normal por defecto de los enlaces, tal como se encuentran cuando se ven por primera vez.</p></li>
+
+<li><p><code>:visited</code>: enlaces que ya habéis visitado en el navegador que estáis utilizando.</p></li>
+
+<li><p><code>:focus</code>: enlaces (o campos de formularios, o cualquier otra cosa) que tienen en este momento el cursor del teclado en su interior.</p></li>
+
+<li><p><code>:hover</code>: enlaces que tienen en este momento el puntero del ratón sobre ellos.</p></li>
+
+<li><p><code>:active</code>: un enlace en el que se está haciendo clic.</p></li>
+</ul>
+
+<p>Las siguientes reglas CSS definen que, por defecto, los enlaces sean de color azul (el valor por defecto en la mayoría de los navegadores). Al poneros encima, desaparece el subrayado del enlace. También queremos conseguir este mismo efecto cuando se selecciona el enlace con el teclado, por lo que duplicamos la regla <code>:hover</code> con <code>:focus.</code> Una vez que ya se ha visitado un enlace, éste queda de color gris. Por último, cuando un vínculo está activo, aparece en negrita para dar una pista adicional de que pasará algo.</p>
+
+<pre><code>a:link{
+   color: blue;
+}
+a:visited{
+   color: gray;
+}
+a:hover a:focus{
+   text-decoration: none;
+}
+a:active{
+   font-weight: bold;
+}</code></pre>  
+
+<div class="note">
+<h3>Nota</h3>
+<p>Cuidado si no definís estas reglas en el orden en el que aparecen en el ejemplo anterior, ya que de otro modo puede ser que no funcionen de la manera esperada. Esto es por el modo como la especificidad hace que las reglas posteriores de la hoja de estilos anulen las reglas anteriores. En el siguiente apartado, aprenderemos <a href="../ud2/index.html" hreflang="cat">más detalles sobre la especificidad</a>.</p>
+</div>
+
+<p>La pseudoclase <code>:focus</code> también es útil como contribución a la usabilidad en los formularios. Por ejemplo, podéis destacar el campo de introducción de datos que tiene el cursor intermitente activo en su interior con una regla como la siguiente:</p>
+
+<pre><code>input:focus {
+   border: 2px solid black;
+   background color:  lightgray;
+}</code></pre>  
+
+<p>A continuación, explicaremos <code>:first-child</code>. Esta pseudoclase selecciona cualquier aparición del elemento que es el primer elemento hijo de su padre; de modo que, por ejemplo, la regla siguiente selecciona el primer punto (con pico o numerado) de cualquier lista y pone el texto en negrita:</p>
+
+<pre><code>li:first-child {
+   font-weight: bold;
+}</code></pre>  
+
+<p>Finalmente, comentaremos brevemente la pseudoclase <code>:lang</code>, que selecciona elementos que tienen un idioma concreto definido con el atributo <code>lang</code>. Por ejemplo, el elemento siguiente:</p>
+
+<pre><code>&lt;p lang="en-US"&gt;A paragraph of American text, gee whiz!&lt;p&gt;</code></pre>
+  
+<p>Se podría seleccionar de la manera siguiente:</p>
+
+<pre><code>p:lang(en-US) {
+   ...
+}</code></pre>   
+
+<h3 id="pseudoelements">27.3.7. Pseudoelementos</h3>
+
+<p>Los pseudoelementos tienen dos finalidades. En primer lugar, los podéis utilizar para seleccionar la primera letra o la primera línea del texto del interior de un elemento concreto. Para crear una letra capitular al principio de cada párrafo del documento, podéis utilizar la regla siguiente:</p>
+
+<pre><code>p:first-letter {
+   font-weight:  bold;
+   font-size: 300%
+   background-color:  red;
+}</code></pre>   
+
+<p>La primera letra de cada párrafo aparecerá en negrita, un 300% más grande que el resto del párrafo y con un fondo rojo.</p>
+
+<p>Para hacer que la primera línea de cada párrafo aparezca en negrita, podéis utilizar la regla siguiente:</p>
+
+<pre><code>p:first-line {
+   font-weight:  bold; 
+}</code></pre>      
+
+<p>El segundo uso de los pseudoelementos es generar contenido por medio del CSS, lo cual es más complicado. Podéis utilizar los pseudoelementos <code>:before</code> o <code>:after</code> para especificar el contenido que se debe insertar antes o después del elemento que seleccionéis. Entonces podéis especificar qué es lo que queréis insertar. Como ejemplo muy sencillo, podéis utilizar la regla siguiente para insertar una imagen decorativa después de cada uno de los enlaces de la página:</p>
+
+<pre><code>a:after{
+   content: " " url(flower.gif);
+}</code></pre>   
+
+<p>También podéis utilizar la función <code>attr()</code> para insertar los valores de los atributos de los elementos después del elemento. Por ejemplo, con la regla siguiente podéis insertar el destino de cada uno de los enlaces del documento entre paréntesis después del enlace:</p>
+
+<pre><code>a:after{
+   content: "(" attr(href) ")";
+}</code></pre>
+
+<p>Las reglas de este tipo son ideales para hojas de estilos de impresión, que son hojas de estilos que podéis escribir y que se aplican automáticamente cuando un usuario imprime una página. La ventaja para el usuario es que podéis ocultar toda la navegación que un usuario no podrá seguir en una copia impresa y utilizar la técnica anterior para que el lector pueda ver las URL a las que se hace referencia en una página.</p>
+
+<p>También podéis insertar valores numéricos incrementados después de los elementos que se repiten (como por ejemplo picos o párrafos) con la función <code>counter()</code>; esto se explica con mucho más detalle en el <a href="http://dev.opera.com/articles/view/automatic-numbering-with-css-counters/" hreflang="en">artículo de dev.opera.com sobre los contadores de CSS</a>.</p>
+
+               
+<div class="note"> 
+<h3>Nota</h3> 
+<p>IE 6 y sus versiones anteriores no aceptan estos selectores. También debéis tener en cuenta que no debéis dar información importante con CSS, ya que el contenido no estará disponible para las tecnologías de asistencia o si un usuario decide no utilizar vuestra hoja de estilos. La norma básica es que el CSS es para los estilos y el HTML es para el contenido importante.</p>
+</div>
+
+<h2 id="shorthand">27.4. CSS abreviado</h2>
+
+<p>Otro detalle con el que os encontraréis normalmente en este curso es el CSS abreviado. Es posible combinar varias propiedades de CSS relacionadas en una única propiedad para ahorraros tiempo y esfuerzo. En este apartado, veremos los tipos de propiedades abreviadas disponibles.</p>
+
+<div class="note">
+<h3>Nota</h3>                
+<p>En este subapartado ya hemos utilizado el CSS abreviado sin decirlo. La regla <code>border: 2px solid black;</code> es la regla abreviada para especificar por separado <code>border-width: 2px;</code>, <code>border-style: solid;</code> y <code>border-color: black;</code>.</p>
+</div>
+
+<h3 id="comparingvalues">27.4.1. Comparar valores individuales y abreviados</h3>
+
+<p>Observad la regla siguiente para el margen (las reglas abreviadas para separación y borde funcionan de la misma manera):</p>
+
+<pre><code>div.foo {
+   margin-top: 1em;
+   margin-right:  1.5em;
+   margin-bottom:  2em;
+   margin-left:  2.5em;
+}</code></pre>    
+
+<p>Esta regla también se podría escribir:</p>
+
+<pre><code>div.foo {
+   margin: 1em 1.5em 2em 2.5em;
+}</code></pre> 
+
+<h3 id="lessthanfourvalues">27.4.2. Dar menos de cuatro valores para una propiedad abreviada</h3>
+
+<p>Un valor abreviado puede incluir menos de cuatro valores, que se aplicarán según se especifica a continuación. Los resultados se ordenan según el número de valores especificados:</p>
+<ol>
+<li><p>El mismo valor se aplica a los cuatro lados, por ejemplo <code>margin: 2px;</code></p></li>
+<li><p>El primer valor se aplica a los márgenes superior e inferior, y el segundo a los márgenes izquierdo y derecho, por ejemplo <code>margin: 2px 5px</code>;.</p></li>
+<li><p>Los valores primero y tercero se aplican a los márgenes superior e inferior respectivamente, y el segundo a los márgenes izquierdo y derecho, por ejemplo <code>margin: 2px 5px 1px</code>;.</p></li>
+<li><p>Los valores se aplican a los márgenes superior, derecho, inferior e izquierdo respectivamente en el orden en el que aparecen en el CSS, tal como hemos visto antes.</p></li>
+</ol>
+
+<p>En general, la manera más inteligente de proceder es especificar los cuatro valores en las propiedades abreviadas, por cuestiones de legibilidad. Este consejo también sirve para la propiedad abreviada <code>padding</code>.</p>
+
+<h3 id="singlepropertyorshorthandvalue">27.4.3. Elegir entre utilizar una propiedad única o un valor abreviado</h3>
+
+<p>Las propiedades <code>margin</code> y <code>padding</code> abreviadas son las que se utilizan más, aunque hay situaciones en las que es mejor no utilizar las propiedades abreviadas, o como mínimo utilizarlas con mucho cuidado, como por ejemplo las siguientes:</p>
+
+<ul>
+<li><p><strong>Sólo se debe definir un único margen.</strong> En una situación en la que sólo se debe definir una propiedad, el hecho de definir al mismo tiempo múltiples propiedades representa normalmente una violación del principio KISS (<em>Keep It Simple, Stupid</em> o No lo compliques, estúpido).</p></li>
+
+ <li><p><strong>El selector al que se aplican las propiedades está sujeto a muchos casos diferentes.</strong> Cuando esto suceda, y tarde o temprano acabará pasando, el inevitable pilón de valores abreviados hará que todo sea difícil de entender cuando debáis reparar o modificar la composición.</p></li>
+
+ <li><p><strong>El mantenimiento de la hoja de estilos que estáis escribiendo irá a cargo de personas con un nivel de habilidades (o de capacidad de razonamiento espacial) deficiente.</strong> Si contáis con que leerán este texto, entonces no es necesario que os preocupéis, pero quizá es mejor no suponer según qué cosas...</p></li>
+
+ <li><p><strong>Debéis cambiar un valor para un caso concreto.</strong> Esto es normalmente consecuencia de un documento o de una hoja de estilos mal diseñada, pero tampoco es una situación excepcional.</p></li>
+</ul>
+
+<h3 id="shorthandreference">27.4.4. Referencia abreviada</h3>
+<ol>
+<li><p>Definición abreviada de bordes para diferentes propiedades: ya se han explicado al principio de este subapartado. Una cuestión adicional que debemos mencionar es que incluso podéis definir los valores de las propiedades del borde sólo para un único borde del elemento al que se aplica, de la siguiente manera:</p>
+
+<pre><code>border-left-width: 2px;
+border-left-style: solid;
+border-left-color: black;</code></pre></li>
+
+<li><p>Definición abreviada de margen, rellenado y borde para las mismas propiedades: todas actúan de la misma manera.</p>
+
+<div class="vegeu_tambe">
+<h3>Ved también</h3> 
+<p>Podéis ver la definición abreviada de margen, rellenado y borde para las mismas propiedades en el subapartado 27.4.1 de este módulo.</p>
+</div></li>
+
+<li><p>Definición abreviada de tipo de letra: podéis especificar el tamaño del tipo de letra, el peso, el estilo, la familia y la interlínea utilizando una definición abreviada como una única línea. Pongamos por caso el CSS siguiente:</p>
+
+<pre><code>font-size: 1.5em;
+line-height: 20

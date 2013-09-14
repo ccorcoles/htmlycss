@@ -1,0 +1,590 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ca">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
+<meta http-equiv="Content-Language" content="ca" />
+<meta name="language" content="ca" />
+<meta name="author" content="Universitat Oberta de Catalunya" />
+<meta name="description" content="FALTA CONTENIDO" />
+<meta name="title" content="FALTA CONTENIDO" />
+<meta name="keywords" content="FALTA CONTENIDO" />
+
+<title>El texto central de HTML - Listas HTML</title>
+<link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
+</head>
+
+<body>
+<div id="cabecera">
+	<img id="logo" src="../../img/logo.gif" alt="Universitat Oberta de Catalunya" />
+    <a href="http://mosaic.uoc.edu/"><img id="logomosaic" src="../../img/logo-mosaic.gif" alt="Logo de Mosaic" title="Abre la página web de Mosaic" /></a>
+	<div id="titulo">El texto central de HTML</div>
+	<div id="subtitulo">Listas HTML</div>
+<div id="cierre"></div>
+	<div id="navegador">
+		<a href="../../m0/accessibilitat.html" id="accesibilidad">Accesibilidad</a> <strong>:</strong> 
+		<a rel="prev" href="../ud1/index.html" title="Ir al artículo anterior" accesskey="8"><img src="../../img/fletxa_izq.gif" alt="Ir al artículo anterior" /></a> <strong>:</strong> 
+		<a rel="index" href="../../index.html" title="Ir al índice" accesskey="0"><img src="../../img/indice.gif" alt="Ir al índice" /></a> <strong>:</strong> 
+		<a rel="next" href="../ud3/index.html" title="Ir al artículo siguiente" accesskey="9"><img src="../../img/fletxa_der.gif" alt="Ir al artículo siguiente" /></a>
+	</div>
+</div>
+	
+<div id="main">
+	<h1>16. Listas HTML</h1>
+  
+  <p class="by"><a href="../../index.html#buchanan">Ben Buchanan</a>. 8 de julio del 2008. Publicado en: definición, ordenado, desordenado, xhtml, html </p>
+  
+  <p>Las listas se utilizan para agrupar datos relacionados para que queden claramente asociadas entre ellas y sean fáciles de leer. En el desarrollo de las webs modernas, las listas son elementos muy habituales que se utilizan tanto para la navegación, como para el contenido general.</p>
+  
+  <p>Las listas son muy adecuadas desde un punto de vista estructural, ya que ayudan a crear un documento bien estructurado, más accesible y fácil de mantener. También son útiles por una razón puramente práctica: aportan elementos adicionales a los que adjuntar estilos CSS y disponer así de una gran variedad de estilos (más adelante en este curso ya hablaremos del CSS; para saber cuáles son los apartados sobre el CSS que hay disponibles, podéis consultar el índice de contenidos). </p>
+  
+  <p>	En este apartado explicaremos los diferentes tipos de listas disponibles en HTML, cuándo y cómo se deben utilizar y cómo aplicar algunos estilos básicos. El contenido es el siguiente (¡Mira! ¡Es una lista!):</p>
+  
+  <p>Los contenidos de este apartado son los siguientes:</p>
+  
+  <ul class="index">
+		<li>16.1. <a href="#threetypes" accesskey="1">Los tres tipos de listas</a>
+    <ul class="index">
+		<li>16.1.1. <a href="#unordered">Listas no ordenadas</a></li>
+  <li>16.1.2. <a href="#unorderedmarkup">Etiquetado de listas no ordenadas</a></li>
+  <li>16.1.3. <a href="#ordered">Listas ordenadas</a></li>
+  <li>16.1.4. <a href="#orderedmarkup">Etiquetado de listas ordenadas</a></li>
+  <li>16.1.5. <a href="#beginningwithothernumbers">Empezar listas ordenadas con un número diferente de 1</a></li>
+  <li>16.1.6. <a href="#definition">Listas de definiciones</a></li>
+	</ul></li>
+  <li>16.2. <a href="#choosinglists" accesskey="2">Elegir entre tipos de listas</a></li>
+  <li>16.3. <a href="#listsemantics" accesskey="3">La diferencia entre listas HTML y texto</a></li>
+  <li>16.4. <a href="#nestinglists" accesskey="4">Anidar listas</a></li>
+  <li>16.5. <a href="#stepbystep" accesskey="5">Ejemplo paso a paso</a>
+  <ul class="index">
+	<li>16.5.1. <a href="#mainpage">Etiquetado de la página principal</a></li>
+  <li>16.5.2. <a href="#insertstyles">Añadir algunos estilos</a></li>
+  <li>16.5.3. <a href="#recipepage">La página de la receta</a></li>
+  <li>16.5.4. <a href="#recipepagemarkup">Etiquetado de la página de la receta</a></li>
+  <li>16.5.5. <a href="#recipestyles">Estilos de la página de la receta</a></li>
+    </ul></li>
+	<li class="especial"><a href="#summary">Resumen</a></li>
+  <li class="especial"><a href="#exercises">Preguntas de repaso</a></li> 
+  <li class="especial"><a href="#furtherreading">Lecturas complementarias</a></li> 
+  </ul>
+                         
+  <h2 id="threetypes">16.1. Los tres tipos de listas</h2>
+  
+  <p>En el HTML hay tres tipos de listas: </p>
+  
+  <ul><li><p><strong>lista no ordenada:</strong> esse utiliza para agrupar elementos relacionados sin ningún orden en concreto. </p>
+  </li>
+  
+  <li><p><strong>lista ordenada:</strong> se utiliza para agrupar elementos relacionados en un orden concreto.</p>
+  </li>
+  
+  <li><p><strong>lista de definiciones:</strong> se utiliza para mostrar parejas de nombres y valores, como por ejemplo términos y sus definiciones u horas y actos. </p>
+  </li></ul>
+
+  <p>Cada una de estas listas tiene una finalidad y un significado específicos y no son intercambiables. </p>
+                        
+  <h3 id="unordered">16.1.1. Listas no ordenadas</h3>
+  
+  <div class="text-clau">
+  <p>Las listas no ordenadas, o listas de picos, se utilizan cuando tenemos una serie de elementos que se pueden colocar en cualquier orden. </p>
+  </div>
+  
+  <div class="exemple">
+  <h3>La lista de la compra</h3>
+  
+  <p>Un ejemplo de esto podría ser una lista de la compra: </p>
+  <ul>
+  <li><p>leche</p></li>
+  <li><p>pan</p></li>
+  <li><p>mantequilla</p></li>
+  <li><p>café </p></li>
+  </ul>
+  
+  <p>Todos estos elementos forman parte de una lista, pero se pueden poner en cualquier orden sin que la lista pierda su sentido: </p>
+  
+  <ul>
+		<li><p>pan</p></li>
+    <li><p>café </p></li>
+    <li><p>leche</p></li>
+    <li><p>mantequilla</p></li>
+  </ul> 
+	</div>
+  
+  <p>Se puede utilizar CSS para cambiar el pico a uno de los distintos estilos por defecto, puede usarse una imagen propia o incluso se pueden hacer listas sin picos; más adelante, en este mismo apartado, veremos cómo hacerlo y en otros apartados sobre el CSS lo explicaremos con más detalle. Si lo encontráis un poco confuso, no es necesario que os preocupéis por el CSS ahora; ya lo aclararemos todo más adelante, en <a href="../../m6/ud6/index.html">Estilos de listas y enlaces</a>.</p>
+
+  <h3 id="unorderedmarkup">16.1.2. Etiquetado de listas no ordenadas</h3>
+  
+  <div class="text-clau">
+  <p>Las listas no ordenadas utilizan las etiquetas <code>&lt;ul&gt;&lt;/ul&gt;</code> alrededor de múltiples grupos de <code>&lt;li&gt;&lt;/li&gt;</code>.</p>
+  </div>
+                         
+  <pre><code>&lt;ul&gt;
+   &lt;li&gt;pan&lt;/li&gt;
+   &lt;li&gt;café&lt;/li&gt;
+   &lt;li&gt;leche&lt;/li&gt;
+   &lt;li&gt;mantequilla&lt;/li&gt;
+&lt;/ul&gt;</code></pre>  
+
+  <h3 id="ordered">16.1.3. Listas ordenadas</h3>
+  
+  <div class="text-clau">
+  <p>Las listas ordenadas, o listas numeradas, se utilizan cuando tenemos una serie de elementos que se deben colocar en un orden concreto. </p>
+  </div>
+  
+  <p>Un ejemplo de esto podrían ser las instrucciones de cocina, que se deben seguir por orden para que la receta salga bien:</p>
+  
+  <ol><li><p>Tened todos los ingredientes a mano</p></li>
+    <li><p>Mezclad todos los ingredientes</p></li>
+    <li><p>Poned la mezcla en una bandeja para el horno</p></li>
+    <li><p>Dejadlo cocer durante una hora</p></li>
+    <li><p>Sacadlo del horno</p></li>
+    <li><p>Dejadlo reposar durante diez minutos</p></li>
+    <li><p>Servidlo</p></li>
+  </ol>
+  
+  <p>Si los elementos de la lista se desordenan, la información no tendrá ningún sentido:</p>
+  
+  <ol><li><p>Tened todos los ingredientes a mano </p></li>
+    <li><p>Dejadlo cocer durante una hora</p></li>
+    <li><p>Sacadlo del horno</p></li>
+    <li><p>Servidlo</p></li>
+    <li><p>Poned la mezcla en una bandeja para el horno</p></li>
+    <li><p>Dejadlo reposar durante diez minutos</p></li>
+    <li><p>Mezclad todos los ingredientes</p></li>
+  </ol>
+  
+  <p>Las listas ordenadas se pueden mostrar con varios sistemas de numeración o alfabéticos; es decir, letras o números. El sistema por defecto de la mayoría de los navegadores son los números decimales, pero hay más opciones:</p>
+  
+  <ul><li><p>Letras </p>
+    <ul class="guions">
+			<li><p>&ndash; Letras ASCII en minúsculas (a, b, c...) </p></li>
+      <li><p>&ndash; Letras ASCII en mayúsculas (A, B, C...) </p></li>
+      <li><p>&ndash; Letras griegas clásicas en minúsculas: (&alpha;, &beta;, &gamma;...)</p></li>
+    </ul></li>
+  </ul>
+  
+  <ul><li><p>Números </p>
+    <ul class="guions">
+    	<li><p>&ndash; Números decimales (1, 2, 3...)</p></li>
+      <li><p>&ndash; Números decimales con ceros iniciales (01, 02, 03...)</p></li>
+      <li><p>&ndash; Números romanos en minúsculas (i, ii, iii...)</p></li>
+      <li><p>&ndash; Números romanos en mayúsculas (I, II, III ...)</p></li>
+      <li><p>&ndash; Numeración georgiana tradicional (an, ban, gan...) </p></li>
+      <li><p>&ndash; Numeración armenia tradicional (mek, yerku, yerek...) </p></li>
+    </ul></li>
+  </ul>
+  
+  <p>Aquí también podéis utilizar el CSS para cambiar el estilo de vuestras listas.</p>
+
+  <h3 id="orderedmarkup">16.1.4. Etiquetado de listas ordenadas</h3>
+  
+  <div class="text-clau">
+  <p>Las listas ordenadas utilizan las etiquetas <code>&lt;ol&gt;&lt;/ol&gt;</code> alrededor de múltiples grupos de <code>&lt;li&gt;&lt;/li&gt;</code>.</p>
+  </div>
+                      
+  <pre><code>&lt;ol&gt;
+   &lt;li&gt;Tened todos los ingredientes a mano&lt;/li&gt;
+   &lt;li&gt;Mezclad todos los ingredientes&lt;/li&gt;
+   &lt;li&gt;Poned la mezcla en una bandeja para el horno&lt;/li&gt;
+   &lt;li&gt;Dejadlo cocer durante una hora&lt;/li&gt;
+   &lt;li&gt;Sacadlo del horno&lt;/li&gt;
+   &lt;li&gt;Dejadlo reposar durante diez minutos&lt;/li&gt;
+   &lt;li&gt;Servidlo&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+
+  <h3 id="beginningwithothernumbers">16.1.5. Empezar listas ordenadas con un número diferente de 1</h3>
+  
+  <div class="text-clau">
+  <p>	Es posible hacer que una lista ordenada empiece con un número diferente del 1 (o i, I, etc.). Esto se consigue con el atributo <code>start</code>, que define un valor numérico incluso aunque utilicéis el CSS para cambiar los contadores de la lista y hacer que sean caracteres alfabéticos o números romanos con la propiedad <code>list-style-type</code>. Esto puede ser útil si tenéis una única lista de puntos pero queréis romperla con una nota u otro tipo de información relacionada. </p>
+  </div>
+  
+  <p>Lo podríamos hacer, por ejemplo, con la lista anterior:</p>
+
+  <pre><code>&lt;ol&gt;
+   &lt;li&gt;Tened todos los ingredientes a mano&lt;/li&gt;
+   &lt;li&gt;Mezclad todos los ingredientes&lt;/li&gt;
+   &lt;li&gt;Poned la mezcla en una bandeja para el horno&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p class="note"&gt;Antes de poner la mezcla en la bandeja, precalentad
+ el horno a 180 grados centígrados para tenerlo a punto para el siguiente paso&lt;/p&gt;
+
+&lt;ol start="4"&gt;
+   &lt;li&gt;Dejadlo cocer durante una hora&lt;/li&gt;
+   &lt;li&gt;Sacadlo del horno&lt;/li&gt;
+   &lt;li&gt;Dejadlo reposar durante diez minutos&lt;/li&gt;
+   &lt;li&gt;Servidlo&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+
+  
+  <p>Con ello se obtiene el resultado siguiente:</p>
+  
+  <ol>
+  	<li><p>Tened todos los ingredientes a mano</p></li>
+    <li><p>Mezclad todos los ingredientes</p></li>
+    <li><p>Poned la mezcla en una bandeja para el horno</p>
+  
+  <p>Antes de poner la mezcla en la bandeja, precalentad el horno a 180 grados centígrados para tenerlo a punto para el siguiente paso</p></li>
+
+		<li><p>Dejadlo cocer durante una hora</p></li>
+    <li><p>Sacadlo del horno</p></li>
+    <li><p>Dejadlo reposar durante diez minutos</p></li>
+    <li><p>Servidlo</p></li>
+  </ol>
+  
+  <p>Tened en cuenta que este atributo ha sido desaprobado en la última versión de las especificaciones de HTML 4, lo que significa que vuestras páginas no validarán si utilizan doctypes estrictos HTML4. Si queréis utilizar esta función en una página HTML4 estricta y es absolutamente necesario validarla, podéis hacerlo utilizando los <a href="http://dev.opera.com/articles/view/automatic-numbering-with-css-counters/" hreflang="en">contadores de CSS</a> en lugar de este atributo. <code>&lt;start&gt;</code> ha sido añadido de nuevo en HTML5, afortunadamente, pues resulta útil.</p>
+                              
+  <h3 id="definition">16.1.6. Listas de definiciones</h3>
+  
+  <p>Las listas de definiciones asocian elementos concretos y sus definiciones en un formato de lista. Por ejemplo, si queréis dar una definición de los elementos de vuestra lista de la compra, podéis hacerlo de la siguiente manera:</p>
+  
+  <dl>
+  	<dt>leche</dt>
+  	<dd>Producto lácteo líquido de color blanco</dd>
+  	<dt>pan</dt>
+  	<dd>Alimento cocinado en el horno a base de harina.</dd>
+  	<dt>mantequilla</dt>
+		<dd>Producto lácteo sólido de color amarillo</dd>
+  	<dt>café</dt>
+  	<dd>Semillas de los frutos de algunos árboles del café</dd>
+  </dl>
+  <p>Cada pareja de definicion y término compone un grupo de definición (o grupo nombre-valor). Podéis tener tantos grupos de definición como queráis, pero debe haber como mínimo un término y una definición en cada uno de los grupos. No es posible tener un término sin ninguna definición o una definición sin ningún término.</p>
+  
+  <p>Podéis asociar más de un término a una única definición, o viceversa. Por ejemplo, el término
+<em>café</em> puede tener varios significados, que podéis mostrar uno después del otro:</p>
+  
+  <dl>
+  	<dt>café</dt>
+  	<dd>bebida hecha a partir de granos de café tostados y molidos</dd>
+		<dd>taza de café</dd>
+  	<dd>una reunión social en la que se consume café</dd>
+  	<dd>un color marrón tirando a oscuro</dd>
+  </dl>
+  
+  <p>También es posible tener más de un término para la misma definición. Esto se utiliza para mostrar variaciones de un término, todas ellas con el mismo significado:</p>
+  
+  <dl>
+  	<dt>soda</dt>
+  	<dt>gaseosa</dt>
+  	<dt>bebida gaseosa</dt>
+  	<dt>cola</dt>
+  	<dd>Bebida dulce con gas.</dd>
+  </dl>
+  
+  <div class="text-clau">
+  <p>Las listas de definiciones son diferentes de los otros tipos de listas, ya que utilizan términos y descripciones en lugar de elementos de lista.</p>
+  
+  <p>	Así pues, las listas de definiciones utilizan las etiquetas <code>&lt;dl&gt;&lt;/dl&gt;</code> alrededor de grupos de <code>&lt;dt&gt;&lt;/dt&gt;</code> y <code>&lt;dd&gt;&lt;/dd&gt;</code>: Se debe aparejar como mínimo un <code>&lt;dt&gt;&lt;/dt&gt;</code> con como mínimo un <code>&lt;dd&gt;&lt;/dd&gt;</code>; el <code>&lt;dt&gt;&lt;/dt&gt;</code> debe ir siempre primero.</p>
+  </div>
+  
+  <p>Una lista de definiciones muy sencilla con términos únicos y definiciones únicas tendría el siguiente aspecto: </p>
+                        
+  <pre><code>&lt;dl&gt;
+   &lt;dt&gt;Término&lt;/dt&gt;
+   &lt;dd&gt;Definición del término&lt;/dd&gt;
+   &lt;dt&gt;Término&lt;/dt&gt;
+   &lt;dd&gt;Definición del término&lt;/dd&gt;
+   &lt;dt&gt;Término&lt;/dt&gt;
+   &lt;dd&gt;Definición del término&lt;/dd&gt;
+&lt;/dl&gt;</code></pre>
+  
+  <p>Y se representa de la manera siguiente:</p>
+
+  <dl>
+  	<dt>Término</dt>
+  	<dd>Definición del término</dd>
+  	<dt>Término</dt>
+  	<dd>Definición del término</dd>
+  	<dt>Término</dt>
+  	<dd>Definición del término</dd>
+  </dl>
+  
+  <p>En este ejemplo hemos asociado más de un término a una definición, y viceversa: </p>
+
+  <pre><code>&lt;dl&gt;
+   &lt;dt&gt;Término&lt;/dt&gt;
+   &lt;dd&gt;Definición del término&lt;/dd&gt;
+   &lt;dt&gt;Término&lt;/dt&gt;
+   &lt;dt&gt;Término&lt;/dt&gt;
+   &lt;dd&gt;Definición aplicable a los dos términos anteriores&lt;/dd&gt;
+   &lt;dt&gt;Término que puede tener las dos definiciones siguientes&lt;/dt&gt;
+   &lt;dd&gt;Una definición del término&lt;/dd&gt;
+   &lt;dd&gt;Otra definición del término&lt;/dd&gt;
+&lt;/dl&gt;</code></pre>
+  
+  <p>Y se representaría de la manera siguiente:</p>
+ 
+  <dl>
+  	<dt>Término</dt>
+  	<dd>Definición del término</dd>
+  	<dt>Término</dt>
+  	<dt>Término</dt>
+  	<dd>Definición aplicable a los dos términos anteriores</dd>
+  	<dt>Término que puede tener las dos definiciones siguientes</dt>
+  	<dd>Una definición del término</dd>
+  	<dd>Otra definición del término</dd>
+  </dl>
+  
+  <p>En general, no es demasiado habitual asociar múltiples términos a una única definición, pero está bien saber que es posible por si alguna vez hay que hacerlo.</p>
+
+  <h2 id="choosinglists">16.2. Elegir entre tipos de listas</h2>
+  
+  <p>A la hora de decidir el tipo de lista que utilizaréis, normalmente podréis tomar la decisión correcta respondiendo a dos preguntas muy sencillas:</p>
+  
+  <ol>
+		<li><p>¿Estoy definiendo términos (o asociando otras parejas nombre/valor)?</p>
+    <ol class="lletres">
+			<li><p>Si la respuesta es afirmativa, utilizad una lista de definiciones.</p></li>
+      <li><p>Si la respuesta es negativa, no utilicéis una lista de definiciones y pasad a la pregunta siguiente.</p></li>
+    </ol></li>
+    <li><p>¿El orden de los elementos de la lista es importante? </p>
+    	<ol class="lletres">
+				<li><p>Si la respuesta es afirmativa, utilizad una lista ordenada. </p></li>
+      	<li><p>Si la respuesta es negativa, utilizad una lista no ordenada. </p></li>
+    </ol></li>
+  </ol>              
+
+  <h2 id="listsemantics">16.3. La diferencia entre listas HTML y texto</h2>
+  
+  <p>Es posible que os estéis preguntando cuál es la diferencia entre una lista HTML y el texto con picos o números escritos manualmente. El uso de una lista HTML tiene unas cuantas ventajas:</p>
+  
+  <ul>
+    <li><p>Si tenéis que cambiar el orden de los elementos de una lista ordenada, sólo será necesario que los mováis en el código HTML. Si hubierais escrito los números a mano, deberíais revisarlo a pesar de cambiar el número de cada uno de los elementos para corregir el orden, lo cual sería muy pesado.</p></li>
+        
+    <li><p>El uso de una lista HTML permite aplicar correctamente estilo a la lista: se puede usar CSS para dar estilo únicamente a los elementos. Si os limitáis a utilizar un texto normal, os será mucho más difícil aplicar un estilo a los elementos individuales de manera útil, puesto que los elementos usados serán los mismos que se utilizan en el resto del texto.</p></li>
+       
+    <li><p>Si utilizáis una lista HTML, el contenido tendrá la estructura semántica adecuada y no será sólo un efecto visual "tipo lista". Esto tiene unas ventajas importantes; por ejemplo, los lectores de pantalla pueden indicar a los usuarios con alguna deficiencia visual que están leyendo una lista y no un lío confuso de texto y números.</p></li>
+	</ul>
+  
+  <p>O, para decirlo de otra manera:
+ <strong>el texto y las listas no son lo mismo</strong>. El uso de texto en lugar de una lista hará que tengáis más trabajo y puede provocar problemas en los lectores del documento. Por lo tanto, si vuestro documento necesita una lista, deberíais utilizar la lista HTML correcta.</p>
+
+  <h2 id="nestinglists">16.4. Anidar listas</h2>
+  
+  <p>Un elemento de una lista puede contener otra lista; eso se conoce como "anidar" una lista. Puede ser útil para elementos como tablas de contenido:</p>
+  
+  <ol>
+    <li><p>Capítulo uno</p>
+    <ol>
+			<li><p>Sección uno</p></li>
+      <li><p>Sección dos</p></li>
+      <li><p>Sección tres</p></li>
+    </ol></li>
+    <li><p>Capítulo dos</p></li>
+    <li><p>Capítulo tres</p></li>
+  </ol>
+  
+  <p>La clave para anidar listas es recordar que la lista anidada debe estar relacionada con un elemento concreto de la lista. Para reflejarlo en el código, la lista anidada debe estar contenida en este elemento de la lista. </p>
+  
+  <p>El código de la lista anterior es el siguiente:</p>
+                      
+  <pre><code>&lt;ol&gt;
+   <strong>&lt;li&gt;</strong>Capítulo uno
+      &lt;ol&gt;
+         &lt;li&gt;Sección uno&lt;/li&gt;
+         &lt;li&gt;Sección dos&lt;/li&gt;
+         &lt;li&gt;Sección tres&lt;/li&gt;
+      &lt;/ol&gt;
+   <strong>&lt;/li&gt;</strong>
+   &lt;li&gt;Capítulo dos&lt;/li&gt;
+   &lt;li&gt;Capítulo tres&lt;/li&gt;
+&lt;/ol&gt;</code></pre>   
+  
+  <p>Observad que la lista anidada empieza después del <code>&lt;li&gt;</code>  y el texto del elemento de la lista que la contiene ("Capítulo uno"), y que acaba antes del <code>&lt;/li&gt;</code> del elemento de la lista que la contiene. Las listas anidadas son normalmente la base para los menús de navegación de sitios web, ya que son una buena manera de definir la estructura del sitio.</p>
+  
+  <p>En teoría, se pueden anidar tantas listas como se quiera, aunque en la práctica una anidación excesiva puede llegar a crear una situación muy confusa. En el caso de listas muy largas, puede ser mejor dividir el contenido en varias listas con títulos o incluso dividirla en varias páginas. </p>
+
+  <h2 id="stepbystep">16.5. Ejemplo paso a paso</h2>
+  
+  <p>A continuación, veremos un ejemplo paso a paso en el que incluiremos todo lo que hemos explicado hasta ahora. Imaginemos la siguiente situación:</p>
+  
+  <p>Estáis creando un pequeño sitio web para la Escuela de Cocina HTML. En la página principal debe aparecer una lista de recetas clasificadas por categorías que nos deben llevar a las páginas de las recetas. Cada una de las páginas de recetas incluye una lista con los ingredientes necesarios, notas sobre estos ingredientes y el método de preparación. Las tres categorías son:</p>
+  <ul><li>"Pasteles" (que incluye recetas para "Bizcocho", "Pastel de chocolate" y "Pastel de manzana")</li>
+  <li>"Galletas" (que incluye recetas para "Galletas de avena y coco", "Gotas de mermelada" y "Momentos dulces")</li>
+  <li>"Panes rápidos" (que incluye recetas para "Pan de soda" y "Panecillos de leche")</li></ul>
+  <p>El cliente no tiene ninguna preferencia por el orden en el que aparezcan las categorías y las recetas; sólo quiere estar seguro de que la gente sabrá qué elementos son categorías y cuáles son recetas.</p>
+  
+  <p>Ahora iremos pasando por todo el proceso de creación de este sitio.</p>
+                                       
+  <h3 id="mainpage">16.5.1. Etiquetado de la página principal</h3>
+  
+  <ol>
+    <li>
+  <p>Cread una página HTML bien formada que incluya el <code>doctype</code> y los elementos <code>html</code>, <code>head</code> y <code>body</code> y guardadla como <em>stepbystep-main.html</em>. Añadid el título principal (<code>h1</code>) "Escuela de cocina HTML" y un subtítulo (<code>h2</code>) "Recetas":</p>
+                                     
+  <pre><code>&lt;h1&gt;Escuela de cocina HTML&lt;/h1&gt;
+&lt;h2&gt;Recetas&lt;/h2&gt;</code></pre></li>
+
+    <li>
+  <p>Debéis presentar tres categorías de recetas y el orden no es importante; en este caso, lo más adecuado es una lista no ordenada y, por lo tanto, deberéis añadir lo siguiente a vuestra página:</p>
+
+  <pre><code>&lt;h2&gt;Recetas&lt;/h2&gt;
+&lt;ul&gt;
+   &lt;li&gt;Pasteles&lt;/li&gt;
+   &lt;li&gt;Galletas&lt;/li&gt;
+   &lt;li&gt;Panes rápidos&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+  
+  <p>El sangrado de los elementos <code>li</code>, aunque no es necesario, hace que el código sea más legible.</p></li>
+
+    <li><p>Ahora deberéis añadir las recetas como subelementos; por ejemplo, "Bizcocho", "Pastel de chocolate" y "Pastel de manzana" deben ir a la categoría "Pasteles". Para hacerlo, debéis crear una lista anidada en cada uno de los elementos. Como el orden no es importante, aquí también deberemos utilizar listas no ordenadas. Con el fin de facilitar las cosas en este tutorial, enlazaremos todas las recetas a una única página de receta (más adelante se explican los enlaces HTML con más detalle. Si queréis información sobre los enlaces, podéis ir a la sección correspondiente):</p></li>
+	</ol>                  
+	
+  <div class="vegeu_tambe">
+  <h3>Ved también</h3>
+  <p>Podéis ver el apartado 19 de este módulo.</p>
+  </div>
+  
+	<pre><code>&lt;h2&gt;Recetas&lt;/h2&gt;
+ &lt;ul&gt;
+  &lt;li&gt;Pasteles
+  &lt;ul&gt;
+   &lt;li&gt;&lt;a href="stepbystep-recipe.html"&gt;Bizcochos&lt;/a&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;a href="stepbystep-recipe.html"&gt;Pastel de chocolate&lt;/a&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;a href="stepbystep-recipe.html"&gt;Pastel de manzana&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Galletas
+  &lt;ul&gt;
+   &lt;li&gt;&lt;a href="stepbystep-recipe.html"&gt;Galletas de avena y coco&lt;/a&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;a href="stepbystep-recipe.html"&gt;Gotas de mermelada&lt;/a&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;a href="stepbystep-recipe.html"&gt;Momentos dulces&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Panes/panes rápidos
+  &lt;ul&gt;
+   &lt;li&gt;&lt;a href="stepbystep-recipe.html"&gt;Pan de soda&lt;/a&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;a href="stepbystep-recipe.html"&gt;Panecillos de leche&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+ &lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+                           
+  <h3 id="insertstyles">16.5.2. Añadir algunos estilos</h3>
+  
+  <p>Debemos volver a señalar que no debéis preocuparos excesivamente del CSS en este apartado, si no lo entendéis,. Aquí sólo veremos el CSS de una manera muy superficial, y ya hablaremos de él con mucho más detalle más adelante en este mismo curso.</p>
+  
+  <p>Al cliente le gusta esta organización, pero quiere que las categorías se indiquen con unas flechas pequeñas en lugar de picos. También quiere que las categorías queden alineadas a la izquierda de la página. Para hacerlo, debéis especificar una imagen en lugar de un pico y que entonces defináis los ajustes de margen/separación.</p>
+  
+  <ol>
+    <li><p>Para evitar conflictos con otras listas del sitio, deberéis añadir una clase a la lista para poder crear selectores contextuales específicos en vuestra hoja de estilos. La clase "lista de recetas" podría ser adecuada:</p>
+	
+  <pre><code>&lt;h2&gt;Recetas&lt;/h2&gt;
+  
+&lt;ul <strong>class="lista-de-recetas"</strong>&gt;</code></pre></li>
+
+    <li><p>Ahora debéis crear una hoja de estilo y añadir unas cuantas reglas, pero en primer lugar debéis añadir etiquetas <code>style</code> de apertura y de cierre en el <code>head</code> de vuestro documento.</p></li>
+  
+  <li><p>Ahora eliminaréis el espaciado de la lista. Por defecto, algunos navegadores utilizan <code>margin</code> y otros <code>padding</code> para separar los elementos y, por lo tanto, deberéis ajustar los dos a cero; debéis añadir lo siguiente entre las etiquetas <code>style</code>:</p>
+                              
+  <pre><code>ul.lista-de-recetas {
+   margin-left: 0;
+   padding-left: 0;
+}</code></pre></li>
+
+    <li><p>A continuación, debéis crear una imagen de pico personalizada; si queréis, podéis utilizar la nuestra (podéis ver la figura 1).</p>
+
+	<div class="imagen">
+		<img src="06510_m4_02.gif" alt="" />
+		<p>Figura 1. Imagen de pico personalizada.</p>
+	</div></li>
+
+    <li><p>Ahora deberéis eliminar los picos de los elementos de la lista, definir el pico como imagen de fondo para éstos y añadir un poco de separación a fin de que el texto no quede sobre la imagen de fondo. Podéis hacerlo añadiendo el siguiente CSS justo antes de la etiqueta <code>style</code> de cierre:</p>
+
+  <pre><code>ul.lista-de-recetas li {
+   list-style-type: none;
+   background: #fff url("example-bullet.gif") 0 0.4em no-repeat;
+   padding-left: 10px;
+}</code></pre></li>
+
+    <li><p>Finalmente, deberéis volver a poner los picos en los elementos de la lista anidada y definir un fondo de color blanco (la segunda norma es más específica, por lo que anulará la norma de la imagen de fondo). Recordad que la lista anidada heredará la primera norma del CSS, por lo que deberéis "deshacer" todos los ajustes de la lista principal. Añadid el siguiente CSS justo antes de la etiqueta <code>style</code> de cierre:</p>                          
+
+  <pre><code>ul.lista-de-recetas li li {
+   list-style-type: disc;
+   background: #fff;
+}</code></pre></li>
+  </ol>
+  
+
+  <p>El resultado final debería ser algo similar a lo que aparece en la figura 2:</p>
+
+	<div class="imagen">
+		<img src="06510_m4_03.gif" alt="Captura de pantalla de la pàgina principal" />
+		<p>Figura 2. La página principal acabada con imágenes de picos personalizadas.</p>
+  	<p class="font"><strong>También podéis ver más ejemplos en:</strong> "<a href="http://dev.opera.com/articles/view/16-html-lists/stepbystep-main.html" hreflang="en">HTML Cooking School</a>"</p>
+	</div>                                                                      
+
+  
+  <h3 id="recipepage">16.5.3. La página de la receta</h3>
+  
+  <p>En este ejemplo sólo crearemos la página de la receta para el bizcocho, pero, si queréis, podéis crear las otras por vuestra cuenta utilizando esta página como plantilla. El cliente os ha suministrado la receta del bizcocho en un archivo de texto que tiene el siguiente aspecto:</p>
+                     
+
+  <pre><code>Bizcocho
+Ingredientes
+3 huevos
+100 gr de azúcar glas
+85 gr de harina con levadura
+Notas sobre los ingredientes:
+   Azúcar glas: azúcar blanco granulado muy fino.
+   Harina con levadura: una mezcla ya preparada de harina y agentes gasificantes
+    (normalmente sal y levadura artificial).
+Preparación
+   1. Precalentad el horno a 190° C.
+   2. Engrasad un molde redondo de 20 cm.
+   3. En un bol de tamaño medio, mezclad los huevos y el azúcar glas hasta
+      obtener una mezcla esponjosa.
+   4. Incorporad la harina.
+   5. Poned esta mezcla en el molde preparado.
+   6. Horneadlo durante 20 minutos en el horno precalentado, o hasta que la
+      parte superior del bizcocho recupere la forma al apretarla ligeramente.
+   7. Dejadlo enfriar dentro del molde sobre una reja metálica.</code></pre>
+
+
+  <h3 id="recipepagemarkup">16.5.4. Etiquetado de la página de la receta</h3>
+  
+  <ol>
+		<li><p>Cread otro documento HTML de la manera adecuada y guardadlo como en <em>stepbystep-recipe.html</em>. Añadidle los títulos siguientes:</p>
+
+  <pre><code>&lt;h1&gt;Bizcocho&lt;/h1&gt;
+&lt;h2&gt;Ingredientes&lt;/h2&gt;
+&lt;h3&gt;Notas sobre los ingredientes&lt;/h3&gt;
+&lt;h2&gt;Preparación&lt;/h2&gt;</code></pre></li>
+
+		<li><p>La lista de ingredientes tiene varios elementos, pero el orden no es importante. Así pues, hay que utilizar una lista desordenada. Añadid lo siguiente a <code>body</code> de vuestro HTML:</p>
+
+  <pre><code>&lt;h2&gt;Ingredientes&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;3 huevos&lt;/li&gt;
+&lt;li&gt;100 gr de azúcar glas&lt;/li&gt;
+&lt;li&gt;85 gr de harina con levadura&lt;/li&gt;
+&lt;/ul&gt;</code></pre></li>
+
+		<li><p>Las notas sobre los ingredientes son para definir adecuadamente qué son algunos de los ingredientes. Debéis asociar el ingrediente (el término) con su definición. Para ello, hay que utilizar una lista de definiciones. Añadid lo siguiente a vuestro HTML, bajo la lista desordenada del paso anterior:</p>
+
+  <pre><code>&lt;h3&gt;Notas sobre los ingredientes&lt;/h3&gt;
+&lt;dl&gt;
+&lt;dt&gt;Azúcar glas&lt;/dt&gt;
+&lt;dd&gt;Azúcar blanco granulado muy fino&lt;/dd&gt;
+&lt;dt&gt;Harina con levadura&lt;/dt&gt;
+&lt;dd&gt;Una mezcla ya preparada de harina y agentes gasificantes (normalmente
+ sal y azúcar artificial).&lt;/dd&gt;
+&lt;/dl&gt;</code></pre></li>
+
+		<li><p>La preparación debe seguir, como es obvio, el orden correcto, por lo que deberemos utilizar una lista ordenada; añadid lo siguiente a vuestro HTML, bajo la lista de definiciones:</p>
+
+  <pre><code>&lt;h2&gt;Preparación&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Precalentad el horno a 190ºC.&lt;/li&gt;
+&lt;li&gt;Engrasad un molde redondo de 20 cm.&lt;/li&gt;
+&lt;li&gt;En un bol de tamaño medio, mezclad los huevos y el azúcar glas hasta
+ obtener una mezcla esponjosa.&lt;/li&gt;
+&lt;li&gt;Incorporad la harina&lt;/li&gt;
+&lt;li&gt;Poned esta mezcla en el molde preparado.&lt;/li&gt;
+&lt;li&gt;Horneadlo durante 20 minutos en el horno precalentado, o hasta que la
+ parte superior del bizcocho recupere la forma al apretarla ligeramente.&lt;/li&gt;
+&lt;li&gt;Dejadlo enfriar dentro del molde sobre una reja metálica.&lt;/li&gt;
+&lt;/ol&gt;</code></pre></li>
+</ol>
+
+  <h3 id="recipestyles">16.5.5. Estilos de la página de la receta</h3>
+  
+  <p>	El cliente está muy contento con los resultados, pero quiere que las definiciones aparezcan en negrita para 

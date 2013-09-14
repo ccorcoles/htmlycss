@@ -1,0 +1,414 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ca">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
+<meta http-equiv="Content-Language" content="ca" />
+<meta name="language" content="ca" />
+<meta name="author" content="Universitat Oberta de Catalunya" />
+<meta name="description" content="FALTA CONTENIDO" />
+<meta name="title" content="FALTA CONTENIDO" />
+<meta name="keywords" content="FALTA CONTENIDO" />
+
+<title>El texto central de HTML - Tablas HTML</title>
+<link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
+</head>
+
+<body>
+<div id="cabecera">
+	<img id="logo" src="../../img/logo.gif" alt="Universitat Oberta de Catalunya" />
+    <a href="http://mosaic.uoc.edu/"><img id="logomosaic" src="../../img/logo-mosaic.gif" alt="Logo de Mosaic" title="Abre la página web de Mosaic" /></a>
+	<div id="titulo">El texto central de HTML</div>
+	<div id="subtitulo">Tablas HTML</div>
+<div id="cierre"></div>
+	<div id="navegador">
+		<a href="../../m0/accessibilitat.html" id="accesibilidad">Accesibilidad</a> <strong>:</strong> 
+		<a rel="prev" href="../ud4/index.html" title="Ir al artículo anterior" accesskey="8"><img src="../../img/fletxa_izq.gif" alt="Ir al artículo anterior" /></a> <strong>:</strong> 
+		<a rel="index" href="../../index.html" title="Ir al índice" accesskey="0"><img src="../../img/indice.gif" alt="Ir al índice" /></a> <strong>:</strong> 
+		<a rel="next" href="../ud6/index.html" title="Ir al artículo siguiente" accesskey="9"><img src="../../img/fletxa_der.gif" alt="Ir al artículo siguiente" /></a>
+	</div>
+</div>
+	
+<div id="main">
+   <h1>19. Tablas HTML</h1>
+   
+   <p class="by"><a href="../../index.html#hanen">Jenifer Hanen</a>. 8 de julio del 2008. Publicado en: encabezamiento, datos, pie, tablas, título de tabla</p>
+   
+   <p>¡Vaya! ¿Cómo debemos utilizar los estándares de la web para organizar pilas de datos? El simple hecho de pensar en las toneladas de elementos anidados necesarios para conseguir que todos estos datos se distribuyan en filas y cajas ya hace que nuestro cerebro quede totalmente colapsado; pero hay una solución: ¡las tablas pueden salvarnos!</p>
+   
+   <p>En el diseño web, las tablas son una manera muy buena de organizar datos en un formato tabulado. Es decir, debemos ver las tablas, los gráficos y los demás elementos visuales informativos como una ayuda para ver y procesar una gran cantidad de información de una manera resumida que nos ayuda a comparar y contrastar datos diferentes. Podemos ver estos elementos muy a menudo en los sitios web, ya sea para resumir o comparar resultados de elecciones políticas, estadísticas deportivas, precios, tallas u otros datos.</p>
+   
+   <p>En la era jurásica de Internet, antes de la popularización del CSS como método para separar la presentación de la estructura del HTML, las tablas se utilizaban para maquetar las páginas web: para crear columnas y cajas y, en general, para distribuir el contenido. Pero ésta no es la manera correcta de hacer las cosas; la maquetación con tablas daba como resultado unas páginas cargadas y confusas con un montón de tablas anidadas; archivos muy grandes, difíciles de mantener y difíciles de modificar. Todavía podréis ver sitios web hechos así en Internet, pero debéis tener muy claro que actualmente las tablas se deben utilizar sólo para lo que fueron diseñadas: los datos tabulares, y el CSS, para controlar la maquetación.</p>
+   
+   <p>En este apartado explicaremos cómo utilizar adecuadamente las tablas HTML.</p>
+   
+   <p>Los contenidos de este apartado son los siguientes:</p>
+   
+   <ul class="index">
+		<li>19.1. <a href="#basictable" accesskey="1">La tabla más básica</a></li>
+   <li>19.2. <a href="#addingfeatures" accesskey="2">Añadir otras funciones</a></li>
+   <li>19.3. <a href="#morestructure" accesskey="3">Seguir estructurando la tabla</a></li>
+   <li>19.4. <a href="#csstable" accesskey="4">El CSS nos ayuda: una tabla con un aspecto mejor</a></li>  
+   <li class="especial"><a href="#summary">Resumen</a></li> 
+   <li class="especial"><a href="#exercises">Preguntas de repaso</a></li> 
+   <li class="especial"><a href="#furtherreading">Lecturas complementarias</a></li> 
+   </ul>
+                               
+
+   <h2 id="basictable">19.1. La tabla más básica</h2>
+   
+   <p>Empezaremos con el código HTML semántico necesario para crear una tabla básica; este ejemplo en concreto compara erupciones volcánicas recientes de la región del Pacífico de América del Norte. A mí me gustan los volcanes y cuando era pequeña convencí a mi madre para que me llevara a varios de estos volcanes durante los viajes que hacíamos en verano para visitar a la abuela. Siempre esperaba que alguno de estos volcanes del noroeste del Pacífico entrara en erupción mientras estábamos de vacaciones, pero fue en vano.</p>
+
+   <p>La primera tabla es la siguiente:</p>
+                           
+   <pre><code>&lt;table&gt;
+   &lt;tr&gt;
+      &lt;td&gt;Volcano Name&lt;/td&gt;
+      &lt;td&gt;Location&lt;/td&gt;
+      &lt;td&gt;Last Major Eruption&lt;/td&gt;
+      &lt;td&gt;Type of Eruption&lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+      &lt;td&gt;Mt. Lassen&lt;/td&gt;
+      &lt;td&gt;California&lt;/td&gt;
+      &lt;td&gt;1914-17&lt;/td&gt;
+      &lt;td&gt;Explosive Eruption&lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+      &lt;td&gt;Mt. Hood&lt;/td&gt;
+      &lt;td&gt;Oregon&lt;/td&gt;
+      &lt;td&gt;1790s&lt;/td&gt;
+      &lt;td&gt;Pyroclastic flows and Mudflows&lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+      &lt;td&gt;Mt. St. Helens&lt;/td&gt;
+      &lt;td&gt;Washington&lt;/td&gt;
+      &lt;td&gt;1980&lt;/td&gt;
+      &lt;td&gt;Explosive Eruption&lt;/td&gt;
+   &lt;/tr&gt;
+&lt;/table&gt;</code></pre>  
+
+   
+   <p>Este código se representa de la manera siguiente:</p>
+
+   <table summary="">
+     <tr>
+       <td>Volcano Name</td>
+       <td>Location</td>
+       <td>Last Major Eruption</td>
+       <td>Type of Eruption</td>
+     </tr> 
+     <tr>
+       <td>Mt. Lassen</td>
+       <td>California</td>
+       <td>1914-17</td>
+       <td>Explosive Eruption</td>
+     </tr>
+     <tr>
+       <td>Mt. Hood</td>
+       <td>Oregon</td>
+       <td>1790s</td>
+       <td>Pyroclastic flows and Mudflows</td>
+     </tr>
+     <tr>
+       <td>Mt. St. Helens</td>
+       <td>Washington</td>
+       <td>1980</td>
+       <td>Explosive Eruption</td>
+     </tr> 
+   </table>
+   
+   <p>Empezaremos descomponiendo el etiquetado HTML utilizado en el código anterior:</p>
+   
+   <ul>
+			<li><p><code>&lt;table&gt;&lt;/table&gt;</code>: El elemento <code>table</code> es necesario para indicar al navegador que queréis organizar el contenido de una manera tabular.</p></li>
+     <li><p><code>&lt;tr&gt;&lt;/tr&gt;</code>: El elemento <code>tr</code> establece una fila de la tabla. Esto permite que el navegador organice todo el contenido que hay entre las etiquetas <code>&lt;tr&gt;</code> y <code>&lt;/tr&gt;</code> dde una manera horizontal, todas ellas en una fila.</p></li>
+     <li><p><code>&lt;td&gt;&lt;/td&gt;</code>: El elemento <code>td</code> define la celda de la tabla o cada uno de los espacios individuales para el contenido dentro de la fila. Utilizad sólo las celdas de tabla <code>td</code> necesarias según los datos que se quieran incluir. No utilicéis celdas <code>td</code> vacías para crear espacio en blanco o separación; para crear el espacio en blanco o la separación, es necesario que utilicéis el CSS, ya que no sólo es una buena manera de separar la presentación de la estructura, sino que también hace que la tabla sea más fácil de entender por parte de las personas con discapacidades visuales que utilizan lectores de pantalla para leerles el contenido de la tabla en voz alta.</p></li>
+		</ul>
+   
+   <p>Tened en cuenta que los elementos básicos se deben anidar de la manera siguiente:</p>
+                         
+
+   <pre><code>&lt;table&gt;
+   &lt;tr&gt;
+      &lt;td&gt;content&lt;/td&gt;
+      &lt;td&gt;content&lt;/td&gt;
+      &lt;td&gt;content&lt;/td&gt;
+   &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+   
+   <p>Si los ordenamos de otra manera, el navegador generará un embrollo considerable y mostrará la tabla de una manera muy extraña.</p>                     
+
+   <h2 id="addingfeatures">19.2. Añadir otras funciones</h2>
+   
+   <p>Ahora que ya tenemos la tabla básica, podéis añadir algunas funciones de tabla un poco más complejas. En primer lugar, añadiremos un título y unos encabezamientos de columna para mejorar los datos tanto respecto a la semántica, como a la legibilidad por parte de los lectores de pantalla. El etiquetado de la tabla mejorada es el siguiente:</p>
+                                    
+   <pre><code>&lt;table&gt;
+   &lt;caption&gt;Recent Major Volcanic Eruptions in the Pacific Northwest&lt;/caption&gt;
+   &lt;tr&gt;
+      &lt;th&gt;Volcano Name&lt;/th&gt;
+      &lt;th&gt;Location&lt;/th&gt;
+      &lt;th&gt;Last Major Eruption&lt;/th&gt;
+      &lt;th&gt;Type of Eruption&lt;/th&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+      &lt;td&gt;Mt. Lassen&lt;/td&gt;
+      &lt;td&gt;California&lt;/td&gt;
+      &lt;td&gt;1914-17&lt;/td&gt;
+      &lt;td&gt;Explosive Eruption&lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+      &lt;td&gt;Mt. Hood&lt;/td&gt;
+      &lt;td&gt;Oregon&lt;/td&gt;
+      &lt;td&gt;1790s&lt;/td&gt;
+      &lt;td&gt;Pyroclastic flows and Mudflows&lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+      &lt;td&gt;Mt. St. Helens&lt;/td&gt;
+      &lt;td&gt;Washington&lt;/td&gt;
+      &lt;td&gt;1980&lt;/td&gt;
+      &lt;td&gt;Explosive Eruption&lt;/td&gt;
+   &lt;/tr&gt;
+&lt;/table&gt;</code></pre>        
+   
+   <p>Este código se representa de la manera siguiente:</p>
+
+   <table>
+     <caption>Recent Major Volcanic Eruptions in the Pacific Northwest</caption>
+     <tr>
+       <th>Volcano Name</th>
+       <th>Location</th>
+       <th>Last Major Eruption</th>
+       <th>Type of Eruption</th>
+     </tr>
+     <tr>
+       <td>Mt. Lassen</td>
+       <td>California</td>
+       <td>1914-17</td>
+       <td>Explosive Eruption</td>
+     </tr>
+     <tr>
+       <td>Mt. Hood</td>
+       <td>Oregon</td>
+       <td>1790s</td>
+       <td>Pyroclastic flows and Mudflows</td>
+     </tr>
+     <tr>
+       <td>Mt. St. Helens</td>
+       <td>Washington</td>
+       <td>1980</td>
+       <td>Explosive Eruption</td>
+     </tr>
+   </table>
+   
+   <p>Los elementos nuevos que hemos utilizado son:</p>
+   
+   <ul>
+			<li><p><code>&lt;caption&gt;&lt;/caption&gt;</code>: El elemento <code>caption</code> permite añadir un título a los datos de la tabla. La mayoría de los navegadores centran el título y lo reproducen con el mismo ancho que la tabla, a menos que se utilice el CSS para alinear el texto de una manera diferente.</p>
+   </li>
+   
+   <li><p><code>&lt;th&gt;&lt;/th&gt;</code>: El elemento <code>th</code> define el contenido que hay entre estas etiquetas como encabezamiento para la columna correspondiente de la tabla. Esto es útil no sólo para ayudar a describir semánticamente cuál es la función de este contenido, sino que también ayuda a reproducirlo de una manera más precisa en varios navegadores y dispositivos. Este ejemplo es la manera más básica de utilizar el elemento <code>th</code>.</p>
+   </li>
+		</ul>              
+		
+   <h2 id="morestructure">19.3. Seguir estructurando la tabla</h2>
+   
+   <p>Como paso final para acabar de estructurar nuestra tabla, definiremos unas secciones de encabezamiento y de cuerpo de la tabla, le añadiremos un pie y definiremos el ámbito de los títulos de fila y columna. También añadiremos un atributo de resumen para describir el contenido de la tabla. El etiquetado definitivo de la tabla es el siguiente:</p>
+                       
+
+   <pre><code>&lt;table summary="a summary of recent major volcanic eruptions
+ in the Pacific Northwest"&gt;
+   &lt;caption&gt;Recent Major Volcanic Eruptions in the Pacific Northwest&lt;/caption&gt;
+   &lt;thead&gt;
+      &lt;tr&gt;
+         &lt;th scope="col"&gt;Volcano Name&lt;/th&gt;
+         &lt;th scope="col"&gt;Location&lt;/th&gt;
+         &lt;th scope="col"&gt;Last Major Eruption&lt;/th&gt;
+         &lt;th scope="col"&gt;Type of Eruption&lt;/th&gt;
+      &lt;/tr&gt;
+   &lt;/thead&gt;
+   &lt;tfoot&gt;
+      &lt;tr&gt;
+         &lt;td colspan="4"&gt;Compiled in 2008 by Ms Jen&lt;/td&gt;
+      &lt;/tr&gt;
+   &lt;/tfoot&gt;   
+   &lt;tbody&gt;
+      &lt;tr&gt;
+         &lt;th scope="row"&gt;Mt. Lassen&lt;/th&gt;
+         &lt;td&gt;California&lt;/td&gt;
+         &lt;td&gt;1914-17&lt;/td&gt;
+         &lt;td&gt;Explosive Eruption&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+         &lt;th scope="row"&gt;Mt. Hood&lt;/th&gt;
+         &lt;td&gt;Oregon&lt;/td&gt;
+         &lt;td&gt;1790s&lt;/td&gt;
+         &lt;td&gt;Pyroclastic flows and Mudflows&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+         &lt;th scope="row"&gt;Mt. St. Helens&lt;/th&gt;
+         &lt;td&gt;Washington&lt;/td&gt;
+         &lt;td&gt;1980&lt;/td&gt;
+         &lt;td&gt;Explosive Eruption&lt;/td&gt;
+      &lt;/tr&gt;
+   &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+   
+   <p>Este código de tabla tiene el siguiente aspecto en un navegador:</p>
+   
+   <table summary="a summary of recent major volcanic eruptions in the Pacific Northwest">
+   	 <caption>Recent Major Volcanic Eruptions in the Pacific Northwest</caption>
+     <thead>
+       <tr>
+         <th>Volcano Name</th>
+         <th>Location</th>
+         <th>Last Major Eruption</th>
+         <th>Type of Eruption</th>
+       </tr>
+     </thead>
+		 <tfoot>
+     <tr>
+       <td colspan="4">Compiled in 2008 by Ms Jen</td>
+     </tr>
+     </tfoot>
+     <tbody>
+     <tr>
+       <th scope="row">Mt. Lassen</th>
+       <td>California</td>
+       <td>1914-17</td>
+       <td>Explosive Eruption</td>
+     </tr>
+     <tr>
+       <th scope="row">Mt. Hood</th>
+       <td>Oregon</td>
+       <td>1790s</td>
+       <td>Pyroclastic flows and Mudflows</td>
+     </tr>
+     <tr>
+       <th scope="row">Mt. St. Helens</th>
+       <td>Washington</td>
+       <td>1980</td>
+       <td>Explosive Eruption</td>
+     </tr>    
+		 </tbody>
+   </table>
+   
+   <p>Los nuevos elementos/atributos son los siguientes:</p>
+   
+   <ul>
+			<li><p>Los elementos <code>thead</code>, <code>tbody</code> y <code>tfoot</code>: estos elementos definen respectivamente el título, el cuerpo y el pie de la tabla. A menos que estemos codificando una tabla realmente compleja con muchas columnas y filas de datos, si los utilizamos corremos el riesgo de excedernos. En una tabla compleja, sin embargo, su uso no sólo estructurará el contenido para el codificador, sino también para los navegadores y otros dispositivos.</p></li>
+   
+   <li><p>Los atributos <code>colspan</code> y <code>rowspan</code>: el atributo <code>colspan</code> crea una celda de tabla que ocupará más de una columna. En el caso del pie anterior, queríamos que una celda de la tabla ocupara todo el ancho y por ello le hemos dicho que debía extenderse a lo largo de cuatro columnas. También podéis añadir un atributo <code>rowspan</code> de celda de tabla que permitirá que la celda ocupe <var>x</var> filas, por ejemplo <code>&lt;td rowspan="3"&gt;</code>.</p></li>
+   
+   <li><p>El atributo <code>summary</code>: este atributo se utiliza para definir un resumen del contenido de la tabla para su uso por parte de los lectores de pantalla (observad que este resumen no aparece en la versión de la tabla que se ve en pantalla). Tened en cuenta que en las recomendaciones W3C antiguas, WCAG 1.0 y HTML 4.0, se dice que se puede utilizar el atributo <code>summary</code> tal como hemos explicado anteriormente. En los borradores más nuevos de las especificaciones, sin embargo, este atributo <code>summary</code> ya no se menciona. El hecho de seguir utilizando el atributo <code>summary</code> es una cuestión que está por resolver; de momento, los integrantes de la Web Standards Curriculum hemos llegado a la conclusión de que vale la pena seguir utilizándolo. Al fin y al cabo, no va mal y presenta algunas ventajas para la accesibilidad.</p></li>
+   
+   <li><p>El atributo <code>scope</code>: también es posible que hayáis observado los atributos <code>scope</code> de las etiquetas <code>th</code>, y el hecho de que hayamos definido los nombres de los volcanes también como títulos de columnas, dentro de las filas de datos. Esto es perfectamente posible, pero de hecho nos estamos apartando del tema. El atributo <code>scope</code> se puede utilizar dentro del elemento <code>th</code> para indicar a los lectores de pantalla que el contenido de <code>th</code> es el título de una columna o una fila. El atributo <code>scope</code> sólo se utiliza dentro del elemento <code>th</code>.</p></li>
+		</ul>         
+		
+   <h2 id="csstable">19.4. El CSS nos ayuda: una tabla con un aspecto mejor</h2>
+   
+   <p>Los elementos y atributos anteriores son todo lo que necesitáis para codificar una buena tabla de datos. Ahora que ya hemos definido la estructura HTML, pasamos a ver un CSS muy sencillo para hacer que la tabla tenga un aspecto todavía mejor:</p>
+
+   <pre><code>body{
+   background: #ffffff;
+   margin: 0;
+   padding: 20px;
+   line-height: 1.4em;
+   font-family: tahoma, arial, sans-serif;
+   font-size: 62.5%;
+}
+    
+table {
+   width: 80%;
+   margin: 0;
+   background: #FFFFFF;
+   border: 1px solid #333333;
+   border-collapse: collapse;
+}
+    
+td, th {
+   border-bottom: 1px solid #333333;
+   padding: 6px 16px;
+   text-align: left;
+}
+    
+th {
+   background: #EEEEEE;
+}
+    
+caption {
+   background: #E0E0E0;
+   margin: 0;
+   border: 1px solid #333333;
+   border-bottom: none;
+   padding: 6px 16px;
+   font-weight: bold;
+}</code></pre>          
+   
+   <p>Cuando lo aplicamos al etiquetado definitivo de nuestra tabla, el aspecto que tendrá es el que se puede ver en la figura 1. También podéis comprobar la tabla real de ejemplo.</p>
+                          
+		<div class="imagen">
+			<img src="06510_m4_10.gif" alt="Exemple de la taula final" />
+			<p>Figura 1. Ahora la tabla es visualmente mucho más atractiva.</p>
+			<p class="font"><strong>Archivo fuente:</strong> "<a href="http://dev.opera.com/articles/view/19-html-tables/table3.html" hreflang="en">table3.html</a>"</p>
+		</div>                                                
+
+   <p>¡Ooooh...! Mucho mejor, ¿no? Podéis aplicar los estilos que queráis a la tabla, pero el ejemplo anterior es un punto de referencia a partir del cual podéis empezar a trabajar. En otro apartado aprenderéis muchas más cosas sobre los estilos de las tablas; de momento, nos limitaremos a explicar qué hace cada una de las secciones de este CSS:</p>
+   
+   <ul>
+			<li><p><code>body</code>: en el CSS anterior hemos añadido propiedades para definir el margen (en este caso a cero), una separación (padding) para crear un poco de espacio, un color de fondo (blanco), el tamaño y la familia del tipo de letra, así como la interlínea para hacerlo todo un poco más espacioso. Podéis descargaros el código de este ejemplo en <a href="http://dev.opera.com/articles/view/19-html-tables/csstable.zip">http://dev.opera.com/articles/view/19-html-tables/csstable.zip</a>; intentad modificar las propiedades en el archivo CSS para ver cómo cambian las cosas.</p>
+   </li>
+   
+   <li><p><code>table</code>: los bordes se han añadido con la declaración de bordes de CSS. Para que todo funcionara correctamente, también hemos tenido que añadir la propiedad <code>border-collapse</code> a <code>collapse</code>; de esta manera, se reinician los valores de los bordes de la tabla y <code>border-bottom</code> es una línea recta continua que ocupa toda la fila en lugar de quedar partida entre cada una de las celdas de la tabla. En este ejemplo hemos definido <code>width</code> al 80%. Esto hace que la tabla ocupe el 80% del ancho de la pantalla y el ancho de la tabla cambiará siempre que se hagan cambios en el ancho de pantalla del navegador.</p>
+   </li>
+   
+   <li><p><code>th</code> y <code>td</code>: en el CSS anterior hemos definido la alineación del texto a la izquierda, pero también puede ser centrada o incluso podéis dar nombres de clase a los diferentes elementos <code>th</code> y <code>td</code> y entonces utilizar el CSS para tener un mayor control sobre cada una de las filas o columnas (en el caso de las filas, daréis un nombre de clase a la etiqueta del elemento <code>tr</code>). También hemos añadido un poco de separación a <code>th</code> y <code>td</code> para abrir las filas y conseguir así que la legibilidad fuera mejor. En el caso del selector <code>th</code> anterior, hemos definido otro color para diferenciar los títulos del resto de la tabla.</p>
+   </li>
+   
+   <li><p><code>caption</code>: si no definís las propiedades CSS para el selector <code>caption</code>, éste no tendrá ningún borde y tendrá el mismo color de fondo que toda la página aunque el etiquetado HTML para el título de la tabla se encuentre en la etiqueta <code>table</code>. Así pues, en el ejemplo anterior hemos definido un borde para el título (sin ningún borde inferior, ya que el borde de la tabla ya desempeña esta función), un color de fondo diferente y un tipo en negrita para diferenciar el título de la fila de los títulos de columna.</p></li>
+   </ul>               
+
+   
+  <h2 id="summary">Resumen</h2> 
+   
+   <p>En este apartado hemos explicado todo lo que debéis saber para crear unas tablas de datos en HTML muy efectivas. ¡Eso es todo! Para terminar, os dejaremos con un par de ideas básicas que debéis recordar:</p>
+   
+   <ul>
+			<li><p>Es importante que las tablas estén correctamente codificadas para que se puedan leer en todos los navegadores, dispositivos móviles y todo tipo de soportes. El HTML de la tabla debe ser tan reducido como sea posible, y para definir los estilos se debe utilizar el CSS. Más adelante, en este mismo curso, aprenderéis mucho más sobre el CSS.</p></li>
+   
+   <li><p>Los dispositivos móviles y los usuarios que utilicen lectores de pantalla podrán acceder a las tablas siempre que su código sea limpio y que se utilicen los atributos como <code>scope</code> y <code>summary</code>, así como el elemento caption, para anunciar clara y semánticamente para qué sirven las secciones respectivas. Para la accesibilidad también es importante no utilizar celdas vacías para crear espacio en blanco (para ello debéis utilizar el CSS).</p></li>
+   </ul>
+   
+   
+   <h2 id="exercises">Preguntas de repaso</h2> 
+   
+   <ol>
+     <li><p>Empezad escribiendo el código de una tabla sencilla con sólo los 3 elementos de tabla principales: <code>table</code>,  <code>tr</code> y <code>td</code>. Guardadla y abridla en un navegador.</p></li>
+     <li><p>Igual que en el segundo ejemplo anterior, añadid un título, títulos de columna y un pie. ¿Cómo cambia lo que podéis ver en el navegador?</p></li>
+     <li><p>¿Qué podéis hacer para que la tabla sea más accesible para los lectores de pantalla y los dispositivos portátiles?</p></li>
+     <li><p>Ahora cread un archivo CSS. Intentad definir un estilo para los bordes, la separación y el espaciado de celda de la tabla sólo con el CSS y sin utilizar ningún atributo del etiquetado HTML. Añadid un color de fondo y definid el estilo de los tipos de letra.</p></li>
+   </ol>
+   
+   <p>¡Pasadlo bien!</p>
+                         
+   <h2 id="furtherreading">Lecturas complementarias</h2>
+   
+   <ul>
+		<li><p><a href="http://www.w3.org/TR/html401/struct/tables.html">Recomendación HTML 4 para tablas del W3C</a></p></li>
+   <li><p><a href="http://www.w3.org/TR/CSS21/tables.html">Recomendación CSS 2 para tablas del W3C</a></p></li>
+		<li><p><a href="http://www.456bereastreet.com/archive/200410/bring_on_the_tables/">"Bring on the Tables" de Roger Johansson</a></p></li>
+		</ul>   
+
+
+</div>
+<div><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.es"><img src="../../m0/creative_commons.gif" id="logo_cc" alt="Logo Creative Commons" /></a></div>
+<div id="logo_text">Los contenidos recogidos en este artículo están sujetos a una licencia <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.es">Creative Commons<br /> Reconocimiento, No comercial - Compartir bajo la misma licencia 3.0 No adaptada</a>.
+</div>
+<div id="cierre_autor"></div>
+
+<div id="peu">
+		<a rel="prev" href="../ud4/index.html" title="Ir al artículo anterior" accesskey="8"><img src="../../img/fletxa_izq_inv.gif" alt="Ir al artículo anterior" /></a> <strong>:</strong>
+		<a rel="index" href="../../index.html" title="Ir al índice" accesskey="0"><img src="../../img/indice_inv.gif" alt="Ir al índice" /></a> <strong>:</strong>
+		<a rel="next" href="../ud6/index.html" title="Ir al artículo siguiente" accesskey="9"><img src="../../img/fletxa_der_inv.gif" alt="Ir al artículo siguiente" /></a>
+</div>
+</body>
+</html>

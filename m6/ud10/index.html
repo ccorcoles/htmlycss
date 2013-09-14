@@ -1,0 +1,403 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
+<meta http-equiv="Content-Language" content="es" />
+<meta name="language" content="es" />
+<meta name="author" content="Universitat Oberta de Catalunya" />
+<meta name="description" content="FALTA CONTENIDO" />
+<meta name="title" content="FALTA CONTENIDO" />
+<meta name="keywords" content="FALTA CONTENIDO" />
+
+<title>CSS - Posicionamiento estático y relativo con CSS</title>
+<link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
+</head>
+
+<body>
+<div id="cabecera">
+	<img id="logo" src="../../img/logo.gif" alt="Universitat Oberta de Catalunya" />
+    <a href="http://mosaic.uoc.edu/"><img id="logomosaic" src="../../img/logo-mosaic.gif" alt="Logo de Mosaic" title="Abre la página web de Mosaic" /></a>
+	<div id="titulo">CSS</div>
+	<div id="subtitulo">Posicionamiento estático y relativo con CSS</div>
+<div id="cierre"></div>
+	<div id="navegador">
+		<a href="../../m0/accessibilitat.html" id="accesibilidad">Accesibilidad</a> <strong>:</strong> 
+		<a rel="prev" href="../ud9/index.html" title="Ir al artículo anterior" accesskey="8"><img src="../../img/fletxa_izq.gif" alt="Ir al artículo anterior" /></a> <strong>:</strong> 
+		<a rel="index" href="../../index.html" title="Ir al índice" accesskey="0"><img src="../../img/indice.gif" alt="Ir al índice" /></a> <strong>:</strong> 
+		<a rel="next" href="../ud11/index.html" title="Ir al artículo siguiente" accesskey="9"><img src="../../img/fletxa_der.gif" alt="Ir al artículo siguiente" /></a>
+	</div>
+</div>
+	
+<div id="main">  
+<h1>36. Posicionamiento estático y relativo con CSS</h1>
+<p class="by"><a href="../../index.html#olsson">Tommy Olsson</a>. 26 de septiembre del 2008 Publicado en: en línea, composición, columna, bloque, IE</p>
+
+<p>En este apartado explicaremos con exhaustividad el modo como se puede utilizar CSS para posicionar elementos HTML en el lugar deseado de una página con la propiedad <code>position</code> (posicionar) de CSS y algunas propiedades relacionadas.</p>
+
+<p>La propiedad <code>position</code> de CSS tiene cuatro valores lícitos (aparte del omnipresente <code>inherit</code>): <code>static</code> (estático), <code>relative</code> (relativo), <code>absolute</code> (absoluto) y <code>fixed</code> (fijo). Estos valores tienen un impacto muy importante sobre la manera en que se representa un elemento. Los valores <code>static</code> y <code>relative</code> están muy relacionados, y en este apartado los estudiaremos con gran detalle. Los valores <code>absolute</code> y <code>fixed</code> también están muy relacionados, pero de momento los dejaremos para el próximo apartado.</p>
+
+
+<p>Los contenidos de este apartado son los siguientes:</p>
+
+<ul class="index">
+
+<li>36.1. <a href="#rectangles" accesskey="1">El maravilloso mundo de los rectángulos</a></li>
+<li>36.2. <a href="#static" accesskey="2">Posicionamiento estático</a>
+<ul class="index">
+<li>36.2.1. <a href="#blockboxlayout">Disposición de cajas de bloque</a></li>
+<li>36.2.2. <a href="#inlineboxlayout">Disposición de cajas en línea</a></li>
+</ul></li>
+<li>36.3. <a href="#relative" accesskey="3">Posicionamiento relativo</a>
+<ul class="index">
+<li>36.3.1. <a href="#multicolumnlayout">Disposición de múltiples columnas con requisitos de orden en el código fuente</a>
+<ul class="index">
+<li><a href="#makingcolumns">Crear columnas</a></li>
+<li><a href="#iequirks">Solucionar los problemas con Internet Explorer</a></li>
+</ul></li>
+<li>36.3.2. <a href="#otherusesforrelative">Otros usos del posicionamiento relativo</a></li>
+</ul></li>
+<li class="especial"><a href="#summary">Resumen</a></li>
+<li class="especial"><a href="#exercises">Preguntas de repaso</a></li>
+
+</ul>
+
+
+<h2 id="rectangles">36.1. El maravilloso mundo de los rectángulos</h2>
+
+<p>Para empezar, recapitularemos un poco todo lo que hemos dicho en el apartado anterior, dedicado a los elementos flotantes y al <em>clearing</em>, sobre el CSS y las cajas HTML. Un documento HTML consiste en un número de elementos salpicados con datos de caracteres (texto). Cuando un documento de este tipo se reproduce en una pantalla de ordenador o en una copia impresa, estos elementos generan cajas rectangulares. De la misma manera que un conjunto de elementos HTML se divide en elementos de bloque y elementos en línea, las cajas CSS también pueden ser básicamente cajas de bloque o cajas en línea. Por defecto, la hoja de estilos del agente de usuario integrado de un navegador hace que los elementos HTML de bloque, como <code>p</code> y <code>div</code>, generen cajas de bloque, mientras que los elementos en línea, como <code>strong</code> y <code>span</code>, generan cajas en línea. Podemos utilizar la propiedad <code>display</code> para controlar el tipo de caja que se generará.</p>
+
+<div class="vegeu_tambe">
+<h3>Ved también</h3>
+<p>Podéis ver el apartado 35 de este módulo.</p>
+</div>
+
+<p>Las cajas generadas por los elementos de un documento se disponen según una serie de normas claramente definidas según la <a href="http://www.w3.org/TR/CSS21" hreflang="en">especificación CSS2.1</a>. Estas reglas están escritas para las relativamente escasas personas que escriben software para navegadores con el fin de que puedan saber cómo funciona el CSS, pero no para aquéllos de nosotros que diseñamos páginas web para ganarnos la vida o como afición. ¡Por ello existe todo este curso! Como resultado, la especificación puede ser un tanto difícil de entender. En este apartado, intentaremos explicar los conceptos básicos de una manera que resulte apropiada para los diseñadores y desarrolladores de webs.</p>
+
+<h2 id="static">36.2. Posicionamiento estático</h2>
+
+<p>De hecho, este nombre no es nada adecuado. En realidad, los cuadros con <code>position:static</code> no se "posicionan" en el sentido del CSS. Simplemente se disponen en el orden en el que aparecen en el etiquetado y ocupan todo el espacio que necesitan; éste es el comportamiento por defecto que se da cuando no se aplica ningún CSS al HTML.</p>
+
+<p>Existen algunas diferencias fundamentales en la manera como se distribuyen las cajas de bloque en comparación con la distribución de las cajas en línea; por tanto, examinaremos los dos tipos uno a uno. Empezaremos con las cajas de bloque porque son más sencillas.</p>
+
+<h3 id="blockboxlayout">36.2.1. Disposición de cajas de bloque</h3>
+
+<p>Si no aplicamos ninguna declaración CSS concreta, las cajas de bloque se disponen verticalmente de arriba abajo en el orden en el que aparecen en el etiquetado. Cada caja es normalmente tan ancha como el documento (el elemento <code>body</code>), pero incluso si las hacemos más estrechas, éstas no se distribuirán una al lado de la otra aunque haya espacio, sino que se seguirán situando la una bajo la otra. Podéis imaginároslo como si cada caja de bloque tuviera un salto de línea implícito antes y después, ya que así se garantiza que tendrá una "línea" propia.</p>
+
+<p>La distancia vertical entre dos cajas de bloque se controla con la propiedad <code>margin-bottom</code> (margen-inferior) de la primera caja y la propiedad <code>margin-top</code> (margen-superior) de la segunda caja (en este curso ya hemos visto cómo manipular estas propiedades). Para las cajas del flujo normal, es decir, las cajas que no son flotantes o que no tienen un posicionamiento absoluto, los márgenes verticales entre dos cajas de bloque adyacentes se superpondrán, de manera que el resultado final no será la suma de los dos márgenes, sino el mayor de los dos, tal como se puede ver en la figura 1 que se muestra más adelante.</p>
+
+<p>Mirad el siguiente fragmento de HTML:</p>
+
+<pre><code>&lt;p style="margin-bottom:40px"&gt;This paragraph has a 40px bottom margin.&lt;/p&gt;
+&lt;p style="margin-top:20px"&gt;This paragraph has a 20px top margin.&lt;/p&gt;
+</code></pre>
+
+<p>Cuando se muestra en un navegador, los márgenes se superponen como se puede ver en la figura 1.</p>
+
+<div class="imagen">
+<img src="76510_m6_91.gif" alt="La distancia entre los dos párrafos es de 40 píxeles, no de 60 píxeles." />
+<p>Figura 1. Los márgenes se superponen y la distancia entre los dos es de 40 píxeles, y no de 60 píxeles.</p>
+</div>
+
+<p>Una caja de bloque incluirá sólo otras cajas de bloque o sólo cajas en línea. Si un elemento de bloque contiene una mezcla de hijos de bloque y en línea (algo permitido pero semánticamente cuestionable), se generará lo que se conoce como <em>cajas de bloque anónimas</em> para incluir las cajas hijas insertadas, de manera que la madre contenga sólo cajas de bloque.</p>
+
+<p>Podéis especificar las dimensiones de una caja de bloque con las propiedades <code>width</code> (anchura) y <code>height</code> (altura). También podéis especificar los márgenes vertical y horizontal. El valor inicial (por defecto) para <code>width</code> y <code>height</code> es <code>auto</code>, y el valor inicial para las propiedades de margen es <code>0</code>. Estos factores combinados significan que una caja de bloque será por defecto tan ancha como su madre, como muestra la figura 2.</p>
+
+<div class="imagen">
+<img src="76510_m6_92.gif" alt="Las cajas de bloque se distribuyen verticalmente." />
+<p>Figura 2. Las cajas de bloque se distribuyen verticalmente.</p>
+</div>
+
+
+<h3 id="inlineboxlayout">36.2.2. Disposición de cajas en línea</h3>
+
+<div class="note">
+<h3>Nota</h3>
+
+<p>Este subapartado puede ser difícil de entender si no tenéis mucha experiencia con CSS, de modo que quizá deberéis leerlo unas cuantas veces, pero tampoco os debe preocupar. La experimentación por vuestra cuenta es probablemente la mejor manera para entender bien todas estas cuestiones; sólo es necesario que a la hora de hacer las pruebas utilicéis un buen navegador compatible con los estándares, como Opera o Firefox.</p>
+</div>
+
+<p>Las cajas en línea se generan por defecto a partir de los elementos HTML en línea, pero también hay cajas en línea anónimas generadas para incluir el contenido de texto de los elementos.</p>
+
+<p>Las cajas en línea se distribuyen horizontalmente, una después de otra, en el orden en el que aparecen en el etiquetado. Según la propiedad <code>direction</code>, los cuadros insertados se distribuirán de izquierda a derecha (<code>direction:ltr</code>) o de derecha a izquierda (<code>direction:rtl</code>). La dirección de izquierda a derecha se utiliza, por ejemplo, con los idiomas europeos, mientras que la de derecha a izquierda se utiliza con idiomas como el árabe y el hebreo.</p>
+
+<p>El grupo de cajas en línea que forman una línea en la pantalla (o en el papel) está contenido en otro rectángulo más, que se conoce como <em>caja de línea</em>. Las cajas de línea se distribuyen verticalmente en su bloque madre, sin ningún espacio entre ellas. Podemos modificar la altura de las cajas de línea con la propiedad <code>line-height</code>.</p>
+
+<p>Para las cajas en línea no podemos especificar ninguna dimensión. Podemos especificar los márgenes horizontales, pero no los verticales.</p>
+
+<p>Si es necesario, una caja en línea se puede dividir en varias cajas en línea distribuidas por dos o más cajas de línea. Cuando se produce una división de este tipo, todos los márgenes horizontales y separaciones, y todos los bordes verticales, se aplicarán sólo antes de la primera caja y después de la última caja. Imaginémonos un documento con la regla siguiente para los elementos <code>em</code>:</p>
+
+<pre><code>em {
+   margin: 0 2em;
+   padding: 0 1em;
+   border: 1px dotted blue;
+}</code></pre>
+
+<p>Con esto se obtendrá una composición similar a la que se puede ver en la figura 3, en la que los elementos con estilo se dividen en múltiples líneas.</p>
+
+<div class="imagen">
+<img src="76510_m6_93.gif" alt="Los márgenes, el relleno y el borde no se aplican donde se produce la rotura." />
+<p>Figura 3. Los márgenes, la separación y el borde no se aplican donde se produce la rotura.</p>
+</div>
+
+<p>La alineación vertical de las cajas en línea dentro de la caja de línea que las contiene está determinada por la propiedad <code>vertical-align</code> (alineación-vertical). El valor por defecto es <code>baseline</code>, lo que significa que las cajas en línea se alinean de manera que sus líneas base de texto quedan alineadas. La línea base es la línea imaginaria sobre la que se sitúan las letras sin astas descendentes. Esta línea se sitúa un poco por encima de la parte inferior de la caja de línea para dejar espacio para las astas ascendentes de las letras en minúsculas, tal como muestra la figura 4.</p>
+
+<div class="imagen">
+<img src="76510_m6_94.gif" alt="Les letras se sitúan sobre la línea base imaginaria." />
+<p>Figura 4. Las letras se sitúan sobre la línea base imaginaria. </p>
+</div>
+
+<p>Observad que la propiedad <code>vertical-align</code> se aplica sólo a las cajas en línea y a las celdas de tabla, y no se hereda. La figura 5 muestra algunas imágenes pequeñas con diferentes alineaciones verticales.</p>
+
+<div class="imagen">
+<img src="76510_m6_95.gif" alt="Imágenes situadas con los valores de la propiedad vertical-align de CSS" />
+<p>Figura 5. Las imágenes situadas con los valores de la propiedad <code>vertical-align</code> del CSS</p>
+</div>
+
+<p>Cuando la anchura total de las cajas en línea en una caja de línea es inferior a la anchura de la caja de línea en sí, la alineación vertical se controla con la propiedad <code>text-align</code>. Con <code>text-align:justify</code> (alinear texto: justificar) se inserta un espacio adicional entre las cajas en línea, si es necesario, para alinear el contenido a la izquierda y a la derecha. Esta propiedad se aplica a las cajas de bloque, a las celdas de tablas y a los bloques en línea, y se hereda. La figura 6 muestra el resultado de aplicar valores diferentes de la propiedad <code>text-align</code> al texto que hay en el interior de las celdas de una tabla.</p>
+
+<div class="imagen">
+<img src="76510_m6_96.gif" alt="Control de la alineación del texto con la propiedad text-align" />
+<p>Figura 6. Controlar la alineación del texto con la propiedad <code>text-align</code> </p>
+</div>
+
+
+<h2 id="relative">36.3. Posicionamiento relativo</h2>
+
+<p>El posicionamiento relativo es un sistema de posicionamiento de CSS, pero está más relacionado con el "posicionamiento" estático que con sus primos-hermanos: el posicionamiento absoluto y el fijo.</p>
+
+<p>Un elemento con <code>position:relative</code> se coloca en principio igual que cualquier elemento estático; de bloque o insertado. Pero entonces sucede algo muy interesante: la caja generada se desplaza según las propiedades <code>top</code>, <code>bottom</code>, <code>left</code> y <code>right</code>.</p>
+
+<p>Lo que hay que recordar sobre el posicionamiento relativo es que sólo se desplaza la caja generada. El elemento sigue estando allí donde estaba en el flujo del documento estático. Aquí es donde "ocupa espacio" respecto a los otros elementos. Eso significa que la caja desplazada puede acabar encima de otras cajas de elementos, ya que éstas siguen actuando como si el elemento con un posicionamiento relativo se hubiera quedado donde debía estar antes de aplicar el posicionamiento. Respecto al flujo del documento, el elemento no se ha movido; es sólo el resultado visual final lo que muestra la caja desplazada. Veamos cómo funciona en la práctica.</p>
+
+<ol>
+<li><p>Copiad el siguiente código HTML en un documento nuevo del editor de textos que más os guste y guardadlo con el nombre <code>relative.html</code>.</p>
+
+<pre><code>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+ "http://www.w3.org/TR/html4/strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+   &lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8"&gt;
+   &lt;title&gt;Relative Positioning&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+   &lt;p&gt;Lorem ipsum dolor sit amet consectetuer adipiscing elit.
+   Curabitur feugiat feugiat purus.
+   Aenean eu metus. Nulla facilisi.
+   Pellentesque quis justo vel massa suscipit sagittis.
+   Class aptent taciti sociosqu ad litora torquent per conubia nostra, 
+   per inceptos hymenaeos.
+   Quisque mollis, justo vel rhoncus aliquam, urna tortor varius lacus, 
+   ut tincidunt metus arcu vel lorem.
+   Praesent metus orci, adipiscing eget, fermentum ut, pellentesque non, 
+   dui.
+   Sed sagittis, &lt;span&gt;metus a semper&lt;/span&gt; dictum, sem 
+   libero sagittis nunc, vitae adipiscing leo neque vitae tellus.
+   Duis quis orci quis nisl nonummy dapibus.
+   Etiam ante. Phasellus imperdiet arcu at odio.
+   In hac habitasse platea dictumst. Aenean metus.
+   Quisque a nibh. Morbi mattis ullamcorper ipsum.
+   Nullam odio urna, feugiat sed, bibendum sed, vulputate in, magna.
+   Nulla tortor justo, convallis iaculis, porta condimentum, interdum 
+   nec, arcu.
+   Proin lectus purus, vehicula et, cursus ut, nonummy et, diam.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre></li> 
+
+<li><p>Abrid el archivo con vuestro navegador web para ver qué aspecto tiene en este momento; deberíais ver sólo un párrafo de texto normal.</p></li>
+
+<li><p>Cread un documento nuevo en vuestro editor, copiad el código CSS siguiente y guardad el archivo con el nombre <code>style.css</code>.</p>
+
+<pre><code>p {
+   width: 20em;
+}
+span {
+   background-color:  lime;
+}</code></pre></li>
+
+<li><p>Enlazad la hoja de estilo en el documento HTML insertando la línea siguiente justo antes de la etiqueta <code>&lt;/head&gt;</code>.</p>
+
+<pre><code>&lt;link rel="stylesheet" type="text/css" href="style.css"&gt;</code></pre></li>
+
+<li><p>Guardad los dos archivos y actualizad la página en el navegador. Hemos conseguido que el párrafo sea más estrecho para que los saltos de línea estén siempre en la misma posición incluso cuando la ventana del navegador sea pequeña. Ahora el elemento <code>span</code> tiene un color de fondo un poco chillón para hacerlo más visible.</p></li>
+
+<li><p>A continuación, modificaremos la hoja de estilos añadiendo tres declaraciones a la regla para el elemento <code>span</code>:</p>
+
+<pre><code>span {
+   <strong>position: relative;</strong>
+   <strong>top: 1em;</strong>
+   <strong>left: 2em;</strong>
+   background-color: lime;
+}</code></pre></li>
+
+<li><p>Guardad y volved a cargar la página en el navegador para ver los efectos del posicionamiento relativo.</p></li>
+</ol>
+
+<p>Habéis desplazado el elemento <code>span</code> tanto vertical como horizontalmente. Observad que queda superpuesto sobre la línea de texto siguiente y que en el lugar donde se encontraba ahora hay un espacio vacío.</p>
+
+<p>La manera como se ha desplazado la caja generada quizá no era la que esperabais de este código. Habéis especificado <code>top:1em</code>, pero la caja se ha desplazado hacia abajo. Además, la caja también se ha desplazado hacia la derecha a pesar de haber especificado <code>left:2em</code>. ¿Por qué?</p>
+
+<p>La clave para entender el funcionamiento de estas propiedades con el posicionamiento relativo es darse cuenta de que especifican el borde en el que se aplica el movimiento, y no la dirección del movimiento. Es decir, que la propiedad <code>top</code> desplaza la caja en relación con su borde superior, la propiedad <code>left</code> lo desplaza en relación con su borde izquierdo, y así sucesivamente. La caja se aleja del borde especificado; por lo tanto, <code>top:1em</code> desplaza el cuadro 1 em desde la posición superior, es decir, hacia abajo. Los números negativos desplazan el cuadro en la dirección opuesta y, por lo tanto, <code>bottom:-1em</code> es lo mismo que <code>top:1em</code>.</p>
+
+<p>Eso nos lleva a otra conclusión: no tiene ningún sentido especificar al mismo tiempo una propiedad <code>top</code> y una propiedad <code>bottom</code> (o <code>left</code> y <code>right</code>) para el mismo elemento. Las reglas del CSS dicen que si se especifica <code>top</code>, entonces <code>bottom</code> se debe ignorar. Respecto al movimiento horizontal, esto depende de la propiedad <code>direction</code>. Si se especifican <code>left</code> y <code>right</code> al mismo tiempo, en un entorno de izquierda a derecha se ignora <code>right</code> y en un entorno de derecha a izquierda se ignora <code>left</code>.</p>
+
+<p>El ejemplo que hemos visto explica el posicionamiento relativo, pero no parece muy útil, ¿verdad? Así pues, ¿para qué sirve el posicionamiento relativo? Echemos un vistazo a un ejemplo más complicado.</p>
+
+<h3 id="multicolumnlayout">36.3.1. Disposición de múltiples columnas con requisitos de orden en el código fuente</h3>
+
+<p>Aviso: este ejemplo es un tanto complejo. Si es la primera vez que entráis en el mundo del CSS, os puede parecer incluso algo descorazonador, pero lo iremos explicando a un ritmo muy pausado dejando bien claro qué es lo que hacemos en cada momento. Si todavía no habéis leído el apartado anterior, que habla de los elementos flotantes y del <em>clearing</em>, ahora sería un buen momento para hacerlo.</p>
+
+<div class="vegeu_tambe">
+<h3>Ved también</h3>
+<p>Podéis ver el apartado 35 de este módulo.</p>
+</div>
+
+<p>Hay un tipo de composición que es muy habitual en las páginas web. Incluye un encabezamiento, que normalmente contiene algún logotipo o insignia, bajo la que hay dos o más "columnas" una al lado de la otra. Al final suele haber un pie de página que ocupa toda la anchura, quizá con el aviso de copyright o la información de contacto. La figura 7 muestra un ejemplo de este tipo de composición.</p>
+
+<div class="imagen">
+<img src="76510_m6_97.gif" alt="Composición de múltiples columnas con encabezamiento y pie" />
+<p>Figura 7. Una composición típica con múltiples columnas entre un encabezamiento y un pie de página</p>
+</div>
+
+<p>En la Edad Oscura (la década de 1990), este tipo de distribución se solía crear con tablas. Esto es un uso inadecuado del etiquetado del HTML para finalidades presentacionales, nada aconsejable; por lo tanto, en este curso no lo enseñaremos. CSS ofrece maneras de conseguir esto mismo con <code>display:table-cell</code> y similares, pero esta solución tiene un inconveniente importante: no hay ninguna versión de Internet Explorer que lo acepte, de modo que tampoco la veremos. Sólo nos quedan dos opciones: los elementos flotantes y el posicionamiento absoluto. Estos dos métodos tienen ventajas e inconvenientes, pero si queréis un pie de página que ocupe toda la anchura y no sabéis de entrada qué columna será la más larga, entonces necesitaréis los elementos flotantes para garantizar la integridad del diseño.</p>
+
+<p>El problema de los elementos flotantes es que sólo se desplazan hacia la derecha o la izquierda hasta que tocan el borde del bloque padre u otro elemento flotante. Esto quiere decir que las columnas flotantes deben aparecer en el orden correcto en el etiquetado. Pero algunas veces se quiere tener un orden presentacional diferente del orden del código fuente. Quizá os interese que el contenido aparezca antes de la navegación, por ejemplo, con el fin de mejorar la usabilidad de la navegación con el teclado y la optimización en motores de búsqueda. Esto se puede conseguir, incluso con elementos flotantes, haciendo un buen uso de los márgenes negativos y el posicionamiento relativo; veamos cómo hacerlo. Empezaremos con un documento HTML que nos servirá de base para ir trabajando.</p>
+
+<ol>
+<li><p>Copiad el código siguiente en vuestro editor de textos y guardad el archivo con el nombre <code>layout.html</code>.</p>
+
+<pre><code>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" 
+"http://www.w3.org/TR/html4/strict.dtd"&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+   &lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8"&gt;
+   &lt;title&gt;Static and Relative Positioning&lt;/title&gt;
+   &lt;link rel="stylesheet" type="text/css" href="layout.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+   &lt;div id="header"&gt;Header&lt;/div&gt;
+   &lt;div id="main"&gt;Main content&lt;/div&gt;
+   &lt;div id="sidebar"&gt;Sidebar&lt;/div&gt;
+   &lt;div id="nav"&gt;Navigation&lt;/div&gt;
+   &lt;div id="footer"&gt;Footer&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre></li> 
+
+<li><p>A continuación, crearemos el embrión de una hoja de estilos. Copiad el código siguiente en vuestro editor de textos y guardad el archivo con el nombre <code>layout.css</code>.</p>
+
+<pre><code>#header {
+   background-color: #369;
+   color: #fff;
+}
+#sidebar {
+   background-color: #ff6;
+}
+#nav {
+   background-color: #ddd;
+}
+#footer {   
+   border-top: 1px solid #369;
+}</code></pre></li>
+
+<li><p>Guardad los dos archivos y cargad la página en el navegador. Las cinco divisiones aparecen en orden, de arriba abajo.</p>
+
+<p>Imaginaos que el departamento de diseño ha especificado que la navegación debe ir a la izquierda, la barra lateral a la derecha y el contenido principal en la columna de en medio. El encabezamiento y el pie de página deben ocupar toda la anchura de la página, pero no sabemos cuál de las tres columnas será la más larga. El orden del código fuente viene determinado por los expertos en accesibilidad y usabilidad y no es negociable. ¿Cómo se pueden combinar todos estos requisitos para conseguir una composición que funcione?</p>
+
+<p>Para que funcione, deberéis añadir un elemento adicional al etiquetado. Es inevitable, pero un elemento adicional es algo que no os debería preocupar demasiado. Necesitaréis un elemento que envuelva las tres "columnas".</p></li>
+
+<li><p>Insertad las dos líneas destacadas en el documento HTML:</p>
+
+<pre><code>&lt;div id="header"&gt;Header&lt;/div&gt;
+   <strong>&lt;div id="wrapper"&gt;</strong>
+      &lt;div id="main"&gt;Main content&lt;/div&gt;
+      &lt;div id="sidebar"&gt;Sidebar&lt;/div&gt;
+      &lt;div id="nav"&gt;Navigation&lt;/div&gt;
+   <strong>&lt;/div&gt;</strong>
+&lt;div id="footer"&gt;Footer&lt;/div&gt;</code></pre>
+
+<p>Los diseñadores (que, por suerte, son conscientes de la accesibilidad y de la independencia de dispositivo) han estipulado que la navegación debe tener una anchura de 12 em y la barra lateral, de 14 em. La columna con el contenido principal debe tener una anchura fluida, de manera que la composición se adapte a diferentes tamaños de ventanas, ya que las composiciones con una anchura fija no son demasiado fáciles de utilizar por el usuario. Para evitar que las líneas de texto sean demasiado largas y dificulten la legibilidad, deberéis limitar la composición a una anchura máxima. Para evitar el solapamiento en ventanas sumamente estrechas, también deberéis limitar la composición a una anchura mínima. Dentro de estas limitaciones, la composición se debe centrar horizontalmente en la ventana del navegador.</p></li>
+
+<li><p>A continuación, asignad las anchuras a la navegación y a la barra lateral y definid las limitaciones de anchura y el centrado general añadiendo las reglas siguientes al final del archivo CSS:</p>
+
+<pre><code>body{
+   margin: 0 auto;
+   min-width: 40em;
+   max-width: 56em;
+}
+#sidebar {
+   width: 13em;
+   padding: 0 0.5em;
+   background-color: #ff6;
+}
+#nav {
+   width: 11em;
+   padding: 0 0.5em;
+   background-color: #ddd;
+}</code></pre></li>
+
+<li><p>Guardad los archivos y volved a cargarlos; deberíais ver la barra lateral amarilla y la navegación de color gris con las anchuras deseadas. Si la ventana del navegador es bastante ancha, también veréis que toda la página tiene una anchura limitada y que aparece centrada horizontalmente.</p></li>
+
+<li><p>Intentad cambiar el tamaño de la ventana y mirad cómo se adapta la composición.</p></li>
+</ol>
+
+<div class="note">
+<h3>Nota</h3>
+
+<p>Si utilizáis la versión 6 o anterior de Microsoft Internet Explorer, no podréis ver los efectos de ninguna limitación de la anchura. Esto es así porque estas versiones del IE no aceptan anchuras (o alturas) mínimas y máximas. Al final del ejemplo veremos una manera de solucionar este problema. De hecho, a lo largo de todo este ejemplo iréis viendo unos resultados extraños, incluso con IE 7, porque Internet Explorer tiene muchos errores de representación. En este ejemplo nos centraremos en la manera de hacer las cosas según los estándares, y al final ya veremos las soluciones.</p>
+</div>
+
+<p>Si observáis el código con atención, veréis que las anchuras están fijadas en 13 em y 11 em en lugar de 14 em y 12 em. Esto es así porque necesitamos un poco de separación horizontal; no queremos que el contenido de estas columnas toque los bordes, ya que no queda demasiado bien. La separación se añade a la anchura, con lo cual 13 em + 0,5 em + 0,5 em suman un total de 14 em, que es lo que queremos.</p>
+
+<h3 id="makingcolumns">Crear columnas</h3>
+
+<p>Muy bien, ahora ya tenemos los componentes básicos, pero se muestran uno después de otro. Como queremos tres columnas, las deberemos empezar a hacer flotar.</p>
+
+<ol>
+<li><p>Añadid las reglas siguientes a vuestro archivo CSS:</p>
+
+<pre><code>#main {
+   <strong>float: left;</strong>
+}
+#sidebar {
+   <strong>float: left;</strong>
+   width: 13em;
+   padding: 0 0.5em;
+   background-color: #ff6;
+}
+#nav {
+   <strong>float: left;</strong>
+   width: 11em;
+   padding: 0 0.5em;
+   background-color: #ddd;
+}</code></pre>
+
+<p>Con este código se hacen flotar las columnas, sí, pero no se muestran en el orden correcto. Además, la columna del contenido principal es demasiado estrecha. ¿Y qué ha pasado con el pie de página?</p></li>
+
+<li><p>En primer lugar, nos encargaremos del pie de página. El problema es que hemos hecho flotar las tres columnas, con lo que han quedado fuera del flujo del documento. El pie de página queda justo debajo del encabezamiento y la caja de línea que contiene el texto se ha acortado, de manera que la palabra "Footer" aparece a la derecha de los elementos flotantes. Podemos solucionarlo haciendo que el pie de página esté a una cierta distancia de todas las columnas flotantes. Añadid la regla siguiente a vuestro archivo CSS:</p>
+
+<pre><code>#footer {
+   <strong>clear: left;</strong>
+   border-top: 1px solid #369;
+}</code></pre></li>
+
+<li><p>Y ahora nos dedicaremos a las tres columnas. Lo haremos paso a paso, y durante un momento todo tendrá un aspecto horrible; pero no os desesperéis porque al final todo acabará bien.</p>
+
+<p>La clave es el elemento de envoltorio. Definiremos unos márgenes izquierdo y derecho que se correspondan con las anchuras de las columnas laterales (la navegación y la barra lateral). La columna del contenido principal ocupará toda la anchura del envoltorio y las columnas laterales se desplazarán hacia el espacio que dejan vacío los márgenes. ¿Suena complicado? No os preocupéis, lo iremos haciendo poco a poco. En primer lugar definiremos los márgenes del envoltorio añadiendo la regla siguiente al archivo CSS:</p>
+
+<pre><code>#wrapper {
+   margin: 0 14em 0 12em;
+   padding: 0 1em;
+}</code></pre>
+
+<p>Recordad que los valores de la propiedad <code>margin</code> abreviada se especifican en el orden <strong>TRaBaLenguas</strong>, es decir: <code>top</code> (superior), <code>right</code> (derecho), <code>bottom</code> (inferior), <code>left</code> (izquierdo). Definimos los márgenes superior e inferior a 0, el margen derecho en 14 em (para la barra lateral) y el margen izquierdo en 12 em (para la navegación). También hemos añadido 1 em de separación horizontal porque no queremos que el contenido toque las columnas laterales, ya que debe respirar.</p></li>
+
+<li><p>El siguiente paso es hacer que la columna del contenido principal ocupe toda la anchura de su elemento envoltorio padre; el código también define un color de fondo chillón para esta columna, temporalmente:</p>
+
+<pre><code>#main {
+   float: left;
+   <strong>width: 100%;</strong>
+   <strong>background-color: lime;</strong>
+}</code></pre></li>
+
+<li><p>Guardad el archivo y volved a cargarlo; veréis una columna de contenido de color verde lima con la barra lateral y la navegación debajo. También veréis que hay mucho espacio en blanco a ambos lados. Lo que debemos hacer ahora es conseguir que nuestras columnas laterales se desplacen hacia este espacio en blanco.</p>
+
+<p>De momento, nos dedicaremos a la barra lateral, que es flotante y ya tiene la anchura correcta, pero como la columna <code>#main</code> tiene una anchura del 100% la barra lateral se desplaza hacia abajo. ¿Cómo podemos hacer que suba y se coloque al lado de <code>#main</code> teniendo

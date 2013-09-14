@@ -1,0 +1,423 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
+<meta http-equiv="Content-Language" content="es" />
+<meta name="language" content="es" />
+<meta name="author" content="Universitat Oberta de Catalunya" />
+<meta name="description" content="FALTA CONTENIDO" />
+<meta name="title" content="FALTA CONTENIDO" />
+<meta name="keywords" content="FALTA CONTENIDO" />
+
+<title>CSS - Imágenes de fondo en CSS</title>
+<link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
+</head>
+
+<body>
+<div id="cabecera">
+	<img id="logo" src="../../img/logo.gif" alt="Universitat Oberta de Catalunya" />
+    <a href="http://mosaic.uoc.edu/"><img id="logomosaic" src="../../img/logo-mosaic.gif" alt="Logo de Mosaic" title="Abre la página web de Mosaic" /></a>
+	<div id="titulo">CSS</div>
+	<div id="subtitulo">Imágenes de fondo en CSS</div>
+<div id="cierre"></div>
+	<div id="navegador">
+		<a href="../../m0/accessibilitat.html" id="accesibilidad">Accesibilidad</a> <strong>:</strong> 
+		<a rel="prev" href="../ud4/index.html" title="Ir al artículo anterior" accesskey="8"><img src="../../img/fletxa_izq.gif" alt="Ir al artículo anterior" /></a> <strong>:</strong> 
+		<a rel="index" href="../../index.html" title="Ir al índice" accesskey="0"><img src="../../img/indice.gif" alt="Ir al índice" /></a> <strong>:</strong> 
+		<a rel="next" href="../ud6/index.html" title="Ir al artículo siguiente" accesskey="9"><img src="../../img/fletxa_der.gif" alt="Ir al artículo siguiente" /></a>
+	</div>
+</div>
+	           
+<div id="main">
+<h1>31. Imágenes de fondo en CSS</h1>
+<p class="by"><a href="../../index.html#sullivan">Nicole Sullivan</a>. 26 de septiembre del 2008 Publicado en: repetir, adjuntar, <em>sprite</em>, prueba, posición</p>                 
+
+
+<p>¡Admitidlo! Desde el primer apartado de este curso os habéis estado muriendo de ganas de aprender cómo conseguir que vuestra web quede impresionante y fabulosa. ¡Incluso es posible que os hayáis saltado los otros apartados para llegar a éste directamente!</p>
+
+<p>Las imágenes de fondo sirven para hacer que vuestro sitio quede atractivo, pero quizá os sorprenda saber que están muy relacionadas con los conceptos fundamentales que ya habéis aprendido.</p>
+
+<p>Tal como ya habéis visto en este curso, uno de los cambios más importantes que aporta el CSS es la capacidad para separar la <strong>presentación</strong>, o el aspecto de las cosas, de la <strong>semántica</strong>, o el significado de las cosas. La imagen de fondo de CSS es una de las herramientas más importantes que podéis utilizar porque permite aplicar imágenes decorativas en determinadas partes de vuestro HTML sin añadir peso adicional al HTML. Antes, los creadores web (¡como vosotros!) se veían obligados a llenar el código de etiquetas <code>img</code>.</p>
+
+<p>El CSS, y sobre todo la propiedad <code>background</code> (fondo), hacen que vuestro HTML deje de estar abarrotado de elementos presentacionales. De esta manera, rediseñar un sitio o realizar otras transiciones de la vida de una página web creada con métodos modernos puede hacerse de una manera mucho más sencilla. Podréis actualizar toda la página cambiando únicamente la hoja de estilo en lugar de tener que grabar todas y cada una de las páginas HTML. Dependiendo del tamaño del sitio, esto puede ahorraros una gran cantidad de tiempo.</p>
+
+<p>En este apartado veremos los conceptos básicos del funcionamiento de las imágenes de fondo de CSS, incluida la aplicación de una imagen de fondo a través de CSS, cómo ajustar su colocación, repetirla en vertical u horizontal y combinar imágenes de fondo con <em><a href="http://www.alistapart.com/articles/sprites/" hreflang="en">sprites</a></em> CSS para mejorar el <a href="http://developer.yahoo.com/performance/index.html" hreflang="en">rendimiento del sitio</a>.</p>      
+
+<p>Los contenidos de este apartado son los siguientes:</p>
+                 
+<ul class="index"> 
+<li>31.1. <a href="#howdoesitwork" accesskey="1">¿Cómo funciona?</a>
+<ul class="index">
+<li>31.1.1. <a href="#backgroundproperties">Propiedades de fondo</a></li>
+</ul></li>
+<li>31.2. <a href="#buildingalert" accesskey="2">Crear un mensaje de alerta</a>
+<ul class="index">
+<li>31.2.1. <a href="#thedesign">El diseño</a></li>
+<li>31.2.2. <a href="#thecode">El código</a>
+<ul class="index">
+<li><a href="#createselector">Crear el vínculo o selector de CSS</a></li>
+<li><a href="#addbackgroundcolor">Añadir el color de fondo</a></li>
+<li><a href="#applybackgroundimage">Aplicar la imagen de fondo</a></li>
+<li><a href="#controllingrepeat">Controlar la repetición del fondo</a></li>
+<li><a href="#attachment"><code>Attachment</code></a></li>
+<li><a href="#positioningtheimage">Colocar la imagen</a></li>
+<li><a href="#usingshorthand">Utilizar la abreviación para combinarlo todo como un profesional</a></li>
+</ul></li>
+<li>31.2.3. <a href="#experimenting">Hacer pruebas con el código</a></li>
+<li>31.2.4. <a href="#qualitytesting">Comprobar la calidad</a></li>
+</ul></li>
+<li>31.3. <a href="#sprites" accesskey="3"><em>Sprites</em></a>
+<ul class="index">
+<li>31.3.1. <a href="#complexspriteexample">Un ejemplo de <em>sprite</em> complejo e imagen de fondo</a>
+<ul class="index">
+<li><a href="#creatingthesprite">Crear el <em>sprite</em></a></li>
+</ul></li>
+</ul></li>
+<li class="especial"><a href="#summary">Resumen</a></li>
+<li class="especial"><a href="#exercises">Preguntas de repaso</a></li>
+<li class="especial"><a href="#furtherreading">Lecturas complementarias</a></li>
+</ul>                          
+
+<h2 id="howdoesitwork">¿Cómo funciona?</h2>
+
+<p>El CSS para fondo se divide en varias propiedades. Utilizando estas propiedades, como <code>position</code> y <code>color</code>, podéis empezar a controlar el aspecto de vuestra página. En este apartado, repasaremos detalladamente las imágenes de fondo de CSS y crearemos un mensaje de alerta como ejemplo paso a paso.</p>
+<p>Antes de nada, debemos saber más cosas sobre las diferentes propiedades que podemos utilizar.</p>
+
+
+<h3 id="backgroundproperties">31.1.1. Propiedades de fondo</h3>
+
+<table summary="">
+<thead>        
+<tr>
+<th><strong>Propiedad</strong></th>
+    <th><strong>Definición</strong></th>
+    <th><strong>Descripción</strong></th>
+  </tr>
+</thead>
+<tfoot>
+	<tr>
+		<th colspan="3">Tabla 1. Propiedades de fondo</th>
+	</tr>
+</tfoot>
+<tbody>
+  <tr>
+    <td><code>background-color</code></td>
+    <td>Establece el color de fondo del elemento de HTML.</td>
+    <td>Hay varias maneras de indicar el <code>background-color</code> o color de fondo, como incluir valores y palabras clave RGB. La mayoría de la gente utiliza la notación hexadecimal, un símbolo de almohadilla o barra (#) seguido de seis caracteres. La primera pareja indica los niveles rojos y la segunda y la tercera indican los niveles verde y azul respectivamente: #RRGGBB.
+      <br /><br />Hay muchas herramientas para elegir colores que pueden ayudaros a encontrar la notación hexadecimal de un color determinado. El rojo puro, por ejemplo, sería el #FF0000.
+      
+      <div class="imagen">
+<img src="76510_m6_16.gif" alt="La herramienta Selector de color de Photoshop proporciona el valor hexadecimal del color." />
+</div>   
+      Los valores válidos incluyen un valor de <code>color</code>, <code>transparent</code> o <code>inherit</code>.</td>
+  </tr>
+  <tr>
+    <td><code>image</code></td>
+    <td>Indica la ruta o URL de la imagen de fondo.</td>
+    <td>Establece la <code>background-image</code> o imagen de fondo mostrando al navegador dónde encontrar la imagen utilizando la URL. Por ejemplo: <code>url(alert.png</code>). Fijaos en que la ruta va precedida de la palabra clave <code>url</code> y entre paréntesis. Esta sintaxis es importante para que el navegador entienda que queréis indicar una ubicación.
+      <br /><br />Los valores válidos incluyen una <code>URL</code>, <code>none</code> o <code>inherit</code>.</td>
+  </tr>
+  <tr>
+    <td><code>repeat</code></td>
+    <td>Indica en qué dirección se debe repetir la imagen de fondo.</td>
+    <td>Las imágenes pueden repetirse en vertical u horizontal, o en ambas direcciones, para llenar toda la anchura o altura de un elemento HTML. Utilizad <code>background-repeat</code> para indicar al navegador que repita una imagen de fondo.
+      <br /><br />Los valores válidos son <code>repeat</code>, <code>repeat-x</code>, <code>repeat-y</code> y <code>no-repeat</code>.</td>
+  </tr>
+  <tr>
+    <td><code>attachment</code></td>
+    <td>Define el comportamiento de la imagen de fondo cuando el usuario se desplaza.</td>
+    <td>Las imágenes pueden desplazarse con el contenido o quedarse fijas en la pantalla de visualización. Los valores válidos son: <code>scroll</code>, <code>fixed</code> e <code>inherit</code>.</td>
+  </tr>
+  <tr>
+    <td><code>position</code></td>
+    <td>Indica al navegador dónde colocar la imagen de fondo.</td>
+    <td>Las imágenes pueden mostrarse en cualquier punto dentro de los bordes del elemento de HTML en el que estén aplicadas. Utilizad <code>background-position</code> para colocar las imágenes con precisión o para crear efectos visuales y capas.
+      <br /><br />Hay muchas maneras útiles de indicar la posición, las palabras clave y los valores numéricos del fondo. Las palabras clave (como <code>top</code> y <code>bottom</code>) son muy útiles y fáciles de leer. Los valores en píxeles son muy precisos pero no se adaptan a los cambios de altura y anchura. Los valores de píxeles negativos son muy útiles cuando se utilizan <em>sprites</em> CSS, como veremos más adelante.
+      <br /><br />Cuando se utilizan <em>sprites</em> y píxeles, el punto inicial siempre es el extremo superior izquierdo del elemento HTML, aunque la manera de funcionar de la colocación de la imagen es algo  diferente con píxeles o con porcentajes. Los píxeles siempre mueven la imagen un número concreto de píxeles hacia la parte inferior derecha de la caja contenedora (o hacia la parte superior izquierda si son valores negativos), sea cual sea el tamaño de la imagen y de la caja contenedora. Los porcentajes, en cambio, mueven la imagen un porcentaje de la diferencia entre la caja contenedora y el tamaño de la imagen. Si la imagen y la caja contenedora son igual de grandes, los porcentajes no moverán la imagen en absoluto.
+      <br /><br />Los valores válidos incluyen <code>length</code> (normalmente en píxeles), <code>percentage</code> (de la anchura del elemento) y las palabras clave <code>top</code>, <code>right</code>, <code>bottom</code>, <code>left</code> y <code>center</code>. Fijaos en que <code>center</code> se puede utilizar para indicar un centro vertical u horizontal. Fijaos también en que podéis mezclar porcentajes y píxeles en las reglas, pero no palabras clave y píxeles ni palabras clave y porcentajes.</td>
+  </tr>
+  <tr>
+    <td><code>background</code></td>
+    <td>La propiedad abreviada que se puede utilizar para describir todo el resto de propiedades de una línea.</td>
+    <td>Las propiedades abreviadas son realmente prácticas. La mayoría de los desarrolladores las utilizan para mantener el CSS lo más sencillo posible y para agrupar propiedades relacionadas. Se puede escribir una regla general utilizando la abreviación y después anularla según sea necesario con propiedades específicas.
+      <br /><br />Las propiedades siempre se deberían indicar en el mismo orden para que los navegadores puedan interpretar fácilmente los estilos.
+      <ol>
+      <li><code>color</code></li>
+      <li><code>url</code></li>
+      <li><code>repeat</code></li>
+      <li><code>attachment</code> (no se utiliza casi nunca, se puede omitir)</li>
+      <li><code>horizontal-position</code></li>
+      <li><code>vertical-position</code></li>
+      </ol>
+      Un ejemplo de esta abreviación con todas las propiedades utilizadas (excepto <code>attachment</code>): 
+      <br /><br /><code>background: green url(logo.gif) no repeat left top;</code>.</td>
+  </tr>
+</tbody>
+</table>                                  
+
+
+<h2 id="buildingalert">31.2. Crear un mensaje de alerta</h2>
+
+<p>Ahora que ya hemos visto la sintaxis básica necesaria, os enseñaremos cómo crear un ejemplo completo de caja de alerta que servirá para demostrar todos los aspectos de las imágenes de fondo.</p>
+
+<h3 id="thedesign">31.2.1. El diseño</h3>
+
+<p>Pongamos por caso que un diseñador gráfico os ha presentado un boceto visual del mensaje de alerta que queréis crear para vuestro sitio web. Fijaos en que la alerta tiene el fondo de color naranja claro para diferenciarlo de los párrafos que lo rodean. También tiene un icono de alerta a diez píxeles del extremo superior izquierdo.</p>
+
+<p>Fijaos en que el boceto sólo tiene una línea de texto, pero que en otros casos puede tener más. Uno de los rasgos más importantes del desarrollador web es prever cómo acabará evolucionando un diseño. En parte, respetar la visión artística de un sitio supone pensar en la consistencia desde que se inicia hasta que se rediseña. Por lo tanto, el mensaje de alerta podría incluir más de una línea de texto o incluso múltiples párrafos, listas u otros elementos HTML. Deberíais intentar ser tan agnósticos en cuestión de elementos como os sea posible. De esta manera, aumentarán las probabilidades de reutilización del código y el sitio web tendrá la máxima velocidad y eficiencia. El boceto es el que se ve en la figura 1:</p>
+
+<div class="imagen">
+<img src="76510_m6_17.gif" alt="El texto de alerta aparece sobre un fondo naranja claro. A la izquierda aparece un signo de exclamación sobre un triángulo naranja" />
+<p>Figura 1. El boceto del diseñador gráfico de la caja de alerta </p>
+</div>
+
+<p>El diseñador también os ha proporcionado el icono que debéis utilizar, como se muestra en la figura 2:</p>
+
+<div class="imagen">
+<img src="76510_m6_18.gif" alt="Signo de exclamación sobre un triángulo naranja." />
+<p>Figura 2. El icono de alerta </p>
+</div>
+
+
+<h3 id="thecode">31.2.2. El código</h3>
+
+<p>Basándoos en todo lo que habéis aprendido de los fondos de CSS en la primera parte de este apartado, ya podéis ir pensando en cómo crear este mensaje de aviso. Os animamos a que lo probéis ahora mismo y que después comparéis el resultado con nuestro ejemplo.</p>
+
+<p>Muy bien, ¿ya lo habéis probado? Vayamos paso a paso. Haced pruebas con el código, aumentad o reducid los valores e intentad probar alternativas. También puede ser que queráis ir siguiendo todos los pasos escribiendo cada línea nueva de código en una herramienta como por ejemplo Opera Dragonfly o Firebug para poder ir viendo los resultados de cada paso inmediatamente.</p>
+
+<div class="note">
+<h3>Nota</h3>
+
+<p>En la versión web, cada copia de pantalla tiene un enlace a ejemplos de código para que podáis comprobar la fuente en cada paso.</p>
+</div>
+
+<h3 id="createselector">Crear el vínculo o selector de CSS</h3>
+
+<p>Para empezar, debéis crear una clase <code>alert</code> para que el CSS se pueda enlazar con él. Cread los ficheros esqueleto nuevos de CSS y HTML, enlazad el CSS en el fichero HTML y añadidle el código siguiente:</p>
+
+<p>El CSS:</p>
+
+<pre><code>.alert { ... }</code></pre>
+
+<p>El HTML:</p>
+
+<pre><code>&lt;p class="alert"&gt;
+   &lt;strong&gt;Alert!&lt;/strong&gt; The text of our alert message goes here.
+&lt;/p&gt;</code></pre>
+
+<p>En este caso, hemos aplicado estilos a la alerta con un <code>class</code> y no con un <code>id</code> porque podría tener <em>más de una alerta</em> en la página, por ejemplo, en un elemento de formulario con varios errores. El CSS se debe hacer lo más flexible que se pueda y limitarlo todo a fin de que se corresponda al diseño cuando se crea el HTML.</p>
+
+<p>Muy bien, pues ya tenéis unas bases, pero todavía parece un párrafo normal porque todavía no le habéis añadido ningún estilo. Hagámoslo.</p>
+
+<div class="note">
+<h3>Nota</h3>
+
+<p>Hemos decidido intencionadamente no limitar la clase <code>alert</code> a párrafos; las cajas de alerta también podrían contener fácilmente otros elementos. Deberíais dejar que el CSS tenga la máxima flexibilidad posible.</p>
+</div>
+
+
+<h3 id="addbackgroundcolor">Añadir el color de fondo</h3>
+
+<p>Ya habéis aprendido cómo utilizar el color de fondo con los estilos de texto. Los mismos principios se aplican a cualquier elemento HTML y pueden combinarse con imágenes de fondo para crear efectos visuales. Si el color de fondo no se ha establecido ni heredado, será transparente por defecto.</p>
+
+<div class="vegeu_tambe">
+<h3>Ved también</h3>
+
+<p>Podéis ver cómo utilizar el color de fondo con los estilos de texto en el apartado 29 de este módulo.</p>
+</div>
+
+<p>Añadimos el color de fondo naranja claro a la caja de alerta para que resalte entre el texto que tiene alrededor. No debería ser demasiado oscuro porque es importante que mantengáis un nivel razonable de contraste entre el texto y el <a href="http://www.w3.org/TR/2006/WD-WCAG20-20060427/guidelines.html#visual-audio-contrast" hreflang="en">color de fondo</a>. Añadid la propiedad siguiente a vuestra regla de CSS:</p>                                                    
+
+<pre><code>.alert{<strong>background-color: #FFFFCC;</strong>}</code></pre>
+
+<p>Ahora la caja de alerta se parecerá más a la figura 3:</p>
+
+<div class="imagen">
+<img src="76510_m6_19.gif" alt="Texto sobre fondo naranja claro" />
+<p>Figura 3. Una caja de alerta con color de fondo añadido </p>
+<p class="font"><strong>Archivo fuente:</strong> "<a href="http://devfiles.myopera.com/articles/481/2_color.html" hreflang="en">Figura 3</a>"</p>
+</div>
+
+
+<h3 id="applybackgroundimage">Aplicar la imagen de fondo</h3>
+
+<p>Pasemos a añadir la imagen. La ruta a la imagen de fondo debe estar entre <code>url()</code>, como se observa en el código siguiente. Añadid la línea resaltada a la regla de CSS:</p>
+
+<pre><code>.alert{
+   background-color: #FFFFCC;
+   <strong>background-image: url(alert.png);</strong>
+}</code></pre>
+
+<p>Ahora la caja de alerta quedará como en la figura 4:</p>
+
+<div class="imagen">
+<img src="76510_m6_20.gif" alt="Texto sobre una colección de triángulos naranja. Muy poco legible" />
+<p>Figura 4. Se ha añadido la imagen de fondo, pero la repetición queda horrible. </p>
+<p class="font"><strong>Archivo fuente:</strong> "<a href="http://devfiles.myopera.com/articles/481/3_image.html" hreflang="en">Figura 4</a>"</p>
+</div>
+
+<p>Recordad que cada propiedad de fondo tiene un valor por defecto que se le aplicará si no especificáis ningún valor. Seguramente ya os habréis dado cuenta de que la imagen se repite por toda la alerta como si fueran las teselas de un mosaico. ¿Cuál es la conclusión de todo esto? Las imágenes de fondo están configuradas por defecto para repetirse tanto horizontal como verticalmente. Los fondos que se repiten son especialmente útiles para gradaciones de colores y patrones que llenan la pantalla o un elemento de HTML en concreto, pero en este caso no es lo que queremos.</p>
+
+
+<h3 id="controllingrepeat">Controlar la repetición del fondo</h3>
+
+<div class="imagen">
+<img src="76510_m6_21.jpg" alt="Una pared de azulejos, con dos flechadas dibujadas, una vertical y otra horizontal" />
+<p>Figura 5. De manera parecida a nuestra imagen de fondo, estas teselas se repiten tanto en horizontal como en vertical. </p>
+</div>
+
+<p>Leer especificaciones puede ser una tarea intimidante, pero la especificación es muy buen lugar para averiguar cómo se supone que funciona el CSS antes de pasar ver con detalle la miríada de diferencias existentes entre navegadores. Echadle un vistazo a la parte de los <a href="http://www.w3.org/TR/CSS21/colors.html" hreflang="en">colores y los fondos de la especificación del W3C</a> e intentad encontrar la palabra clave para utilizarlos cuando no queráis que se repita una imagen de fondo. A continuación, la utilizaremos en un ejemplo.</p>                                                     
+
+<p>¿Ya la habéis encontrado? Fijaos en que existe una sección para cada propiedad de fondo, <a href="http://www.w3.org/TR/CSS21/colors.html#propdef-background-repeat" hreflang="en"><code>background-repeat</code></a> incluida. En <strong>Value</strong> veréis todas las opciones posibles, incluyendo <code>repeat</code>, <code>repeat-x</code>, <code>repeat-y</code>, <code>no-repeat</code> e <code>inherit</code>. Por defecto, las imágenes de fondo (<strong>iniciales</strong>) se repiten. No se especifica ninguna dirección, de modo que la imagen se repetirá tanto horizontal como verticalmente. Seguramente ya os habréis imaginado que <code>no-repeat</code> (sin repetición) es el valor que necesitáis para impedir que la imagen se repita en cualquier dirección. Añadid la siguiente línea resaltada a la regla de CSS:</p> 
+
+<pre><code>.alert{
+   background-color: #FFFFCC;
+   background-image: url(alert.png);
+   <strong>background-repeat: no-repeat;</strong>
+}</code></pre>
+
+<p>Ahora la caja de alerta quedará como en la figura 6:</p>
+
+<div class="imagen">
+<img src="76510_m6_22.gif" alt="Ahora el triángulo naranja aparece una única vez." />
+<p>Figura 6. La caja de alerta con una única copia de la imagen de fondo (sin repeticiones)</p>
+<p class="font"><strong>Archivo fuente:</strong> "<a href="http://devfiles.myopera.com/articles/481/4_repeat.html" hreflang="en">Figura 6</a>"</p>
+</div>
+
+<p>Además, también podéis repetir en ambas direcciones (como si fueran teselas de un mosaico) o en ninguna. Las gradaciones suelen repetirse horizontal o verticalmente (podéis ver la figura 7). No es necesario que sepáis el tamaño del elemento HTML; sólo debéis cortar un trozo de la gradación y hacer que se repita en la dirección que queráis; ya sea "x" para horizontal o "y" para vertical. Los patrones a menudo se repiten en ambas direcciones y los iconos normalmente no se repiten. Más adelante examinaréis <code>background-repeat</code> con más detenimiento en otro ejemplo.</p>
+
+<div class="imagen">
+<img src="76510_m6_23.jpg" alt="Pared de azulejos. Una línea horizontal de ellos tiene un color diferente al resto y está remarcada con una flecha horizontal." />
+<p>Figura 7. Las teselas o baldosas de este ejemplo sólo se repiten en horizontal. </p>
+</div>
+
+<p>Fijaos ahora en un ejemplo práctico de mi web, observad la figura 8:</p>
+
+<div class="imagen">
+<img src="76510_m6_24.gif" alt="Una imagen muy pequeña se repite horizontalmente para crear un patrón de tres colores a lo largo de la parte superior de mi sitio web." />
+	<p>Figura 8. Un ejemplo de imagen repetida <a href="http://www.stubbornella.org/content/" hreflang="en">de mi web</a></p>
+	<p class="font"><strong>Archivo fuente:</strong> "<a href="http://www.stubbornella.org/content/" hreflang="en">Figura 8</a>"</p>
+</div>
+
+<p>El CSS que utilizamos para añadir este efecto decorativo es relativamente sencillo. Hicimos que el fondo se repitiera horizontalmente con <code>repeat-x</code>:</p>
+
+<pre><code>body{background-repeat:
+<strong>repeat-x</strong>}</code></pre>
+
+
+
+<h3 id="attachment"><code>Attachment</code></h3>
+
+<p><code>attachment</code> permite especificar cómo funciona el fondo cuando el usuario desplaza la página hacia abajo. El funcionamiento por defecto es <code>scroll</code>, que hace que la imagen de fondo se desplace junto con el contenido.</p>
+
+<p>Por otra parte, si se establece <code>background-attachment</code> en <code>fixed</code>, el elemento se queda fijo en la ventana del navegador, de modo que no se mueve cuando se desplaza el contenido de dentro del elemento en el que está adjunto. Esto crea algunos efectos extraños que sólo serán visibles cuando desplacéis la página por encima el elemento de HTML en el que está adjunto. La W3C lo utiliza para señalar el estado de las especificaciones, como por ejemplo la <a href="http://www.w3.org/TR/CSS21/colors.html#propdef-background-repeat" hreflang="en">imagen de la "W3C Candidate Recommendation" de arriba del todo a la izquierda</a> en sus especificaciones. Desplazad la página hacia abajo y veréis que la imagen se queda fija en el rincón superior izquierdo. Está adjunta al elemento <code>body</code>, de manera que siempre es visible.</p>
+
+<p>Este paso no tendrá ningún efecto en nuestra visualización porque los navegadores establecen por defecto que las imágenes de fondo se desplacen, pero añadámoslo igualmente al código para que podáis ver cómo se utiliza la propiedad. Añadid la línea resaltada a la regla de CSS:</p>
+
+<pre><code>.alert{
+   background-color: #FFFFCC;
+   background-image: url(alert.png);
+   background-repeat: no-repeat;
+   <strong>background-attachment: scroll;</strong>
+}</code></pre>
+
+<p>Como se observa en la figura 9, la visualización de la caja de alerta no es muy diferente de como era antes.</p>
+
+<div class="imagen">
+<img src="76510_m6_25.gif" alt="El aspecto de la alerta no ha cambiado." />
+<p>Figura 9. No ha cambiado mucho, aún.</p>
+<p class="font"><strong>Archivo fuente:</strong> "<a href="http://devfiles.myopera.com/articles/481/5_attachment.html" hreflang="en">Figura 9</a>"</p>
+</div>
+
+
+<h3 id="positioningtheimage">Colocar la imagen</h3>
+
+<p>La propiedad de colocación permite disponer la imagen de fondo exactamente donde queráis ponerla, tanto horizontal como verticalmente, en el elemento de HTML. Esta propiedad acepta palabras clave y valores como:<code> top</code>, <code>center</code>, <code>right</code>, <code>100%</code>, <code>-10%</code>, <code>50px</code> y <code>-30 em</code>.</p>
+
+<p>En la figura 10 se muestran los valores que pueden utilizarse para colocar las imágenes de fondo en diferentes posiciones.</p>
+
+<div class="imagen">
+<img src="76510_m6_26.gif" alt="Ejemplos de posibles posiciones del fondo. En un rectángulo de 350 por 90 píxeles vemos ejemplos de imágenes posicionadas con su código. Arriba a la izquierda con left, top, o con 0, 0; arriba centrado horizontalmente con center, top, o con 50%, 0; arriba a la derecha con right, top, o con 100%, 0; centrado vericalmente, a la izquierda con left, center, o con 0, 50%; centrado con center, center, o 50%, 50%; centrado verticalmente y a la derecha con right, center, o 100%, 50%; abajo a la izquierda con left, bottom, o 0, 100%; centrado horizontalmente y abajo con center, bottom, o 50%, 100%. -50px, 50px hace que el centro de la imagen esté a 60 píxeles del margen superior y que sobresalga 25 píxeles por la izquierda. 350px, 60px sitúa el centro de la imagen a 350 píxeles del borde izquierdo y 60 píxeles por debajo del borde superior; finalmente, 350px, -60 px sitúa el centro de la imagen 60 píxeles por encima del borde superior, 350 píxeles a la derecha del borde izquierdo." />
+<p>Figura 10. Varios ejemplos de posición del fondo mediante palabras clave, porcentajes y píxeles </p>
+</div>
+
+<p>Pasemos ahora a colocar la imagen de fondo: queréis que quede en el extremo superior izquierdo, pero sin tocar los lados, de manera que necesitáis establecer una distancia de 10 píxeles tanto desde el límite superior como desde el izquierdo. Esto se puede hacer añadiendo la siguiente línea resaltada en la regla CSS. Hacedlo ahora.</p>
+
+<pre><code>.alert{
+   background-color: #FFFFCC;
+   background-image: url(alert.png);
+   background-repeat: no-repeat;
+   background-attachment: scroll;
+   <strong>background-position: 10px 10px;</strong>
+}</code></pre>
+
+<p>El primer valor es la distancia horizontal y el segundo, la vertical. En este caso, son el mismo. Ahora la caja de alerta quedará como en la figura 11:</p>
+
+<div class="imagen">
+<img src="76510_m6_27.gif" alt="Ahora la posición del triángulo se ajusta a lo explicado en el texto." />
+<p>Figura 11. Hemos utilizado la colocación para situar la imagen de fondo. </p>
+<p class="font"><strong>Archivo fuente:</strong> "<a href="http://devfiles.myopera.com/articles/481/6_position.html" hreflang="en">Figura 11</a>"</p>
+</div>    
+
+<div class="note">
+<h3>Consejo</h3>
+
+<p>Utilizad o bien sólo palabras clave o bien sólo valores numéricos, ya que los navegadores antiguos puede que ignoren vuestra declaración si los utilizáis los dos a la vez. Si utilizáis <code>right</code> y <code>bottom</code>, conseguiréis lo mismo que <code>100%</code> horizontal y verticalmente.</p>
+</div>
+
+
+<h3 id="usingshorthand">Utilizar la abreviación para combinarlo todo como un profesional</h3>
+
+<p>Como ya habéis podido observar, algunas propiedades de CSS pueden combinarse. Por ejemplo, el fondo y todas las subpropiedades relacionadas. El código de CSS que hemos escrito hasta ahora se puede reescribir abreviadamente así:</p>
+
+<pre><code>.alert{<strong>background: #FFFFCC url(alert.png) no-repeat scroll 10px 10px</strong>;}</code></pre>
+
+<div class="note">
+<h3>Consejo</h3>
+
+<p>Cuando combinéis subpropiedades de <code>background</code>, poned siempre las propiedades en el orden siguiente. Es importante tanto para la compatibilidad de todos los navegadores, como para la organización y el mantenimiento de la hoja de estilo:</p>
+<ol>
+<li><p><code>color</code></p></li>
+<li><p><code>image</code></p></li>
+<li><p><code>repeat</code></p></li>
+<li><p><code>attachment</code></p></li>
+<li><p>posició <code>horizontal</code></p></li>
+<li><p>posició <code>vertical</code></p></li>
+</ol>
+</div>
+
+<p>Intentad sustituir el CSS antiguo con la abreviación anterior, y vuestro ejemplo os debería quedar exactamente igual. Podéis ver la figura 12.</p>
+
+<div class="imagen">
+<img src="76510_m6_28.gif" alt="La imagen sigue siendo exactamente igual que en el ejemplo anterior." />
+<p>Figura 12. ¡La abreviación funciona de maravilla!</p>
+<p class="font"><strong>Archivo fuente:</strong> "<a href="http://devfiles.myopera.com/articles/481/7_finishedProduct.html" hreflang="en">Figura 12</a>"</p>
+</div>
+
+<h3 id="experimenting">31.2.3. Hacer pruebas con el código</h3>
+
+<p>La mejor manera de recordar todos los detalles de CSS es probar las opciones uno mismo. Intentad cambiar algunas de las propiedades del ejemplo y ved cómo queda. Estableced la <code>background-position</code> a <code>100% 100%</code>, y fijaos en que da el mismo resultado que utilizar las palabras clave de <code>right</code> y <code>bottom</code>. ¿Y si lo cambiarais a <code>-5px 0</code>? ¿Por qué creéis que ahora no podéis ver parte de la imagen?</p>
+
+
+<h3 id="qualitytesting">31.2.4. Comprobar la calidad</h3>
+
+<p>Hacer pruebas es extremadamente importante para ofrecer una buena experiencia de usuario. El hecho de que el sitio funcione bien en vuestro equipo con vuestra configuración específica no quiere decir que se vea bien en todos los ordenadores. Cuando comprobéis la caja de alerta, deberíais seguir estos pasos básicos mínimos:</p>
+
+<ul>
+<li><p>Aumentad o reducid la cantidad de texto en el interior de la alerta.</p></li>
+
+<li><p>Aumentad el tamaño del texto de vuestro navegador como mínimo dos niveles. ¿Habría sido mejor utilizar ems para colocar la imagen? ¿Y qué sucede cuando aumentáis el tamaño del texto?</p></li>
+
+<li><p>Aplicad la alerta <code>class</code> a otros elementos como <code>div</code>, <code>p</code>, <code>ul</code>, <code>strong</code> o <code>em</code>. ¿Qué necesitáis cambiar para hacer que la clase sea agnóstica?</p></li>
+
+<li><p>Incluid unos cuantos párrafos y una lista dentro del <code>div</code> de la alerta. ¿Aún funciona el código?</p></li>
+
+<li><p>Verificad la alerta visualmente en los <a href="http://www.bbc.co.uk/guidelines/futuremedia/technical/browser_support.shtml#support_table" hreflang="en">navegadores de grado 1</a> (también llamado <em>grado A</em>). Mi consejo es que escribáis para buenos navegadores y adaptéis para Internet Explorer después de que funcione el código.</p></li>
+</ul>            
+
+<p>Realizar una serie rigurosa de pruebas forma parte del proceso de aprender a escribir CSS. Si vais con mucho cuidado a la hora de aprender, acabaréis yendo muy rápido.</p>
+
+
+<h2 id="sprites">31.3. <em>Sprites</em></h2>
+
+<p>Los usuarios lo quieren todo. Quieren que vuestro sitio sea atractivo, interactivo y, encima, rápido, pero incluir grandes cantidades de imágenes de fondo de CSS puede ralentizar mucho la web, ya que cuantas más peticiones HTTP hagáis, más lento será el sitio (una petición HTTP es cuando el ordenador está accediendo a una página web y necesita pedir al servidor que le envíe otro valor que compone el sitio, como un fichero o una imagen de CSS; cada petición 

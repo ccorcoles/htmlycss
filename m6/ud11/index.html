@@ -1,0 +1,413 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
+<meta http-equiv="Content-Language" content="es" />
+<meta name="language" content="es" />
+<meta name="author" content="Universitat Oberta de Catalunya" />
+<meta name="description" content="FALTA CONTENIDO" />
+<meta name="title" content="FALTA CONTENIDO" />
+<meta name="keywords" content="FALTA CONTENIDO" />
+
+<title>CSS - Posicionamiento absoluto y fijo con CSS</title>
+<link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
+</head>
+
+<body>
+<div id="cabecera">
+	<img id="logo" src="../../img/logo.gif" alt="Universitat Oberta de Catalunya" />
+    <a href="http://mosaic.uoc.edu/"><img id="logomosaic" src="../../img/logo-mosaic.gif" alt="Logo de Mosaic" title="Abre la página web de Mosaic" /></a>
+	<div id="titulo">CSS</div>
+	<div id="subtitulo">Posicionamiento absoluto y fijo con CSS</div>
+<div id="cierre"></div>
+	<div id="navegador">
+		<a href="../../m0/accessibilitat.html" id="accesibilidad">Accesibilidad</a> <strong>:</strong> 
+		<a rel="prev" href="../ud10/index.html" title="Ir al artículo anterior" accesskey="8"><img src="../../img/fletxa_izq.gif" alt="Ir al artículo anterior" /></a> <strong>:</strong> 
+		<a rel="index" href="../../index.html" title="Ir al índice" accesskey="0"><img src="../../img/indice.gif" alt="Ir al índice" /></a> <strong>:</strong> 
+		<a rel="next" href="../../m7/ud1/index.html" title="Ir al artículo siguiente" accesskey="9"><img src="../../img/fletxa_der.gif" alt="Ir al artículo siguiente" /></a>
+	</div>
+</div>
+	        
+<div id="main">
+<h1>37. Posicionamiento absoluto y fijo con CSS</h1>
+<p class="by"><a href="../../index.html#olsson">Tommy Olsson</a>. 26 de septiembre del 2008. Publicado en: índice z, apilamiento, recipiente, bloque, continente</p>
+
+<p>Este es el momento de fijarnos en el segundo par de valores de propiedad de <code>position</code>: <code>absolute</code> (absoluto) y <code>fixed</code> (fijo). El primer par de valores: <code>static</code> (estática) y <code>relative</code> (relativo) están íntimamente relacionados, y ya los vimos en el apartado anterior.</p>
+
+<p>Los elementos posicionados absolutamente se eliminan completamente del flujo del documento. Esto significa que no tienen ningún efecto sobre su elemento padre ni sobre los elementos que aparecen después de ellos en el código fuente. Por lo tanto, un elemento posicionado absolutamente se superpondrá sobre otros contenidos a no ser que se tome alguna medida para evitarlo. En ocasiones, por supuesto, esta superposición es exactamente lo que queréis, pero deberíais ser conscientes de ello para aseguraros de que obtenéis la composición que queréis.</p>
+
+<p>El posicionamiento fijo es de hecho una forma especializada del posicionamiento absoluto; los elementos con posicionamiento fijo están fijos en relación con la ventana o <em>viewport</em> del navegador en vez de estarlo en relación con el elemento continente; incluso si se desplaza la página, se mantienen exactamente en la misma posición en la ventana del navegador.</p>
+
+<p>En este apartado os daremos algunos ejemplos prácticos del uso de los posicionamientos <code>absolute</code> y <code>fixed</code>, observaremos algunos pequeños problemas de compatibilidad de navegadores y nos fijaremos en el concepto de índice <em>z</em>.</p>
+
+<p>Pero antes de empezar a hablar de todo esto, trataremos un concepto previo esencial: los bloques contenedores.</p>
+
+<p>Los contenidos de este apartado son los siguientes:</p>
+           
+<ul class="index">
+
+<li>37.1. <a href="#containingblocks" accesskey="1">Bloques contenedores</a></li>
+<li>37.2. <a href="#absolutepositioning" accesskey="2">Posicionamiento absoluto</a>
+<ul class="index">
+<li>37.2.1. <a href="#specifyingposition">Especificación de la posición</a></li>
+<li>37.2.2. <a href="#specifyingdimensions">Especificación de las dimensiones</a></li>
+<li>37.2.3. <a href="#zindex">La tercera dimensión: índice Z</a>
+<ul class="index">
+<li><a href="#localstackingcontexts">Contextos de apilamiento local</a></li>
+</ul></li>
+</ul></li>
+<li>37.3. <a href="#fixedpositioning" accesskey="3">Posicionamiento fijo</a></li>
+<li class="especial"><a href="#summary">Resumen</a></li>
+<li class="especial"><a href="#exercises">Preguntas de repaso</a></li>
+
+</ul>
+
+
+<h2 id="containingblocks">37.1. Bloques contenedores</h2>
+
+<p>Un concepto fundamental respecto al posicionamiento absoluto es el bloque contenedor: la caja de bloque respecto a la que se encuentran la posición y las dimensiones de la caja posicionada absolutamente.</p>
+
+<p>Para las cajas estáticas y posicionadas relativamente, la caja contenedora es la antepasada del bloque más próximo o, dicho de otro modo, el elemento padre. No obstante, para los elementos posicionados absolutamente es algo más complicado. En este caso, la caja contenedora es el antepasado posicionado más próximo. Con <em>posicionado</em> nos referimos a un elemento cuya propiedad <code>position</code> está establecida en <code>relative</code>, <code>absolute</code> o <code>fixed</code>, es decir, cualquier cosa excepto elementos estáticos normales.</p>
+
+<p>De manera que, establecer <code>position</code>:<code>relative</code> para un elemento lo convierte en bloque contenedor de cualquier descendiente posicionado absolutamente (elementos hijos), tanto si aparecen inmediatamente debajo del elemento posicionado relativamente en la jerarquía, o más abajo.</p>
+
+<p>Si un elemento posicionado absolutamente no tiene un antepasado posicionado, entonces el bloque contenedor es lo que se llama <em>bloque contenedor inicial</em>, que en la práctica equivale al elemento <code>html</code>. Si estáis mirando la página web en pantalla, se refiere a la ventana del navegador; si vais a imprimir la página, se refiere a los límites de la página.</p>
+
+<p>Los elementos con posicionamiento fijo difieren ligeramente, ya que su bloque contenedor siempre es el bloque contenedor inicial.</p>
+
+<p>Así pues, resumimos en una serie de sencillos pasos; para encontrar el bloque contenedor de un elemento con <code>position</code>:<code>absolute</code>, esto es lo que debéis hacer:</p>
+
+<ol>
+<li><p>Mirad el elemento padre del elemento posicionado absolutamente: ¿la propiedad <code>position</code> de este elemento tiene uno de los valores <code>relative</code>, <code>absolute</code> o <code>fixed</code>?</p></li>
+
+<li><p>Si es así, habéis encontrado el bloque contenedor.</p></li>
+
+<li><p>En caso contrario, pasad al elemento padre del padre y empezad de nuevo desde el paso 1 hasta que encontréis el bloque contenedor u os quedéis sin antepasados.</p></li>
+
+<li><p>Si habéis llegado al elemento <code>html</code> sin encontrar un antepasado posicionado, entonces el bloque contenedor es el elemento <code>html</code>.</p></li>
+</ol>
+
+<h2 id="absolutepositioning">37.2. Posicionamiento absoluto</h2>
+
+<p>El posicionamiento fijo es una forma especial de posicionamiento absoluto, de manera que lo estudiaremos más adelante y ahora nos concentraremos en el caso más generalizado. A no ser que se indique lo contrario, cuando utilizamos el término <em>posicionado absolutamente</em> desde ahora hasta el final del apartado, nos estaremos refiriendo tanto a elementos con <code>position</code>:<code>fixed</code> como a elementos con <code>position</code>:<code>absolute</code>.</p>
+
+
+<h3 id="specifyingposition">37.2.1. Especificación de la posición</h3>
+
+<p>Con el posicionamiento relativo, habéis aprendido que las propiedades <code>top</code>, <code>right</code>, <code>bottom</code> y <code>left</code> se pueden utilizar para especificar la posición de la caja. Para especificar la posición de una caja posicionada absolutamente se utilizan las mismas propiedades, pero la manera de utilizarlas es bastante diferente.</p>
+
+<p>Para un elemento posicionado relativamente, las cuatro propiedades especifican la distancia relativa para desplazar la caja generada. Recordad que en el caso del posicionamiento relativo se complementan entre sí, de manera que <code>top:1em</code> y <code>bottom:-1em</code> quieren decir lo mismo, y no tiene mucho sentido especificar tanto <code>top</code> como <code>bottom</code> (o <code>left</code> y <code>right</code>) para el mismo elemento porque uno de los valores se ignorará.</p>
+
+<p>Estos puntos no son ciertos en el caso del posicionamiento absoluto. En este caso, se pueden utilizar las cuatro propiedades al mismo tiempo para especificar la distancia desde cada borde del elemento posicionado hasta el borde correspondiente del bloque continente. También se puede especificar la posición de una de las esquinas del cuadro posicionado absolutamente, por ejemplo utilizando <code>top</code> y <code>left</code>, y entonces especificar las dimensiones del cuadro mediante <code>width</code> y <code>height</code> (o simplemente no utilizar <code>width</code> y <code>height</code> si queréis dejar que se ajuste para encajar su contenido).</p>
+
+<p>La versión 6 de Microsoft Internet Explorer (y anteriores) no acepta el método de especificar los cuatro bordes, pero sí el método de especificar una esquina más las dimensiones.</p>
+
+<pre><code>/* Este método funciona en IE6 */
+#foo {
+   position: absolute;
+   top: 3em;
+   left: 0;
+   width: 30em;
+   height: 20em;
+}
+/* Este método funciona en IE6 */
+#foo {
+   position: absolute;
+   top: 3em;
+   right: 0;
+   bottom: 3em;
+   left: 0;
+}</code></pre>
+
+<p>Lo que debéis recordar en este caso es que los valores que habéis establecido para las propiedades <code>top</code>, <code>right</code>, <code>bottom</code> y <code>left</code> especifican las distancias desde los bordes del elemento hasta los bordes de su bloque continente correspondiente. No es como en un sistema de coordenadas donde cada valor es relativo a un punto de origen. Por ejemplo, <code>right:2em</code> significa que el borde derecho del cuadro posicionado absolutamente estará a 2 em del borde derecho del bloque contenedor.</p>
+
+<p>Es absolutamente esencial saber cuál es el bloque contenedor cuando se utiliza el posicionamiento absoluto. Por ello es tan útil configurar <code>position</code>:<code>relative</code> en el bloque contenedor, incluso si no se desplaza realmente la posición del cuadro. Esto permite hacer que un elemento sea el bloque contenedor de sus descendientes posicionados absolutamente, es decir, os proporciona el control.</p>
+
+<p>Probemos un ejemplo para ver cómo funciona.</p>
+
+<ol>
+<li><p>Copiad el código siguiente en vuestro editor de texto y guardad el documento como <code>absolute.html</code>.</p>
+
+<pre><code>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" 
+      "http://www.w3.org/TR/html4/strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+   &lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8"&gt;
+   &lt;title&gt;Absolute Positioning&lt;/title&gt;
+   &lt;link rel="stylesheet" type="text/css" href="absolute.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+   &lt;div id="outer"&gt;
+      &lt;div id="inner"&gt;&lt;/div&gt;
+   &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre></li>     
+
+<li><p>A continuación, copiad el código siguiente en un nuevo archivo y guardadlo como <code>absolute.css</code>.</p>
+
+<pre><code>html, body {
+   margin: 0;
+   padding: 0;
+}
+#outer {
+   margin: 5em;
+   border: 1px solid #f00;
+}
+#inner {
+   width: 6em;
+   height: 4em;
+   background-color: #999;
+}</code></pre></li>
+
+<li><p>Guardad los dos archivos y cargad el documento HTML en vuestro navegador. Veréis un rectángulo gris rodeado de un marco algo más ancho de color rojo. El elemento <code>#inner</code> tiene una anchura y altura especificadas y un color gris de fondo. El elemento <code>#outer</code>, que es el padre estructural de <code>#inner</code>, tiene un marco rojo. También tiene un margen de 5 em alrededor para alejarlo de los bordes de la ventana del navegador y dejarnos ver más claramente qué es lo que ocurre.</p>
+
+<p>Nada sorprendente hasta ahora, ¿verdad? La altura del elemento <code>#outer</code> viene dada por su elemento hijo (<code>#inner</code>) y la anchura por los márgenes horizontales.</p></li>
+
+<li><p>Mirad qué sucede ahora si hacéis que el elemento <code>#inner</code> esté posicionado absolutamente. Añadid la siguiente línea resaltada en la regla de <code>#inner</code>:</p>
+
+<pre><code>#inner {
+   width: 6em;
+   height: 4em;
+   background-color: #999;
+   <strong>position: absolute;</strong>
+}</code></pre></li>
+
+<li><p>Guardad y recargad. En vez de un marco rojo en torno al rectángulo gris, ahora vemos lo que parece un marco más grueso sólo en la parte superior. Y el cuadro gris no se ha movido en absoluto. ¿Os lo esperabais?</p>
+
+<p>Pasan dos cosas interesantes aquí: en primer lugar, hacer que <code>#inner</code> esté posicionado absolutamente lo ha eliminado completamente del flujo del documento. Esto significa que su padre, <code>#outer</code>, ahora no tiene hijos que se encuentren en el flujo normal y, por lo tanto, su altura se reduce a cero. Lo que parece una línea roja de 2
+píxeles de grueso es realmente un borde de 1 píxel alrededor de un elemento con altura cero: estáis viendo los bordes superiores e inferiores sin nada en medio.</p>
+
+<p>Lo segundo interesante es que el cuadro posicionado absolutamente no se ha movido. El valor predeterminado para las propiedades <code>top</code>, <code>right</code>, <code>bottom</code> y <code>left</code> es <code>auto</code>, lo que significa que el cuadro posicionado absolutamente aparecerá exactamente donde habría estado si no hubiera sido posicionado. Pero como se ha eliminado del flujo, se superpondrá a cualquier elemento del flujo normal que lo siga.</p>
+
+<p>Esto es realmente muy útil: podéis utilizarlo si sólo queréis mover un cuadro generado en una dimensión. Por ejemplo, en un menú desplegable de CSS, los paneles "desplegables" se pueden posicionar absolutamente especificando sólo la propiedad <code>top</code>. Entonces aparecerán automáticamente en la coordenada prevista a lo largo del eje X (igual que su padre).</p></li>
+
+<li><p>A continuación, establecemos una altura para el elemento <code>#outer</code> de manera que vuelva a parecer un rectángulo y movemos <code>#inner</code> lateralmente. Añadid las siguientes líneas resaltadas a las reglas de CSS:</p>
+
+<pre><code>#outer {
+   margin: 5em;
+   border: 1px solid #f00;
+   <strong>height: 4em;</strong>
+}
+#inner {
+   width: 6em;
+   height: 4em;
+   background-color: #999;
+   position: absolute;
+   <strong>left: 1em;</strong>
+}</code></pre></li>
+
+<li><p>Guardad y recargad y veréis algunos cambios. El elemento <code>#outer</code> ahora es un rectángulo otra vez, ya que le habéis especificado una altura. El elemento <code>#inner</code> se ha desplazado lateralmente, pero no donde se podría esperar encontrarlo. No está a 1 em del borde izquierdo de su padre, sino a 1 em del borde izquierdo de la ventana.</p>
+
+<p>El motivo es que, como se ha explicado antes, <code>#inner</code> no tiene un antepasado posicionado, de manera que su bloque continente es el bloque continente inicial. Si especificáis una posición diferente de<code> auto</code>, es relativa al borde correspondiente del bloque continente. Cuando habéis establecido <code>left:1em</code>, el borde izquierdo de <code>#inner</code> ha acabado a 1 em del borde izquierdo de la ventana.</p></li>
+
+<li><p>Si en vez de esto lo queréis a 1 em del borde izquierdo de su elemento padre, debéis hacer padre al bloque contenedor. Para hacerlo, ahora utilizaréis el truco que hemos mencionado anteriormente en este apartado: hacer que el bloque padre esté posicionado relativamente. Añadid la siguiente línea resaltada a la regla <code>#outer</code>:</p>
+
+<pre><code>#outer {
+   margin: 5em;
+   border: 1px solid #f00;
+   height: 4em;
+   <strong>position: relative;</strong>
+}</code></pre></li>
+
+<li><p>Guardad y recargad: ¡pasen y vean! El rectángulo gris ahora está a 1 em del borde izquierdo del elemento padre. Establecer <code>position</code>:<code>relative</code> en la regla <code>#outer</code> ha hecho que esté posicionado y lo ha establecido como bloque contenedor para cualquier descendiente posicionado relativamente que pueda tener. El <code>left:1em</code> que habéis establecido para <code>#inner</code> ahora cuenta a partir del borde izquierdo de <code>#outer</code>, no del borde izquierdo de la ventana del navegador.</p></li>
+</ol>
+
+<h3 id="specifyingdimensions">37.2.2. Especificación de las dimensiones</h3>
+
+<p>Los elementos posicionados absolutamente se ajustarán para encajar su contenido a no ser que especifiquéis sus dimensiones. Podéis especificar la anchura o bien definiendo las propiedades <code>left</code> y <code>right</code>, o bien definiendo la propiedad <code>width</code>. Podéis especificar la altura definiendo las propiedades <code>top</code> y <code>bottom</code>, o definiendo la propiedad <code>height</code>.</p>
+
+<p>Cualquiera de estas seis propiedades se puede especificar como porcentaje. Los porcentajes son, por su propia naturaleza, relativos a alguna otra cosa. En este caso, son relativos a las dimensiones del bloque contenedor.</p>
+
+<p>Para un elemento posicionado absolutamente, los valores de porcentaje para las propiedades <code>left</code>, <code>right</code> y <code>width</code> son relativos a la anchura del bloque continente. Los valores de porcentaje para las propiedades <code>top</code>, <code>bottom</code> y <code>height</code> son relativos a la altura del bloque continente.</p>
+
+<p>El navegador Internet Explorer 6 y anteriores, y también Opera 8 y anteriores, lo interpretaron de manera totalmente errónea y utilizaron las dimensiones del bloque padre en su lugar. Vamos a probar con otro ejemplo para ver cómo esto puede suponer una gran diferencia.</p>
+
+<ol>
+<li><p>Empezad especificando las dimensiones de <code>#inner</code> mediante valores de porcentaje; haced los siguientes cambios en la regla <code>#inner</code>:</p>
+
+<pre><code>#inner {
+   <strong>width: 50%;</strong>
+   <strong>height: 50%;</strong>
+   background-color: #999;
+   position: absolute;
+   left: 1em;
+}</code></pre></li>
+
+<li><p>Guardad y recargad, y veréis que el rectángulo gris se hace más ancho y más corto (como mínimo si estáis utilizando un navegador moderno). El bloque continente es todavía <code>#outer</code> porque tiene <code>position</code>:<code>relative</code>. La anchura del elemento <code>#inner</code> ahora es la mitad de la de <code>#outer</code>, y su altura es la mitad de la altura de <code>#outer</code>.</p></li>
+
+<li><p>Hacemos que el <em>viewport</em> sea el bloque contenedor una vez más, para ver la diferencia. Haced el siguiente cambio en <code>#outer</code>:</p>
+
+<pre><code>#outer {
+   margin: 5em;
+   border: 1px solid #f00;
+   height: 4em;
+   <strong>position: static;</strong>
+}</code></pre></li>
+
+<li><p>Guardad y recargad; una diferencia notable, ¿verdad? El cuadro gris es ahora la mitad de ancho y la mitad de alto que la ventana del navegador.</p></li>
+</ol>
+
+<p>Como podéis ver, saber cuáles son vuestros bloques contenedores es absolutamente esencial.</p>
+
+<h3 id="zindex">37.2.3. La tercera dimensión: índice Z</h3>
+
+<p>Es natural considerar que una página web tiene dos dimensiones. La tecnología no ha evolucionado tanto como para que las pantallas 3D estén generalizadas, de manera que nos debemos conformar con anchura, altura y falsos efectos 3D. Pero la representación CSS realmente se produce en tres dimensiones. Esto no quiere decir que pueda hacer que un elemento vuele delante del monitor (aún), pero puede hacer otras cosas útiles con los elementos posicionados.</p>
+
+<p>Los dos ejes principales de una página web son el eje horizontal X y el eje vertical Y. El origen de este sistema de coordenadas se encuentra en la esquina superior izquierda de la ventana, es decir, donde tanto el valor X como Y son 0.</p>
+
+<p>Pero también hay un eje Z, que podemos imaginar como perpendicular a la superficie del monitor (o del papel, si se trata de una impresión). Los valores Z más altos indican una posición de "delante" de los valores Z más bajos. Los valores Z también pueden ser negativos, y en este caso indican una posición "detrás" de algún punto de referencia (explicaremos este punto de referencia a continuación).</p>
+
+<div class="note">
+<h3>Nota</h3>
+
+<p>Antes de continuar, debemos advertiros que éste es uno de los temas más complicados de CSS, así que no os desmoralicéis si no lo entendéis a la primera.</p>
+</div>
+
+<p>Los elementos posicionados (incluidos los elementos posicionados relativamente) se representan dentro de lo que se conoce como contexto de apilamiento. Los elementos dentro de un contexto de apilamiento tienen el mismo punto de referencia a lo largo del eje Z. A continuación lo explicaremos más detalladamente. Podéis cambiar la posición Z (también denominada nivel de pila) de un elemento posicionado utilizando la propiedad <code>z-index</code>. El valor puede ser un número entero (que puede ser negativo) o una de las palabras clave <code>auto</code> o <code>inherit</code>. El valor predeterminado es <code>auto</code>, lo que quiere decir que el elemento tiene el mismo nivel de pila que su padre.</p>
+
+<p>Debéis tener en cuenta que sólo podéis especificar una posición índice a lo largo del eje Z. No podéis hacer que un elemento aparezca 19 píxeles detrás o 5 centímetros delante de otro. Pensad en eso como si fuera una baraja de cartas: Podéis apilar las cartas y decidir que el as de espadas esté sobre el tres de diamantes; cada carta tiene su nivel de pila, o índice Z.</p>
+
+<p>Si especificáis <code>z-index</code> como un entero positivo, le asignáis un nivel de pila "delante de" el resto de elementos del mismo contexto de apilamiento que tienen un nivel de pila inferior. Un <code>z-index</code> de 0 (<em>zero</em>) significa lo mismo que <code>auto</code>, pero hay una diferencia de la que hablaremos en un momento. Un valor entero negativo para <code>z-index</code> asigna un nivel de pila "detrás de" el nivel de apilamiento padre.</p>
+
+<p>Cuando dos elementos del mismo contexto de apilamiento tienen el mismo nivel de pila, lo que aparece posteriormente al código fuente aparecerá encima de sus hermanos predecesores.</p>
+
+<p>De hecho, no puede haber menos de siete capas en un contexto de apilamiento, y en cada una de estas capas puede haber cualquier número de elementos, pero no os preocupéis: lo más probable es que nunca tengáis que tratar con siete capas en un contexto de apilamiento. El  orden en el que los elementos (todos los elementos, no sólo los posicionados) se representan en un contexto de apilamiento, desde detrás hacia adelante, es el siguiente:</p>
+
+<ol>
+<li><p>El fondo y los bordes de los elementos que forman el contexto de apilamiento.</p></li>
+<li><p>Descendientes posicionados con niveles de pila negativos.</p></li>
+<li><p>Descendientes de nivel de bloque en el flujo normal.</p></li>
+<li><p>Descendientes flotantes.</p></li>
+<li><p>Descendientes de nivel en línea en el flujo normal.</p></li>
+<li><p>Descendientes posicionados con el nivel de pila definido como <code>auto</code> o <code>0</code> (cero).</p></li>
+<li><p>Descendientes posicionados con niveles de pila positivos.</p></li>
+</ol>
+<p>Las entradas resaltadas son los elementos con un nivel de pila que se puede cambiar mediante la propiedad <code>z-index</code>.</p>
+
+<p>Todo puede ser bastante difícil de imaginar, de modo que, hagamos algunos experimentos prácticos para ilustrar el índice Z.</p>
+<ol>
+<li><p>Empezad añadiendo la siguiente línea resaltada a vuestro pequeño documento de muestra:</p>
+
+<pre><code>&lt;body&gt;
+   &lt;div id="outer"&gt;
+      &lt;div id="inner"&gt;&lt;/div&gt;
+      <strong>&lt;div id="second"&gt;&lt;/div&gt;</strong>
+   &lt;/div&gt;
+&lt;/body&gt;</code></pre></li>
+
+<li><p>A continuación os explicaremos cómo restaurar el CSS de manera que <code>#outer</code> sea el bloque contenedor y cómo establecer dimensiones no porcentuales de <code>#inner</code>. Hagamos que <code>#outer</code> sea un poco más alto, también, para tener más espacio para hacer pruebas. Haced los siguientes cambios resaltados en las dos reglas:</p>
+
+<pre><code>#outer {
+   margin: 5em;
+   border: 1px solid #f00;
+   <strong>height: 8em;</strong>
+   <strong>position: relative;</strong>
+}
+#inner {
+   <strong>width: 5em;</strong>
+   <strong>height: 5em;</strong>
+   background-color: #999;
+   position: absolute;
+   left: 1em;
+}</code></pre></li>
+
+<li><p>Añadid una regla para el elemento <code>#second</code>, también:</p>
+       
+<pre><code>#second {
+   width: 5em;
+   height: 5em;
+   background-color: #00f;
+   position: absolute;
+   top: 1em;
+   left: 2em;
+}</code></pre></li>
+
+<li><p>Guardad y recargad y veréis un cuadro azul brillante que se superpone a uno gris. Ambos cuadros tienen el mismo nivel de pila (<code>auto</code>, el valor inicial, que significa un nivel de pila 0), pero el cuadro azul se representa ante el cuadro gris porque aparece más tarde en el código fuente. Podéis hacer que el cuadro gris aparezca delante asignándole un nivel de pila positivo. Sólo debéis especificar que sea mayor que 0: no hace falta exagerar y utilizar un valor como 10.000. Añadid la siguiente línea resaltada en la regla <code>#inner</code>:</p>
+
+<pre><code>#inner {
+   width: 5em;
+   height: 5em;
+   background-color: #999;
+   position: absolute;
+   left: 1em;
+   <strong>z-index: 1;</strong>
+}</code></pre></li>
+
+<li><p>Guardad y recargad, y veréis cómo el cuadro gris aparece ante el cuadro azul.</p></li>
+</ol>
+
+<h3 id="localstackingcontexts">Contextos de apilamiento local</h3>
+
+<p>El resto de este subapartado trata de los contextos de apilamiento locales. Muy probablemente, no os encontraréis con eso muy a menudo trabajando como diseñadores, a no ser que intentéis hacer algo realmente avanzado con posicionamiento absoluto, pero hemos decidido incluirlo igualmente por completitud. Si queréis, podéis saltaros esta sección.</p>
+
+<p>Cada elemento que tenga el <code>z-index</code> especificado como un entero establece un contexto de apilamiento nuevo, "local", en el que el propio elemento tiene un nivel de pila 0. Ésta es la diferencia que hemos mencionado antes entre <code>z-index: auto</code> y <code>z-index: 0</code>. El anterior no establece un nuevo contexto de apilamiento, pero el último, sí.</p>
+
+<p>Cuando un elemento establece un contexto de apilamiento local, los niveles de pila de sus descendientes posicionados se aplican sólo en este contexto local. Estos descendientes se pueden volver a apilar los unos respecto a los otros, y respecto a su padre, pero no respecto a los hermanos del padre. Es como si el padre formara una jaula alrededor de sus descendientes de manera que no pueden abandonarla. Los descendientes se pueden mover arriba y abajo en esta jaula, pero no pueden abandonarla. El padre y sus descendientes formarán una unidad indivisible en el contexto de apilamiento que rodea al padre.</p>
+
+<p>Imaginaos que estáis clasificando el papeleo antes de entregarlo al contable que se ocupa de vuestros asuntos fiscales. Tenéis informes de gastos, recibos, confirmaciones de pedidos, etcétera y apiláis un papel encima del otro: para facilitarle la vida a vuestro gestor, introducís los tipos de documentos que van juntos en diferentes sobres.</p>
+
+<p>Un contexto de apilamiento local es parecido a este tipo de sobre. Mantiene los elementos relacionados juntos e impide que otros elementos se mezclen entre ellos. Podéis clasificar el contenido de cada sobre como queráis, pero este orden de clasificación sólo se aplica a este sobre y no afecta a la pila de documentos en conjunto. Vuestra pila contiene ahora una mezcla de documentos independientes (elementos con el nivel de pila <code>auto</code>) y sobres (elementos con un nivel de pila entero). Los sobres con niveles de pila positivos quedan por encima de los documentos independientes, mientras que los sobres con niveles de pila negativos aparecen debajo del todo de la pila.</p>
+
+<p>Cada vez que asignáis un valor entero en la propiedad <code>z-index</code> de un elemento, se crea un "sobre" que contiene este elemento y sus descendientes.</p>
+
+<p>Veamos cómo funcionan estos contextos de apilamiento local. Puede parecer confuso, pero realmente no es muy diferente de todo lo que ya habéis visto. Si seguís los ejemplos, acabaréis haciéndoos una buena idea de cómo funciona todo.</p>
+
+<ol>
+<li><p>Empezad añadiendo algún contenido a vuestros dos elementos internos; añadid las líneas resaltadas a vuestro documento HTML:</p>
+                 
+<pre><code>&lt;div id="inner"&gt;
+   <strong>&lt;span&gt;&lt;/span&gt;</strong>
+&lt;/div&gt;
+&lt;div id="second"&gt;
+   <strong>&lt;span&gt;&lt;/span&gt;</strong>
+&lt;/div&gt;</code></pre></li>
+
+<li><p>Añadid una regla CSS que se aplicará a estos dos elementos <code>span</code>:</p>
+
+<pre><code>span {
+   position: absolute;
+   top: 2em;
+   left: 2em;
+   width: 3em;
+   height: 3em;
+}</code></pre>
+
+<p>Esto hace que los elementos <code>span</code> queden posicionados absolutamente y establece sus posiciones y dimensiones. Pero, un momento, los elementos <code>span</code> son en línea... ¿Cómo se pueden especificar las dimensiones de los elementos en línea? La respuesta es que los elementos posicionados absolutamente, como los elementos flotantes, generan automáticamente cajas de bloque.</p>
+
+<p>Las posiciones que especificáis se aplicarán con relación al bloque contenedor de cada <code>span</code>. Como ambos elementos <code>span</code> tienen un <code>div</code> posicionado absolutamente como padre, estos padres asumen la función de bloques contenedores.</p></li>
+
+<li><p>Añadimos ahora un poco de color a los elementos <code>span</code> para que podáis ver dónde aparecen; añadid las siguientes reglas a vuestra hoja de estilos:</p>
+
+<pre><code>#inner span {
+   background-color: #ff0;
+}
+#second span {
+   background-color: #0ff;
+}
+</code></pre></li>
+
+<li><p>Guardad y recargad y veréis un cuadrado amarillo en la esquina inferior derecha del cuadrado gris mayor y un cuadrado de color cian en la esquina inferior derecha del cuadrado azul mayor. Los cuadrados gris y amarillo aparecen ante los cuadrados azul y cian porque el cuadrado gris tiene un <code>z-index:1</code>.</p></li>
+
+<li><p>¿Y si queréis que el cuadrado cian quede por delante de todos los otros cuadrados? Todo lo que debéis hacer es aplicarle un nivel de pila más alto que al cuadrado gris. De hecho, basta con darle exactamente el mismo nivel de pila que el cuadrado gris, ya que el cuadrado cian aparece más adelante en el etiquetado. Probémoslo; efectuad el siguiente cambio en vuestro CSS:</p>
+
+<pre><code>#second span {
+   background-color: #0ff;
+   <strong>z-index: 1;</strong>
+}</code></pre></li>
+
+<li><p>Guardad y recargad. Si vuestro navegador admite correctamente la recomendación CSS, el cuadrado cian debería estar ahora delante.</p></li>
+</ol>
+<p>El cuadrado gris tiene un <code>z-index:1</code>, que quiere decir que establece un contexto de apilamiento local. En otras palabras, habéis creado uno de estos "sobres" y habéis colocado el cuadrado gris y su cuadrado hijo de color amarillo en el interior.</p>
+
+<p>¿Seguís sin verlo del todo claro? A ver si con el siguiente experimento lo acabamos de aclarar.</p>
+<ol>
+<li><p>Estableced un nivel de pila alto para el cuadrado amarillo para llevarlo adelante; haced el siguiente cambio en vuestro CSS:</p>
+
+<pre><code>#inner span {
+   background-color: #ff0;
+   <strong>z-index: 4;</strong>
+}</code></pre></li>
+
+<li><p>Si guardáis y recargáis, veréis... que no ha habido ningún cambio en absoluto. El nivel de pila que hemos especificado para el cuadrado amarillo se aplica en el contexto de apilamiento local establecido por el cuadrado gris, es decir: el cuadrado amarillo se encuentra en un sobre junto con su padre gris. Podríais mover el cuadrado cian hasta adelante porque su padre (el cuadrado azul) no establece un contexto de apilamiento local: tiene un <code>z-index</code>:<code>auto</code> implícito. El cuadrado azul es un papel independiente en la pila. Los cuadrados amarillo y cian están en realidad solos en pequeños sobres individuales (tienen un nivel de pila entero y establecen contextos de apilamiento local por su cuenta).</p></li>
+
+<li><p>Si hacéis que el cuadrado azul estable

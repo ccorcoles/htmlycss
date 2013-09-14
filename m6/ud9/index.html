@@ -1,0 +1,493 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
+<meta http-equiv="Content-Language" content="es" />
+<meta name="language" content="es" />
+<meta name="author" content="Universitat Oberta de Catalunya" />
+<meta name="description" content="FALTA CONTENIDO" />
+<meta name="title" content="FALTA CONTENIDO" />
+<meta name="keywords" content="FALTA CONTENIDO" />
+
+<title>CSS - Elementos flotantes y clearing</title>
+<link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
+</head>
+
+<body>
+<div id="cabecera">
+	<img id="logo" src="../../img/logo.gif" alt="Universitat Oberta de Catalunya" />
+    <a href="http://mosaic.uoc.edu/"><img id="logomosaic" src="../../img/logo-mosaic.gif" alt="Logo de Mosaic" title="Abre la página web de Mosaic" /></a>
+	<div id="titulo">CSS</div>
+	<div id="subtitulo">Elementos flotantes y <em>clearing</em></div>
+<div id="cierre"></div>
+	<div id="navegador">
+		<a href="../../m0/accessibilitat.html" id="accesibilidad">Accesibilidad</a> <strong>:</strong> 
+		<a rel="prev" href="../ud8/index.html" title="Ir al artículo anterior" accesskey="8"><img src="../../img/fletxa_izq.gif" alt="Ir al artículo anterior" /></a> <strong>:</strong> 
+		<a rel="index" href="../../index.html" title="Ir al índice" accesskey="0"><img src="../../img/indice.gif" alt="Ir al índice" /></a> <strong>:</strong> 
+		<a rel="next" href="../ud10/index.html" title="Ir al artículo siguiente" accesskey="9"><img src="../../img/fletxa_der.gif" alt="Ir al artículo siguiente" /></a>
+	</div>
+</div>
+	        
+<div id="main">
+<h1>35. Elementos flotantes y <em>clearing</em></h1>
+<p class="by"><a href="../../index.html#olsson">Tommy Olsson</a>. 26 de septiembre del 2008 Publicado en: márgenes, cuadros, ajustar, errores, contener</p>   
+
+<p>En este apartado veremos qué son los elementos flotantes y el <em>clearing</em>, dos herramientas indispensables para el diseñador de webs modernas. Son unas herramientas muy versátiles que podéis utilizar para hacer que el texto fluya en torno a las imágenes o incluso crear composiciones de múltiples columnas.</p>
+
+<p>Los contenidos de este apartado son los siguientes:</p>
+
+<ul class="index">
+
+<li>35.1. <a href="#whatarefloatandclear" accesskey="1">¿Para qué sirven <code>float</code> y <code>clear</code>?</a></li>
+<li>35.2. <a href="#boringtheory" accesskey="2">Algo de teoría muy aburrida</a></li>
+<li>35.3. <a href="#howdoesfloatingwork" accesskey="3">¿Cómo funcionan los elementos flotantes?</a>
+<ul class="index">
+<li>35.3.1. <a href="#minutiae">Los detalles</a></li>
+<li>35.3.2. <a href="#morefloats">Más elementos flotantes</a></li>
+<li>35.3.3. <a href="#floatmargins">Márgenes en los elementos flotantes</a></li>
+</ul></li>
+<li>35.4. <a href="#clearing" accesskey="4"><em>Clearing</em></a></li>
+<li>35.5. <a href="#containingfloats" accesskey="5">Elementos flotantes contenedores</a></li>
+<li>35.6. <a href="#shrinkwrapping" accesskey="6">Ajustar</a></li>
+<li>35.7. <a href="#centeringfloats" accesskey="7">Centrar elementos flotantes</a></li>
+<li>35.8. <a href="#bugs">¡Errores!</a></li>
+<li class="especial"><a href="#summary">Resumen</a></li>
+<li class="especial"><a href="#exercises">Preguntas de repaso</a></li>
+
+</ul>
+
+<h2 id="whatarefloatandclear">35.1. ¿Para qué sirven <code>float</code> y <code>clear</code>?</h2>
+
+<p>Si miráis cualquier revista, veréis que hay imágenes que ilustran los apartados y que el texto las rodea y fluye a su alrededor. La propiedad <code>float</code> de CSS se creó para permitir este estilo de composición en las páginas web. Cuando se hace "flotar" una imagen, o cualquier otro elemento, ésta se desplaza hacia un lado y permite que el texto fluya por el otro. Aplicar <em>clearing</em> a un elemento flotante hace que éste se desplace hacia abajo, si es necesario, para evitar que aparezca justo al lado del texto.</p>
+
+<p>Aunque en principio cualquier elemento puede ser un elemento flotante, los diseñadores utilizan esta propiedad básicamente para conseguir composiciones de múltiples columnas sin necesidad de abusar del etiquetado de tabla.</p>
+                          
+<h2 id="boringtheory">35.2. Algo de teoría muy aburrida</h2>
+
+<p>Para explicar cómo funcionan los elementos flotantes, primero deberemos dar un poco de teoría y ver cómo un navegador web muestra un documento HTML/CSS. No os preocupéis, será breve.</p>
+
+<p>Todos los elementos HTML visibles generan una "caja" que inmediatamente se delimita. Si miráis el documento en una pantalla de ordenador o en un teléfono móvil, los cuadros aparecen en la pantalla. Si imprimís el documento, los cuadros aparecen en el papel. Si utilizáis un lector de pantalla, el contenido de los cuadros se reproduce oralmente.</p>
+
+<p>De la misma manera que en HTML hay elementos de bloque y elementos en línea, en el CSS hay cajas de bloque y en línea. Por defecto, los elementos de bloque generan cajas de bloque y los elementos en línea generan cajas en línea. Aparte de las cajas generadas por los elementos, también se generarán otras cajas; por ejemplo, para el contenido textual del documento. Las cajas de bloque se presentan normalmente en el orden en el que aparecen los elementos en el etiquetado, de arriba abajo. Las cajas de bloque no pueden aparecer unas al lado de otras si no aplicamos CSS. Las cajas en línea se distribuyen horizontalmente. La propiedad <code>direction</code> determina si se distribuyen de izquierda a derecha o de derecha a izquierda (si no se especifica esta propiedad, estas cajas se distribuyen por defecto de izquierda a derecha).</p>
+
+<p>Esto se conoce como el flujo de documento: las cajas en línea fluyen horizontalmente dentro de sus cajas de bloque madre, y las cajas de bloque fluyen verticalmente. Las cajas aparecen en el mismo orden que los elementos del etiquetado HTML.</p>
+
+<p>Pongamos por caso el siguiente documento HTML, que es muy básico (sólo hemos incluido la parte que hay dentro del elemento <code>body</code>):</p>
+
+<pre><code>&lt;p&gt;This is a very simple document.&lt;/p&gt;
+&lt;p&gt;It consists of &lt;em&gt;two&lt;/em&gt; paragraphs.&lt;/p&gt;</code></pre>
+
+<p>La figura 1 muestra una captura de pantalla de este documento con una sobreimpresión que muestra las dos cajas de bloque generadas por los elementos <code>p</code> y la caja en línea generada por el elemento <code>em</code>.</p>
+
+<div class="imagen">
+<img src="76510_m6_86.gif" alt="Los elementos p generan cuadros de bloque y el elemento em genera un cuadro en línea. " />
+<p>Figura 1. Muestra de las cajas de bloque generadas por los elementos <code>p</code> y de la caja en línea generada por el elemento <code>em</code></p>
+</div>
+
+<p>Todas las cajas en línea que forman una "línea" en el dispositivo de salida están rodeadas por rectángulos imaginarios que se conocen como cajas de línea. Las cajas de línea se distribuyen siempre de arriba abajo sin ningún espacio entre ellas, tal como podéis ver en la figura 2.</p>
+
+<div class="imagen">
+<img src="76510_m6_87.gif" alt="Cada línea representada está cerrada en una caja de línea. " />
+<p>Figura 2. Cada línea representada está cerrada en una caja de línea independiente.</p>
+</div>
+
+<h2 id="howdoesfloatingwork">35.3. ¿Cómo funcionan los elementos flotantes?</h2>
+
+<p>Ahora que ya hemos visto todas estas cuestiones teóricas tan aburridas, pasemos a ver la sintaxis de los elementos <code>float</code> y <code>clear</code> y a ver algunos ejemplos.</p>
+
+<p>La propiedad <code>float</code> tiene cuatro valores válidos: <code>left</code>, <code>right</code>, <code>none</code> e <code>inherit</code>. Los dos primeros valores son de lejos los que se utilizan más habitualmente y hacen que una caja flote hacia la derecha o hacia la izquierda. La declaración <code>float:none</code>, que es el valor por defecto, se utiliza normalmente sólo para "deshacer" una declaración de alguna otra regla. El uso de <code>float:inherit</code> no es nada habitual; no lo hemos visto nunca en ningún sitio y probablemente sólo existe por una cuestión de coherencia. Hace que el elemento herede el valor de <code>float</code> de su elemento padre.</p>
+
+<p>Una caja flotante se extrae del flujo del documento y se desplaza todo lo posible hacia la izquierda o hacia la derecha, según la dirección de flotación especificada. "Todo lo posible" significa normalmente hasta que el borde exterior del elemento flotante toca el borde del bloque que lo contiene (el interior de su relleno, si está definido). Así pues, en el caso de <code>float:left</code>, la caja se desplaza hacia la izquierda hasta que el margen izquierdo del elemento flotante toca el borde izquierdo del padre.</p>
+
+<p>Los lectores que hayan estado alerta pueden haber visto que hemos ido utilizando "normalmente". Si ya hay una caja flotada hacia la izquierda cuando flotamos otra en esta misma dirección, la segunda caja se detendrá cuando toque a esta primera. Es decir, que los elementos flotantes no se pueden poner los unos sobre los otros.</p>
+
+<p>Ya ha llegado el momento de ver los elementos flotantes en acción, de manera que ya podéis preparar vuestro editor de textos.</p>
+
+<ol>
+<li><p>Cread un archivo nuevo, copiad el código siguiente y guardad el documento como <code>float.html</code>.</p>
+
+<pre><code>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+ "http://www.w3.org/TR/html4/strict.dtd"&gt;
+&lt;html&gt;
+   &lt;head&gt;
+      &lt;meta http-equiv="Content-Type" content="text/html;
+       charset=utf-8"&gt;
+      &lt;title&gt;Floating&lt;/title&gt;
+   &lt;/head&gt;
+&lt;body&gt;
+   &lt;p id="p1"&gt;&lt;span id="span-a"&gt;Lorem ipsum&lt;/span&gt;
+   &lt;span id="span-b"&gt;dolor sit amet&lt;/span&gt;
+   &lt;span id="span-c"&gt;consectetuer&lt;/span&gt; adipiscing elit.
+    Curabitur feugiat feugiat purus.
+    Aenean eu metus. Nulla facilisi.
+    Pellentesque quis justo vel massa suscipit sagittis.
+    Class aptent taciti sociosqu ad litora torquent per conubia nostra,
+    per inceptos hymenaeos.
+    Quisque mollis, justo vel rhoncus aliquam, urna tortor varius lacus, ut 
+    tincidunt metus arcu vel lorem.
+    Praesent metus orci, adipiscing eget, fermentum ut, pellentesque non, dui.
+    Sed sagittis, metus a semper dictum, sem libero sagittis nunc, vitae 
+    adipiscing leo neque vitae tellus.
+    Duis quis orci quis nisl nonummy dapibus.
+    Etiam ante.  Phasellus imperdiet arcu at odio.
+    In hac habitasse platea dictumst. Aenean metus.
+    Quisque a nibh.  Morbi mattis ullamcorper ipsum.
+    Nullam odio urna, feugiat sed, bibendum sed, vulputate in, magna.
+    Nulla tortor justo, convallis iaculis, porta condimentum, interdum nec, arcu.
+    Proin lectus purus, vehicula et, cursus ut, nonummy et, diam.&lt;/p&gt;
+   &lt;p id="p2"&gt;Nunc ac elit. Vestibulum placerat dictum nibh. Proin massa.
+    Curabitur at lectus egestas quam interdum mollis.
+    Cras id velit a lacus sollicitudin faucibus.
+    Proin at ante id nisi porttitor scelerisque.
+    In metus.  Aenean nonummy semper enim.
+    Aenean tristique neque quis arcu tincidunt auctor.
+    Fusce consequat auctor ligula.
+    Fusce nulla lorem, sagittis a, lacinia et, nonummy in, eros.
+    In nisi augue, aliquam eget, convallis vel, malesuada quis, libero.&lt;/p&gt;
+   &lt;p id="p3"&gt;Hello, World!&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre> 
+
+<p>Ya sé que es mucho contenido, pero lo necesitamos para ver bien cómo funciona.</p></li>
+
+<li><p>Abrid el documento en vuestro navegador web para ver qué aspecto tiene. Aburrido, ¿verdad?</p></li>
+
+<li><p>Cread otro documento con el editor de textos, copiad el código siguiente y guardadlo con el nombre <code>style.css</code> en el mismo directorio que el fichero HTML del paso 1.</p>
+
+<pre><code>#span-a {
+   float: left;
+   background-color:  #cfc;
+   color: #030;
+}</code></pre></li>
+
+<li><p>Enlazad la hoja de estilo al documento HTML insertando la línea siguiente justo antes de la etiqueta <code>&lt;/head&gt;</code>.</p>
+
+<pre><code>&lt;link rel="stylesheet" type="text/css" href="style.css"&gt;</code></pre></li>
+
+<li><p>Guardadlo y actualizad la página en el navegador. Veréis que el elemento <code>span</code> que contiene las palabras "Lorem ipsum" se ha desplazado flotando hacia la izquierda. También hemos puesto un fondo de color verde claro para hacer que destaque un poco.</p></li>
+
+<li><p>Todavía no es fácil ver qué sucede aquí, o sea que haremos que el elemento flotante sea un poco mayor. Añadid la siguiente declaración a vuestra hoja de estilos:</p>
+
+<pre><code>#span-a {
+   float: left;
+   background-color:  #cfc;
+   color: #030;
+   <strong>padding: 1em;</strong>
+}</code></pre></li>
+
+<li><p>Guardad y actualizad, y veréis que el área de color ahora es un poco mayor, ya que hemos añadido un poco de relleno por los cuatro lados del cuadro. El elemento flotante ocupa la altura de tres líneas de texto y podemos ver claramente que el otro texto fluye en torno a este elemento flotante.</p></li>
+</ol>
+
+<h3 id="minutiae">35.3.1. Los detalles</h3>
+
+<p>Ahora analizaremos con más detalle qué es lo que sucede realmente aquí. La caja flotante generada por el primer elemento <code>span</code> se ha desplazado hacia la izquierda, hasta el borde del documento, y las cajas de línea adyacentes se han reducido. Aunque todavía no es visible, la caja de bloque generada por el párrafo que contiene el elemento flotante se ve afectada. Ahora destacaremos el párrafo para que quede más claro.</p>
+
+<ol> 
+<li><p>Añadid la siguiente regla CSS a la hoja de estilos:</p>
+
+<pre><code>p {
+   border: 1px solid #f00;
+}</code></pre></li>
+
+<li><p>Volved a guardar el archivo CSS y actualizad la ventana del navegador. Ahora deberíais ver un borde rojo en torno a cada uno de los párrafos; observad que el elemento flotante se encuentra dentro de uno de los párrafos.</p></li> 
+
+<li><p>Ahora modificaremos la última regla para verificar que el elemento flotante se detiene cuando llega al borde interior del área de separación del padre:</p>
+
+<pre><code>p {
+   border: 1px solid #f00;
+   <strong>padding: 1em;</strong>
+   <strong>background-color:  #ff9;</strong>
+}</code></pre></li>
+
+<li><p>Guardad y actualizad, y veréis la prueba de lo que os hemos dicho antes: el cuadro flotante se desplaza hasta cerca del bloque que lo contiene, mientras que la separación del padre queda fuera de éste. También veréis que el fondo amarillo del párrafo se extiende por debajo de la caja flotante. Claramente, el hecho de flotar una caja hija no afecta en absoluto a la caja del párrafo, sólo a las cajas de línea que hay en su interior.</p></li>
+
+<li><p>Ahora haremos unos cuantos experimentos más: ¿qué ocurre si el elemento flotante es más alto que su padre? Modificad la regla para el elemento flotante de la manera siguiente:</p>
+
+<pre><code>#span-a {
+   float: left;
+   background-color: #cfc;
+   color: #030;
+   <strong>padding: 1em 1em 10em;</strong>
+}</code></pre></li>
+</ol>
+
+<div class="note">
+<h3>Nota</h3>
+
+<p>Si la ventana del navegador es estrecha, es posible que debáis utilizar un valor mayor que 10 em para la separación inferior con el fin de que el área verde se extienda más allá del borde inferior del párrafo.</p>
+</div>
+
+<p>Ahora veréis algo muy interesante: la caja flotante sobresale fuera de la caja madre; la caja madre no se amplía para poder contener a su caja hija flotante. También podéis ver (si habéis utilizado una separación inferior lo bastante grande) que las cajas de línea adyacentes al elemento flotante del segundo párrafo se han acortado.</p>
+
+<h3 id="morefloats">35.3.2. Más elementos flotantes</h3>
+
+<p>Ahora crearemos otro elemento flotante para ver qué sucede cuando se desplazan dos elementos flotantes en la misma dirección.</p>
+
+<ol>
+<li><p>Añadid una regla nueva a la hoja de estilos, guardad y actualizad igual que habéis hecho antes.</p>
+
+<pre><code>#span-b {
+   float: left;
+   background-color: #ccf;
+   color: #003;
+   padding: 1em;
+}</code></pre>
+
+<p>El elemento <code>span</code> que contiene las palabras "dolor sit amet" también se ha desplazado flotando hacia la izquierda. Veréis que se ha desplazado hacia la izquierda hasta tocar el primer elemento flotante; es decir, "todo lo posible".</p></li>
+
+<li><p>¿Y por qué sólo dos elementos flotantes? Crearemos aún un tercero. Añadid la regla siguiente a vuestra hoja de estilos:</p>
+
+
+<pre><code>#span-c {
+   float: left;
+   background-color: #fcc;
+   color: #300;
+   padding:2em 1em;
+}</code></pre></li>
+
+<li><p>También queremos añadir una regla temporal para ver un ejemplo de qué ocurre cuando no hay suficiente espacio para un elemento flotante en una línea. Añadid la regla siguiente al final de la hoja de estilos:</p>
+
+<pre><code>span {
+   width: 34%;
+}</code></pre></li>
+
+<li><p>Igual que antes, guardad vuestra hoja de estilos y actualizad el documento en el navegador; veréis algo similar a lo que hay en la figura 3.</p></li>
+</ol>
+
+<div class="imagen">
+<img src="76510_m6_88.gif" alt="El tercer elemento flotante aparece bajo el segundo, lo que no era lo que os esperabais." />
+<p>Figura 3. ¿No es exactamente lo que esperabais?</p>
+</div>
+
+<p>¡Mira por dónde! ¿Qué ha pasado? El tercer elemento flotante aparece ahora bajo el segundo. (Y, además, Internet Explorer 6 hace otras cosas extrañas, que de momento ignoraremos). Como la anchura de cada uno de los elementos <code>span</code> es el 34% de la anchura del párrafo (como especifica la regla añadida en el paso 3), más un poco de separación, no hay suficiente espacio para los tres uno al lado del otro (3 &times; 34% = 102%). Los dos primeros elementos flotantes caben en la misma línea, pero el tercero no y se desplaza hacia abajo. Lo que es importante es que se desplaza hacia abajo sólo lo necesario para caber en la línea. No se desplaza bajo el primer elemento flotante más alto porque hay espacio suficiente a su derecha.</p>
+
+<p>Otra cosa interesante que hay que tener en cuenta es que habéis asignado una anchura a los elementos <code>span</code>. Esto no debería representar ninguna diferencia porque <code>span</code> es un tipo de elemento en línea. No obstante, cuando se hace flotar una caja, ésta se convierte automáticamente en caja de bloque, lo que significa que le podemos asignar dimensiones y márgenes verticales.</p>
+
+<h3 id="floatmargins">35.3.3. Márgenes en los elementos flotantes</h3>
+
+<p>Ahora veremos lo que se puede hacer con los márgenes de los elementos flotantes.</p>
+
+<ol> 
+<li><p>En primer lugar, eliminad la regla temporal para los elementos <code>span</code> que habéis añadido antes y después guardad y actualizad, de manera que los tres elementos flotantes vuelvan a quedar uno al lado del otro. Es decir, borrad esta regla:</p>
+                                                                           
+<pre><code>span {
+   width: 34%;
+}</code></pre>
+
+<p>Ahora los tres elementos flotantes están totalmente juntos y el texto adyacente empieza inmediatamente después del último elemento flotante (a no ser que utilicéis Microsoft Internet Explorer 6 o una versión anterior, ya que en este caso habrá un espacio de 3 píxeles a la derecha a causa del <a href="http://positioniseverything.net/explorer/threepxtest.html" hreflang="en">problema de los tres píxeles</a>). ¿Cómo se puede crear un poco de espacio en torno a un cuadro flotante? La respuesta son los <strong>márgenes</strong>.</p></li>
+
+
+<li><p>Lo probaremos con el elemento flotante central; cambiaremos la regla CSS para el elemento flotante central de la manera siguiente y entonces guardaremos y actualizaremos:</p>
+
+<pre><code>#span-b {
+   float: left;
+   background-color: #ccf;
+   color: #003;
+   padding: 1em;
+   <strong>margin-left: 1em;</strong>
+   <strong>margin-right: 1em;</strong>
+}</code></pre>
+
+<p>Ahora sí que hay un poco de espacio a ambos lados del elemento flotante central.</p></li>
+
+<li><p>También podéis definir márgenes verticales para una caja flotante; haced los cambios siguientes en la regla para el tercer elemento flotante, guardad y actualizad.</p>
+
+<pre><code>#span-c {
+   float: left;
+   background-color:  #fcc;
+   color: #300;
+   padding:2em 1em;
+   <strong>margin-top:  2em;</strong>
+   <strong>margin-bottom:  2em;</strong>
+}</code></pre>
+
+<p>El tercer elemento flotante se ha desplazado hacia abajo y también hay un poco de espacio adicional debajo.</p></li>
+
+<li><p>Como ya vamos lanzados hacia la aventura, veamos qué ocurre si empezamos a jugar con márgenes negativos. Haced los cambios siguientes en la regla para el tercer elemento flotante, guardad y actualizad:</p>
+
+<pre><code>#span-c {
+   float: left;
+   background-color: #fcc;
+   color: #300;
+   padding:2em 1em;
+   margin-top: 2em;
+   margin-bottom: 2em;
+   <strong>margin-left: -4em;</strong>
+}</code></pre></li>
+</ol>
+
+<p>Ahora veréis el resultado que se muestra en la figura 4:</p>
+
+<div class="imagen">
+<img src="76510_m6_89.gif" alt="Elemento flotante encima de otro a causa de los márgenes negativos" />
+<p>Figura 4. ¡Ahora los elementos flotantes aparecen unos sobre otros!</p>
+</div>
+
+<p>¿Cómo puede ser? ¿Quién ha dicho que los elementos flotantes no pueden aparecer los unos sobre los otros? El margen negativo desplaza todo el elemento flotante hacia la izquierda.</p>
+<p>El uso de márgenes negativos en los elementos flotantes puede ser muy útil para crear algunos tipos de composiciones de múltiples columnas.</p>
+
+
+<h2 id="clearing">35.4. <em>Clearing</em></h2>
+
+<p>Ahora que ya hemos visto las bases de los elementos flotantes, podemos pasar a otro tema muy relacionado: el <em>clearing</em>.</p>
+
+<p>Como hemos visto en los ejemplos a lo largo de este apartado, el texto fluye en torno a un elemento flotante y las cajas de bloque no se ven afectadas por los elementos flotantes. Algunas veces es preferible que un elemento no acabe colocado justo al lado de un elemento flotante. Por ejemplo, un título que introduce una sección nueva de un apartado no debe aparecer al lado de una imagen de la sección previa. Es mucho mejor hacer que el título aparezca bajo la imagen, incluso aunque la imagen sobresalga por debajo del último párrafo. La única manera de hacerlo es usar la propiedad <code>clear</code> (distanciar) en el título.</p>
+
+<p>Otro ejemplo de esto es la omnipresente composición de tres columnas con un pie de página que ocupa toda la anchura. Si las columnas son flotantes, entonces utilizaréis la propiedad <code>clear</code> en el pie para garantizar que aparezca bajo todas las columnas, sea cual sea la más larga.</p>
+
+<p>La propiedad <code>clear</code> tiene tres valores útiles: <code>left</code> (izquierda), <code>right</code> (derecha) y <code>both</code> (ambos). También son válidos los valores <code>none</code> (ninguno), que es el valor por defecto, e <code>inherit</code> (heredar).</p>
+
+<p>El uso de <code>clear:left</code> en un elemento garantiza que su caja generada aparezca bajo cualquier caja flotada previamente hacia la izquierda. Si utilizáis <code>clear:both</code>, aparecerá bajo todos los elementos flotantes previos de ambos lados.</p>
+
+<p>La distancia se consigue desplazando el elemento hacia abajo (el espacio en blanco se añade sobre su margen superior), si es necesario, hasta que su borde superior se encuentre bajo los bordes inferiores de todos los cuadros flotantes en la o las direcciones especificadas. Veamos un ejemplo para ilustrarlo mejor.</p>
+
+<ol>
+<li><p>Antes de hacer la prueba, limpiemos primero la hoja de estilos. Eliminad las reglas para <code>#span-b</code> y <code>#span-c</code> de manera que quede sólo el elemento flotante verde de la izquierda. Comprobad que su separación inferior sea lo suficientemente grande como para extenderse dentro del segundo párrafo.</p></li>
+
+<li><p>Añadid la regla siguiente para el segundo párrafo, guardad y actualizad:</p>
+
+<pre><code>#p2 {
+   clear: left;
+}</code></pre>
+
+<p>¡Mirad! El segundo párrafo se desplaza hacia abajo hasta que queda por debajo del elemento flotante, tal como podéis ver en la figura 5.</p>
+
+<div class="imagen">
+<img src="76510_m6_90.gif" alt="Distanciamiento del segundo párrafo por debajo del primero" />
+<p>Figura 5. Ahora el segundo párrafo queda por debajo del primero.</p>
+</div><p>Para complicar todavía más las cosas, podemos utilizar <code>float</code> y <code>clear</code> en el mismo elemento.</p></li>
+
+<li><p>Añadid una regla al segundo elemento flotante para separarlo del primero, guardad y actualizad:</p>
+
+<pre><code>#span-b {
+   float: left;
+   clear: left;
+   padding: 1em;
+   background-color: #ccf;
+   color: #003;
+}</code></pre>
+
+<p>El elemento flotante azul aparece ahora bajo el elemento flotante verde, totalmente fuera del párrafo padre. Como también se ha flotado hacia la izquierda, el segundo párrafo se desplaza un poco más hacia abajo para quedar separado.</p></li>
+</ol>
+
+
+<h2 id="containingfloats">35.5. Elementos flotantes contenedores</h2>
+
+<p>Como ya hemos visto antes, la caja madre no se amplía normalmente para contener a los hijos flotantes. Esto a menudo puede provocar confusiones, por ejemplo cuando todos los hijos de un elemento flotan al crear un menú horizontal a partir de una lista no ordenada mediante la flotación de todos los elementos <code>li</code>. Como las cajas flotantes se sacan del flujo y no afectan a la caja madre, el hecho de hacer flotar las hijas hace que en realidad la madre quede vacía y que pase a tener una altura cero. Algunas veces esto no es lo que queremos, por ejemplo a la hora de definir un fondo para la madre. Si la madre tiene una altura cero, el fondo no se verá.</p>
+
+<p>Es evidente que necesitamos algún mecanismo para conseguir que una caja madre se amplíe para incluir a sus hijas flotantes. El método tradicional consistía en incluir un elemento adicional en el etiquetado, justo antes de la etiqueta de cierre de la caja madre, y definir en él <code>clear:both</code>. Esto funciona, pero no es muy aceptable porque implica introducir un etiquetado adicional poco semántico e innecesario. Por suerte, hay otras maneras que explicaremos a continuación.</p>
+
+<p>El primer método consiste sencillamente en hacer flotar también a la madre. Las cajas flotantes se amplían siempre para incluir todos sus cajas hijas.</p>
+
+<ol>
+<li><p>Para probarlo en nuestro documento de ejemplo, eliminad otra vez la regla para <code>#span-b</code>, haced flotar el primer párrafo de la manera siguiente y guardad y actualizad:</p>
+
+<pre><code>#p1 {
+   float: left;
+}</code></pre>
+
+<p>El párrafo se amplía ahora hasta incluir el elemento flotante de color verde. Todo eso está muy bien, pero algunas veces no tenemos la opción de flotar a la madre. Otra manera de hacer lo mismo sin flotar a la caja madre es definiendo la propiedad <code>overflow</code> (desbordamiento) de la madre a un valor diferente de <code>visible</code>. Si definís el valor <code>hidden</code> y no especificáis ninguna altura, la caja madre incluirá las cajas hijas flotantes.</p></li>
+
+<li><p>Sustituid la última regla por la siguiente, guardad y actualizad:</p>
+
+<pre><code>#p1 {
+   overflow: hidden;
+}</code></pre></li>
+</ol>
+
+<p>Tened en cuenta que el último método no funciona con Internet Explorer 6 o anterior.</p>
+<h2 id="shrinkwrapping">35.6. Ajustar</h2>
+
+<p>Ya hemos comentado antes que el hecho de hacer flotar una caja en línea hacía que se convirtiera en una caja de bloque, lo que permite especificar sus dimensiones y márgenes verticales. Hacer flotar una caja de bloque también tiene una consecuencia sorprendente: si no se especifica la anchura de la caja, ésta "se ajusta" para adaptarse a su contenido. Esto no era visible en el documento de ejemplo cuando habéis hecho flotar el primer párrafo porque ya tenía suficiente contenido para llenar toda la ventana (a no ser que tuvierais un monitor realmente ancho).</p>
+
+<p>Ahora haremos flotar el último párrafo para ver el efecto. De hecho, sólo para tener un poco de variación, haremos una locura y lo haremos flotar a la derecha.</p>
+
+<p>Añadid la regla siguiente en la hoja de estilos, guardad y actualizad:</p>
+
+<pre><code>#p3 {
+   float: right;
+}</code></pre>
+
+<p>El párrafo que dice "Hello, World!" flotará hacia la derecha y tendrá sólo la anchura del texto, más un poco de relleno que habéis especificado en una regla anterior para todos los párrafos.</p>
+
+<h2 id="centeringfloats">35.7. Centrar elementos flotantes</h2>
+
+<p>Algunas veces querréis hacer flotar un elemento, quizá para que incluya hijos flotantes, pero a la vez mantenerlo centrado horizontalmente dentro de su padre. Esto representa un problema: no es posible utilizar el truco habitual de definir los márgenes izquierdo y derecho en <code>auto</code> para los elementos flotantes, y no existe ningún valor <code>float:center</code>. ¿Hay alguna manera de solucionarlo?</p>
+
+<p>Sí, la hay. El gurú del CSS Paul O'Brien explica cómo hacerlo en su artículo <em><a href="http://www.search-this.com/2007/09/19/when-is-a-float-not-a-float/" hreflang="en">When is a float not a float</a>?</em>. Implica el uso de un elemento de envoltorio adicional, pero es perfectamente asumible. El principio utiliza el posicionamiento relativo, que explicaremos en el apartado siguiente. Desplazando el elemento de envoltorio hacia la derecha y a continuación el elemento flotante hacia la izquierda, se puede llegar a centrar un elemento flotante ajustado de anchura desconocida. (Podéis utilizar este conocimiento para impresionar a vuestra pareja en vuestra próxima cita. No falla nunca).</p>
+
+<div class="vegeu_tambe">
+<h3>Ved también</h3>
+<p>Podéis ver el apartado 36 de este módulo.</p>
+</div>
+
+<p>Intentémoslo. En el ejemplo siguiente añadiremos una barra de menú horizontal a vuestra página. El menú estará basado en una lista no ordenada con elementos flotantes.</p>
+
+<ol>
+<li><p>Insertad el etiquetado siguiente justo después de la etiqueta <code>&lt;body&gt;</code> de vuestro documento HTML:</p>
+
+<pre><code>&lt;div class="wrap"&gt;
+   &lt;ul id="menu"&gt;
+      &lt;li&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#"&gt;News&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#"&gt;Products&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#"&gt;Services&lt;/a&gt;&lt;/li&gt;
+   &lt;/ul&gt;
+&lt;/div&gt;
+&lt;!--Necesitamos esto para Internet Explorer--&gt;
+&lt;div class="clear"&gt;&lt;/div&gt;</code></pre></li>
+
+<li><p>Añadid las reglas siguientes de CSS en la hoja de estilos para aplicar estilos al menú:</p>
+
+<pre><code>#menu {
+   margin: 0;
+   padding: 0.5em;
+   font-family:  Verdana,sans-serif;
+}
+#menu li {
+   float: left;
+   list-style-type:  none;
+   margin: 0 0 0 0.5em;
+   padding: 0.25em;
+   background-color: #600;
+   color: #ff9;
+   border: 2px solid #f00;
+}
+#menu a {
+   color: #ff9;
+   text-decoration:  none;
+}
+.wrap {
+   float: left;
+   margin-bottom:  2em;
+}
+.clear {
+   clear: left;
+   height: 1px;
+   margin-top: -1px;
+}</code></pre></li>
+
+<li><p>Guardad los dos archivos y actualizad el navegador. Veréis el menú en la parte superior izquierda. Ahora lo centraremos horizontalmente.</p></li>
+
+<li><p>Desplazad el elemento de envoltorio hasta el punto central modificando la regla de <code>.wrap</code> como se indica a continuación:</p>
+                      
+<pre><code>.wrap {
+   float: left;
+   margin-bottom: 2em;
+   <strong>position: relative;</strong>
+   <strong>left: 50%;</strong>
+}</code></pre>
+
+<p>El menú empezará en el centro horizontal de la página, pero esto no es lo que queríamos; está demasiado desplazado hacia la derecha, o sea que lo deberemos desplazar un poco hacia la izquierda. Como habéis flotado el elemento de envoltorio, éste se ha ajustado para adaptarse a la lista. Debéis desplazar la lista una distancia equivalente a la mitad de su anchura, lo que también significa la mitad de la anchura del envoltorio, o sea que lo deberemos desplazar un -50%.</p></li>
+
+<li><p>Modificad la regla <code>#menu</code> de la manera siguiente:</p>
+
+<pre><code>#menu {
+   margin: 0;
+   padding: 0.5em;
+   font-family: Verdana,sans-serif;
+   <strong>position: relative;</strong>
+   <strong>left: -50%;</strong>
+}</code></pre>
+
+<p>El menú ya está centrado; el único problema es que puede haber una barra de desplazamiento horizontal según la anchura de la lista y de la ventana del navegador. Esto ocurre porque habéis desplazado el elemento de envoltorio hasta el 

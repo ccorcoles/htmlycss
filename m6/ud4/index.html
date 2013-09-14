@@ -1,0 +1,471 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
+<meta http-equiv="Content-Language" content="es" />
+<meta name="language" content="es" />
+<meta name="author" content="Universitat Oberta de Catalunya" />
+<meta name="description" content="FALTA CONTENIDO" />
+<meta name="title" content="FALTA CONTENIDO" />
+<meta name="keywords" content="FALTA CONTENIDO" />
+
+<title>CSS - El modelo de composición de CSS: cajas, bordes, márgenes, relleno</title>
+<link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
+</head>
+
+<body>
+<div id="cabecera">
+	<img id="logo" src="../../img/logo.gif" alt="Universitat Oberta de Catalunya" />
+    <a href="http://mosaic.uoc.edu/"><img id="logomosaic" src="../../img/logo-mosaic.gif" alt="Logo de Mosaic" title="Abre la página web de Mosaic" /></a>
+	<div id="titulo">CSS</div>
+	<div id="subtitulo">El modelo de composición de CSS: cajas, bordes, márgenes, relleno</div>
+<div id="cierre"></div>
+	<div id="navegador">
+		<a href="../../m0/accessibilitat.html" id="accesibilidad">Accesibilidad</a> <strong>:</strong> 
+		<a rel="prev" href="../ud3/index.html" title="Ir al artículo anterior" accesskey="8"><img src="../../img/fletxa_izq.gif" alt="Ir al artículo anterior" /></a> <strong>:</strong> 
+		<a rel="index" href="../../index.html" title="Ir al índice" accesskey="0"><img src="../../img/indice.gif" alt="Ir al índice" /></a> <strong>:</strong> 
+		<a rel="next" href="../ud5/index.html" title="Ir al artículo siguiente" accesskey="9"><img src="../../img/fletxa_der.gif" alt="Ir al artículo siguiente" /></a>
+	</div>
+</div>
+	       
+<div id="main">
+<h1>30. El modelo de composición de CSS: cajas, bordes, márgenes, relleno</h1>
+<p class="by"><a href="../../index.html#henick">Ben Henick</a>. 26 de septiembre del 2008 Publicado en: desbordamiento, abreviamiento, modelo, flotante, caja.</p>
+
+<p>A primera vista, el modelo de composición de CSS es muy sencillo. Las cajas, los bordes y los márgenes son elementos bastante simples y la sintaxis de CSS ofrece una manera fácil de describir sus características.</p>
+
+<p>Sin embargo, los motores de representación de los navegadores siguen una lista de reglas descritas en la Recomendación CSS 2.1 y unas cuantas propias. Por esta razón, hay muchos detalles que debemos comprender antes de poder añadir técnicas avanzadas al repertorio de un especialista en estilos.</p>
+
+<p>En este apartado se presentan las propiedades de CSS que manipulan la composición de los elementos HTML como los bordes, los márgenes y muchos más. También se tratan algunas de las reglas mencionadas antes. En próximos apartados se hablará de la disposición avanzada de columnas y las técnicas de parrilla, y se tratará con más detalle la composición de los formularios, los elementos flotantes, la distancia y el posicionamiento.</p>
+
+<div class="note">
+<h3>Nota</h3>
+
+<p>A lo largo de todo el apartado encontraréis muchos ejemplos de código enlazados para demostrar las técnicas de las que se habla, pero si queréis trabajar con el código en vuestro ordenador, podéis descargaros todos los ejemplos de código.</p>
+<p class="font"><strong>Descargad los ejemplos en:</strong> "<a href="http://dev.opera.com/articles/view/30-the-css-layout-model-boxes-border/article30_examples.zip" hreflang="en">article30_examples.zip</a>"</p>
+</div>
+
+<p>Los contenidos de este apartado son los siguientes:</p>
+
+<ul class="index">
+<li>30.1. <a href="#changingcomposition" accesskey="1">Cambiar la composición: márgenes, bordes y relleno en CSS</a>
+<ul class="index">
+<li>30.1.1. <a href="#whitespace">Colocar espacio en blanco en torno a un elemento: las propiedades <code>margin-top, margin-right, margin-bottom, margin-left</code> y <code>margin</code></a>
+<ul class="index">
+<li><a href="#automargins">Márgenes automáticos</a></li>
+<li><a href="#negativemargins">Márgenes negativos</a></li>
+<li><a href="#collapsingmargins">Colapso de los márgenes</a></li>
+<li><a href="#demo1">Demostración 1</a></li>
+</ul></li>
+<li>30.1.2. <a href="#addingborders">Añadir un borde a un elemento: propiedades de borde</a>
+<ul class="index">
+<li><a href="#borderwidth">Las propiedades <code>border-width</code></a></li>
+<li><a href="#borderstyle">Las propiedades <code>border-style</code></a></li>
+<li><a href="#bordercolor">Las propiedades <code>border-color</code></a></li>
+<li><a href="#bordershorthand">La propiedad abreviada <code>border</code> y sus cuatro primos, con más detalle</a></li>
+<li><a href="#fivebordershorthandproperties">Crear reglas: la razón de ser de cinco propiedades abreviadas de borde en vez de una sola</a></li>
+<li><a href="#whysomanyproperties">¿...Y por qué tantas propiedades? Sólo son bordes, ¿no?</a></li>
+<li><a href="#demo2">Demostración 2</a></li>
+</ul></li>
+<li>30.1.3. <a href="#padding">Cuando sólo con los márgenes no es suficiente: propiedades <code>padding</code></a>
+<ul class="index">
+<li><a href="#demo3">Demostración 3</a></li>
+</ul></li>
+</ul></li>
+<li>30.2. <a href="#widthandheight" accesskey="2">Trabajar con la anchura y la altura de los elementos</a>
+<ul class="index">
+<li>30.2.1. <a href="#widthandheightbasics">Conceptos básicos de <code>width</code> y <code>height</code></a></li>
+<li>30.2.2. <a href="#minandmax"><code>min-width, max-width, min-height</code> y <code>max-height</code></a>
+<ul class="index">
+<li><a href="#demo4">Demostración 4</a></li>
+</ul></li>
+<li>30.2.3. <a href="#overflow">Desbordamiento: poner barreras al código o dejarlo libre</a>
+<ul class="index">
+<li><a href="#fouroverflowvalues">Los resultados de los cuatro valores de <code>overflow</code></a></li>
+</ul></li>
+</ul></li>
+<li>30.3. <a href="#cssboxmodels" accesskey="3">Los modelos de caja de CSS: hacer que todo encaje</a>
+<ul class="index">
+<li>30.3.1. <a href="#choosingrightunits">Elegir las unidades adecuadas para la composición</a>
+<ul class="index">
+<li><a href="#sizingelements">La regla principal de aplicar tamaño a los elementos: mezclar unidades proporcionales y estáticas con cuidado, o no hacerlo</a></li>
+<li><a href="#unittypeprocons">Elegir el tipo de unidad adecuada para la composición: ventajas y desventajas</a></li>
+</ul></li>
+<li>30.3.2. <a href="#boxmodelcomponents">Los componentes del modelo de caja</a></li>
+<li>30.3.3. <a href="#W3Cboxmodel">El modelo de caja del W3C: todo es acumulable</a>
+<ul class="index">
+<li><a href="#proportionalmarginspadding">Márgenes proporcionales y relleno en el modelo de caja del W3C</a></li>
+</ul></li>
+</ul></li>
+<li>30.4. <a href="#documentflow" accesskey="4">Trabajar con flujo de documentos</a>
+<ul class="index">
+<li>30.4.1. <a href="#elementtypesdisplay">Tipos de elementos y la propiedad <code>display</code></a>
+<ul class="index">
+<li><a href="#demo5">Demostración 5</a></li>
+</ul></li>
+<li>30.4.2. <a href="#float">Hacer que algunos elementos fluyan <em>en torno a</em> otros: la propiedad <code>float</code></a>
+<ul class="index">
+<li><a href="#demo6">Demostración 6</a></li>
+</ul></li>
+<li>30.4.3. <a href="#floatandclear">Forzar elementos <em>por debajo</em> de sus predecesores flotantes: la propiedad <code>clear</code></a></li>
+</ul></li>
+<li class="especial"><a href="#summary">Resumen</a></li>
+<li class="especial"><a href="#exercises">Preguntas de repaso</a></li>
+<li class="especial"><a href="#furtherreading">Lecturas complementarias</a></li>
+</ul>
+
+<h2 id="changingcomposition">30.1. Cambiar la composición: márgenes, bordes y relleno en CSS</h2>
+
+<p>Muchos elementos de HTML, como los elementos <code>div</code> y los títulos, se representan por defecto de manera que ocupen todo el ancho del lienzo del navegador y fuercen un salto de línea terminal, de modo que una serie de estos elementos se representaría como una pila de principio a fin sobre el lienzo del documento.</p>
+
+<p>Sin embargo, los elementos de HTML y los estilos que el navegador suele asignarles no son adecuados para la gama completa de casos de uso que se pide a los desarrolladores que tengan en cuenta cuando hacen su trabajo. El modo como CSS y HTML se combinan se ha ajustado a una relación de "llenar los agujeros", de manera que las <code>class</code> e <code>id</code> puedan añadir significado semántico al etiquetado mientras que las reglas de hoja de estilo pueden cambiar la composición y la presentación del contenido de manera precisa, quizá incluso cancelando gran parte de los estilos predeterminados del navegador.</p>
+
+<p>El control cuidado del espacio en blanco es una de las herramientas más importantes del diseñador y, según el autor de estas líneas, la más importante de todas. No obstante, el grado de control del espacio en blanco que aporta un valor de producción elevado al diseño de un sitio no está presente en las hojas de estilo predeterminadas de los navegadores, lo que significa que los especialistas en estilos suelen utilizar a menudo los márgenes, los bordes, el relleno y otras propiedades de CSS que se explican en este apartado.</p>
+
+<p>Los márgenes (<em>margin</em>), los bordes (<em>border</em>) y el relleno (<em>padding</em>) se disponen tal como se muestra en la figura 1.</p>
+
+<div class="imagen">
+<img src="76510_m6_08.gif" alt="Vemos un texto, rodeado por dos cajas. La primera caja es el borde, y la separación entre texto y borde es el relleno. La segunda caja es el margen." />
+<p>Figura 1. Representación explícita de las diferentes partes de una caja de elementos, con las respectivas etiquetas de las propiedades de CSS pertinentes </p>
+</div>
+
+<h3 id="whitespace">30.1.1. Colocar espacio en blanco en torno a un elemento: las propiedades <code>margin-top</code>, <code>margin-right</code>, <code>margin-bottom</code>, <code>margin-left</code> y <code>margin</code></h3>
+
+<p>Los márgenes pueden especificarse de manera individual o en una regla abreviada. Además, la regla abreviada sigue permitiendo controlar cada uno de los bordes que rodean un objeto. Los valores válidos suelen especificarse en unidades <code>px</code> o <code>em</code> (píxeles o ems). En las hojas de estilo específicas de impresión pueden utilizarse las unidades <code>in</code>, <code>cm</code>, o <code>pt</code> (pulgadas, centímetros o puntos).</p>
+
+<p>En todos los casos, <code>%</code> (porcentaje) es un valor válido, pero se debe utilizar con cuidado porque estos valores se calculan como una proporción de la anchura del elemento padre, y una previsión no suficientemente precisa de valores podría tener consecuencias no deseadas. Esta dificultad se explica con más detalle cuando se habla del modelo de caja de CSS.</p>
+
+<div class="vegeu_tambe">
+<h3>Ved también</h3>
+
+<p>Podéis ver la explicación del modelo de caja de CSS en el subapartado 29.2 de este módulo.</p>
+</div>
+
+<p>Exceptuando las imágenes, los elementos en línea carecen de márgenes y no aceptan valores de margen.</p>
+
+<div class="vegeu_tambe">
+<h3>Ved también</h3>
+
+<p>En la tabla 2 que se muestra en el subapartado 30.4.1, hay una lista de los elementos en línea.</p>
+</div>
+
+<h3 id="automargins">Márgenes automáticos</h3>
+
+<p>Dependiendo de las circunstancias, la provisión de un valor <code>auto</code> ordena al navegador que represente un margen según el valor proporcionado en su propia hoja de estilo. Sin embargo, cuando se aplica un margen así a un elemento con una anchura significativa, un margen <code>auto</code> provoca que todo el espacio disponible se represente como espacio en blanco.</p>
+
+<p>Con la regla siguiente:</p>
+
+<pre><code>.narrowWaisted {
+   width: 16.667em;
+   margin: 1em auto 1em auto;
+}</code></pre>
+
+<p>un elemento de bloque de la clase <code>narrowWaisted</code> (clase <em>cintura estrecha</em>) se centrará en medio del lienzo disponible.</p>
+
+<p>También puede asignarse al margen derecho de un elemento aplicable un valor relativamente pequeño, mientras que al margen izquierdo se le asigna un valor <code>auto</code>.</p>
+
+<p>Cuando se hace esto, un elemento así se representará casi pegado a la derecha.</p>
+
+
+<h3 id="negativemargins">Márgenes negativos</h3>
+
+<p>A todas las propiedades de márgenes se les pueden asignar valores negativos. En este caso, un margen adyacente puede ser "cancelado" a cualquier nivel. Si se aplica un valor lo suficientemente negativo a un elemento lo suficientemente grande, el elemento adyacente afectado puede acabar quedando por debajo del otro.</p>
+
+<p>Como ejemplo, pongamos por caso los siguientes elementos sencillos <code>div</code>:</p>
+
+<pre><code>&lt;div id="header"&gt;&lt;h1&gt;Lovely header&lt;/h1&gt;&lt;/div&gt;
+&lt;div id="content"&gt;&lt;p&gt;Overlapping text is entirely unreadable&lt;/p&gt;&lt;/div&gt;</code></pre>
+
+<p>Cuando se le aplican estilos con el CSS siguiente:</p>
+
+<pre><code>body {background-color:white font-family:Geneva, Arial, Helvetica, sans-serif;}
+#header { background-color:yellow }
+h1 { color:red; font-size:2em; }</code></pre>
+
+<p>se crea lo que se puede ver en la figura 2:</p>
+
+<div class="imagen">
+<img src="76510_m6_09.gif" alt="" />
+<p>Figura 2. Los dos elementos de nuestro sencillo ejemplo. No tiene nada de especial.</p>
+<p class="font"><strong>Archivo fuente:</strong> "<a href="http://devfiles.myopera.com/articles/468/negativemargins1.html" hreflang="en">Negativemargins1 example</a>"</p>
+</div>
+
+
+<p>Pero ahora viene la parte interesante. Ahora añadiremos un margen negativo bastante grande encima del elemento inferior mediante la regla siguiente:</p>
+
+<pre><code>#content {margin-top:-3em;}</code></pre>
+
+<p>Esto provoca el efecto visual de cambiar el elemento de manera que se superponga con el título tal como se puede ver en la figura 3.</p>
+
+<div class="imagen">
+<img src="76510_m6_10.gif" alt="Dos elementos sin márgenes negativos aplicados" />
+<p>Figura 3. Cuando se le aplica un margen negativo, el elemento inferior pasa arriba y se superpone con el título. </p>
+<p class="font"><strong>Archivo fuente:</strong> "<a href="http://devfiles.myopera.com/articles/468/negativemargins2.html" hreflang="en">Negativemargins2 example</a>"</p>
+</div>
+
+
+
+<h3 id="collapsingmargins">Colapso de los márgenes</h3>
+
+<p>En los casos en los que dos elementos de bloque adyacentes y parecidos comparten márgenes que son mayores que cero, sólo se aplicará el margen mayor de los dos. Por ejemplo, pongamos por caso la regla siguiente:</p>
+
+<pre><code>p {
+   margin: 1em auto 1.5em auto;
+}</code></pre>
+
+<p>Si un documento que incluya esta regla de estilo se representa de manera literal, el margen final entre los dos párrafos seguidos sería de 2.5 em, es decir, la suma del margen inferior del párrafo 1 (1,5 em) y el margen superior del párrafo 2 (1 em). No obstante, a causa de la aplicación de márgenes colapsados, el margen entre ellos es sólo de 1.5 em.</p>
+
+<p>Las listas y títulos son peculiares entre los elementos de bloque, de manera que sus márgenes no se colapsarán sobre los márgenes de los demás elementos de bloque.</p>
+
+
+<h3 id="demo1">Demostración 1</h3>
+
+<p>En el apartado anterior, de aplicación de estilos al texto, se hizo la tipografía de la sección introductoria de una historia de F. Scott Fitzgerald con la mayoría de herramientas de CSS. De cara a la demostración de este apartado, se utiliza aquella misma página con algunos pequeños cambios (principalmente, la adición de un elemento contenedor en torno a todo el texto central). Los estilos del texto no cambian, pero se han eliminado los pocos estilos de composición que se habían aplicado a aquella demostración.</p>
+
+<p>Para empezar, se añadirán márgenes a todos los elementos que los necesiten.</p>
+
+<pre><code>body { margin: 0; }
+   #main { margin: 0 auto 0 auto; }
+   h1 { margin: 0 0 1em 0; }
+   .pullQuote { margin: auto 0 1em 1em; }
+   p { margin: 0; }
+   .attribution { margin: 0 0 1.5em 0; }</code></pre>
+
+<p class="font"><strong>Archivo fuente de:</strong> "<a href="http://dev.opera.com/articles/view/30-the-css-layout-model-boxes-border/demo_rev0.html" hreflang="en">Ejemplo con sólo el mínimo de estilos</a>"</p>                                                                                
+
+<p class="font"><strong>Archivo fuente de:</strong> "<a href="http://dev.opera.com/articles/view/30-the-css-layout-model-boxes-border/layout_00.css" hreflang="en">Hoja de estilo de inicio</a>"</p> 
+
+<p class="font"><strong>Archivo fuente de:</strong> "<a href="http://dev.opera.com/articles/view/30-the-css-layout-model-boxes-border/demo_rev1.html" hreflang="en">Ejemplo con márgenes nuevos en <code>body</code>, título, texto destacado, contenedor de documentos y párrafos</a>"</p>  
+
+<p class="font"><strong>Archivo fuente de:</strong> "<a href="http://dev.opera.com/articles/view/30-the-css-layout-model-boxes-border/layout_01.css" hreflang="en">Hoja de estilo de la demostración 1</a>"</p>
+
+
+<h3 id="addingborders">30.1.2. Añadir un borde a un elemento: propiedades de borde</h3>
+
+<p>Hay una propiedad de <code>border</code> (borde) abreviada, pero sólo es útil cuando se quiere proporcionar un borde completo y consistente alrededor de los cuatro lados de un elemento. También es posible establecer el peso (anchura), estilo y color de cualquiera de los cuatro bordes de un elemento mediante cualquier combinación significativa de las propiedades siguientes:</p>
+
+<ul>
+<li><p><code>border-width</code></p></li>
+<li><p><code>border-style</code></p></li>
+<li><p><code>border-color</code></p></li>
+<li><p><code>border-top</code></p></li>
+<li><p><code>border-top-width</code></p></li>
+<li><p><code>border-top-style</code></p></li>
+<li><p><code>border-top-color</code></p></li>
+<li><p><code>border-right</code></p></li>
+<li><p><code>border-right-width</code></p></li>
+<li><p><code>border-right-style</code></p></li>
+<li><p><code>border-right-color</code></p></li>
+<li><p><code>border-bottom</code></p></li>
+<li><p><code>border-bottom-width</code></p></li>
+<li><p><code>border-bottom-style</code></p></li>
+<li><p><code>border-bottom-color</code></p></li>
+<li><p><code>border-left</code></p></li>
+<li><p><code>border-left-width</code></p></li>
+<li><p><code>border-left-style</code></p></li>
+<li><p><code>border-left-color</code></p></li>
+</ul>
+
+<h3 id="borderwidth">Las propiedades <code>border-width</code></h3>
+
+<p>Estas propiedades se comportan exactamente como sería de esperar: asignan peso explícito a uno o más bordes.</p>
+
+<p>La propiedad abreviada <code>border-width</code> (anchura de borde) acepta valores con la misma notación que la propiedad abreviada de <code>margin</code> (margen), pero no acepta valores porcentuales. Puede ser que en el futuro debáis redactar una regla como la siguiente:</p>
+
+<pre><code>td {
+   border-width: 1px 0 0 1px;
+}</code></pre>
+
+<h3 id="borderstyle">Las propiedades <code>border-style</code></h3>
+
+
+<div class="imagen">
+<img src="76510_m6_11.gif" alt="Ocho valores diferentes del estilo de borde CSS: dashed (con rayas), dotted (con puntos), doble (con doble línea continua), inset, groove, outset y ridge (con perfiles simulando profundidad) y solid (línea sólida continua)" />
+<p>Figura 4. Los ocho estilos de borde más habituales</p>
+</div>
+
+<p>Las propiedades <code>border-style</code> (estilo de borde) suelen aceptar cualquiera de los valores siguientes:</p>
+
+<ul>
+<li><p><code>dashed</code>. La longitud de las secciones de línea y la cantidad de espacio en blanco entre ellas las determina el navegador.</p></li>
+
+<li><p><code>dotted</code>. La cantidad de espacio en blanco entre los puntos (que pueden tener cualquier forma con una proporción de 1) la determina el navegador.</p></li>
+
+<li><p><code>double</code>. La anchura proporcionada se dividirá en tercios y se asignará en el orden lleno-negativo-lleno.</p></li>
+
+<li><p><code>groove</code>. Se representará un <code>outset</code> inmediatamente dentro de y junto a un <code>inset</code>.</p></li>
+
+<li><p><code>inset</code>. Al borde se le aplicará una sombra para que parezca que el elemento al que se aplica está incrustado en el lienzo.</p></li>
+
+<li><p><code>none</code>. Equivalente a especificar una <code>-width</code> (anchura) de cero.</p></li>
+
+<li><p><code>outset</code>. Al borde se le aplicará una sombra para que parezca que el elemento al que se aplica sobresale del lienzo.</p></li>
+
+<li><p><code>ridge</code>. Se representará un <code>inset</code> inmediatamente dentro de y junto a un <code>outset</code>.</p></li>
+
+<li><p><code>solid</code>. El borde es una línea continua sin sombra.</p></li>
+</ul>
+<p>Cuando se utiliza la propiedad abreviada <code>border-style</code> (estilo de borde), ésta acepta hasta cuatro valores que se aplican de la misma manera que los valores abreviados <code>margin</code> (margen).</p>
+
+<p>La práctica de oscurecer un borde (en lugar de omitirlo) se controla con las propiedades <code>-color</code>.</p>
+
+
+<h3 id="bordercolor">Las propiedades <code>border-color</code></h3>
+
+<p>Para terminar, es posible establecer cualquier color en cualquier borde concreto, tanto con una única propiedad como las que se acaban de enumerar, como con la propiedad abreviada <code>border-color</code> (color de borde).</p>
+
+<div class="vegeu_tambe">
+<h3>Ved también</h3>
+
+<p>Podéis consultar la explicación de la propiedad abreviada de <code>margin</code> (margen) en el subapartado 27.4 para saber más detalles sobre los resultados de proporcionar menos de cuatro valores.</p>
+</div>
+
+<p>De la misma manera que <code>background-color</code>, <code>border-color</code> puede adoptar un valor de <code>transparent</code>. Esto puede ser útil para los casos límite que necesitan una composición consistente pero no un uso consistente de los bordes.</p>
+
+
+<h3 id="bordershorthand">La propiedad abreviada <code>border</code> y sus cuatro primos, con más detalle</h3>
+
+<p>Al contrario que las distintas propiedades de borde <code>-width</code>, <code>-style</code> y <code>-color</code>, estas cinco propiedades permiten definir las tres características de los cuatro bordes de un objeto o de cualquier borde concreto en cualquier momento. Los valores abreviados de <code>border</code> (etc.) incluyen alguna o todas las propiedades de anchura, estilo y color que se aplican a un borde; la única limitación es que se debe hacer referencia o bien a un único lado cualquiera de un elemento o bien a los cuatro a la vez.</p>
+
+<p>Tened en cuenta la siguiente regla de <code>border</code>:</p>
+
+<pre><code>#borderShorthandExample {
+   border: 2px outset rgb(160,0,0);
+   padding: .857em;
+   background-color: rgb(255,224,224);
+}</code></pre>
+
+<p id="borderShorthandExample">Un elemento sobre el que se haya aplicado la norma anterior, presentará exactamente este aspecto.</p>
+
+<p>Cuando se omite un valor de una regla abreviada de <code>border</code>, el elemento representado mostrará un resultado por defecto:</p>
+
+<ul>
+<li><p>La<strong> anchura del borde</strong> la determinará el navegador.</p></li>
+<li><p>El<strong> estilo del borde</strong> será <code>solid</code>.</p></li>
+<li><p>El <strong>color del borde</strong> será idéntico al <code>color</code> aplicado al elemento en cuestión.</p></li>
+</ul>
+
+<h3 id="fivebordershorthandproperties">Crear reglas: la razón de ser de cinco propiedades abreviadas de borde en vez de una sola</h3>
+
+<p>Las "reglas" que se mencionan aquí son líneas trazadas sobre una composición y no directrices que haya que seguir. Estas líneas mejoran el contraste entre un elemento y el espacio que tiene alrededor y, en la mayoría de los casos, contribuyen a crear la ilusión de profundidad en una composición. Este último resultado se ejemplifica por la existencia de los estilos de borde <code>inset</code> y <code>outset</code>.</p>
+
+<p>Si bien estos mismos efectos pueden conseguirse colocando bordes en torno a los cuatro lados de un elemento, la habilidad para trazar líneas definidas con precisión en una composición permite al diseñador alcanzar un control considerable sobre los detalles.</p>
+
+<h3 id="whysomanyproperties">¿...Y por qué tantas propiedades? Sólo son bordes, ¿no?</h3>
+
+<p>Cuando se crea una composición que exige mucha pericia de un experto en estilos, siempre existe la necesidad de tener en cuenta casos límite.</p>
+
+<div class="vegeu_tambe">
+<h3>Ved también</h3>
+
+<p>Podéis ver los casos límite en el apartado 27 sobre los márgenes.</p>
+</div>
+
+<p>A causa del modo como se ejecutan los diseños de los sitios, os encontraréis muchos casos en los que algún elemento pueda llegar a tener propiedades estructurales parecidas a otros elementos de un documento pero que tenga requisitos de presentación diferentes. En estos casos, tiene todo el sentido del mundo escribir una regla para el caso más común y reglas adicionales para cada uno de los casos límite. Por este motivo, existen los valores <code>auto</code> (automático) e <code>inherit</code> (heredar): para utilizar un estilo predeterminado como caso límite.</p>
+
+<p>En el caso de los bordes, los casos límite puede ser que requieran la modificación de una sola característica de un borde de un único lado de un elemento, y cuando se es lo bastante sabio para seguir el principio KISS, normalmente lo mejor es cambiar únicamente los detalles que sean estrictamente necesarios.</p>
+
+<div class="vegeu_tambe">
+<h3>Ved también</h3>
+
+<p>Podéis ver el principio KISS en el subapartado 27.4 de este módulo.</p>
+</div>
+
+
+<h3 id="demo2">Demostración 2</h3>
+
+<p>Determinadas secciones del documento deberían decorarse con reglas y bordes.</p>
+
+<pre><code>h1 { border-bottom: 1px solid rgb(153,153,153); }
+.pullQuote { border: 1px solid rgb(153,153,153); }</code></pre>
+
+<p class="font"><strong>Archivo fuente de:</strong> "<a href="http://dev.opera.com/articles/view/30-the-css-layout-model-boxes-border/demo_rev2.html" hreflang="en">Ejemplo con una regla inferior en el título y un borde alrededor del texto destacado</a>"</p>      
+
+<p class="font"><strong>Archivo fuente de:</strong> "<a href="http://dev.opera.com/articles/view/30-the-css-layout-model-boxes-border/layout_02.css" hreflang="en">Hoja de estilo de la demostración 2</a>"</p>                     
+
+<h3 id="padding">30.1.3. Cuando sólo con los márgenes no es suficiente: propiedades <code>padding</code></h3>
+
+<p>Encontraréis elementos con colores de fondo de tonos secundarios o destacados que necesitan canales entre el contenido y los márgenes. También puede ser que necesitéis incluir espacio entre los bordes y el texto que hay cerca.</p>
+
+<p>En estos casos y en muchos otros os serán muy útiles las propiedades <code>padding</code> (relleno), <code>padding-top</code> (relleno superior), <code>padding-right</code> (relleno derecha), <code>padding-bottom</code> (relleno inferior) y <code>padding-left</code> (relleno izquierda). Estas propiedades insertan espacio negativo entre los márgenes o bordes de un elemento y su contenido. Podéis ver la figura 1 anterior como claro ejemplo de la relación entre márgenes, bordes y relleno.</p>
+
+<div class="vegeu_tambe">
+<h3>Ved también</h3>
+
+<p>Podéis ver la figura 1 en el subapartado 30.1 de este módulo.</p>
+</div>
+
+<p>Estas propiedades se comportan exactamente igual que las propiedades de margen pero con las excepciones siguientes:</p>
+
+<ul>
+<li><p>Los valores <code>auto</code> son funcionalmente inútiles en referencias a las propiedades de relleno.</p></li>
+<li><p>Los valores negativos de relleno son inválidos.</p></li>
+<li><p>El relleno nunca se colapsa.</p></li>
+<li><p>Los valores de margen no se aplican a los elementos en línea, pero los valores de relleno sí.</p></li>
+</ul>
+
+<div class="vegeu_tambe">
+<h3>Ved también</h3>
+
+<p>Podéis ver las propiedades de margen en el subapartado 30.1 de este módulo.</p>
+</div>
+
+
+<h3 id="demo3">Demostración 3</h3>
+
+<p>Los canales deberían aplicarse a los elementos a los que ya se han aplicado bordes previamente.</p>
+
+<pre><code>body { padding: 0; }
+   h1 { padding: .5em 0 .5em 0; }
+   .pullQuote { padding: .5em; }</code></pre>
+
+<p class="font"><strong>Archivo fuente de:</strong> "<a href="http://dev.opera.com/articles/view/30-the-css-layout-model-boxes-border/demo_rev3.html" hreflang="en">Ejemplo de inserción de canales adyacentes a los bordes previamente aplicados al título y al texto destacado</a>"</p>
+
+<p class="font"><strong>Archivo fuente de:</strong> "<a href="http://dev.opera.com/articles/view/30-the-css-layout-model-boxes-border/layout_03.css" hreflang="en">Hoja de estilo de la demostración 3</a>"</p>
+
+
+<h2 id="widthandheight">30.2. Trabajar con la anchura y altura de los elementos</h2>
+
+<p>Pueden modificarse las dimensiones de la mayoría de los elementos.</p>
+
+<div class="vegeu_tambe">
+<h3>Ved también</h3>
+
+<p>Anteriormente en el subapartado 30.1.1, cuando hablábamos de los márgenes <code>auto</code>, ya se ha demostrado que la mayoría de los elementos se pueden modificar.</p>
+</div>
+
+<p>Las propiedades CSS utilizadas para modificar las dimensiones de los elementos son: <code>width</code>, <code>height</code>, <code>min-width</code>, <code>max-width</code>, <code>min-height</code> y <code>max-height</code>. Estas propiedades pueden separarse de (o enlazarse a) las dimensiones del contenido de los elementos con la propiedad <code>overflow</code>.</p>
+
+<p>También hay una propiedad <code>clip</code> (recorte) que esconde partes de un elemento dentro de los márgenes. Sin embargo, no hablaremos de ello en este apartado a causa de sus limitadas posibilidades de uso.</p>
+
+<h3 id="widthandheightbasics">30.2.1. Conceptos básicos de <code>width</code> y <code>height</code></h3>
+
+<p>En general, <code>width</code> y <code>height</code> producen exactamente los resultados que cabría esperar. No obstante, su uso implica algunas notas importantes.</p>
+
+<ul>   
+<li><p><strong><code>width</code> y <code>height</code> no pueden aplicarse a elementos <code>inline</code>...</strong> hay varios elementos (como <code>span</code>, <code>strong</code> y <code>em</code>) que ignoran la aplicación de los valores <code>width</code> y <code>height</code> en circunstancias normales.</p></li>
+</ul>
+
+<div class="vegeu_tambe">
+<h3>Ved también</h3>
+
+<p>Podéis ver una lista de los elementos que ignoran la aplicación de los valores <code>width</code> y <code>height</code> en el subapartado 30.3 de este módulo.</p>
+</div>
+
+<ul>
+<li><p><strong>... excepto a las imágenes, a las que se les puede asignar</strong> <code>width</code> y <code>height</code> <strong>aunque sean elementos en línea</strong>. La Recomendación CSS 2.1 habla de las imágenes como elementos "sustituidos", lo que significa que los navegadores siempre deberían tratarlas como si tuvieran dimensiones estáticas. Por este motivo, estas dimensiones pueden modificarse arbitrariamente.</p></li>
+
+<li><p><strong><code>width</code> y <code>height</code> sólo son dos de las propiedades que pueden afectar a las dimensiones funcionales de un elemento</strong>. Por lo tanto, es fácil encontrarse en situaciones en las que un elemento sea demasiado pequeño (normalmente demasiado estrecho) para contener el contenido como debería, lo que provoca errores.</p></li>
+</ul>
+
+<div class="vegeu_tambe">
+<h3>Ved también</h3>
+
+<p>Podéis ver cómo las propiedades pueden afectar a las dimensiones funcionales de un elemento en el subapartado 30.3 de este módulo, que trata sobre el modelo de cajas de CSS.</p>
+</div>
+
+<ul>
+<li><p><strong>Los errores de representación de Microsoft Internet Explorer (IE) hacen necesario especificar las parejas de valor/propiedad de <code>width</code> o <code>height</code> para algunos elementos</strong>. Hay algunas peculiaridades del motor de representación de IE que sólo pueden resolverse con la fuerza bruta. La mayoría de estas peculiaridades son bien conocidas y se eliminarán de IE 8, pero hasta que esta versión sustituya a sus predecesoras en el mercado, este problema seguirá siendo un caso de prueba inevitable. <a href="http://www.positioniseverything.net" hreflang="en">PositionIsEverything.net</a> y la <a href="http://css-discuss.incutio.com/" hreflang="en">wiki de discusión de CSS</a> ofrecen mucha información sobre este asunto y técnicas para resolverlo.</p></li>
+
+
+<li><p><strong>De vez en cuando, los algoritmos de redondeo provocan diferencias fuera de especificación en los navegadores que muestran los contenidos con medios de visualización LCD, LED o CRT (<code>type="screen"</code>)</strong>. El tipo de medio <code>screen</code> (pantalla) requiere que todas las unidades se conviertan en medidas de píxeles, de manera que l

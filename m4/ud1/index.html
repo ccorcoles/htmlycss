@@ -1,0 +1,332 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ca">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
+<meta http-equiv="Content-Language" content="ca" />
+<meta name="language" content="ca" />
+<meta name="author" content="Universitat Oberta de Catalunya" />
+<meta name="description" content="FALTA CONTENIDO" />
+<meta name="title" content="FALTA CONTENIDO" />
+<meta name="keywords" content="FALTA CONTENIDO" />
+
+<title>El texto central de HTML - Etiquetar contenido textual en HTML</title>
+<link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
+</head>
+
+<body>
+<div id="cabecera">
+	<img id="logo" src="../../img/logo.gif" alt="Universitat Oberta de Catalunya" />
+    <a href="http://mosaic.uoc.edu/"><img id="logomosaic" src="../../img/logo-mosaic.gif" alt="Logo de Mosaic" title="Abre la página web de Mosaic" /></a>
+	<div id="titulo">El texto central de HTML</div>
+	<div id="subtitulo">Etiquetar contenido textual en HTML</div>
+<div id="cierre"></div>
+	<div id="navegador">
+		<a href="../../m0/accessibilitat.html" id="accesibilidad">Accesibilidad</a> <strong>:</strong> 
+		<a rel="prev" href="../../m3/ud3/index.html" title="Ir al artículo anterior" accesskey="8"><img src="../../img/fletxa_izq.gif" alt="Ir al artículo anterior" /></a> <strong>:</strong> 
+		<a rel="index" href="../../index.html" title="Ir al índice" accesskey="0"><img src="../../img/indice.gif" alt="Ir al índice" /></a> <strong>:</strong> 
+		<a rel="next" href="../ud2/index.html" title="Ir al artículo siguiente" accesskey="9"><img src="../../img/fletxa_der.gif" alt="Ir al artículo siguiente" /></a>
+	</div>
+</div>
+	
+<div id="main">
+  
+  <h1>15. Etiquetar contenido textual en HTML</h1>
+  
+  <p class="by"><a href="../../index.html#francis">Mark Norman Francis</a>. 8 de julio del 2008. Publicado en: párrafo, texto, énfasis, cita, pre </p>
+  
+  <p>En este apartado explicaremos los conceptos básicos del uso de HTML para describir el significado del contenido dentro del cuerpo de vuestro documento.</p>
+  
+  <p>Veremos elementos estructurales generales como los títulos y los párrafos y la incrustación de citas y código. Después también veremos el contenido en línea, como por ejemplo las citas cortas y el énfasis, y acabaremos con un análisis rápido del contenido presentacional anticuado. </p>
+  
+  <div class="note">
+  <h3>Nota</h3>
+  
+  <p>Después de cada ejemplo de código hay un enlace "Ved ejemplos reales" que os llevará a la visualización del resultado de este código fuente en un archivo diferente; de esta manera, podréis ver ejemplos reales de cómo se ve realmente este código fuente en el navegador, aparte del código en sí.</p>
+  </div>
+  
+  <p>Los contenidos de este apartado son los siguientes:</p>
+  
+  <ul class="index">
+	<li>15.1. <a href="#whitespace" accesskey="1">El espacio: la última frontera</a></li>
+  <li>15.2. <a href="#block" accesskey="2">Elementos de bloque</a>
+  <ul class="index">
+	<li>15.2.1. <a href="#headings">Títulos de sección de página</a></li>
+  <li>15.2.2. <a href="#paragraphs">Párrafos genéricos</a></li>
+  <li>15.2.3. <a href="#cite">Citar otras fuentes</a></li>
+  <li>15.2.4. <a href="#preformatted">Texto preformateado</a></li>
+	</ul></li>
+  <li>15.3. <a href="#inline" accesskey="3">Elementos en línea</a>
+  <ul class="index">
+	<li>15.3.1. <a href="#quotations">Citas breves</a></li>
+  <li>15.3.2. <a href="#emphasis">Énfasis</a></li>
+  <li>15.3.3. <a href="#italics">Texto en cursiva</a></li>
+  </ul></li>
+	<li>15.4. <a href="#presentational" accesskey="4">Elementos presentacionales: no utilizar nunca</a></li>     
+	 <li class="especial"><a href="#summary">Resumen</a></li>
+	</ul>
+  
+  <h2 id="whitespace">15.1. El espacio: la última frontera</h2>
+  
+  <p>	Una cuestión muy importante que queremos tratar antes de empezar a hablar sobre el texto es la del espacio, y concretamente la del
+<strong>espacio entre palabras</strong>. Cuando se escribe el HTML, el documento fuente contendrá lo que se conoce como "espacios en blanco", que son los caracteres del archivo que sirven para separar el texto. El carácter de espacio más habitual es el que se obtiene al pulsar la barra espaciadora, pero hay otros, como el tabulador y la marca entre dos líneas independientes de un documento (conocido como retorno o línea nueva).</p>
+  
+  <div class="text-clau">
+  <p>En el HTML, cuando un carácter de éstos aparece varias veces seguidas, se considera (casi) siempre como un único carácter de espacio. </p>
+  </div>
+  
+  <p>Por ejemplo, un navegador interpretaría lo siguiente:</p>
+  
+  <pre><code>&lt;h3&gt;In the
+            beginning&lt;/h3&gt;</code></pre>
+ 
+
+	<p class="font"><strong>Ved ejemplos reales en:</strong> "<a href="http://dev.opera.com/articles/view/15-marking-up-textual-content-in-html/HTMLtext_examples.html#whitespace" hreflang="en">Whitespace example</a>"</p>
+  
+  <p>como equivalente a:</p>
+
+  <pre><code>&lt;h3&gt;In the beginning&lt;/h3&gt;</code></pre>
+  
+  <p>	El único caso en el que esto no es así es el elemento
+<code>pre</code>, del cual hablaremos con detalle más adelante en este mismo apartado.</p>
+  
+  <p>Esto puede provocar algunas confusiones para los autores que escriben por primera vez un documento en HTML y que intentan introducir espacios adicionales dentro del texto para conseguir el sangrado deseado, dejar más espacio después de un punto entre frases o añadir más espacio vertical entre párrafos. El diseño visual de los documentos no se debe definir en el código fuente HTML, sino que se debe hacer mediante las hojas de estilos, de las que hablaremos más adelante en esta serie de apartados.</p>
+
+  <h2 id="block">15.2. Elementos de bloque</h2>
+  
+  <p>En este subapartado explicaremos la sintaxis y el uso de los <a href="http://dev.opera.com/articles/view/12-the-basics-of-html/#blockinline" hreflang="en">elementos de bloque más frecuentes</a> utilizados para formatear texto.</p>
+
+  <h3 id="headings">15.2.1. Títulos de sección de página</h3>
+  
+  <p>Una vez que hayáis dividido la página en secciones lógicas, cada una de estas secciones debería ir introducida por un título adecuado. De ello se habla con más detalle en el apartado <em>Qué necesita una buena página web</em>.</p>
+  
+  <div class="vegeu_tambe">
+  <h3>Ved también</h3>
+  
+  <p>Podéis ver el apartado 7 del módulo "Conceptos de diseño web".</p>
+  </div>
+  
+  <div class="text-clau">
+  <p>El HTML define seis niveles de títulos: <code>h1</code>, <code>h2</code>, <code>h3</code>, <code>h4</code>, <code>h5</code> i <code>h6</code> (desde el más importante hasta el menos importante). Hablando en general, <code>h1</code> sería el título principal de toda la página que introduciría el tema. <code>h2</code> se utilizaría para dividir la página en secciones, <code>h3</code> en subsecciones y así sucesivamente.</p>
+  </div>
+  
+  <p>Es muy importante utilizar los niveles de títulos para describir el documento en referencia a las secciones, subsecciones, subsubsecciones, etc., ya que esto hace que el documento sea más <a href="http://www.accessibilitytips.com/2008/03/10/avoid-skipping-header-levels/" hreflang="en">comprensible para los lectores de pantalla</a> y para los procesos automatizados (como los robots de indexación de Google).</p>
+  
+  <p>Un buen ejemplo de una estructura de títulos, utilizando este documento como plantilla, podría ser el siguiente:</p>
+
+  <pre><code>&lt;h1&gt;Etiquetar contenido textual en HTML&lt;/h1&gt;
+&lt;h2&gt;Introducción&lt;/h2&gt;
+&lt;h2&gt;El espacio: la última frontera&lt;/h2&gt;
+&lt;h2&gt;Elementos de bloque&lt;/h2&gt;
+&lt;h3&gt;Títulos de sección de página&lt;/h3&gt;
+&lt;h3&gt;Párrafos genéricos&lt;/h3&gt;
+&lt;h3&gt;Citar otras fuentes&lt;/h3&gt;
+&lt;h3&gt;Texto preformateado&lt;/h3&gt;
+&lt;h2&gt;Elementos en línea&lt;/h2&gt;</code></pre>
+  
+  <p class="font"><strong>Ved ejemplos reales en:</strong> "<a href="http://dev.opera.com/articles/view/15-marking-up-textual-content-in-html/HTMLtext_examples.html#headings" hreflang="en">Headings example</a>"</p>
+  
+  <p>[...y así sucesivamente...]</p>
+
+  <h3 id="paragraphs">15.2.2. Párrafos genéricos</h3>
+  
+  <div class="text-clau">
+  <p>	El párrafo es el componente básico de la mayoría de los documentos. En HTML, un párrafo se representa con el elemento
+ <code>p</code>, que no tiene ningún atributo especial.</p>
+</div>
+  
+  <p>Por ejemplo:</p>
+                     
+  <pre><code>&lt;p&gt;This is a very short paragraph. It only has two sentences.&lt;/p&gt;</code></pre>
+  
+  <p class="font"><strong>Ved ejemplos reales en:</strong> "<a href="http://dev.opera.com/articles/view/15-marking-up-textual-content-in-html/HTMLtext_examples.html#paragraph" hreflang="en">Paragraph example</a>"</p>
+  
+  <p>	En muchos artículos y libros, un párrafo puede contener sólo una frase. Aunque el significado (en cuanto a la prosa escrita) de la palabra
+<em>párrafo</em> está bastante claro, en la web hay áreas de texto mucho más cortas que a menudo aparecen entre elementos de párrafos por el simple hecho de que el autor cree que es más "semántico" que utilizar un elemento
+<code>div</code> (hablaremos de ello en otro apartado titulado "Contenedores genéricos").</p>
+  
+  <div class="exemple">
+  <h3>Ejemplo</h3>
+  <p>Un párrafo es un conjunto de una o más frases, igual que en los periódicos y libros. En la web es una buena idea utilizar el elemento de párrafo para estos conjuntos de frases y no para cualquier parte aleatoria de texto de la página. Si son sólo unas cuantas palabras y no una frase propiamente dicha, entonces quizá sería mejor no etiquetarlo como un párrafo.</p>
+  </div>            
+
+  <h3 id="cite">15.2.3. Citar otras fuentes</h3>
+  
+  <div class="text-clau">
+  <p>A menudo, los artículos, los apuntes de bloques y los documentos de referencia citan total o parcialmente algún otro documento. En el HTML, estas citas se marcan con el elemento <code>blockquote</code> para citas largas, como frases enteras, párrafos, listas o similares.</p>
+  </div>
+  
+  <p>Un elemento <code>blockquote</code> no puede contener texto, sino que debe tener en su interior otro elemento de bloque. Deberíais utilizar el mismo elemento de bloque que en el documento original. Si citáis un párrafo de texto, utilizad un párrafo; cuando citéis una lista, utilizad los elementos para listas; y así sucesivamente.</p>
+  
+  <p>Si la cita es de otra página web, podéis indicarlo utilizando el atributo <code>cite</code>.</p>
+  
+  <p>Como en el ejemplo siguiente:</p>
+
+  <pre><code>&lt;p&gt;HTML 4.01 is the only version of HTML that you should use
+ when creating a new web page, as, according to the 
+ specification:&lt;/p&gt;
+&lt;blockquote cite="http://www.w3.org/TR/html401/"&gt;
+&lt;p&gt;This document obsoletes previous versions of HTML 4.0,
+ although W3C will continue to make those specifications and
+ their DTDs available at the W3C Web site.&lt;/p&gt;
+&lt;/blockquote&gt;</code></pre>
+  
+  <p class="font"><strong>Ved ejemplos reales en:</strong> "<a href="http://dev.opera.com/articles/view/15-marking-up-textual-content-in-html/HTMLtext_examples.html#cite" hreflang="en">Quoting other sources example</a>"</p>
+  
+  <p>El atributo <code>cite</code> no es necesario en el caso de que la cita se
+tome de una novela, una revista o de alguna otra forma de contenido fuera de línea.</p>
+  
+  <h3 id="preformatted">15.2.4. Texto preformateado</h3>
+  
+  <div class="text-clau">
+  <p>Cualquier texto en el que el formato y el espacio en blanco (podéis ver más arriba) sean importantes se debería etiquetar con el elemento<code>pre</code>.</p>
+  </div>
+  
+  <p>En la mayoría de los navegadores web, el texto marcado como preformateado se mostrará al usuario tal como aparezca en el código fuente, algunas veces utilizando un tipo de letra de ancho fijo, lo cual da al texto el aspecto de haber sido escrito con una máquina de escribir. Este uso de tipos de letras de ancho fijo es uno de los primeros recursos que utilizaron los programadores para el texto preformateado.</p>
+  
+  <p>En éste podéis ver un fragmento de código escrito en el lenguaje de programación Perl:</p>
+                      
+  <pre><code>&lt;pre&gt;&lt;code class="language-perl"&gt;
+# read in the named file in its entirety
+sub slurp {
+   my $filename = shift;
+   my $file     = new FileHandle $filename;
+
+   if ( defined $file ) {
+      local $/;
+      return &lt;$file&gt;;
+   }
+   return undef;
+};
+&lt;/code&gt;&lt;/pre&gt;</code></pre>
+  
+  <p class="font"><strong>Ved ejemplos reales en:</strong> "<a href="http://dev.opera.com/articles/view/15-marking-up-textual-content-in-html/HTMLtext_examples.html#preformatted" hreflang="en">Preformatted example</a>"</p>
+  
+  <p>El uso de <code>code</code> que se hace en este ejemplo se explicará en el apartado sobre los elementos semánticos menos conocidos, que encontraremos más adelante en este mismo módulo.</p>
+  
+  <div class="vegeu_tambe">
+  <h3>Ved también</h3>
+  
+  <p>Podéis ver el apartado 21 de este módulo.</p>
+  </div>
+                      
+  <h2 id="inline">15.3. Elementos en línea</h2>
+  
+  <p>En este subapartado explicaremos la sintaxis y el uso de los elementos en línea más frecuentes utilizados para formatear texto.</p>
+  
+  <div class="vegeu_tambe">
+  <h3>Ved también</h3>
+  
+  <p>Podéis ver el apartado 12 del módulo "Fundamentos de HTML".</p>
+  </div>
+                           
+  <h3 id="quotations">15.3.1. Citas breves</h3>
+  
+  <div class="text-clau">
+  <p>	Las citas breves que se utilizan en una frase o párrafo normal se ponen en el elemento
+ <code>q</code>. Igual que el elemento <code>blockquote</code>, éste puede contener un atributo
+ <code>cite</code>, que indica la página de Internet en la que se puede encontrar la cita.</p>
+  </div>
+  
+  <p>Una cita breve aparece normalmente entre comillas. Según la <a href="http://www.w3.org/TR/html401/struct/text.html#h-9.2.2" hreflang="en">especificación HTML</a>, estas citas las debe insertar el agente usuario para poder imbricarlas correctamente y que sepan el idioma que se utiliza en el documento. Se puede utilizar CSS para controlar las comillas utilizadas; este aspecto se tratará en el apartado sobre estilos de texto.</p>
+
+  <div class="vegeu_tambe">
+  <h3>Ved también</h3>
+  
+  <p>Podéis ver el apartado 29 del módulo "CSS".</p>
+  </div>
+  
+  <p>	Un ejemplo de <code>q</code> en acción:</p>
+                     
+  <pre><code>&lt;p&gt;This did not end well for me. Oh well,
+      &lt;q lang="fr"&gt;c'est la vie&lt;/q&gt; as the French say.&lt;/p&gt;</code></pre>
+  
+	<p class="font"><strong>Ved ejemplos reales en:</strong> "<a href="http://dev.opera.com/articles/view/15-marking-up-textual-content-in-html/HTMLtext_examples.html#q" hreflang="en">Inline quote example</a>"</p>
+	
+  <h3 id="emphasis">15.3.2. Énfasis</h3>
+  
+  <p>El HTML contiene dos métodos para indicar que el texto de su interior debe aparecer enfatizado delante del usuario, como por ejemplo los mensajes de error, las advertencias o las notas. </p>
+  
+  <div class="text-clau">
+  <p>	En los navegadores visuales esto significa normalmente la aplicación de un color o un tipo de letra diferente o la visualización del texto en negrita o cursiva. Para los usuarios de lectores de pantalla, el resultado puede ser una voz diferente o algún otro efecto acústico. Para presentar texto con énfasis hay que utilizar el elemento <code>em</code>.</p>
+  </div>
+  
+  <p>Como en el ejemplo siguiente:</p>
+                              
+  <pre><code>&lt;p&gt;&lt;em&gt;Please note:&lt;/em&gt; the kettle is to be unplugged at night.&lt;/p&gt;</code></pre>
+
+  <p class="font"><strong>Ved ejemplos reales en:</strong> "<a href="http://dev.opera.com/articles/view/15-marking-up-textual-content-in-html/HTMLtext_examples.html#em" hreflang="en">Emphasis example</a>"</p>
+  
+  <p>Si hay que enfatizar toda una frase pero una parte concreta de ésta se debe enfatizar de una manera aún más importante, se debe utilizar el elemento <code>strong</code> para indicar un énfasis más fuerte de lo normal, como en el ejemplo siguiente:</p>
+                      
+  <pre><code>&lt;p&gt;&lt;em&gt;Please note: the kettle &lt;strong&gt;must&lt;/strong&gt; be unplugged every evening,
+ otherwise it will explode - &lt;strong&gt;killing us all&lt;/strong&gt;&lt;/em&gt;.&lt;/p&gt;</code></pre>  
+
+  <p class="font"><strong>Ved ejemplos reales en:</strong> "<a href="http://dev.opera.com/articles/view/15-marking-up-textual-content-in-html/HTMLtext_examples.html#emstrong" hreflang="en">Emphasis and strong example</a>"</p>
+
+  <h3 id="italics">15.3.3. Texto en cursiva</h3>
+  
+  <p>	Normalmente se cree que
+<em>cursiva</em> no describe el significado y que, por lo tanto, el elemento
+<code>i</code> no se debe utilizar (igual que muchos otros elementos presentacionales descritos en el subapartado siguiente).</p>
+  
+  <div class="text-clau">
+  <p>Hay un par de casos en los que es correcto describir el contenido como cursiva. Ya se ha comentado que algunos conceptos se describen mejor como "cursiva" en lugar de tener que crear algunos elementos muy específicos y no utilizados. Éstos incluyen cosas como por ejemplo los nombres de barcos, los títulos de series de televisión, películas y libros, algunos términos técnicos y otras designaciones taxonómicas.</p>
+  </div>
+  
+  <p>La razón es que la cursiva indica que el texto es especial y el contexto indica en qué sentido lo es. De hecho, esto ya queda reflejado en el borrador de la especificación de HTML 5:</p>
+  
+  <blockquote>
+  <p>"El elemento i representa un texto en una voz o un modo alternativo, o que de alguna manera queda fuera de la prosa normal. [...] El elemento
+i se debe utilizar como último recurso cuando no hay ningún otro elemento que sea más apropiado".</p>
+  </blockquote>
+  
+  <p>Como el CSS puede modificar el elemento i a fin de que no sea cursiva, en este contexto hay que interpretar el significado de "cursiva" fundamentalmente como "algo un tanto diferente". Yo no lo considero correcto, personalmente hablando, pero hay precedentes suficientes para utilizarlo de esta manera.</p>
+                       
+  <h2 id="presentational">15.4. Elementos presentacionales: no utilizar nunca</h2>
+  
+  <p>La especificación de HTML incluye varios elementos que se describen de manera general como "presentacionales", ya que sólo especifican qué aspecto debe tener el texto que contienen, pero no qué significan</p>
+  
+  <p>La especificación ha etiquetado algunos de estos elementos como desaprobados. Eso significa que han sido sustituidos por un método más nuevo que permite conseguir los mismos resultados.</p>
+  
+  <p>Aquí los describiremos brevemente, pero hay que tener en cuenta que esta explicación tiene casi exclusivamente un interés puramente histórico; estos elementos no se deben utilizar nunca en ninguna página web moderna. El efecto de todos estos elementos se debe conseguir de alguna otra manera, que se describirá en otros dos apartados: "Estilos de texto con el CSS" y "Elementos semánticos menos conocidos".</p>
+  
+  <div class="vegeu_tambe">
+  <h3>Ved también</h3>
+  
+  <p>Podéis ver el apartado 29 del módulo "CSS" y el apartado 21 de este módulo.</p>
+  </div>
+  
+  <ul>
+		<li><p><code>font face="..." size="..."</code>. El navegador mostrará el texto en estos elementos utilizando un tipo de letra diferente del tipo por defecto; los tipos de letra, sin embargo, se deben definir con CSS.</p></li>
+  
+  <li><p>b. El texto aparece en negrita; casi siempre significa que el texto tiene algún tipo de énfasis y, por lo tanto, se debería utilizar <code>em</code> o
+ <code>strong</code>, tal como se ha explicado antes.</p></li>
+  
+  <li><p><code>s</code> y <code>strike</code>. El texto aparece rayado con una línea que lo atraviesa; si es sólo un efecto presentacional, este efecto se debería conseguir con CSS. Además, si el texto se quiere marcar como suprimido o no deseado, se debería etiquetar con el elemento
+ del que se describe más adelante.</p></li>
+  
+  <li><p>u. El texto se subraya; es casi siempre un efecto visual y se debería conseguir con el CSS.</p></li>
+  
+  <li><p>tt. El texto se presenta en un tipo de letra de "teletipo" o de ancho fijo; este efecto se debería conseguir con el CSS o con algún elemento semántico más apropiado, como por ejemplo
+pre, tal como se ha visto anteriormente.</p></li>
+  
+  <li><p><code>big</code> y <code>small</code>. Se ajusta el tamaño del texto; se debería conseguir con el CSS.</p></li>
+	</ul>
+	
+  <h2 id="summary">Resumen</h2> 
+  
+  <p>En este apartado hemos hablado de algunos de los elementos más comunes que se utilizan para etiquetar contenido textual. En el siguiente apartado hablaremos de otro tipo de contenido: las listas.</p>
+
+</div>
+<div><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.es"><img src="../../m0/creative_commons.gif" id="logo_cc" alt="Logo Creative Commons" /></a></div>
+<div id="logo_text">Los contenidos recogidos en este artículo están sujetos a una licencia <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.es">Creative Commons<br /> Reconocimiento, No comercial - Compartir bajo la misma licencia 3.0 No adaptada</a>.
+</div>
+<div id="cierre_autor"></div>
+
+<div id="peu">
+		<a rel="prev" href="../../m3/ud3/index.html" title="Ir al artículo anterior" accesskey="8"><img src="../../img/fletxa_izq_inv.gif" alt="Ir al artículo anterior" /></a> <strong>:</strong>
+		<a rel="index" href="../../index.html" title="Ir al índice" accesskey="0"><img src="../../img/indice_inv.gif" alt="Ir al índice" /></a> <strong>:</strong>
+		<a rel="next" href="../ud2/index.html" title="Ir al artículo siguiente" accesskey="9"><img src="../../img/fletxa_der_inv.gif" alt="Ir al artículo siguiente" /></a>
+</div>
+</body>
+</html>

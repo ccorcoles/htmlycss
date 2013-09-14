@@ -1,0 +1,305 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ca">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
+<meta http-equiv="Content-Language" content="ca" />
+<meta name="language" content="ca" />
+<meta name="author" content="Universitat Oberta de Catalunya" />
+<meta name="description" content="FALTA CONTENIDO" />
+<meta name="title" content="FALTA CONTENIDO" />
+<meta name="keywords" content="FALTA CONTENIDO" />
+
+<title>El texto central de HTML - Formularios HTML: conceptos básicos</title>
+<link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
+</head>
+
+<body>
+<div id="cabecera">
+	<img id="logo" src="../../img/logo.gif" alt="Universitat Oberta de Catalunya" />
+    <a href="http://mosaic.uoc.edu/"><img id="logomosaic" src="../../img/logo-mosaic.gif" alt="Logo de Mosaic" title="Abre la página web de Mosaic" /></a>
+	<div id="titulo">El texto central de HTML</div>
+	<div id="subtitulo">Formularios HTML: conceptos básicos</div>
+<div id="cierre"></div>
+	<div id="navegador">
+		<a href="../../m0/accessibilitat.html" id="accesibilidad">Accesibilidad</a> <strong>:</strong> 
+		<a rel="prev" href="../ud5/index.html" title="Ir al artículo anterior" accesskey="8"><img src="../../img/fletxa_izq.gif" alt="Ir al artículo anterior" /></a> <strong>:</strong> 
+		<a rel="index" href="../../index.html" title="Ir al índice" accesskey="0"><img src="../../img/indice.gif" alt="Ir al índice" /></a> <strong>:</strong> 
+		<a rel="next" href="../ud7/index.html" title="Ir al artículo siguiente" accesskey="9"><img src="../../img/fletxa_der.gif" alt="Ir al artículo siguiente" /></a>
+	</div>
+</div>
+	
+<div id="main">
+
+	<h1>20. Formularios HTML: conceptos básicos</h1>
+  
+  <p class="by"><a href="../../index.html#hanen">Jenifer Hanen</a>. 8 de julio del 2008. Publicado en: estructura, enviar, semántico, entrada, accesible</p>
+  
+  <p>Todo el mundo ha visto un formulario. Todo el mundo ha utilizado alguno. Pero ¿habéis codificado alguno?</p>
+  
+  <p>Un formulario en línea es cualquier área en la que se puede introducir información en una página web; por ejemplo, introduciendo texto o números en un cuadro de texto, marcando una casilla de selección, seleccionando un botón de opción o eligiendo una opción de una lista. Entonces, el formulario se envía al sitio web pulsando el botón de enviar.</p>
+  
+  <p>En la web encontraréis formularios por todas partes: para introducir nombres de usuario y contraseñas en una pantalla de acceso, para hacer comentarios en blogs, para escribir vuestro perfil en una red social o para especificar la información de facturación en un sitio de compras. </p>
+  
+  <p>Crear un formulario es muy sencillo, pero ¿qué hay que saber sobre los formularios para que sean acordes con los estándares de la web? De momento, si habéis ido siguiendo el currículo de estándares web de Opera, probablemente ya tendréis muy claro que es muy importante seguir siempre estos estándares. El código necesario para crear un formulario accesible y conforme con los estándares no supone más trabajo que la creación de un formulario chapucero.</p>
+  
+  <p>Así pues, empezaremos con el formulario más básico y sencillo que podríamos utilizar y lo iremos complicando; en este apartado explicaremos todos los conceptos básicos que hay que conocer para crear unas estructuras de formularios elegantes y accesibles con HTML. </p>
+  
+  <p>Los contenidos de este apartado son los siguientes:</p>
+  
+  <ul class="index">
+	<li>20.1. <a href="#stepone" accesskey="1">Paso uno: el código básico</a></li>
+  <li>20.2. <a href="#steptwo" accesskey="2">Paso dos: añadir estructura y comportamiento</a></li>
+  <li>20.3. <a href="#stepthree" accesskey="3">Paso tres: añadir semántica, estilo y un poco más de estructura</a></li>
+  <li class="especial"><a href="#summary">Resumen</a></li>                  
+  <li class="especial"><a href="#exercises">Preguntas de repaso</a></li> 
+  <li class="especial"><a href="#furtherreading">Lecturas complementarias</a></li> 
+  </ul>
+                              
+  <h2 id="stepone">20.1. Paso uno: el código básico</h2>
+  
+  <p>Empezaremos con un formulario de comentario muy muy básico, el tipo de formulario que utilizaríais en un sitio web para permitir que la gente pueda dar su opinión sobre algo como un artículo que hayáis escrito, o para permitir que pueda enviaros un mensaje sin saber vuestra dirección electrónica. El código es el siguiente:</p>
+                        
+  <pre><code>&lt;form&gt;
+Name: &lt;input type="text" name="name" id="name" value="" /&gt;
+Email: &lt;input type="text" name="email" id="email" value="" /&gt;
+Comments: &lt;textarea name="comments" id="comments" cols="25" rows="3"&gt;&lt;/textarea&gt;
+&lt;input type="submit" value="submit" /&gt;
+&lt;/form&gt;</code></pre> 
+
+  <p>Si introducís este código en un documento HTML y abrís este documento en un navegador, lo que veréis es lo que aparece en la figura 1.</p>
+                         
+	<div class="imagen">
+		<img src="06510_m4_12.gif" alt="El primer exemple de formulari" />
+		<p>Figura 1. El primer ejemplo de formulario básico.</p>
+		<p class="font"><strong>Archivo fuente:</strong> "<a href="http://dev.opera.com/articles/view/20-html-forms-the-basics/step-1-form.html" hreflang="en">step-1-form.html</a>"</p>
+	</div>
+
+
+  <p>Probadlo; introducid este código en vuestro documento HTML de muestra y cargadlo en un navegador, o id a la <a href="http://dev.opera.com/articles/view/20-html-forms-the-basics/step-1-form.html" hreflang="en">página del primer ejemplo de formulario básico</a> para navegar hasta el formulario en otra página. Intentad jugar un poco con los diferentes controles del formulario para ver todo lo que podéis hacer.</p>
+  
+  <p>Si leéis el código, veréis una etiqueta <code>&lt;form&gt;</code> de apertura, una etiqueta <code>&lt;/form&gt;</code> de cierre y algunas otras cosas entre estas dos. El elemento contiene dos campos de texto en los que el lector de la página puede introducir su nombre y su dirección electrónica, y un área de texto que se puede llenar con un comentario para enviarlo al propietario del sitio web.</p>
+  
+  <p>¿Qué tenemos, pues, aquí?</p>
+  
+  <ul><li><p><code>&lt;form&gt;&lt;/form&gt;</code>: estas dos etiquetas son esenciales para iniciar y acabar un formulario; sin éstas no tendríamos formulario web. Todos los formularios deben empezar y acabar con las etiquetas <code>&lt;form&gt;</code> y <code>&lt;/form&gt;</code> respectivamente.</p>
+  
+  <p>La etiqueta <code>&lt;form&gt;</code> puede tener algunos atributos, que explicaremos en el paso dos, pero de entrada hay que tener bien claro que no se pueden anidar formularios dentro de formularios.</p></li>  
+  
+  <li><p><code>&lt;input&gt;</code> (si utilizáis un doctype XHTML, debería ser <code>&lt;input /&gt;</code>): esta etiqueta define el área en la que podréis insertar información. En nuestro ejemplo anterior, las etiquetas <code>input</code> definen cuadros de texto en los que los visitantes pueden escribir su nombre y la dirección electrónica.</p>
+  
+  <p>Todas las etiquetas de entrada deben tener un atributo <code>type</code> para definir el tipo de información que recibirán. Los valores posibles para el atributo son <code>text</code>, <code>button</code>, <code>checkbox</code>, <code>file</code>, <code>hidden</code>, <code>image</code>, <code>password</code>, <code>radio</code>, <code>reset</code> o <code>submit</code>. </p>
+  
+  <p>Todas las etiquetas <code>&lt;input&gt;</code> (introducción de datos) también deben tener un nombre (excepto en algunos casos especiales en los que el atributo <code>value</code> &#8211;valor&#8211; tiene siempre el mismo valor que el atributo <code>type</code> &#8211;tipo&#8211;, como por ejemplo <code>type="submit"</code> o <code>"reset"</code>), que debe elegir el codificador. El atributo <code>name</code> (nombre) informa sobre dónde se envían los datos cuando se envía el formulario (sea a una base de datos o un mensaje electrónico que se envía al administrador del sitio a través de un script del servidor) y sobre el nombre que tiene la información del cuadro de introducción de datos. Al enviar el formulario, la mayoría de los scripts utilizan el atributo <code>name</code> para colocar los datos del formulario en una base de datos o en un mensaje electrónico que puede ser leído por una persona.</p>
+  
+  <p>Por lo tanto, si el elemento <code>&lt;input&gt;</code> sirve para que el visitante del sitio pueda introducir su nombre, entonces el atributo <code>name</code> sería <code>name="nom"</code><code>, </code><code>name="name"</code> o <code>name="first name"</code>, etc. Si la etiqueta <code>&lt;input&gt;</code> es para la dirección electrónica, entonces el atributo  <code>name</code> sería <code>name="email"</code>. Para facilitaros las cosas, y para facilitarlas a la persona que utilizará el formulario, se recomienda que pongáis un nombre descriptivo al elemento <code>&lt;input&gt;</code>.</p>
+  
+  <p>Por <em>nombre descriptivo</em> se entiende un nombre relacionado con su función, tal como se ha explicado antes. Si el objetivo es obtener una dirección electrónica, entonces el nombre debería ser <code>name="correo-electrónico"</code>. Si debe ser la dirección postal de la persona que visita el sitio, entonces el nombre debería ser  <code>name="street-address"</code> o <code>name="adreça-postal"</code>. Cuanto más esmerado sea el uso de estos nombres, no sólo lo tendréis más fácil para codificar el formulario e ir realizando el mantenimiento, sino que la persona o la base de datos que lo reciba también lo tendrá más fácil para entenderlo. Debéis dedicar todo el tiempo necesario a pensar bien estos nombres.</p></li>
+  
+		<li><p>Todas las etiquetas <code>&lt;input&gt;</code> también deben tener un atributo <code>value</code>. valor se puede dejar en blanco <code>(value="")</code>, con lo que indicaréis al script de procesamiento que inserte cualquier cosa que el visitante del sitio escriba en este cuadro. En el caso de una casilla de selección (checkbox), un botón de opciones (radio), oculto (hidden), enviar (submit) o cualquier otro atributo, podéis definir el valor a fin de que sea igual a lo que queréis que sea por defecto. En otros casos, como por ejemplo enviar u oculto, debéis definir el valor a fin de que sea igual en la entrada final. Ejemplos: <code>value="yes"</code> para sí, <code>value="submit"</code> para un botón de envío, <code>value="reset"</code> para un botón de reinicialización, <code>value="http://www.opera.com"</code> para un redireccionamiento oculto, etc.</p>
+
+  
+  <div class="exemple">
+  <h3>El atributo <code>value</code></h3>
+  
+  <p>Algunos ejemplos sobre el uso del atributo <code>value</code>:</p>
+  
+  <ol>
+  	<li><p>Un atributo de valor en blanco cuyo valor viene determinado por aquello que introduzca el usuario:</p>
+  <ul>
+	 <li><p>El código dice: <code>&lt;input type="text" name="first-name" id="first-name" value="" /&gt;</code></p></li>
+  <li><p>El usuario introduce: Jenifer</p></li>
+  <li><p>El valor de <code>first-name</code> se envía como "Jenifer" en el momento de enviar el formulario.</p></li>
+	</ul></li>
+  
+  <li><p>Un valor predeterminado:</p>
+  
+  <ul>
+		<li><p>El código dice: <code>&lt;input type="checkbox" name="mailing-list" id="mailing-list" value="yes" /&gt;</code></p></li>
+  <li><p>El usuario selecciona la casilla porque se quiere unir a la lista de correo del sitio web.</p></li>
+  <li><p>El valor de <code>mailing-list</code> se envía como <code>yes</code> en el momento de enviar el formulario.</p></li>
+   </ul></li>
+  </ol>
+	</div></li>
+
+  <li><p>Después de los dos elementos <code>&lt;input&gt;</code> podéis ver algo un tanto diferente: el elemento <code>textarea</code>.</p>
+  
+  <p><code>textarea</code> éses un espacio nuevo y mejorado muy adecuado para introducir texto. No es lo mismo que el antiguo cuadro de texto normal de una única línea que ofrece nuestro amigo <code>&lt;input&gt;</code>; el elemento <code>textarea</code> permite introducir múltiples líneas e incluso podéis definir cuántas líneas habrá disponibles para introducir texto. Fijaos en los atributos <code>cols</code> y <code>rows</code>; estos atributos son necesarios para todos los elementos <code>textarea</code> y especifican las columnas y filas que tendrá el área de texto. Estos valores se miden en caracteres.</p></li>
+	
+  <li><p>Y para terminar, pero no por ello menos importante, hay un elemento  <code>&lt;input&gt;</code> especial con el atributo <code>value="submit"</code>. En lugar de mostrar un cuadro de una única línea para introducir texto, el envío del texto introducido mostrará un botón de envío que, al hacer clic en él, envía el formulario al destino que especifique el formulario para enviar los datos (en este momento esto aún no está definido, por tanto el envío del formulario no hará nada).</p></li>
+	</ul>
+  
+		<h2 id="steptwo">20.2. Paso dos: añadir estructura y comportamiento</h2>
+  
+  <p>Así pues, habéis hecho clic en el enlace del formulario #1 anterior, lo habéis rellenado y habéis hecho clic en el botón "Enviar"; ¿por qué no ha pasado nada? ¿Y por qué tiene tan mal aspecto y aparece todo en una línea? La respuesta es que todavía no lo habéis estructurado ni habéis definido ningún lugar donde enviar los datos que recoge el formulario.</p>
+  
+  <p>Volvamos a la mesa de dibujo para crear un formulario nuevo:</p>
+                     
+  <pre><code>&lt;form id="contact-form" action="script.php" method="post"&gt;
+   &lt;input type="hidden" name="redirect" value="http://www.opera.com" /&gt;
+   &lt;ul&gt;
+      &lt;li&gt;
+         &lt;label for="name"&gt;Name:&lt;/label&gt;
+         &lt;input type="text" name="name" id="name" value="" /&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+         &lt;label for="email"&gt;Email:&lt;/label&gt;
+         &lt;input type="text" name="email" id="email" value="" /&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+         &lt;label for="comments"&gt;Comments:&lt;/label&gt;
+         &lt;textarea name="comments" id="comments" cols="25" rows="3"&gt;&lt;/textarea&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+         &lt;input type="submit" value="submit" /&gt;
+         &lt;input type="reset" value="reset" /&gt;
+      &lt;/li&gt;
+   &lt;/ul&gt;
+&lt;/form&gt;</code></pre>   
+  
+  <p>Cuando lo abrís en un navegador, este formulario tiene el aspecto que se puede ver en la figura 2:</p>
+                         
+	<div class="imagen">
+		<img src="06510_m4_13.gif" alt="El segundo ejemplo de formulario" />
+		<p>Figura 2. El segundo ejemplo de formulario; su aspecto es mejor, pero todavía no es perfecto.</p>
+		<p class="font"><strong>Podéis jugar con este formulario mejorado en:</strong> "<a href="http://dev.opera.com/articles/view/20-html-forms-the-basics/step-2-form.html" hreflang="en">step-2-form.html</a>"</p>
+	</div>                                        
+
+  
+  <p>Aquí hemos añadido algunas cosas al formulario básico. Veámoslo para saber qué es lo que hemos hecho:</p>
+  
+  <ul>
+		<li><p>Dentro de la etiqueta <code>&lt;form&gt;</code> hay algunos atributos nuevos. Hemos añadido un atributo <code>id</code> no sólo para dar un nombre semánticamente descriptivo al formulario, sino también para ofrecer un ID único para identificarlo de manera que se puedan poner estilos más fácilmente con el CSS o se pueda manipular utilizando JavaScript si es necesario. Sólo podéis tener un <code>id</code> de cada por página; en este caso, lo hemos llamado <code>contact-form</code> (formulario de contacto).</p></li>
+  
+ <li><p>¡Luces, cámara, acción! Cuando habéis pulsado el botón de envío en el primer formulario y no ha sucedido nada, la razón era que no incluía ninguna acción ni método. El atributo <code>method</code> (método) especifica cómo se envían los datos al <em>script</em> que los procesará. Los dos métodos disponibles son "GET" y "POST". El método "GET" enviará los datos de la URL de la página (siempre veréis URLs del estilo <code>http://www.example.com/page.php?data1=value1&amp;data2=value2...</code>; éstos son datos que se transportan con el método "GET"). Si no tenéis una razón concreta para utilizar "GET", probablemente es mejor no utilizarlo si intentáis enviar información segura, ya que todo el mundo puede ver la información mientras se transmite a través de la URL. "POST" envía los datos por medio del <em>script</em> que ofrece el formulario; estos datos se pueden enviar a un mensaje electrónico que se envía al administrador del sitio o a una base de datos que se almacenará y a la que se podrá acceder más adelante, y no en la URL del "GET". "<a href="http://www.w3.org/2001/tag/doc/whenToUseGet.html" hreflang="en">POST</a>" es la opción más segura y normalmente la mejor.</p>
+  
+  <p>Si la seguridad de los datos del formulario es un aspecto que os preocupa especialmente, por ejemplo si enviáis un número de tarjeta de crédito a un sitio de compras, entonces deberíais utilizar el protocolo https con un protocolo de capa de conexión segura (SSL, s<em>ecure socket layer</em>). Básicamente, esto significa que los datos se enviarán a través del protocolo https y no del protocolo http. La próxima vez que paguéis algo en un sitio de compras o que utilicéis la banca en línea, observad las URL; es muy probable que veáis https:// en lugar de http://. La diferencia es que una conexión https es un poco más lenta de transmitir que una http, pero los datos se encriptan de manera que ningún pirata que hurgue por ahí pueda entender nada de los datos mientras están en tránsito. Hablad con vuestro proveedor de servicios web para saber cómo os puede ofrecer una conexión con https y SSL.</p></li>
+  
+ <li><p>El atributo <code>action</code> (acción) especifica el fichero de <em>script</em> al que se deben enviar los datos del formulario para su procesamiento. Muchos proveedores de servicios web tienen un <em>script</em> genérico de envío de correo electrónico u otros <em>scripts</em> de formularios disponibles para su uso (podéis consultar esta información en la documentación de vuestro proveedor de servicios web) que han adaptado para sus servidores. Por otra parte, podéis utilizar un <em>script</em> de servidor que vosotros mismos o alguien más haya creado para ofrecer vuestro formulario. La mayoría de las veces se utilizan lenguajes como PHP, Perl o Ruby para crear un <em>script</em> que procesará el formulario; por ejemplo, podéis enviar un mensaje electrónico que contenga la información del formulario, o introducir la información del formulario en una base de datos que se almacenará para su uso en el futuro.</p>
+  
+  <p>El alcance de este curso no nos permite explicaros la manera de redactar un <em>script</em> de servidor ni enseñaros a escribir un código de servidor por vuestra cuenta; os deberéis limitar a preguntar a vuestro proveedor de servicios web qué es lo que os ofrece o a haceros amigos de un buen programador.</p>
+  
+  <p>Aquí os damos unos cuantos recursos para empezar a introduciros en este campo en caso de que queráis investigar los <em>scripts</em> de servidor:</p>
+         
+	<ul>
+  <li><p>Perl: <a href="http://www.perl.com/" hreflang="en">http://www.perl.com/</a></p></li>
+	<li><p>PHP: <a href="http://www.php.net/">http://www.php.net</a></p></li>
+	<li><p>Documentación PHP sobre formularios: <a href="http://uk3.php.net/manual/en/tutorial.forms.php">http://uk3.php.net/manual/en/tutorial.forms.php</a></p></li> 
+  <li><p>Python: <a href="http://python.org/">http://python.org/</a></p></li> 
+  <li><p>Ruby: <a href="http://www.ruby-lang.org/">http://www.ruby-lang.org</a></p></li> 
+  <li><p>Sendmail: <a href="http://www.sendmail.org/">http://www.sendmail.org/</a></p></li> 
+  <li><p>SP.NET: <a href="http://www.asp.net/">http://www.asp.net/</a></p></li>
+  </ul></li>
+																 
+  <li><p>La segunda línea que hemos añadido a nuestro formulario del paso dos es el campo de entrada "oculto", que es un redireccionamiento. ¿Qué? </p>
+  
+  <p>Con el objetivo de separar la estructura del etiquetado por una parte y la presentación y el comportamiento por otro, lo mejor es utilizar el <em>script</em> que ofrecerá el formulario también para redirigir al usuario una vez que el formulario ya se haya enviado. Lo que no queréis de ninguna de las maneras es que los usuarios se encuentren mirando la página del formulario sin saber qué deben hacer una vez lo han enviado; estamos muy seguros de que todos estaréis de acuerdo en que es mucho mejor redirigir al usuario a una página de agradecimiento que incluya unos enlaces sobre "qué debéis hacer a continuación" una vez que el formulario se haya enviado correctamente. Esta línea en concreto especifica que, después de enviar el formulario, el usuario pasará a la página inicial de Opera.</p></li>
+  
+  <li><p>Para mejorar el aspecto del formulario, hemos puesto todos sus elementos en una lista no ordenada para así poder utilizar el etiquetado para alinearlos y entonces utilizar CSS para pulir su aspecto.</p>
+  
+  <p>Alguien podría decir que no deberíamos utilizar una lista no ordenada para etiquetar un formulario, sino una lista de definiciones. Otros podrían decir que ni siquiera deberíamos utilizar una lista, sino el CSS para aplicar estilos en las etiquetas  <code>&lt;label&gt;</code> y <code>&lt;input&gt;</code>. No entraremos en este debate y dejaremos que hagáis investigaciones por vuestra cuenta sobre este tema y lleguéis a una conclusión propia sobre qué es semánticamente más correcto. Para nuestro ejercicio tan sencillo utilizaremos la lista no ordenada.</p></li>
+  
+ <li><p>Y lo último del paso dos, pero no por ello menos importante, es que hemos etiquetado los elementos del formulario. Tanto en términos de significado como de accesibilidad del formulario en una gama amplia de dispositivos habilitados para Internet, lo mejor es poner etiquetas a todos los elementos del formulario; comprobad el contenido de los elementos  <code>label</code>, ya que estas etiquetas están ligadas a los elementos respectivos del formulario mediante los elementos <code>id</code> de los elementos <code>input</code> y <code>textarea</code> que tienen el mismo valor que los atributos <code>for</code> de las etiquetas. Esto es perfecto porque no sólo aporta un indicador visual sobre la finalidad de cada uno de los campos del formulario en pantalla, sino que también da más significado semántico a los campos del formulario. Por ejemplo, una persona con alguna deficiencia visual que utilice la página con un lector de pantalla podrá ver qué etiqueta corresponde a cada uno de los elementos del formulario. Los <code>id</code> también se pueden utilizar para aplicar estilos en los campos individuales del formulario con el CSS.</p>
+  
+  <p>Es muy probable que en este momento os estéis preguntando por qué, además de los atributos <code>name</code>, se incluyen atributos <code>id</code> como identificadores en los elementos del formulario. La respuesta es que los elementos <code>input</code> sin atributos <code>name</code> no se envían al servidor y, por lo tanto, son absolutamente necesarios. Los atributos <code>id</code> son necesarios para asociar los elementos del formulario con sus elementos<code>label</code> correspondientes. Por lo tanto, deberíais utilizar los dos.</p></li>
+	</ul>
+  
+  <p>El segundo formulario tiene un aspecto un poco mejor, pero todavía lo podemos seguir mejorando un poco más. Ya ha llegado el momento de añadir otros detalles antes de aplicar estilos.</p>
+
+  <h2 id="stepthree">20.3. Paso tres: añadir semántica, estilo y un poco más de estructura</h2>
+  
+  <p>Ahora terminaremos lo que hemos empezado al principio de este apartado con la versión definitiva de nuestro formulario de ejemplo:</p>
+              
+  <pre><code>&lt;form id="contact-form" action="script.php" method="post"&gt; 
+   &lt;fieldset&gt;
+      &lt;legend&gt;Contact Us:&lt;/legend&gt;
+      &lt;ul&gt;
+         &lt;li&gt;
+            &lt;label for="name"&gt;Name:&lt;/label&gt;
+            &lt;input type="text" name="name" id="name" value="" /&gt;
+         &lt;/li&gt;
+         &lt;li&gt;
+            &lt;label for="email"&gt;Email:&lt;/label&gt;
+            &lt;input type="text" name="email" id="email" value="" /&gt;
+         &lt;/li&gt;
+         &lt;li&gt;
+            &lt;label for="comments"&gt;Comments:&lt;/label&gt;
+            &lt;textarea name="comments" id="comments" cols="25" rows="3"&gt;&lt;/textarea&gt;
+         &lt;/li&gt;
+         &lt;li&gt;
+            &lt;label for="mailing-list"&gt;Would you like to sign up for our mailing
+             list?&lt;/label&gt;
+            &lt;input type="checkbox" checked="checked" id="mailing-list" value="Yes,
+             sign me up!" /&gt;
+         &lt;/li&gt;
+         &lt;li&gt;
+            &lt;input type="submit" value="submit" /&gt;
+            &lt;input type="reset" value="reset" /&gt;
+         &lt;/li&gt;
+      &lt;/ul&gt;
+   &lt;/fieldset&gt;
+&lt;/form&gt;</code></pre>  
+  
+  <p>Cuando se muestra en un navegador, este formulario tiene el aspecto que se puede ver en la figura 3:</p>
+                         
+	<div class="imagen">
+		<img src="06510_m4_14.gif" alt="El tercer y definitivo ejemplo de formulario" />
+		<p>Figura 3. El formulario de ejemplo definitivo en todo su esplendor.</p>
+		<p class="font"><strong>Podéis ver la versión real de este formulario en un navegador y jugar con él en</strong>: "<a href="http://dev.opera.com/articles/view/20-html-forms-the-basics/step-3-form.html" hreflang="en">step-3-form</a>".</p>
+	</div>                         
+
+
+  <p>Los dos últimos elementos principales que hemos añadido a este formulario son <code>fieldset</code> (conjunto de campos) y <code>legend</code> (leyenda). Ninguno de ellos es obligatorio, pero son muy útiles para formularios más complejos y para la presentación.</p>
+  
+  <p>El elemento <code>fieldset</code> os permite organizar el formulario en módulos semánticos. En un formulario más complejo, podríais por ejemplo utilizar diferentes <code>fieldset</code> para contener información de la dirección, información de facturación, información sobre las preferencias del cliente, etc. El elemento <code>legend</code> permite dar un nombre a cada uno de las secciones <code>fieldset</code>.</p>
+  
+  <p>También hemos aplicado un poco de CSS a este formulario para dar estilo al etiquetado estructural. Esto se aplica al tercer formulario de ejemplo con una hoja de estilos externa; para ver los estilos, id a la <a href="http://dev.opera.com/articles/view/20-html-forms-the-basics/form.css" hreflang="en">página de ejemplo</a>. Las dos cosas más importantes que queríamos que hiciera el CSS básico eran añadir márgenes para alinear las etiquetas y los cuadros de introducción de datos, y eliminar los picos de la lista desordenada. Éste es el CSS que reside en la hoja de estilos externa:</p>
+                       
+  <pre><code>#contact-form fieldset {width:40%;}
+#contact-form li {margin:10px; list-style: none;}
+#contact-form input  {margin-left:45px; text-align: left;}
+#contact-form textarea {margin-left:10px; text-align: left;}</code></pre>     
+  
+  <p>¿Qué hace este CSS? La primera línea define el estilo del borde del conjunto de campos para que no ocupe toda la página; también podéis definir que no haya ningún borde con <code>{border:</code><code> none;}</code> enen caso de que no queráis ninguno. La segunda línea añade un margen de 10 píxeles a los elementos <code>li</code> para poner un poco de espacio visual entre cada uno de los elementos de la lista. Las líneas tercera y cuarta definen un margen izquierdo en los elementos <code>input</code> y <code>textarea</code> para que no queden a la misma altura que las etiquetas y se alineen adecuadamente. Si queréis más información sobre los estilos de un formulario, podéis consultar el apartado sobre los estilos de los formularios de este currículo de estándares web o el artículo de Nick Rigby en <cite>A List Apart</cite>, <a href="http://alistapart.com/articles/prettyaccessibleforms" hreflang="en">"Prettier Accessible Forms"</a>. También podréis encontrar más información sobre los márgenes y los bordes más adelante en este curso.</p>
+  
+        <h2 id="summary">Resumen</h2> 
+  
+  <p>En este apartado hemos explicado los tres pasos más básicos para crear un formulario conforme a los estándares web. El mundo de los formularios incluye muchas más cosas que no hemos explicado aquí y que, en caso de que queráis, deberéis explorar por vuestra cuenta. Existen las teclas de acceso, las casillas de selección y los botones de opción, los botones de envío y reinicialización personalizados y los cuadros de selección.</p>
+  
+  <p>En el formulario anterior del paso tres hemos añadido una casilla de selección (<code>checkbox</code>) con el fin de mostrar que se pueden utilizar los atributos adicionales del elemento <code>input</code> para recoger información que queda más allá de la introducción de texto en una única línea o de la introducción de texto en un área de múltiples líneas. Los valores de los atributos de botón <code>checkbox</code> y <code>radio</code> se pueden utilizar para añadir la posibilidad de hacer preguntas cortas y dar al lector una lista de opciones entre las que podrá elegir (las casillas de selección permiten seleccionar varias opciones, mientras que los botones de opción sólo permiten seleccionar una). Los botones de opción pueden ser muy útiles en un formulario de encuesta.</p>
+  
+  <p>El elemento <code>select</code>, que tampoco se ha tratado en este apartado, se puede utilizar para un menú desplegable con opciones (por ejemplo, una lista de países o de estados/provincias).</p>
+  
+  
+        <h2 id="exercises">Preguntas de repaso</h2> 
+  
+  <p>Ya es hora de que escribáis el código de vuestro formulario de contacto.</p>
+  
+  <ol>
+		<li><p>Cread un formulario de contacto sencillo que pida al usuario su nombre, su dirección electrónica y un comentario.</p></li>
+    <li><p>Añadid una casilla de selección que pida al lector si se quiere unir a vuestra lista de correo.</p></li>
+    <li><p>Utilizad CSS para aplicar estilos al formulario: definid una anchura para el formulario, alinead las etiquetas a la izquierda, poned un color de fondo en la página, etc.</p></li>
+  </ol>
+  
+  <ul>
+		<li><p><strong>Deberes voluntarios</strong>: cuanto más juguéis con los elementos del formulario y con diferentes CSS, mejor veréis todo lo que podéis hacer con un formulario de contacto muy sencillo.</p></li>
+  
+  <li><p><strong>Deberes aún más voluntarios</strong>: si queréis adentraros aún más en este tema, buscad un <em>script</em> o utilizad uno que os ofrezca vuestro proveedor de servicios web para enviaros el formulario a vosotros mismos. Si el <em>script</em> para crear el formulario se complica excesivamente, también podéis intentar sobornar a algún buen programador...</p></li>
+   </ul>
+                            
+  <h2 id="furtherreading">Lecturas complementarias</h2>
+  
+  <p>Cameron Adams, "Accessible, stylish form layout". <br/>
+  <a href="http://www.themaninblue.com/writing/perspective/2004/03/24/" hreflang="en">http://www.themaninblue.com/writing/perspective/2004/03/24/</a></p>    
+  
+  <p>Brian Crescimanno, "Sensible Forms: A Form Usability Checklist".<br/>
+  <a href="http://www.alistapart.com/articles/sensibleforms/" hreflang="en">http://www.alistapart.com/articles/sensibleforms/</a></p>
+  
+  <p>Simon Willison, "Easier form validation with PHP".<br/>
+  <a href="http://simonwillison.net/2003/Jun/17/theHolyGrail/" hreflang="en">http://simonwillison.net/2003/Jun/17/theHolyGrail/</a></p>
+
+  
+  <p>Las especificaciones. No cualquier especificación antigua, sino <a href="http://www.w3.org/TR/html401/interact/forms.html" hreflang="en">la especificación W3C</a>.</p>
+  
+  <p>Si sufrís de insomnio y un vaso de leche caliente o contar ovejas no os solucionan el problema, podéis leer las especificaciones completas de HTML 4.01 o XHTML 1.0 en w3.org. Es mucho más barato y más efectivo que cualquier otro remedio. Que [insertad aquí el nombre de la deidad] bendiga a los ingenieros de todo el mundo.</p>
+  
+  <p>Los amables integrantes de W3.org han definido las <a href="http://www.w3.org/2001/tag/doc/whenToUseGet.html" hreflang="

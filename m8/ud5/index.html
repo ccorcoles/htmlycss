@@ -1,0 +1,375 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
+<meta http-equiv="Content-Language" content="es" />
+<meta name="language" content="es" />
+<meta name="author" content="Universitat Oberta de Catalunya" />
+<meta name="description" content="FALTA CONTENIDO" />
+<meta name="title" content="FALTA CONTENIDO" />
+<meta name="keywords" content="FALTA CONTENIDO" />
+
+<title>Canvas HTML5: Fundamentos</title>
+<link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
+</head>
+
+<body>
+<div id="cabecera">
+	<img id="logo" src="../../img/logo.gif" alt="Universitat Oberta de Catalunya" />
+    <a href="http://mosaic.uoc.edu/"><img id="logomosaic" src="../../img/logo-mosaic.gif" alt="Logo de Mosaic" title="Abre la pÃ¡gina web de Mosaic" /></a>
+	<div id="titulo">HTML5</div>
+	<div id="subtitulo">Canvas HTML5: Fundamentos</div>
+<div id="cierre"></div>
+	<div id="navegador">
+		<a href="../../m0/accessibilitat.html" id="accesibilidad">Accesibilidad</a> <strong>:</strong> 
+		<a rel="prev" href="../ud4/index.html" title="Ir al artÃ­culo anterior" accesskey="8"><img src="../../img/fletxa_izq.gif" alt="Ir al artÃ­culo anterior" /></a> <strong>:</strong> 
+		<a rel="index" href="../../index.html" title="Ir al Ã­ndice" accesskey="0"><img src="../../img/indice.gif" alt="Ir al Ã­ndice" /></a> <strong>:</strong> 
+		<img src="../../img/fletxa_der.gif" alt="Ir al artÃ­culo siguiente" />
+	</div>
+</div>
+	
+<div id="main">
+<h1>Canvas HTML5: Fundamentos</h1>
+<p class="by">Mihai Sucan. 8 de enero de 2009. Publicado en: imÃ¡genes, texto, grÃ¡ficos, 2D, gradientes, html5,  web abierta, canvas</p>
+
+<h2>IntroducciÃ³n</h2>
+<p>La <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/" hreflang="en">especificaciÃ³n  de HTML5</a> incluye un montÃ³n de nuevas caracterÃ­sticas, una de las cuales es <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html" hreflang="en">el  elemento <code>canvas</code></a> (literalmente, lienzo). Los <code>canvas</code> de HTML5 proporcionan  una manera fÃ¡cil y potente de dibujar grÃ¡ficos usando JavaScript. Para cada  elemento <code>canvas</code> puedes utilizar un &quot;contexto&quot; (piensa en una  pÃ¡gina de un cuaderno de dibujo), en el que puedes lanzar comandos JavaScript  para dibujar lo que quieras. Los navegadores pueden aplicar mÃºltiples contextos  canvas y las diferentes APIs proporcionan la funcionalidad de dibujo.</p>
+
+<p>La mayorÃ­a de los navegadores mÃ¡s  importantes incluyen la capacidad de contextos canvas 2D: <a href="http://opera.com/">Opera</a>, <a href="http://mozilla.com/">Firefox</a>, <a href="http://konqueror.org/">Konqueror</a> y <a href="http://apple.com/safari">Safari</a>.  AdemÃ¡s, hay versiones experimentales de Opera que incluyen soporte para  contextos canvas 3D, y un <em>add-on</em> que  habilita el soporte para canvas 3D en Firefox:</p>
+
+<ul>
+<li>Descarga una <a href="http://labs.opera.com/news/2008/11/25/" hreflang="en">versiÃ³n de Opera con canvas 3D, vÃ­deo HTML y soporte para operar con archivos</a>.</li>
+<li>Para saber mÃ¡s sobre <a href="http://my.opera.com/timjoh/blog/2007/11/13/taking-the-canvas-to-another-dimension" hreflang="en">el uso del contexto lienzo 3D en Opera</a>.</li>
+<li>Para saber mÃ¡s acerca de <a href="http://blog.vlad1.com/2007/11/26/canvas-3d-gl-power-web-style/" hreflang="en">cÃ³mo obtener y usar el contexto canvas 3D de Firefox</a>.</li>
+</ul>
+
+<p>En este artÃ­culo veremos los fundamentos  de la aplicaciÃ³n de un contexto canvas 2D, y cÃ³mo utilizar las funciones  bÃ¡sicas de canvas, incluyendo rectas, formas simples, imÃ¡genes, texto y mucho  mÃ¡s. Supondremos que ya dominas los fundamentos de JavaScript.</p>
+
+<div class="note">
+<p>Ten en cuenta que puedes <a href="http://dev.opera.com/articles/view/html-5-canvas-the-basics/canvas-primer.zip">descargar  todos los ejemplos de cÃ³digo en un solo archivo zip</a>, asÃ­ como verlos en  vivo usando los enlaces que incluimos.</p>
+</div>
+
+<h2>Las bases del uso de canvas</h2>
+
+<p>Crear un contexto canvas en una pÃ¡gina es  tan fÃ¡cil como aÃ±adir el elemento <code>&lt;canvas&gt;</code> al documento HTML asÃ­:</p>
+
+<pre><code>&lt;canvas id=&quot;myCanvas&quot; width=&quot;300&quot; height=&quot;150&quot;&gt;
+  Contenido para el caso en que el navegador no soporte Canvas.
+&lt;/canvas&gt;</code></pre>
+
+<p>Es necesario definir un ID de elemento  para poder localizar despuÃ©s el elemento en el cÃ³digo JavaScript, y tambiÃ©n es  necesario definir una anchura y una altura para el lienzo.</p>
+
+<p>Ya hemos creado el cuaderno de dibujo, o  sea que toca llevar el lÃ¡piz al papel. Para dibujar en el canvas hay que  utilizar JavaScript. Primero se localiza el elemento canvas con <code>getElementById</code> y, a continuaciÃ³n, se inicializa el contexto que desees. Una vez hecho esto,  puedes empezar a dibujar en el canvas con los comandos disponibles en la API  del contexto. La siguiente secuencia de comandos (<a href="http://www.robodesign.ro/coding/canvas-primer/20081208/example-using-canvas.html">ejecuta  el ejemplo en vivo</a>) dibuja un simple rectÃ¡ngulo en el canvas definido  anteriormente:</p>
+
+<pre><code>// Get a reference to the element.
+var elem = document.getElementById('myCanvas');
+  
+// Always check for properties and methods, to make sure your code doesn't break   
+// in other browsers.  
+if (elem &amp;&amp; elem.getContext) {
+  // Get the 2d context.
+  // Remember: you can only initialize one context per element.
+  var context = elem.getContext('2d');
+  if (context) {
+    // You are done! Now you can draw your first rectangle.
+    // You only need to provide the (x,y) coordinates, followed by the width and
+    // height dimensions.      
+    context.fillRect(0, 0, 150, 100);    
+    }  
+}</code></pre>
+
+<div class="note">
+<p>Puedes elegir entre incluir el script en  el head del documento o en un fichero externo.</p>
+</div>
+
+<h2>La API de contexto 2D</h2>
+
+<p>Ya hemos creado nuestra primera imagen  canvas bÃ¡sica. Echemos ahora una ojeada un poco mÃ¡s profunda a la API 2D de  canvas, y veamos quÃ© tenemos a nuestra disposiciÃ³n.</p>
+
+<h3>Segmentos y trazos bÃ¡sicos</h3>
+
+<p>Ya hemos visto en el ejemplo anterior que  es muy fÃ¡cil dibujar rectÃ¡ngulos de color a nuestro gusto.</p>
+
+<p>Con las propiedades <code>fillStyle</code> y <code>strokeStyle</code> puedes elegir fÃ¡cilmente los colores utilizados para crear formas y trazos  bÃ¡sicos. Los valores de color que puedes utilizar son los mismos que en CSS:  cÃ³digos hexadecimales, RGB(), rgba() e incluso HSLA(), si el navegador es  compatible (por ejemplo, esta funciÃ³n es soportada por Opera 10.0 y versiones  posteriores).</p>
+
+<p>Con <code>fillRect</code> puedes dibujar rectÃ¡ngulos rellenos. Con <code>strokeRect</code> puedes dibujar solo los bordes del rectÃ¡ngulo, sin rellenar. Si  deseas borrar una parte del canvas, puedes utilizar clearRect. Los tres mÃ©todos usan los mismos argumentos: <code>x</code>, <code>y</code>, <code>width</code>, <code>height</code>. Los dos primeros argumentos dan las coordenadas (x, y) y  los dos Ãºltimos dan las dimensiones de anchura y altura del rectÃ¡ngulo.</p>
+
+<p>Para cambiar el grosor de las lÃ­neas  puedes utilizar la propiedad <code>lineWidth</code>. Veamos un <a href="http://www.robodesign.ro/coding/canvas-primer/20081208/example-rects.html">ejemplo  que utiliza <code>clearRect</code>,  <code>fillRect</code>, <code>strokeRect</code> y mÃ¡s</a>:</p>
+
+<pre><code>context.fillStyle   = '#00f'; // azul
+context.strokeStyle = '#f00'; // rojo
+context.lineWidth   = 4;    
+
+// Dibujar unos cuantos rectÃ¡ngulos.  
+context.fillRect  (0,   0, 150, 50);  
+context.strokeRect(0,  60, 150, 50);  
+context.clearRect (30, 25,  90, 60);  
+context.strokeRect(30, 25,  90, 60);</code></pre>
+
+<p>Este ejemplo produce un resultado como el  que se puede fer en la Figura 1.</p>
+
+<div class="imagen">
+<img src="img1.jpg" alt="Ejemplo de fillRect, strokeRect y clearRect" />
+<p>Figura 1: Ejemplo de <code>fillRect</code>, <code>strokeRect</code> y <code>clearRect</code>.</p>
+</div>
+
+<h3>Caminos</h3>
+
+<p>Los caminos (<span lang="en">paths</span>) de canvas permiten dibujar formas personalizadas. Primero se  dibuja el &quot;perfil&quot;, a continuaciÃ³n se dibujan los trazos y finalmente  se rellena la forma, si se desea. Crear una forma personalizada es simple: para  empezar a dibujar usas <code>beginPath()</code> y  a continuaciÃ³n trazas el camino que compone la forma mediante lÃ­neas, curvas y  otras primitivas. Una vez has terminado, usas <code>fill</code> y <code>stroke</code> si  quieres para rellenar la forma o dibujar un trazo y, finalmente, usas <code>closepath()</code> para acabar la forma.</p>
+
+<p>Toca un ejemplo. El siguiente cÃ³digo <a href="http://www.robodesign.ro/coding/canvas-primer/20081208/example-triangle.html">dibuja  un triÃ¡ngulo</a>:</p>
+
+<pre><code>// Establece las propiedades de estilo.  
+context.fillStyle   = '#00f';  
+context.strokeStyle = '#f00';  
+context.lineWidth   = 4;    
+
+context.beginPath();  
+// Comenzar desde el punto de arriba a la izquierda.  
+context.moveTo(10, 10); 
+// se dan las coordenadas (x,y)  
+context.lineTo(100, 10);  
+context.lineTo(10, 100);  
+context.lineTo(10, 10);    
+
+// Listo! Ahora se rellena la forma y dibuja la lÃ­nea.  
+// Nota: la forma no serÃ¡ visible hasta que llames uno de los dos mÃ©todos.  
+context.fill();  
+context.stroke();  
+context.closePath();</code></pre>
+
+
+<p>Esto genera algo como lo que se muestra  en la Figura 2.</p>
+
+<div class="imagen">
+<img src="img2.jpg" alt="Un triÃ¡ngulo bÃ¡sico" />
+<p>Figura 2: Un triÃ¡ngulo bÃ¡sico</p>
+</div>
+
+<p>TambiÃ©n he preparado un <a href="http://www.robodesign.ro/coding/canvas-primer/20081208/example-paths.html">ejemplo  de rutas mÃ¡s complejo, con rectas, curvas y arcos</a>. Ãchale un vistazo.</p>
+
+<h3>Insertar imÃ¡genes</h3>
+
+<p>El mÃ©todo <code>drawImage</code> permite insertar otras imÃ¡genes (elementos <code>img</code> y <code>canvas</code>) en el  contexto de tu canvas. En Opera tambiÃ©n se pueden dibujar imÃ¡genes SVG dentro  de un canvas. Se trata de un mÃ©todo bastante complejo, que puede tomar tres,  cinco o nueve argumentos:</p>
+
+<ul>
+<li>Tres argumentos: El uso bÃ¡sico de <code>drawImage</code> consiste en un argumento para apuntar a la imagen a incluir y dos para especificar las coordenadas de destino dentro del contexto canvas.</li>
+<li>Cinco argumentos: El uso medio de <code>drawImage</code> incluye esos tres argumentos, mÃ¡s dos para especificar la anchura y la altura de la imagen insertada (en caso de que se desee cambiar su tamaÃ±o).</li>
+<li>Nueve argumentos: El uso mÃ¡s avanzado de <code>drawImage</code> incluye los anteriores cinco argumentos, mÃ¡s dos valores de coordenadas dentro de las imÃ¡genes de origen y dos valores para la anchura y la altura dentro de la imagen de origen. Estos valores permiten recortarÂ  de forma dinÃ¡mica la       imagen de origen antes de ponerla en el contexto canvas.</li>
+</ul>
+
+<p>El siguiente cÃ³digo de ejemplo muestra <a href="http://www.robodesign.ro/coding/canvas-primer/20081208/example-drawimage.html">los  tres tipos de drawImage en acciÃ³n</a>:</p>
+
+<pre><code>// 3 argumentos: elemento y coordenadas  (x,y) de destino.  
+context.drawImage(img_elem, dx, dy);    
+
+// 5 argumentos: elemento, coordenadas (x,y) de destino y   
+// anchura y altura (si quieres cambiarle el tamaÃ±o a la imagen).  
+context.drawImage(img_elem, dx, dy, dw, dh);    
+
+// 9 argumentos: el elemento, coordenadas (x,y) de la fuente, anchura y 
+// altura de la fuente (para recortar), coordenadas (x,y) de destino y anchura y  
+// altura de destino (reescalado). 
+context.drawImage(img_elem, sx, sy, sw, sh, dx, dy, dw, dh);</code></pre>
+
+<p>Esto deberÃ­a generar lo que se muestra en  la Figura 3.</p>
+
+<div class="imagen">
+<img src="img3.jpg" alt="Ejemplo de drawImage" />
+<p>Figura 3: Ejemplo de drawImage</p>
+</div>
+
+<h3>ManipulaciÃ³n basada en pÃ­xels</h3>
+
+<p>La API del contexto 2D ofrece tres  mÃ©todos para dibujar pÃ­xel a pÃ­xel: <code>createImageData</code>, <code>getImageData</code> y <code>putImageData</code>.</p>
+
+<p>Los pÃ­xeles en bruto se guardan en  objetos de tipo <code>ImageData</code>. Cada objeto tiene tres propiedades: <code>width</code>, <code>height</code> y <code>data</code>. La propiedad <code>data</code> es de tipo <code>CanvasPixelArray</code>, y almacena una cantidad de elementos igual a <code>width*height*4</code>, lo que significa que  para cada pÃ­xel se definen los valores de rojo, verde, azul y alfa, en el orden  en que quieres que aparezcan (todos los valores van de 0 a 255, incluyendo el  alfa). Los pÃ­xeles se ordenan de izquierda a derecha, fila por fila, de arriba  a abajo.</p>
+
+<p>Para entender mejor cÃ³mo funciona todo  esto, echa un vistazo a <a href="http://www.robodesign.ro/coding/canvas-primer/20081208/example-imagedata2.html">un  ejemplo que dibuja un bloque de pÃ­xeles de color rojo</a>.</p>
+
+<pre><code>// Crea un objeto ImageData.  
+var imgd = context.createImageData(50,50);  
+var pix = imgd.data;    
+
+// Bucle sobre cada pÃ­xel y poner a rojo.  
+for (var i = 0; n = pix.length, i &lt; n; i += 4) {  
+  pix[i  ] = 255; // red channel  
+  pix[i+3] = 127; // alpha channel  
+}    
+
+// Dibujar el objeto ImageData en las coordenadas (x,y) dadas.  
+context.putImageData(imgd, 0,0);</code></pre>
+
+<p>Nota: No todos  los navegadores han implementado <code>createImageData</code>. En los navegadores sin soporte es necesario obtener el objeto <code>ImageData</code> utilizando el mÃ©todo <code>getImageData</code>. Por favor, consulta el cÃ³digo de ejemplo proporcionado.</p>
+
+<p>Con las  capacidades de <code>ImageData</code> se  puede hacer mucho mÃ¡s que esto. Por ejemplo, se puede hacer filtrado de  imÃ¡genes, o visualizaciones matemÃ¡ticas (como fractales y mÃ¡s). El cÃ³digo  siguiente muestra cÃ³mo crear un <a href="http://www.robodesign.ro/coding/canvas-primer/20081208/example-imagedata.html">filtro  simple de inversiÃ³n de color</a>:</p>
+
+<pre><code>// Obener  el CanvasPixelArray de las coordenadas y dimensiones dadas.  
+var imgd = context.getImageData(x, y, width, height);  
+var pix = imgd.data;    
+
+// Bucle sobre cada pÃ­xel e invertir color.  
+for (var i = 0, n = pix.length; i &lt; n; i += 4) {  
+  pix[i  ] = 255 - pix[i  ]; // rojo  
+  pix[i+1] = 255 - pix[i+1]; // verde    
+  pix[i+2] = 255 - pix[i+2]; // azul    
+  // i+3 es el alfa (el cuarto elemento)  
+}    
+
+// Dibujar ImageData en las coordenadas (x,y) dadas.  
+context.putImageData(imgd, x, y);</code></pre>
+
+<p>La figura 4  muestra el filtro de inversiÃ³n de color aplicado a un grÃ¡fico de Opera (compara  con la figura 3, que muestra el esquema de color original del grÃ¡fico de  Opera).</p>
+
+<div class="imagen">
+<img src="img4.jpg" alt="Ejemplo de la inversiÃ³n de color" />
+<p>Figura 4: el filtro de inversiÃ³n de color en acciÃ³n</p>
+</div>
+
+<h3>Texto</h3>
+
+<p>La API de texto  sÃ³lo estÃ¡ disponible sÃ³lo en versiones recientes de WebKit y en las  compilaciones de prueba (&lsquo;nightlies&rsquo;) de Firefox 3.1, pero decidÃ­ incluirla  aquÃ­ por completitud<a id="ftn1ref" href="#ftn1"><sup>1</sup></a>.</p>
+
+<p>Las siguientes  propiedades de texto estÃ¡n disponibles en el objeto context:</p>
+
+<ul>
+<li><code>font</code>:  Especifica el tipo de letra del texto, de la misma manera que la propiedad CSS <code>font-family</code>.</li>
+<li><code>textAlign</code>:  Especifica la alineaciÃ³n horizontal del texto. Valores: <code>start</code>, <code>end</code>, <code>left</code>, <code>right</code>, <code>center</code>. Valor por defecto: <code>start</code>.</li>
+<li><code>textBaseline</code>:  Especifica la alineaciÃ³n vertical del texto. Valores: <code>top</code>, <code>hanging</code>, <code>middle</code>, <code>alphabetic</code>, <code>ideographic</code>, <code>bottom</code>. Valor  por defecto: <code>alphabetic</code>.</li>
+</ul>
+
+<p>Hay dos mÃ©todos  para escribir texto: <code>fillText</code> y <code>strokeText</code>. El primero da forma al texto y lo rellena con el <code>fillStyle</code> actual, mientras que el  segundo dibuja el perfil/borde del texto con el <code>strokeStyle</code> actual. Ambos toman tres argumentos: el texto que desea  mostrar, y las coordenadas (x, y) para definir dÃ³nde mostrarlo. TambiÃ©n hay un  cuarto argumento opcional: anchura mÃ¡xima. Esto hace que el navegador reduzca  el tamaÃ±o del texto para que quepa en el ancho dado, si es necesario.</p>
+
+<p>Las propiedades  de alineaciÃ³n del texto afectan a la posiciÃ³n del texto en relaciÃ³n con las  coordenadas (x, y) que pases a los mÃ©todos de dibujo.</p>
+
+<p> En este punto  toca un ejemplo. El siguiente cÃ³digo es un <a href="http://www.robodesign.ro/coding/canvas-primer/20081208/example-text.html">ejemplo  simple de texto canvas &quot;hola mundo&quot;</a>.</p>
+
+<pre><code>context.fillStyle    = '#00f';  
+context.font         = 'italic 30px sans-serif';  
+context.textBaseline = 'top';  
+context.fillText  ('Hello world!', 0, 0);  
+context.font         = 'bold 30px sans-serif';  
+context.strokeText('Hello world!', 0, 50);</code></pre>
+
+<p>La figura 5  muestra lo que crea el ejemplo.</p>
+
+<div class="imagen">
+<img src="img5.jpg" alt="Ejemplo de texto" />
+<p>Figura 5: un ejemplo sencillo de texto en canvas </p>
+</div>
+
+<h3>Sombras</h3>
+
+<p>La API de  sombras da cuatro propiedades:</p>
+<ul>
+<li><code>shadowColor</code>:  Establece el color de sombra deseado. Los valores permitidos son los mismos que  se permiten en los valores de color CSS.</li>
+<li><code>shadowBlur</code>:  Establece la cantidad de desenfoque de la sombra, en pÃ­xeles. Cuanto menor sea  el valor de desenfoque, mÃ¡s nÃ­tida es la sombra. Da un efecto muy similar al  desenfoque gaussiano de Photoshop.</li>
+<li><code>shadowOffsetX</code> y <code>shadowOffsetY</code>: Especifica el  desplazamiento X e Y de la sombra, de nuevo en pÃ­xeles.</li>
+</ul>
+
+<p>El uso es muy  sencillo, como demuestra el siguiente <a href="http://www.robodesign.ro/coding/canvas-primer/20081208/example-shadows.html">ejemplo  de cÃ³digo de sombra canvas</a>:</p>
+
+<pre><code>context.shadowOffsetX = 5;  
+context.shadowOffsetY = 5;  
+context.shadowBlur    = 4;  
+context.shadowColor   = 'rgba(255, 0, 0, 0.5)';  
+context.fillStyle     = '#00f';  
+context.fillRect(20, 20, 150, 100);</code></pre>
+
+<p>Genera lo  mostrado en la figura 6.</p>
+
+<div class="imagen">
+<img src="img6.jpg" alt="Ejemplo de sombra canvas. RectÃ¡ngulo azul con sombra roja" />
+<p>Figura 6: Ejemplo de sombra canvas. RectÃ¡ngulo azul con sombra roja.</p>
+</div>
+
+<h3>Degradados</h3>
+
+<p>A las  propiedades <code>fillStyle</code> y <code>strokeStyle</code> tambiÃ©n se les puede asignar objetos <code>CanvasGradient</code>, en lugar de cadenas de color CSS: estos permiten utilizar  gradientes de color para lÃ­neas y rellenos en lugar de colores sÃ³lidos.</p>
+
+<p>Para crear  objetos <code>CanvasGradient</code> puedes utilizar dos  mÃ©todos: <code>createLinearGradient</code> y <code>createRadialGradient</code>. El primero crea un gradiente lineal âlÃ­neas de color todas en  una direcciÃ³nâ mientras que el segundo crea un gradiente radial âcÃ­rculos de  color emanando desde un solo punto.</p>
+
+<p>Una vez tienes  el objeto gradiente puedes agregar saltos de color a lo largo del gradiente  usando el mÃ©todo <code>addColorStop</code> del objeto.</p>
+
+<p>El cÃ³digo  siguiente muestra cÃ³mo utilizar gradientes:</p>
+
+<pre><code>// Hay  que dar las coordenadas (x,y) de origen y destino   
+// para el gradiente (dÃ³nde empieza y dÃ³nde acaba).  
+var gradient1 = context.createLinearGradient(sx, sy, dx, dy);    
+
+// Ahora se puede aÃ±adir colores al gradiente.
+// El primer argumento da la posiciÃ³n del color en el gradiente. El 
+// rango de valores aceptados va de 0 (inicio del gradiente) a 1 (final del gradiente). 
+// El segundo argumento da el color deseado, con el formato de color de CSS.
+gradient1.addColorStop(0,   '#f00'); // rojo  
+gradient1.addColorStop(0.5, '#ff0'); // amarillo  
+gradient1.addColorStop(1,   '#00f'); // azul    
+
+// Para el gradiente radial tambiÃ©n hay que dar
+// fuente y el radio del cÃ­rculo de destino.
+// Las coordenadas (x,y) definen el punto central del 
+// cÃ­rculo (inicio y destino).
+var gradient2 = context.createRadialGradient(sx, sy, sr, dx, dy, dr);    
+
+// AÃ±adir colores a un gradiente radial es igual que 
+// aÃ±adir colores a gradientes lineales.</code></pre>
+
+<p>TambiÃ©n he  preparado un ejemplo mÃ¡s avanzado, que hace uso de un <a href="http://www.robodesign.ro/coding/canvas-primer/20081208/example-gradients.html">degradado  lineal, sombras y texto</a>. El ejemplo produce el resultado que se ve en la  Figura 7.</p>
+
+<div class="imagen">
+<img src="img7.jpg" alt="Ejemplo de salida usando un gradiente lineal" />
+<p>Figura 7: Ejemplo de salida usando un gradiente lineal.</p>
+</div>
+
+<h2>Demos en lÃ­nea de canvas</h2>
+
+<p>Si quieres ver  lo que han hecho otros con Canvas, puedes echar una ojeada a los siguientes  proyectos:</p>
+<ul>
+  <li>Widgets Opera:</li>
+  <ul>
+    <li><a href="http://widgets.opera.com/widget/5040/">SimAquarium</a></li>
+    <li><a href="http://widgets.opera.com/widget/4647/">Arstist&rsquo;s  Sketchbook</a></li>
+    <li><a href="http://widgets.opera.com/widget/5218/">Spirograph</a></li>
+  </ul>
+  <li>Proyectos y demos en lÃ­nea</li>
+  <ul>
+    <li><a href="http://www.benjoffe.com/code/demos/interpolate/">Polinomio  de Newton</a></li>
+    <li><a href="http://www.benjoffe.com/code/demos/canvascape/">Canvascape  â &ldquo;3D Walker&rdquo;</a></li>
+    <li><a href="http://code.google.com/p/paintweb">Paint-Web â demo de  dibujo, de cÃ³digo abierto</a></li>
+    <li><a href="http://arapehlivanian.com/wp-content/uploads/2007/02/canvas.html">Vuelo  por campo de estrellas</a></li>
+    <li><a href="http://www.blobsallad.se/">Blob interactivo</a></li>
+  </ul>
+</ul>
+
+<h1>Resumen</h1>
+
+<p>Canvas es una de las caracterÃ­sticas mÃ¡s  interesantes de HTML5, y puede usarse en la mayorÃ­a de navegadores web  modernos. Ofrece todo lo necesario para crear juegos, mejoras en la interfaz de  usuario y aÃºn mÃ¡s cosas. La API de contexto 2D incluye una gran cantidad de  funcionalidades ademÃ¡s de las que se tratan en este artÃ­culo. Espero que hayas  obtenido una buena base de canvas, y sed de saber mÃ¡s.</p>
+</div>
+
+<hr/>
+<p><a id="ftn1" href="#ftn1ref"><sup>1</sup></a> Desde la elaboraciÃ³n de este artÃ­culo, mÃºltiples navegadores han aÃ±adido soporte para la API de texto.</p>
+
+<div><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.es"><img src="../../m0/creative_commons.gif" id="logo_cc" alt="Logo Creative Commons" /></a></div>
+<div id="logo_text">Los contenidos recogidos en este artÃ­culo estÃ¡n sujetos a una licencia <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.es">Creative Commons<br /> Reconocimiento, No comercial - Compartir bajo la misma licencia 3.0 No adaptada</a>.
+</div>
+<div id="cierre_autor"></div>
+
+<div id="peu">
+		<a rel="prev" href="../ud4/index.html" title="Ir al artÃ­culo anterior" accesskey="8"><img src="../../img/fletxa_izq_inv.gif" alt="Ir al artÃ­culo anterior" /></a> <strong>:</strong>
+		<a rel="index" href="../../index.html" title="Ir al Ã­ndice" accesskey="0"><img src="../../img/indice_inv.gif" alt="Ir al Ã­ndice" /></a> <strong>:</strong>
+		<img src="../../img/fletxa_der_inv.gif" alt="Ir al artÃ­culo siguiente" />
+</div>
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+
+<script type="text/javascript">
+_uacct = "UA-1571980-1";
+_userv=2;
+_uhash = "off";
+_udn="uoc.edu";
+_ulink = 1;
+_ucto = 2592000;
+_uRno[0] = "uoc.edu";
+urchinTracker();
+</script>
+</body>

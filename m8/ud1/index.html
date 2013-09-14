@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
+<meta http-equiv="Content-Language" content="es" />
+<meta name="language" content="es" />
+<meta name="author" content="Universitat Oberta de Catalunya" />
+<meta name="description" content="FALTA CONTENIDO" />
+<meta name="title" content="FALTA CONTENIDO" />
+<meta name="keywords" content="FALTA CONTENIDO" />
+
+<title>Familiarízate con HTML5</title>
+<link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
+</head>
+
+<body>
+<div id="cabecera">
+	<img id="logo" src="../../img/logo.gif" alt="Universitat Oberta de Catalunya" />
+    <a href="http://mosaic.uoc.edu/"><img id="logomosaic" src="../../img/logo-mosaic.gif" alt="Logo de Mosaic" title="Abre la página web de Mosaic" /></a>
+	<div id="titulo">HTML5</div>
+	<div id="subtitulo">¡Familiarízate con HTML5!</div>
+<div id="cierre"></div>
+	<div id="navegador">
+		<a href="../../m0/accessibilitat.html" id="accesibilidad">Accesibilidad</a> <strong>:</strong> 
+		<a rel="prev" href="../../m7/ud1/index.html" title="Ir al artículo anterior" accesskey="8"><img src="../../img/fletxa_izq.gif" alt="Ir al artículo anterior" /></a> <strong>:</strong> 
+		<a rel="index" href="../../index.html" title="Ir al índice" accesskey="0"><img src="../../img/indice.gif" alt="Ir al índice" /></a> <strong>:</strong> 
+		<a rel="next" href="../ud2/index.html" title="Iral artículo siguiente" accesskey="9"><img src="../../img/fletxa_der.gif" alt="Ir al artículo siguiente" /></a>
+	</div>
+</div>
+	
+<div id="main">
+<h1>¡Familiarízate con HTML5!</h1>
+<p class="by"><a href="../../index.html#mills">Chris Mills</a>. 14 de enero de 2011. Publicado en: HTML5, web abierta</p>
+
+<h2>Introducción</h2>
+
+<p>La mayor parte del <a href="../../index.html">currículo de estándares web</a> se basa en la última versión estable de HTML HTML 4.01. La especificación de HTML 4.01 se completó en 1999, hace más de 10 años, en el momento de escribir esto. Pero a menos que hayas estado escondido bajo una roca durante el último año, poco más o menos, serás muy consciente de que hay una nueva versión de HTML en la producción  ¡HTML5!</p>
+
+<p>Así... ¿por qué te hemos estado enseñando HTML 4.01, a pesar de todo? En este artículo daremos  respuesta a esta pregunta, y a muchas más. Te daremos la base esencial necesaria para saber por qué se creó HTML5 y dónde y cómo está ahora mismo. Te aconsejaremos sobre cómo encajarlo en tu aprendizaje actual, aunque seas un diseñador o desarrollador web novel, y veremos algunas de las principales características de HTML5, para que puedas ver que suma al ya de por sí potente lenguaje HTML.</p>
+
+<h2>¿Por qué HTML5?</h2>
+
+<p>Cuando HTML 4 estaba a punto de cerrarse, el W3C decidió (en un <a href="http://www.w3.org/MarkUp/future/" hreflang="en">taller organizado en 1998</a>) que, en cuanto a lenguajes de marcado, el futuro de la Web era XML y XHTML, no HTML (<a href="../../m1/ud3/index.html/#xhtml">comparación de XHTML y HTML</a>). Así que el W3C dibujó una línea bajo HTML 4.01 y se concentró en la especificación <a href="http://www.w3.org/TR/xhtml1/" hreflang="en">XHTML 1.0</a>, acabada a principios de 2000. XHTML 1.0 es exactamente igual que HTML 4.01, pero usando las reglas de sintaxis de marcado de XML. Pronto le siguió <a href="http://www.w3.org/TR/xhtml2/" hreflang="en">XHTML 2.0</a>, que añadía un montón de nuevas y poderosas características y un 'mime-type' exclusivamente XML, y estaba destinado a ser el próximo gran éxito en la web.</p>
+
+<p>El problema de XHTML 2.0 es que no era compatible con el marcado ya existente en la web los elementos funcionaban de manera diferente, el <span lang="en">mimetype</span> de XHTML (<code>application / xhtml + xml</code>) no funciona de ninguna forma en IE, que todavía tenía la mayor cuota de mercado de navegadores en el momento de escribir esto, las herramientas de desarrollo disponibles no estaban preparadas para trabajar con XML, y no reflejaba realmente lo que los desarrolladores web estaban haciendo realmente ahí en la web en estado salvaje.</p>
+
+<p>En 2004, un grupo de desarrolladores e implementadores de opiniones similares (incluyendo representantes de Opera, Mozilla y, un poco más tarde, Apple) se reunieron y formaron un grupo separado de especificaciones llamado <a href="http://www.whatwg.org/" hreflang="en">WHATWG</a>, con el objetivo de escribir una mejor especificación de marcado HTML, capaz de soportar la creación de la nueva generación de aplicaciones web, sin y esto es fundamental romper la compatibilidad con el HTML existente.</p>
+
+<p>El resultado fue la <a href="http://www.whatwg.org/specs/web-apps/2005-09-01/" hreflang="en">especificación Web Applications 1.0</a>, que documentaba los comportamientos y características existentes e interoperables de los navegadores, así como nuevas características para la pila web, como APIs y nuevas reglas de análisis del DOM. Después de muchas discusiones entre los miembros del W3C, el 7 de marzo de 2007 se reanudó el trabajo en HTML con un nuevo Grupo de Trabajo de HTML en un proceso de participación abierta. En pocos días cientos de participantes se apuntaron a seguir trabajando en la siguiente versión de HTML. Una de las primeras decisiones del Grupo de Trabajo de HTML fue adoptar la especificación Web Applications 1.0 y llamarla HTML5.</p>
+
+<p>HTML5 ya es muy buena cosa para los desarrolladores web y diseñadores, ya que:</p>
+
+<ul><li><p>Es muy compatible con lo que ya existe no hace falta aprender idiomas completamente nuevos para utilizar HTML5. Las nuevas características de marcado funcionan igual que las antiguas (aunque la semántica de algunos elementos ha cambiado cubriremos estas diferencias en un próximo artículo), y las nuevas APIs se basan en el mismo JavaScript y DOM con que programan los desarrolladores desde hace años.</p></li>
+<li><p>Añade nuevas y potentes características de HTML que antes sólo estaban disponibles en la web usando tecnologías como el plugin de Flash, o con JavaScript y hacks complejos. La validación de formularios y el vídeo son los principales ejemplos.</p></li>
+<li><p>Es más adecuado para escribir aplicaciones dinámicas que las versiones anteriores de HTML (HTML fue diseñado originalmente para la creación de documentos estáticos).</p></li>
+<li><p>Tiene un algoritmo de interpretación claramente definido, de forma que todos los navegadores que implementen HTML5 crearán un mismo DOM a partir de un mismo marcado, independientemente de la validez de este. Esto representa una enorme victoria para la interoperabilidad.</p></li></ul>
+
+<h2>¿Qué significa HTML5 para mí?</h2>
+
+<p>Para empezar, respondamos a esa pregunta que te da vueltas por la cabeza desde que has empezado a leer este artículo: ¿por qué te hemos enseñado la mayor parte del currículo de estándares web con HTML 4.01, si ya HTML5 está en el horizonte? En primer lugar, cuando se publicó por primera vez el CEW en 2008, HTML5 estaba mucho más en flujo que ahora, y no queríamos enseñar algo que probablemente cambiaría posteriormente.</p>
+
+<p>En segundo lugar, y más importante, HTML5 es retrocompatible: en términos prácticos esto significa que todo lo que hay en HTML 4.01 está también en HTML5. Así que al aprender HTML 4.01 ya estás aprendiendo una gran parte de HTML5. Este artículo, y los otros de esta sección, pretende completar las lagunas de conocimiento mediante la enseñanza de las capas extra que HTML5 añade sobre HTML 4.01 como, por ejemplo, los elementos semánticos añadidos y las nuevas APIs que permiten controlar la reproducción de vídeo y dibujar sobre un lienzo. Daremos un montón de referencias a más información sobre estas características al final del artículo.</p>
+
+<p>Algunas partes de HTML5 ya están implementadas de manera lo suficientemente estable en los navegadores como para usarse de forma segura incluso en un sitio en producción (como siempre, hay que tomar decisiones teniendo en cuenta el público objetivo del sitio y sus características). Además, si una característica no es compatible con algunos navegadores, existen soluciones alternativas los artículos las mostrarán, en el momento adecuado.</p>
+
+<p>Para darle una respuesta breve y concluyente, HTML5 es el futuro de la Web, y una gran parte de tu futuro como diseñador o desarrollador web. Me gustaría recomendarte que empieces a aprender HTML5 en cuanto estés preparado muchas de las nuevas características facilitarán mucho tu trabajo actual, y protegerá tus conocimientos para el futuro. Si eres estudiante en la universidad y el profesor aún no sabe nada de HTML5, o no está dispuesto a cubrirlo en su curso, muéstrales este artículo.</p>
+
+<h2>Características de HTML5</h2>
+
+<p>HTML5 contiene muchas nuevas características para hacer HTML mucho más potente y adecuadas para la creación de aplicaciones web. En la siguiente  lista hemos resumido las principales que realmente deberías conocer.</p>
+
+<div class="note">
+<p>Algunas de las características enumeradas a continuación no son realmente parte de la especificación HTML5 en sí, sino que se definen en especificaciones estrechamente relacionadas, y por tanto siguen siendo piezas válidas del nuevo movimiento para conseguir  aplicaciones web modernas, y te es útil conocerlas.</p>
+</div>
+
+<ul><li><p><strong>Nuevos elementos semánticos:</strong> Como ya sabes, la semántica es muy importante en HTML: siempre debemos utilizar el elemento apropiado para cada función. En HTML 4.01 tenemos un problema: sí, hay muchos elementos para definir determinados recursos, como tablas, listas o encabezados, pero también hay muchas características comunes a muchas páginas web que que carecen de elementos para definirlas. Piensa en las cabeceras, pies de página, menús de navegación, etc. Hasta ahora las hemos definido usando <code>&lt;div id="xxx"&gt; &lt;/ div&gt;</code>, que nosotros somos capaces de entender, pero las máquinas no, sin mencionar que diferentes desarrolladores web usan identificadores y clases diferentes. Afortunadamente, HTML5 viene con nuevos elementos semánticos como <code>&lt;nav&gt;</code>, <code>&lt;header&gt;</code>, <code>&lt;footer&gt;</code> y <code>&lt;article&gt;</code>. Puedes aprender acerca de estos en el artículo <a href="../ud2/index.html">Los nuevos elementos estructurales de HTML5</a>.</p></li>
+<li><p><strong>Nuevas características de formularios</strong>: HTML 4.01 ya permite crear formularios usables y accesibles, pero algunas características comunes son menos cómodas de lo que deberían ser, y requieren el uso de hacks para ponerlas en práctica. HTML5 proporciona una forma estandarizada y fácil de implementar características tales como selectores de fecha, deslizadores y validación en el cliente. Los formularios HTML5 se tratan en detalle en el artículo <a href="../ud3/index.html">Las Nuevas Características de Formularios de HTML5</a>.</p></li>
+<li><p><strong>Audio y vídeo nativos</strong>: Durante años, el audio y vídeo en la Web se ha hecho con Flash, en general. De hecho, la razón por la que Flash se hizo tan popular en los albores del siglo XXI es que los estándares abiertos no proporcionaban un mecanismo compatible entre navegadores para su implementación: los diferentes navegadores implementaban maneras diferentes de hacerlo, en competencia unos con otros (por ejemplo, <code>&lt;object&gt;</code> y <code>&lt;embed&gt;</code>), complicando mucho todo el proceso. Flash daba una forma fácil y de gran calidad de publicar vídeo multinavegador.</p>
+<p>HTML5 incluye elementos <code>&lt;audio&gt;</code> y <code>&lt;video&gt;</code> para implementar reproductores de audio y  vídeo nativos sin usar más que estándares abiertos, y también incluye una API que permite implementar fácilmente controles de reproducción personalizados. Hay muchos artículos en dev.opera.com sobre el audio y vídeo de HTML5, pero el mejor lugar para comenzar es el artículo inaugural de Bruce Lawson y Pat Lauke <a href="../ud4/index.html">Introducción al Vídeo HTML5</a>. También vale la pena visitar <a href="http://dev.opera.com/articles/view/more-accessible-html5-video-player/" hreflang="en">More accessible HTML5 video player</a>.</p></li>
+<li><p><strong>API de dibujo en Canvas:</strong> El elemento <code>&lt;canvas&gt;</code> (lienzo) y la API asociada permiten definir un área de la página sobre la que dibujar y usar comandos JavaScript para dibujar líneas, formas y texto, importar y manipular gráficos y vídeo, exportar en diferentes formatos de imagen y mucho más. Para más información sobre el lienzo de HTML5, comienza por <a href="../ud5/index.html">El lienzo de HTML5: Fundamentos</a>, de Mihai Sucan.</p></li>
+<li><p><strong>Web Sockets:</strong> Esta API (definida en la <a href="http://www.w3.org/TR/websockets/" hreflang="en">especificación de web sockets</a>, separada de la especificación HTML5) permite establecer una conexión continua entre un servidor y un cliente en un puerto específico y enviar datos en ambas direcciones hasta que el puerto se cierre. Esto mejora mucho la eficiencia de las aplicaciones web, ya que pueden intercambiarse datos de forma continua y precisa entre el cliente y el servidor sin recargas de página continuas y sin tener que consultar constantemente el servidor para ver si hay actualizaciones disponibles. <a href="http://dev.opera.com/articles/view/introducing-web-sockets/" hreflang="en">Introducing Web Sockets</a> es un buen punto de inicio.</p></li>
+<li><p><strong>Aplicaciones web offline:</strong> HTML5 proporciona una serie de características que permiten a las aplicaciones web ejecutarse sin conexión. Los <a href="http://dev.opera.com/articles/view/offline-applications-html5-appcache/" hreflang="en">cachés de aplicación</a> permiten guardar una copia de todos los elementos y archivos necesarios para ejecutar aplicaciones web localmente, y las bases de datos Web SQL permiten guardar una copia local de los datos de una aplicación web. En conjunto, permiten seguir utilizando una aplicación cuando uno se queda sin conexión y luego sincronizar los cambios con la versión principal en el servidor cuando la red vuelva  a estar disponible.</p></li>
+<li><p><strong>Almacenamiento Web:</strong> Las cookies nos permiten un cierto grado de almacenamiento de datos locales, pero su uso es bastante limitado. El Almacenamiento Web de HTML5 nos permite almacenar muchos más datos, y hacer mucho más con ellos. Puedes leer <a href="http://dev.opera.com/articles/view/web-storage/" hreflang="en">Web Storage: easier, more powerful client-side data storage</a>, de Shwetank Dixit, para obtener más información.</p></li>
+<li><p><strong>Web workers:</strong> Un problema común para las aplicaciones web es que su rendimiento se resiente cuando se requiere una gran cantidad de procesamiento de datos, puesto que todo sucede en un único proceso o subproceso (sólo puede haber una única carga de procesado). Los 'trabajadores web' mitigan este problema porque permiten crear procesos de fondo para hacerse cargo de parte del cálculo, permitiendo que el proceso principal siga adelante con otras cosas. Para leer más sobre los 'trabajadores web', puedes leer <a href="http://dev.opera.com/articles/view/web-workers-rise-up/" hreflang="en">Web Workers rise up!</a> de Daniel Davis.</p></li>
+<li><p><strong>Geolocalización:</strong> La especificación de geolocalización (de nuevo, fuera de la especificación de HTML5) define una API que permite a una aplicación web acceder fácilmente a los datos de localización que se hayan puesto a disposición previamente, por ejemplo, a través de las capacidades GPS de un dispositivo. Esto permite añadir todo tipo de útiles funciones de localización a las aplicaciones como, por ejemplo, resaltar el contenido más relevante para la ubicación actual. Para ver una introducción básica, consulta <a href="http://dev.opera.com/articles/view/how-to-use-the-w3c-geolocation-api/" hreflang="en">How to use the W3C Geolocation API</a></p></li></ul>
+
+<div class="note">
+<p>Nota: CSS3 DEFINITIVAMENTE NO es parte de HTML5 y nunca lo será. No dejes que tu departamento de marketing te diga lo contrario.</p>
+</div>
+
+<h2>Resumen</h2>
+
+<p>Así acaba nuestra introducción a HTML5. Espero que la hayas encontrado útil y que continuarás leyendo el resto de artículos sobre HTML5 que hemos referenciado.</p>
+   
+</div>
+<div><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.es"><img src="../../m0/creative_commons.gif" id="logo_cc" alt="Logo Creative Commons" /></a></div>
+<div id="logo_text">Los contenidos recogidos en este artículo están sujetos a una licencia <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.es">Creative Commons<br /> Reconocimiento, No comercial - Compartir bajo la misma licencia 3.0 No adaptada</a>.
+</div>
+<div id="cierre_autor"></div>
+
+<div id="peu">
+		<a rel="prev" href="../../m7/ud1/index.html" title="Ir al artículo anterior" accesskey="8"><img src="../../img/fletxa_izq_inv.gif" alt="Ir al artículo anterior" /></a> <strong>:</strong>
+		<a rel="index" href="../../index.html" title="Ir al índice" accesskey="0"><img src="../../img/indice_inv.gif" alt="Ir al índice" /></a> <strong>:</strong>
+		<a rel="next" href="../ud2/index.html" title="Ir al artículo siguiente" accesskey="9"><img src="../../img/fletxa_der_inv.gif" alt="Ir al artículo siguiente" /></a>
+</div>
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+
+<script type="text/javascript">
+_uacct = "UA-1571980-1";
+_userv=2;
+_uhash = "off";
+_udn="uoc.edu";
+_ulink = 1;
+_ucto = 2592000;
+_uRno[0] = "uoc.edu";
+urchinTracker();
+</script>
+</body>
