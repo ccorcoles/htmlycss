@@ -1,43 +1,43 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="utf-8" />
+<meta charset="iso-8859-1" />
 <meta name="author" content="Universitat Oberta de Catalunya" />
 
-<title>IntroducciÃ³n al vÃ­deo en HTML5</title>
+<title>Introducción al vídeo en HTML5</title>
 <link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
 </head>
 
 <body>
 <div id="cabecera">
 	<img id="logo" src="../../img/logo.gif" alt="Universitat Oberta de Catalunya" />
-    <a href="http://mosaic.uoc.edu/"><img id="logomosaic" src="../../img/logo-mosaic.gif" alt="Logo de Mosaic" title="Abre la pÃ¡gina web de Mosaic" /></a>
+    <a href="http://mosaic.uoc.edu/"><img id="logomosaic" src="../../img/logo-mosaic.gif" alt="Logo de Mosaic" title="Abre la página web de Mosaic" /></a>
 	<div id="titulo">HTML5</div>
-	<div id="subtitulo">IntroducciÃ³n al vÃ­deo en HTML5</div>
+	<div id="subtitulo">Introducción al vídeo en HTML5</div>
 <div id="cierre"></div>
 	<div id="navegador">
 		<a href="../../m0/accessibilitat.html" id="accesibilidad">Accesibilidad</a> <strong>:</strong> 
-		<a rel="prev" href="../ud3/index.html" title="Ir al artÃ­culo anterior" accesskey="8"><img src="../../img/fletxa_izq.gif" alt="Ir al artÃ­culo anterior" /></a> <strong>:</strong> 
-		<a rel="index" href="../../index.html" title="Ir al Ã­ndice" accesskey="0"><img src="../../img/indice.gif" alt="Ir al Ã­ndice" /></a> <strong>:</strong> 
-		<a rel="next" href="../ud5/index.html" title="Ir al artÃ­culo anterior" accesskey="9"><img src="../../img/fletxa_der.gif" alt="Ir al artÃ­culo siguiente" /></a>
+		<a rel="prev" href="../ud3/index.html" title="Ir al artículo anterior" accesskey="8"><img src="../../img/fletxa_izq.gif" alt="Ir al artículo anterior" /></a> <strong>:</strong> 
+		<a rel="index" href="../../index.html" title="Ir al índice" accesskey="0"><img src="../../img/indice.gif" alt="Ir al índice" /></a> <strong>:</strong> 
+		<a rel="next" href="../ud5/index.html" title="Ir al artículo anterior" accesskey="9"><img src="../../img/fletxa_der.gif" alt="Ir al artículo siguiente" /></a>
 	</div>
 </div>
 	
 <div id="main">
-<h1>IntroducciÃ³n al vÃ­deo en HTML5</h1>
-<p class="by"> Bruce Lawson, Patrick H. Lauke. 11 de febrero de 2010. Publicado en: css, canvas, accesibilidad, html5, multimedia, vÃ­deo, opera 10.50, web abierta</p>
+<h1>Introducción al vídeo en HTML5</h1>
+<p class="by"> Bruce Lawson, Patrick H. Lauke. 11 de febrero de 2010. Publicado en: css, canvas, accesibilidad, html5, multimedia, vídeo, opera 10.50, web abierta</p>
 
-<h2>IntroducciÃ³n</h2>
+<h2>Introducción</h2>
 
-<p>Hace mucho tiempo, en una galaxia que  ahora parece muy lejana, el multimedia en la web se limitaba a canciones MIDI  de sonido metÃ¡lico y GIF animados. A medida que crecÃ­a el ancho de banda y  mejoraban las tecnologÃ­as de compresiÃ³n la mÃºsica MP3 suplantÃ³ al MIDI y el  vÃ­deo de verdad comenzÃ³ a ganar terreno. Todo tipo de reproductores  propietarios plantearon un verdadero combate âReal Player, Windows Media  Player, etcâ hasta que uno emergiÃ³ como vencedor en 2005: Adobe Flash. Esto fue  en gran parte debido a la ubicuidad de su plug-in y el hecho de que era el  mecanismo de distribuciÃ³n elegido por YouTube. Flash se ha convertido en el  estÃ¡ndar de facto para la distribuciÃ³nn de vÃ­deo en la web.</p>
+<p>Hace mucho tiempo, en una galaxia que  ahora parece muy lejana, el multimedia en la web se limitaba a canciones MIDI  de sonido metálico y GIF animados. A medida que crecía el ancho de banda y  mejoraban las tecnologías de compresión la música MP3 suplantó al MIDI y el  vídeo de verdad comenzó a ganar terreno. Todo tipo de reproductores  propietarios plantearon un verdadero combate —Real Player, Windows Media  Player, etc— hasta que uno emergió como vencedor en 2005: Adobe Flash. Esto fue  en gran parte debido a la ubicuidad de su plug-in y el hecho de que era el  mecanismo de distribución elegido por YouTube. Flash se ha convertido en el  estándar de facto para la distribuciónn de vídeo en la web.</p>
 
-<p>Una de las novedades mÃ¡s emocionantes de  HTML 5 es la inclusiÃ³n del elemento <code>&lt;video&gt;</code>, que permite a los  desarrolladores incluir vÃ­deo directamente en sus pÃ¡ginas sin necesidad de una  soluciÃ³n basada en plug-ins. <a href="http://lists.whatwg.org/pipermail/whatwg-whatwg.org/2007-February/009702.html">Opera  propuso el elemento <code>&lt;video&gt;</code> estÃ¡ndar</a> como parte de HTML5 en 2007, e  hizo su debut oficial en Opera 10.50.</p>
+<p>Una de las novedades más emocionantes de  HTML 5 es la inclusión del elemento <code>&lt;video&gt;</code>, que permite a los  desarrolladores incluir vídeo directamente en sus páginas sin necesidad de una  solución basada en plug-ins. <a href="http://lists.whatwg.org/pipermail/whatwg-whatwg.org/2007-February/009702.html">Opera  propuso el elemento <code>&lt;video&gt;</code> estándar</a> como parte de HTML5 en 2007, e  hizo su debut oficial en Opera 10.50.</p>
 
-<p>En este artÃ­culo se da una introducciÃ³n a  <code>&lt;video&gt;</code> y algunas de sus APIs asociadas. Veremos por quÃ© el soporte de  vÃ­deo nativo en los navegadores es importante, daremos un repaso al marcado del  elemento y resumiremos las formas mÃ¡s importantes para controlar el vÃ­deo a  travÃ©s de JavaScript.</p>
+<p>En este artículo se da una introducción a  <code>&lt;video&gt;</code> y algunas de sus APIs asociadas. Veremos por qué el soporte de  vídeo nativo en los navegadores es importante, daremos un repaso al marcado del  elemento y resumiremos las formas más importantes para controlar el vídeo a  través de JavaScript.</p>
 
-<h2>Â¿Por quÃ© necesitamos un elemento <code>&lt;video&gt;</code>?</h2>
+<h2>¿Por qué necesitamos un elemento <code>&lt;video&gt;</code>?</h2>
 
-<p>Hasta ahora, si querÃ­as incluir vÃ­deo en  una pÃ¡gina web, tenÃ­as que bregar con un marcado bastante crÃ­ptico. He aquÃ­ un  ejemplo, tomado directamente de YouTube:</p>
+<p>Hasta ahora, si querías incluir vídeo en  una página web, tenías que bregar con un marcado bastante críptico. He aquí un  ejemplo, tomado directamente de YouTube:</p>
 
 <pre><code>&lt;object width=&quot;425&quot; height=&quot;344&quot;&gt;
     &lt;param name=&quot;movie&quot;
@@ -52,11 +52,11 @@
       height=&quot;344&quot;&gt;&lt;/embed&gt;
   &lt;/object&gt;</code></pre>
 
-<p>En primer lugar, tenemos un elemento <code>&lt;object&gt;</code>, un contenedor genÃ©rico de &quot;objetos extraÃ±os&quot;, para  incluir la pelÃ­cula Flash. Para evitar inconsistencias entre navegadores,  tambiÃ©n incluimos un elemento de reserva <code>&lt;embed&gt;</code> como contenido de repuesto y Â duplicamos la mayorÃ­a de los parÃ¡metros del <code>&lt;object&gt;</code>. El cÃ³digo resultante es torpe y no muy legible, y tiene otros  problemas: el contenido del plugin no interactÃºa demasiado bien con las otras  tecnologÃ­as en la pÃ¡gina y tiene problemas inherentes de accesibilidad (mÃ¡s  sobre esto despuÃ©s).</p>
+<p>En primer lugar, tenemos un elemento <code>&lt;object&gt;</code>, un contenedor genérico de &quot;objetos extraños&quot;, para  incluir la película Flash. Para evitar inconsistencias entre navegadores,  también incluimos un elemento de reserva <code>&lt;embed&gt;</code> como contenido de repuesto y  duplicamos la mayoría de los parámetros del <code>&lt;object&gt;</code>. El código resultante es torpe y no muy legible, y tiene otros  problemas: el contenido del plugin no interactúa demasiado bien con las otras  tecnologías en la página y tiene problemas inherentes de accesibilidad (más  sobre esto después).</p>
 
-<h2>AnatomÃ­a del elemento &lt;video&gt;</h2>
+<h2>Anatomía del elemento &lt;video&gt;</h2>
 
-<p>En comparaciÃ³n con la complicada construcciÃ³n  necesaria para incluir Flash en la pÃ¡gina, el marcado bÃ¡sico necesario para <code>&lt;video&gt;</code> en HTML5 es refrescantemente sencillo:</p>
+<p>En comparación con la complicada construcción  necesaria para incluir Flash en la página, el marcado básico necesario para <code>&lt;video&gt;</code> en HTML5 es refrescantemente sencillo:</p>
 
 <pre><code>&lt;video src=turkish.ogv
     width=320
@@ -66,23 +66,23 @@
 &lt;/video&gt;</code></pre>
 
 <div class="note">
-<p>NÃ³tese que en nuestro ejemplo nos  aprovechamos de la sintaxis mÃ¡s relajada de HTML5: no es necesario entrecomillar  los valores de atributos y se pueden usar atributos simples booleanos como <code>autoplay</code> como palabras sueltas. Si se prefiere, se puede, por supuesto, ajustarse tambiÃ©n  a la sintaxis XHTML <code>controls=&quot;controls&quot;</code> y entrecomillar todos los valores de los atributos. Obviamente,  tiene sentido elegir el estilo de programaciÃ³n que mÃ¡s convenga y aferrarse a  Ã©l, por coherencia y facilidad de mantenimiento. En XHTML5, debe utilizarse la  sintaxis de XHTML (y tambiÃ©n deben servirse las pÃ¡ginas como XML con el tipo  MIME correcto, que en la actualidad no funciona en Internet Explorer).</p>
+<p>Nótese que en nuestro ejemplo nos  aprovechamos de la sintaxis más relajada de HTML5: no es necesario entrecomillar  los valores de atributos y se pueden usar atributos simples booleanos como <code>autoplay</code> como palabras sueltas. Si se prefiere, se puede, por supuesto, ajustarse también  a la sintaxis XHTML <code>controls=&quot;controls&quot;</code> y entrecomillar todos los valores de los atributos. Obviamente,  tiene sentido elegir el estilo de programación que más convenga y aferrarse a  él, por coherencia y facilidad de mantenimiento. En XHTML5, debe utilizarse la  sintaxis de XHTML (y también deben servirse las páginas como XML con el tipo  MIME correcto, que en la actualidad no funciona en Internet Explorer).</p>
 </div>
 
-<p>Los atributos del elemento <code>&lt;video&gt;</code> que hemos utilizado en nuestro cÃ³digo de muestra son bastante  autoexplicativos :</p>
+<p>Los atributos del elemento <code>&lt;video&gt;</code> que hemos utilizado en nuestro código de muestra son bastante  autoexplicativos :</p>
 
 <dl>
 <dt><code>src</code></dt>
-<dd>La fuente del  elemento, con la direcciÃ³n URL del archivo de vÃ­deo.</dd>
+<dd>La fuente del  elemento, con la dirección URL del archivo de vídeo.</dd>
 <dt><code>width</code> y <code>height</code></dt>
-<dd>Al igual que  con los elementos <code>img</code>, se  pueden establecer explÃ­citamente las dimensiones del vÃ­deo. De lo contrario, el  elemento usarÃ¡ como valor por defecto el ancho y alto intrÃ­nsecos del archivo  de vÃ­deo. Si se especifica una pero no la otra, el navegador modificarÃ¡ el  tamaÃ±o de la dimensiÃ³n no especificada para preservar la relaciÃ³n de aspecto  del vÃ­deo.</dd>
+<dd>Al igual que  con los elementos <code>img</code>, se  pueden establecer explícitamente las dimensiones del vídeo. De lo contrario, el  elemento usará como valor por defecto el ancho y alto intrínsecos del archivo  de vídeo. Si se especifica una pero no la otra, el navegador modificará el  tamaño de la dimensión no especificada para preservar la relación de aspecto  del vídeo.</dd>
 <dt><code>controls</code></dt>
-<dd>Si este  atributo booleano estÃ¡ presente, el navegador mostrarÃ¡ sus controles de vÃ­deo  nativos para la reproducciÃ³n y el volumen. Si se omite, el usuario sÃ³lo verÃ¡ el  primer fotograma (o la imagen <code>poster</code> especificada) y no serÃ¡ capaz de reproducir el vÃ­deo, a menos que  se dispare la pelÃ­cula desde algÃºn fragmento de JavaScript o crees tus propios  controles personalizados, tal y como explicaremos mÃ¡s adelante en este  artÃ­culo.</dd>
+<dd>Si este  atributo booleano está presente, el navegador mostrará sus controles de vídeo  nativos para la reproducción y el volumen. Si se omite, el usuario sólo verá el  primer fotograma (o la imagen <code>poster</code> especificada) y no será capaz de reproducir el vídeo, a menos que  se dispare la película desde algún fragmento de JavaScript o crees tus propios  controles personalizados, tal y como explicaremos más adelante en este  artículo.</dd>
 <dt><code>poster</code></dt>
-<dd>El atributo <code>poster</code> seÃ±ala una imagen que el navegador usarÃ¡ mientras se descarga el  vÃ­deo, o hasta que el usuario indique que el vÃ­deo debe reproducirse. Si no se  incluye, seÂ  usarÃ¡ el primer fotograma  del vÃ­deo.</dd>
+<dd>El atributo <code>poster</code> señala una imagen que el navegador usará mientras se descarga el  vídeo, o hasta que el usuario indique que el vídeo debe reproducirse. Si no se  incluye, se  usará el primer fotograma  del vídeo.</dd>
 </dl>
 
-<p>Para los navegadores web que no admiten  actualmente <code>&lt;video&gt;</code>,  se puede incluir contenido alternativo. Como mÃ­nimo podrÃ­a incluirse un texto y  un enlace al archivo de vÃ­deo en sÃ­, de modo que los usuarios puedan descargar  y reproducirlo con la aplicaciÃ³n que deseen:</p>
+<p>Para los navegadores web que no admiten  actualmente <code>&lt;video&gt;</code>,  se puede incluir contenido alternativo. Como mínimo podría incluirse un texto y  un enlace al archivo de vídeo en sí, de modo que los usuarios puedan descargar  y reproducirlo con la aplicación que deseen:</p>
 
 <pre><code>&lt;video src=turkish.ogv
     width=320
@@ -93,32 +93,32 @@
 &lt;/video&gt;</code></pre>
 
 
-<p>AsÃ­, sin mÃ¡s interludios, puedes echar un  vistazo al <a href="http://people.opera.com/patrickl/articles/introduction-html5-video/basic/">vÃ­deo  de una clase de danza turca</a>, implementando usando exclusivamente la  potencia del elemento <code>&lt;video&gt;</code> nativo.</p>
+<p>Así, sin más interludios, puedes echar un  vistazo al <a href="http://people.opera.com/patrickl/articles/introduction-html5-video/basic/">vídeo  de una clase de danza turca</a>, implementando usando exclusivamente la  potencia del elemento <code>&lt;video&gt;</code> nativo.</p>
 
-<p>Hay mÃ¡s atributos que no hemos cubierto  en nuestros ejemplos. Son:</p>
+<p>Hay más atributos que no hemos cubierto  en nuestros ejemplos. Son:</p>
 
 <dl>
 <dt><code>autoplay</code></dt>
-<dd>Indica al  navegador que debe iniciarse la reproducciÃ³n del vÃ­deo de forma automÃ¡tica.  Utiliza este atributo con cuidado, ya que puede ser muy molesto, si no  francamente problemÃ¡tico, especialmente para los usuarios con ayudas tÃ©cnicas  como lectores de pantalla o los que usan conexiones de bajo ancho de banda  (por ejemplo, desde un dispositivo mÃ³vil).</dd>
+<dd>Indica al  navegador que debe iniciarse la reproducción del vídeo de forma automática.  Utiliza este atributo con cuidado, ya que puede ser muy molesto, si no  francamente problemático, especialmente para los usuarios con ayudas técnicas  como lectores de pantalla o los que usan conexiones de bajo ancho de banda  (por ejemplo, desde un dispositivo móvil).</dd>
 <dt><code>autobuffer</code></dt>
-<dd>Si estÃ¡s  bastante seguro de que el usuario querrÃ¡ activar el vÃ­deo (por ejemplo, porque  ha navegado especÃ­ficamente hasta Ã©l y el vÃ­deo es la Ãºnica razÃ³n para estar en  la pÃ¡gina), pero no deseas utilizar <code>autoplay</code>, puedes  establecer la booleana <code>autobuffer</code>.  Esta pide al navegador que empiece a descargar al archivo inmediatamente,  anticipando que el usuario va a reproducir el vÃ­deo. (Esta parte de la especificaciÃ³n se encuentra actualmente en proceso de cambio, por lo que no se ha implementado  en Opera hasta el momento)</dd>
+<dd>Si estás  bastante seguro de que el usuario querrá activar el vídeo (por ejemplo, porque  ha navegado específicamente hasta él y el vídeo es la única razón para estar en  la página), pero no deseas utilizar <code>autoplay</code>, puedes  establecer la booleana <code>autobuffer</code>.  Esta pide al navegador que empiece a descargar al archivo inmediatamente,  anticipando que el usuario va a reproducir el vídeo. (Esta parte de la especificación se encuentra actualmente en proceso de cambio, por lo que no se ha implementado  en Opera hasta el momento)</dd>
 <dt><code>loop</code></dt>
-<dd>El atributo <code>loop</code> (bucle) es otro booleano. Como es de imaginar, pone el vÃ­deo en un bucle  infinito. (En la actualidad esto no se ha implementado en Opera)</dd>
+<dd>El atributo <code>loop</code> (bucle) es otro booleano. Como es de imaginar, pone el vídeo en un bucle  infinito. (En la actualidad esto no se ha implementado en Opera)</dd>
 </dl>
 
-<h2>CÃ³decs: la mosca en la sopa</h2>
+<h2>Códecs: la mosca en la sopa</h2>
 
-<p>Por el momento, la versiÃ³n oficial de  consumo de Opera sÃ³lo admite el <a href="http://theora.org/" hreflang="en">cÃ³dec de vÃ­deo Ogg  Theora, un formato abierto de compresiÃ³n de vÃ­deo de la fundaciÃ³n Xiph.org libre de licencias</a>.</p>
+<p>Por el momento, la versión oficial de  consumo de Opera sólo admite el <a href="http://theora.org/" hreflang="en">códec de vídeo Ogg  Theora, un formato abierto de compresión de vídeo de la fundación Xiph.org libre de licencias</a>.</p>
 
-<p>Firefox y Chrome tambiÃ©n soportan Theora.  Sin embargo, Safari no lo hace, prefiriendo en su lugar dar soporte nativo para  el <a href="http://en.wikipedia.org/wiki/H.264/MPEG-4_AVC" hreflang="en">cÃ³dec H.264</a> (que  tambiÃ©n es compatible con Chrome). Microsoft tambiÃ©n ha anunciado soporte para <code>&lt;video&gt;</code> distribuido con H.264. Como se puede imaginar, esto provoca  algunos problemas en tÃ©rminos de la necesidad de hacer que los vÃ­deos estÃ©n  disponibles en diferentes formatos para diferentes navegadores.</p>
+<p>Firefox y Chrome también soportan Theora.  Sin embargo, Safari no lo hace, prefiriendo en su lugar dar soporte nativo para  el <a href="http://en.wikipedia.org/wiki/H.264/MPEG-4_AVC" hreflang="en">códec H.264</a> (que  también es compatible con Chrome). Microsoft también ha anunciado soporte para <code>&lt;video&gt;</code> distribuido con H.264. Como se puede imaginar, esto provoca  algunos problemas en términos de la necesidad de hacer que los vídeos estén  disponibles en diferentes formatos para diferentes navegadores.</p>
 
-<p>En un intento por solucionar este  problema, Google ha publicado recientemente el <a href="http://www.webmproject.org/" hreflang="en">cÃ³dec de vÃ­deo VP8 y el formato de  contenedor WebM</a> en condiciones libres de royalties, con el objetivo de  ofrecer un formato de vÃ­deo abierto de alta calidadÂ  disponible para los diferentes navegadores y  plataformas. AsÃ­ lo anunciÃ³ pÃºblicamente en la <a href="http://code.google.com/events/io/2010/" hreflang="en">conferencia Google I/O de 2010</a>.</p>
+<p>En un intento por solucionar este  problema, Google ha publicado recientemente el <a href="http://www.webmproject.org/" hreflang="en">códec de vídeo VP8 y el formato de  contenedor WebM</a> en condiciones libres de royalties, con el objetivo de  ofrecer un formato de vídeo abierto de alta calidad  disponible para los diferentes navegadores y  plataformas. Así lo anunció públicamente en la <a href="http://code.google.com/events/io/2010/" hreflang="en">conferencia Google I/O de 2010</a>.</p>
 
 <div class="note">
-<p>En el dÃ­a del anuncio, Opera lanzÃ³ una  versiÃ³n experimental con soporte para WebM. Esta caracterÃ­stica es ahora parte  de la funcionalidad bÃ¡sica de <a href="http://www.opera.com/browser/">Opera  10.60</a> y de todas nuestras futuras versiones del navegador de escritorio.</p>
+<p>En el día del anuncio, Opera lanzó una  versión experimental con soporte para WebM. Esta característica es ahora parte  de la funcionalidad básica de <a href="http://www.opera.com/browser/">Opera  10.60</a> y de todas nuestras futuras versiones del navegador de escritorio.</p>
 </div>
 
-<p>Volviendo a nuestro ejemplo, vamos a codificar  el vÃ­deo dos veces âuna vez en Theora y otra en H.264â, aÃ±adiremos elementos <code>&lt;source&gt;</code> alternativos con los atributos <code>type</code>	 apropiados al vÃ­deo y dejaremos que el navegador descargue el  formato que sea capaz de mostrar. NÃ³tese que en este caso no indicamos un  atributo <code>src</code> en el propio elemento <code>&lt;video&gt;</code>:</p>
+<p>Volviendo a nuestro ejemplo, vamos a codificar  el vídeo dos veces —una vez en Theora y otra en H.264—, añadiremos elementos <code>&lt;source&gt;</code> alternativos con los atributos <code>type</code>	 apropiados al vídeo y dejaremos que el navegador descargue el  formato que sea capaz de mostrar. Nótese que en este caso no indicamos un  atributo <code>src</code> en el propio elemento <code>&lt;video&gt;</code>:</p>
 
 <pre><code>&lt;video width=320 height=240 controls poster=turkish.jpg&gt;
     <strong>&lt;source src=turkish.ogv type=video/ogg&gt;
@@ -126,114 +126,101 @@
     Download the &lt;a href=video.ogg&gt;Turkish dancing masterclass video&lt;/a&gt;
 &lt;/video&gt;</code></pre>
 
-<p>AquÃ­ estÃ¡ nuestra <a href="http://people.opera.com/patrickl/articles/introduction-html5-video/multi-source/">clase  de danza turca con fuentes tanto .ogv como .mp4</a>.</p>
+<p>Aquí está nuestra <a href="http://people.opera.com/patrickl/articles/introduction-html5-video/multi-source/">clase  de danza turca con fuentes tanto .ogv como .mp4</a>.</p>
 
-<p>El tipo de archivo MP4 tambiÃ©n puede ser  reproducido por el plug-in de Flash, por lo que ambos pueden ser usados en  combinaciÃ³n como contenido de emergencia para las versiones actuales de  Internet Explorer y las versiones antiguas de todos los navegadores. VÃ©ase la  ingeniosa aplicaciÃ³n por parte de Kroc Camen de esta tÃ©cnica en su artÃ­culo <a href="http://camendesign.com/code/video_for_everybody" hreflang="en">Video for everyone!</a>,  en el que integra como un doctor Frankenstein los antiguos <code>object</code> y <code>embed</code> en la  parte de contenido alternativo del elemento <code>&lt;video&gt;</code>.</p>
+<p>El tipo de archivo MP4 también puede ser  reproducido por el plug-in de Flash, por lo que ambos pueden ser usados en  combinación como contenido de emergencia para las versiones actuales de  Internet Explorer y las versiones antiguas de todos los navegadores. Véase la  ingeniosa aplicación por parte de Kroc Camen de esta técnica en su artículo <a href="http://camendesign.com/code/video_for_everybody" hreflang="en">Video for everyone!</a>,  en el que integra como un doctor Frankenstein los antiguos <code>object</code> y <code>embed</code> en la  parte de contenido alternativo del elemento <code>&lt;video&gt;</code>.</p>
 
 <div class="note">
-<p>Por supuesto, si los navegadores que no  soportan el elemento <code>&lt;video&gt;</code> recurren a usar plug-ins como QuickTime o Flash, volvemos a estar como al  principio, y no podremos beneficiarnos de ninguna de las nuevas caracterÃ­sticas  y mejoras que esbozaremos a continuaciÃ³n. <em>&quot;Â¿De  quÃ© sirve entonces?&quot;</em>, te puedes preguntar. DirÃ­amos que esta es una  soluciÃ³n transitoria, hasta que el soporte nativo de vÃ­deo llegue todos los  principales navegadores y se llegue a un acuerdo sobre formatos. Es un caso de  degradaciÃ³n grÃ¡cil: puede que a los usuarios les llegue una versiÃ³n un tanto  recortada de la pÃ¡gina, pero al menos serÃ¡n capaces de ver las pelÃ­culas.</p>
+<p>Por supuesto, si los navegadores que no  soportan el elemento <code>&lt;video&gt;</code> recurren a usar plug-ins como QuickTime o Flash, volvemos a estar como al  principio, y no podremos beneficiarnos de ninguna de las nuevas características  y mejoras que esbozaremos a continuación. <em>&quot;¿De  qué sirve entonces?&quot;</em>, te puedes preguntar. Diríamos que esta es una  solución transitoria, hasta que el soporte nativo de vídeo llegue todos los  principales navegadores y se llegue a un acuerdo sobre formatos. Es un caso de  degradación grácil: puede que a los usuarios les llegue una versión un tanto  recortada de la página, pero al menos serán capaces de ver las películas.</p>
 </div>
 
 <h2>Ciudadano de primera en la Web</h2>
 
-<p>Ya hemos visto que el marcado del nuevo  elemento <code>&lt;video&gt;</code> de HTML5 es un orden  de magnitud mÃ¡s legible y comprensible, en comparaciÃ³n con lo que actualmente  hay que hacer para incorporar pelÃ­culas Flash a nuestro marcado. Pero  independientemente de lo horrible de la vieja forma de codificaciÃ³n, en la  mayorÃ­a de los casos funciona, Â¿no? Entonces Â¿por quÃ© Ã­bamos a querer alejarnos  de este enfoque de distribuciÃ³n de vÃ­deo a travÃ©s de un plug-in como Flash?</p>
+<p>Ya hemos visto que el marcado del nuevo  elemento <code>&lt;video&gt;</code> de HTML5 es un orden  de magnitud más legible y comprensible, en comparación con lo que actualmente  hay que hacer para incorporar películas Flash a nuestro marcado. Pero  independientemente de lo horrible de la vieja forma de codificación, en la  mayoría de los casos funciona, ¿no? Entonces ¿por qué íbamos a querer alejarnos  de este enfoque de distribución de vídeo a través de un plug-in como Flash?</p>
 
-<p>La principal ventaja del elemento <code>&lt;video&gt;</code> de HTML5 es que finalmente el vÃ­deo se convierte en ciudadano de  pleno derecho en la Web, en lugar de ser relegado al interior de un object o del elemento no vÃ¡lido embed (a pesar de que ahora valida en HTML5). Vamos a ampliar en  algunas de las ventajas.</p>
+<p>La principal ventaja del elemento <code>&lt;video&gt;</code> de HTML5 es que finalmente el vídeo se convierte en ciudadano de  pleno derecho en la Web, en lugar de ser relegado al interior de un object o del elemento no válido embed (a pesar de que ahora valida en HTML5). Vamos a ampliar en  algunas de las ventajas.</p>
 
 <h3>Accesibilidad por teclado incorporada</h3>
 
-<p>Uno de los grandes problemas no resueltos  de la utilizaciÃ³n de Flash es la accesibilidad por teclado. Con la excepciÃ³n de  Internet Explorer para Windows, en general no hay ninguna manera de que un  usuario pueda saltar sÃ³lo con el teclado hasta dar foco a una pelÃ­cula Flash. E  incluso si estos usuarios se las arreglan para conseguirlo (utilizando  tecnologÃ­as de asistencia adicional), no hay manera fÃ¡cil para saltar de nuevo  fuera de Ã©l (a menos que se agregue cÃ³digo ActionScript adicional a la pelÃ­cula  para establecer mediante programaciÃ³n el foco del navegador fuera del plugin,  en la pÃ¡gina). Por el contrario, como el navegador es el responsable directo  del elemento <code>&lt;video&gt;</code>,  puede manejar los controles de la pelÃ­cula como si fueran botones normales de  una pÃ¡gina web e incluirlos en el orden normal de tabulaciÃ³n.</p>
+<p>Uno de los grandes problemas no resueltos  de la utilización de Flash es la accesibilidad por teclado. Con la excepción de  Internet Explorer para Windows, en general no hay ninguna manera de que un  usuario pueda saltar sólo con el teclado hasta dar foco a una película Flash. E  incluso si estos usuarios se las arreglan para conseguirlo (utilizando  tecnologías de asistencia adicional), no hay manera fácil para saltar de nuevo  fuera de él (a menos que se agregue código ActionScript adicional a la película  para establecer mediante programación el foco del navegador fuera del plugin,  en la página). Por el contrario, como el navegador es el responsable directo  del elemento <code>&lt;video&gt;</code>,  puede manejar los controles de la película como si fueran botones normales de  una página web e incluirlos en el orden normal de tabulación.</p>
 
 <div class="note">
-<p>El soporte de teclado para el vÃ­deo  nativo no ha sido implementado en la actualidad en todos los navegadores... sin  embargo, ya funciona bien en Opera 10.50 y superiores.</p>
+<p>El soporte de teclado para el vídeo  nativo no ha sido implementado en la actualidad en todos los navegadores... sin  embargo, ya funciona bien en Opera 10.50 y superiores.</p>
 </div>
 
-<h3><code>&lt;video&gt;</code> interactÃºa bien con  el resto de la pÃ¡gina</h3>
+<h3><code>&lt;video&gt;</code> interactúa bien con  el resto de la página</h3>
 
-<p>En tÃ©rminos simples, cuando incluyes un  plug-in en una pÃ¡gina reservas un Ã¡rea de dibujo que el navegador delega en el  plugin. Por lo que al navegador se refiere, el Ã¡rea del plug-in es una caja  negra: el navegador no procesa ni interpreta nada de lo pase allÃ­.</p>
+<p>En términos simples, cuando incluyes un  plug-in en una página reservas un área de dibujo que el navegador delega en el  plugin. Por lo que al navegador se refiere, el área del plug-in es una caja  negra: el navegador no procesa ni interpreta nada de lo pase allí.</p>
 
-<p>Normalmente esto no es un problema, pero  pueden surgir inconvenientes cuando el diseÃ±o se solapa con el Ã¡rea de dibujo  del plug-in. Imagina, por ejemplo, un sitio con una pelÃ­cula Flash pero que  tambiÃ©n tiene JavaScript o menÃºs desplegables basados en CSS que deben  desplegarse por encima de la pelÃ­cula. Por defecto, el Ã¡rea de dibujo del  plugin estÃ¡ por encima de la pÃ¡gina web, lo que significa que los menÃºs,  extraÃ±amente, aparecerÃ¡n detrÃ¡s de la pelÃ­cula. Un efecto antiestÃ©tico similar  ocurre si la pÃ¡gina utiliza <em>lightboxes<a href="#_ftn1" name="_ftnref1" title="Nota del traductor" id="_ftnref1"><sup>1</sup></a></em>:  cualquier pelÃ­cula Flash parecerÃ­a flotar por encima de la pÃ¡gina atenuada.  Esta es la razÃ³n por la que la mayorÃ­a de <span lang="en">scripts</span> <span lang="en">lightbox</span> existentes tiende a  cortar por lo sano con la cuestiÃ³n, eliminando en primer lugar cualquier objeto  plugin de la pÃ¡gina antes de activar la superposiciÃ³n y volviendo a  introducirlos al final.</p>
+<p>Normalmente esto no es un problema, pero  pueden surgir inconvenientes cuando el diseño se solapa con el área de dibujo  del plug-in. Imagina, por ejemplo, un sitio con una película Flash pero que  también tiene JavaScript o menús desplegables basados en CSS que deben  desplegarse por encima de la película. Por defecto, el área de dibujo del  plugin está por encima de la página web, lo que significa que los menús,  extrañamente, aparecerán detrás de la película. Un efecto antiestético similar  ocurre si la página utiliza <em>lightboxes<a href="#_ftn1" name="_ftnref1" title="Nota del traductor" id="_ftnref1"><sup>1</sup></a></em>:  cualquier película Flash parecería flotar por encima de la página atenuada.  Esta es la razón por la que la mayoría de <span lang="en">scripts</span> <span lang="en">lightbox</span> existentes tiende a  cortar por lo sano con la cuestión, eliminando en primer lugar cualquier objeto  plugin de la página antes de activar la superposición y volviendo a  introducirlos al final.</p>
 
 <div class="note">
-<p>En el caso especÃ­fico de los plug-ins  Flash, los desarrolladores pueden solucionar este problema de presentaciÃ³n  aÃ±adiendo el atributo <code>wmode='opaque'</code> al elemento <code>&lt;object&gt;</code> y el equivalente <code>&lt;param  name='wmode' value='opaque'&gt;</code> al elemento <code>&lt;embed&gt;</code>. Sin embargo, esto  tambiÃ©n hace que el plug-in sea completamente inaccesible para los usuarios con  lectores de pantalla, por lo que es mejor evitarlo.</p>
+<p>En el caso específico de los plug-ins  Flash, los desarrolladores pueden solucionar este problema de presentación  añadiendo el atributo <code>wmode='opaque'</code> al elemento <code>&lt;object&gt;</code> y el equivalente <code>&lt;param  name='wmode' value='opaque'&gt;</code> al elemento <code>&lt;embed&gt;</code>. Sin embargo, esto  también hace que el plug-in sea completamente inaccesible para los usuarios con  lectores de pantalla, por lo que es mejor evitarlo.</p>
 </div>
   
-<p>TambiÃ©n pueden surgir problemas y  peculiaridades si la pÃ¡gina sufre cambios dinÃ¡micos de <span lang="en">layout</span>. Si las dimensiones del Ã¡rea de dibujo del plugin cambian de  tamaÃ±o, esto a veces puede tener efectos imprevistos: puede que una pelÃ­cula en  reproducciÃ³n no cambie de tamaÃ±o, sino que simplemente se recorte o muestre  espacio en blanco extra.</p>
+<p>También pueden surgir problemas y  peculiaridades si la página sufre cambios dinámicos de <span lang="en">layout</span>. Si las dimensiones del área de dibujo del plugin cambian de  tamaño, esto a veces puede tener efectos imprevistos: puede que una película en  reproducción no cambie de tamaño, sino que simplemente se recorte o muestre  espacio en blanco extra.</p>
 
-<p>Con el elemento <code>&lt;video&gt;</code> nativo, es el propio navegador el que se ocupa de mostrarlo. AsÃ­,  <code>&lt;video&gt;</code> se comporta  exactamente igual que cualquier otro elemento en el diseÃ±o de la pÃ¡gina. Se  puede colocar, flotar, sobreponer o cambiar de tamaÃ±o dinÃ¡micamente, sin <span lang="en">hacks</span> adicionales. Incluso es posible  lograr efectos interesantes, tales como vÃ­deo semi-transparente, simplemente  mediante el establecimiento de la opacidad del elemento a travÃ©s de CSS.</p>
+<p>Con el elemento <code>&lt;video&gt;</code> nativo, es el propio navegador el que se ocupa de mostrarlo. Así,  <code>&lt;video&gt;</code> se comporta  exactamente igual que cualquier otro elemento en el diseño de la página. Se  puede colocar, flotar, sobreponer o cambiar de tamaño dinámicamente, sin <span lang="en">hacks</span> adicionales. Incluso es posible  lograr efectos interesantes, tales como vídeo semi-transparente, simplemente  mediante el establecimiento de la opacidad del elemento a través de CSS.</p>
 
-<p>Nos espera todo un nuevo mundo de vÃ­deos de lindos gatitos. No tengo gatitos a mano, pero sÃ­ tengo el mejor sucedÃ¡neo: niÃ±os, asÃ­ que voy a usar un par de videos con niÃ±os para fines de  demostraciÃ³n.</p>
+<p>Nos espera todo un nuevo mundo de vídeos de lindos gatitos. No tengo gatitos a mano, pero sí tengo el mejor sucedáneo: niños, así que voy a usar un par de videos con niños para fines de  demostración.</p>
 
-<h4>Estilos de vÃ­deo con CSS</h4>
+<h4>Estilos de vídeo con CSS</h4>
 
-<p>Ahora que <code>&lt;video&gt;</code> es parte  del conjunto de tecnologÃ­as de la web abierta, podemos usar CSS para dar estilo  al elemento de forma fiable. Como una simple demostraciÃ³n de lo que ahora se  puede lograr, vamos a aplicar <a href="http://people.opera.com/patrickl/articles/introduction-html5-video/transitions/" hreflang="en">transiciones  CSS al vÃ­deo de danza turca</a> que modifiquen sus dimensiones una vez que  hagamos <code>:hover:</code> o <code>:focus:</code>. (Puede lee el <a href="http://dev.opera.com/articles/view/css3-transitions-and-2d-transforms/" hreflang="en">tutorial de Opera de transiciones CSS3 y transformaciones 2D</a>.)</p>
+<p>Ahora que <code>&lt;video&gt;</code> es parte  del conjunto de tecnologías de la web abierta, podemos usar CSS para dar estilo  al elemento de forma fiable. Como una simple demostración de lo que ahora se  puede lograr, vamos a aplicar <a href="http://people.opera.com/patrickl/articles/introduction-html5-video/transitions/" hreflang="en">transiciones  CSS al vídeo de danza turca</a> que modifiquen sus dimensiones una vez que  hagamos <code>:hover:</code> o <code>:focus:</code>. (Puede lee el <a href="http://dev.opera.com/articles/view/css3-transitions-and-2d-transforms/" hreflang="en">tutorial de Opera de transiciones CSS3 y transformaciones 2D</a>.)</p>
 
-<h4>Combinar vÃ­deo y canvas</h4>
+<h4>Combinar vídeo y canvas</h4>
 
-<p>A medida que el navegador se va ocupando  de mostrar y procesar vÃ­deo, se pueden superponer y combinar fÃ¡cilmente otros  elementos sobre este. En este ejemplo, <a href="http://people.opera.com/patrickl/articles/introduction-html5-video/video-canvas/" hreflang="en">se  sobreimpone un <code>&lt;canvas&gt;</code> sobre el vÃ­deo</a>. (Advertencia: este vÃ­deo  contiene imÃ¡genes potencialmente impresionantes en que un apuesto empleado de  Opera y sus hijos son amenazados por un puntero de ratÃ³n gigante.)</p>
+<p>A medida que el navegador se va ocupando  de mostrar y procesar vídeo, se pueden superponer y combinar fácilmente otros  elementos sobre este. En este ejemplo, <a href="http://people.opera.com/patrickl/articles/introduction-html5-video/video-canvas/" hreflang="en">se  sobreimpone un <code>&lt;canvas&gt;</code> sobre el vídeo</a>. (Advertencia: este vídeo  contiene imágenes potencialmente impresionantes en que un apuesto empleado de  Opera y sus hijos son amenazados por un puntero de ratón gigante.)</p>
 
-<p>NÃ³tese que el <code>&lt;canvas&gt;</code> no cubre totalmente el vÃ­deo. Hemos hecho el canvas 40 pÃ­xeles  mÃ¡s corto que la altura de vÃ­deo, para que el Ã¡rea del vÃ­deo donde aparecen los  controles no quede cubierta. Esto asegura que, si el usuario desplaza el ratÃ³n  sobre la parte inferior del vÃ­deo, haya una parte suficiente del elemento <code>&lt;video&gt;</code> asomando por detrÃ¡s del canvas para recibir el evento hover y hacer que se muestren los controles. El acceso por teclado a  los controles deberÃ­a funcionar independientemente de los elementos que lo  cubren, pero actualmente el soporte de teclado varÃ­a entre navegadores.</p>
+<p>Nótese que el <code>&lt;canvas&gt;</code> no cubre totalmente el vídeo. Hemos hecho el canvas 40 píxeles  más corto que la altura de vídeo, para que el área del vídeo donde aparecen los  controles no quede cubierta. Esto asegura que, si el usuario desplaza el ratón  sobre la parte inferior del vídeo, haya una parte suficiente del elemento <code>&lt;video&gt;</code> asomando por detrás del canvas para recibir el evento hover y hacer que se muestren los controles. El acceso por teclado a  los controles debería funcionar independientemente de los elementos que lo  cubren, pero actualmente el soporte de teclado varía entre navegadores.</p>
 
 <h2>Tus propios controles</h2>
 
-<p><code>&lt;video&gt;</code> y <code>&lt;audio&gt;</code> (que  cubriremos en un futuro artÃ­culo) son ejemplos de los nuevos <a href="http://www.w3.org/TR/html5/video.html#media-elements" hreflang="en">elementos para  medios</a> del DOM de HTML5, que expone una potente API que proporciona a los  desarrolladores control sobre la reproducciÃ³n de pelÃ­culas a travÃ©s de toda una  serie de nuevos mÃ©todos y propiedades de JavaScript. Vamos a echar un vistazo a  algunos de los mÃ¡s relevantes para construir nosotros mismos un sencillo  controlador personalizado:</p>
+<p><code>&lt;video&gt;</code> y <code>&lt;audio&gt;</code> (que  cubriremos en un futuro artículo) son ejemplos de los nuevos <a href="http://www.w3.org/TR/html5/video.html#media-elements" hreflang="en">elementos para  medios</a> del DOM de HTML5, que expone una potente API que proporciona a los  desarrolladores control sobre la reproducción de películas a través de toda una  serie de nuevos métodos y propiedades de JavaScript. Vamos a echar un vistazo a  algunos de los más relevantes para construir nosotros mismos un sencillo  controlador personalizado:</p>
 
 <dl>
 <dt><code>play()</code> y <code>pause()</code></dt>
-<dd>Obviamente,  estos mÃ©todos inician y detienen la reproducciÃ³n de vÃ­deo. <code>play()</code> siempre lanza el vÃ­deo desde la posiciÃ³n actual de  reproducciÃ³n. Cuando una pelÃ­cula se carga por primera vez, esta posiciÃ³n serÃ¡  el primer fotograma de la pelÃ­cula. Hay que tener en cuenta que no hay mÃ©todo <code>stop()</code>: si quieres detener la reproducciÃ³n y &quot;rebobinar&quot; al  inicio de la pelÃ­cula, tendrÃ¡s que hacer <code>pause()</code> y cambiar tÃº mismo mediante programaciÃ³n la posiciÃ³n de  reproducciÃ³n actual.</dd>
+<dd>Obviamente,  estos métodos inician y detienen la reproducción de vídeo. <code>play()</code> siempre lanza el vídeo desde la posición actual de  reproducción. Cuando una película se carga por primera vez, esta posición será  el primer fotograma de la película. Hay que tener en cuenta que no hay método <code>stop()</code>: si quieres detener la reproducción y &quot;rebobinar&quot; al  inicio de la película, tendrás que hacer <code>pause()</code> y cambiar tú mismo mediante programación la posición de  reproducción actual.</dd>
 <dt><code>volume</code></dt>
-<dd>Este atributo  se puede utilizar para leer o establecer el volumen de la pista de audio del  vÃ­deo, tomando un valor en coma flotante que va desde 0.0 (silencio) a 1.0 (el  mÃ¡s alto).</dd>
+<dd>Este atributo  se puede utilizar para leer o establecer el volumen de la pista de audio del  vídeo, tomando un valor en coma flotante que va desde 0.0 (silencio) a 1.0 (el  más alto).</dd>
 <dt><code>muted</code></dt>
-<dd>Independientemente de <code>volumen</code>, un vÃ­deo puede silenciarse.</dd>
+<dd>Independientemente de <code>volumen</code>, un vídeo puede silenciarse.</dd>
 <dt><code>currentTime</code></dt>
-<dd>Al leerse,  este atributo devuelve la posiciÃ³n actual de reproducciÃ³n en segundos, de nuevo  expresada en coma flotante. Dar valor a este atributo mueve (si es posible) la  posiciÃ³n de reproducciÃ³n al Ã­ndice de tiempo especificado. (NÃ³tese que ni fijar <code>currentTime</code> ni moverse estÃ¡n  implementados actualmente en Opera.)</dd>
+<dd>Al leerse,  este atributo devuelve la posición actual de reproducción en segundos, de nuevo  expresada en coma flotante. Dar valor a este atributo mueve (si es posible) la  posición de reproducción al índice de tiempo especificado. (Nótese que ni fijar <code>currentTime</code> ni moverse están  implementados actualmente en Opera.)</dd>
 </dl>
 
-<p>AdemÃ¡s, los elementos de medios tambiÃ©n  disparan una serie de eventos como parte de su modelo de procesamiento, eventos  a los que podemos escuchar y a los que nos podemos enganchar. Como ejemplo,  sÃ³lo nos fijaremos en algunos de ellos:</p>
+<p>Además, los elementos de medios también  disparan una serie de eventos como parte de su modelo de procesamiento, eventos  a los que podemos escuchar y a los que nos podemos enganchar. Como ejemplo,  sólo nos fijaremos en algunos de ellos:</p>
 
 <dl>
 <dt><code>loadeddata</code></dt>
-<dd>El navegador  ha cargado suficientes datos como para iniciar la reproducciÃ³n de vÃ­deo en la  posiciÃ³n actual.</dd>
+<dd>El navegador  ha cargado suficientes datos como para iniciar la reproducción de vídeo en la  posición actual.</dd>
 <dt><code>play</code> y <code>pause</code></dt>
-<dd>Se ha iniciado  o interrumpido la reproducciÃ³n. Si estamos controlando el vÃ­deo desde JavaScript, queremos escuchar estos eventos para garantizar que las llamadas a  los mÃ©todos <code>play()</code> y <code>pause()</code> retornan con Ã©xito.</dd>
+<dd>Se ha iniciado  o interrumpido la reproducción. Si estamos controlando el vídeo desde JavaScript, queremos escuchar estos eventos para garantizar que las llamadas a  los métodos <code>play()</code> y <code>pause()</code> retornan con éxito.</dd>
 <dt><code>timeupdate</code></dt>
-<dd>La posiciÃ³n de  reproducciÃ³n actual ha cambiado porque se estÃ¡ reproduciendo la pelÃ­cula, un <span lang="en">script</span> la ha modificado mediante  programaciÃ³n, o el usuario ha decidido saltar a un punto diferente del vÃ­deo.</dd>
+<dd>La posición de  reproducción actual ha cambiado porque se está reproduciendo la película, un <span lang="en">script</span> la ha modificado mediante  programación, o el usuario ha decidido saltar a un punto diferente del vídeo.</dd>
 <dt><code>ended</code></dt>
-<dd>Hemos llegado  al final de la pelÃ­cula, y el elemento <code>&lt;video&gt;</code> no estÃ¡ dispuesto en bucle o reproducciÃ³n inversa (no se trata en  este artÃ­culo).</dd>
+<dd>Hemos llegado  al final de la película, y el elemento <code>&lt;video&gt;</code> no está dispuesto en bucle o reproducción inversa (no se trata en  este artículo).</dd>
 </dl>
 
-<p>Ya tenemos todos los elementos bÃ¡sicos  necesarios para crear un controlador sencillo. Antes de empezar, sin embargo,  una palabra de advertencia: si estamos construyendo nuestro propio reproductor  basado en JavaScript, es evidente que querremos suprimir todos los controles  nativos del navegador. Sin embargo, es posible que desees proporcionar esos  controles como alternativa, para el caso en que el usuario ha desactivado  JavaScript en el navegador. Por esta razÃ³n, mantendremos el atributo <code>control</code>  en el marcado y lo eliminaremos en tiempo de  ejecuciÃ³n con el <span lang="en">script</span>.  Alternativamente, tambiÃ©n podrÃ­amos establecer el valor del atributo como <span lang="en">false</span>: ambos enfoques son vÃ¡lidos. Como  nuestro reproductor personalizado depende de los <span lang="en">scripts</span> para funcionar, generaremos el propio marcado del  reproductor usando JavaScript.</p>
+<p>Ya tenemos todos los elementos básicos  necesarios para crear un controlador sencillo. Antes de empezar, sin embargo,  una palabra de advertencia: si estamos construyendo nuestro propio reproductor  basado en JavaScript, es evidente que querremos suprimir todos los controles  nativos del navegador. Sin embargo, es posible que desees proporcionar esos  controles como alternativa, para el caso en que el usuario ha desactivado  JavaScript en el navegador. Por esta razón, mantendremos el atributo <code>control</code>  en el marcado y lo eliminaremos en tiempo de  ejecución con el <span lang="en">script</span>.  Alternativamente, también podríamos establecer el valor del atributo como <span lang="en">false</span>: ambos enfoques son válidos. Como  nuestro reproductor personalizado depende de los <span lang="en">scripts</span> para funcionar, generaremos el propio marcado del  reproductor usando JavaScript.</p>
 
-<p>VÃ©ase el ejemplo de <a href="http://people.opera.com/patrickl/articles/introduction-html5-video/scripted-controls/">controles  de vÃ­deo HTML mediante <span lang="en">scripts</span></a> en  acciÃ³n. El <span lang="en">script</span> es muy descriptivo  y ganarÃ­a con un poco de limpieza antes de ser utilizado en un entorno de  producciÃ³n, pero espero que ayude a ilustrar algunas de las nuevas y poderosas  posibilidades que abre el vÃ­deo HTML5. Con un poco de conocimiento de  JavaScript, ahora es fÃ¡cil para los desarrolladores web crear reproductores  personalizados de vÃ­deo que complementen a la perfecciÃ³n sus diseÃ±os, sin la  necesidad de crear reproductores de vÃ­deo Flash a medida.</p>
+<p>Véase el ejemplo de <a href="http://people.opera.com/patrickl/articles/introduction-html5-video/scripted-controls/">controles  de vídeo HTML mediante <span lang="en">scripts</span></a> en  acción. El <span lang="en">script</span> es muy descriptivo  y ganaría con un poco de limpieza antes de ser utilizado en un entorno de  producción, pero espero que ayude a ilustrar algunas de las nuevas y poderosas  posibilidades que abre el vídeo HTML5. Con un poco de conocimiento de  JavaScript, ahora es fácil para los desarrolladores web crear reproductores  personalizados de vídeo que complementen a la perfección sus diseños, sin la  necesidad de crear reproductores de vídeo Flash a medida.</p>
 <div>
   
 <hr/>  
 <div id="ftn1">
-<a href="#_ftnref1" name="_ftn1" title="" id="_ftn1"><sup>1</sup></a> <abbr title="Nota del Traductor">NdT</abbr>. Un <em>lightbox</em> es un  efecto tÃ­pico para mostrar, especialmente, imÃ¡genes, en el que se atenÃºa la  intensidad de los contenidos de la pÃ¡gina para destacar el contenido mostrado. </div>
+<a href="#_ftnref1" name="_ftn1" title="" id="_ftn1"><sup>1</sup></a> <abbr title="Nota del Traductor">NdT</abbr>. Un <em>lightbox</em> es un  efecto típico para mostrar, especialmente, imágenes, en el que se atenúa la  intensidad de los contenidos de la página para destacar el contenido mostrado. </div>
 </div>
 </div>
 
 <div><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.es"><img src="../../m0/creative_commons.gif" id="logo_cc" alt="Logo Creative Commons" /></a></div>
-<div id="logo_text">Los contenidos recogidos en este artÃ­culo estÃ¡n sujetos a una licencia <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.es">Creative Commons<br /> Reconocimiento, No comercial - Compartir bajo la misma licencia 3.0 No adaptada</a>.
+<div id="logo_text">Los contenidos recogidos en este artículo están sujetos a una licencia <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.es">Creative Commons<br /> Reconocimiento, No comercial - Compartir bajo la misma licencia 3.0 No adaptada</a>.
 </div>
 <div id="cierre_autor"></div>
 
 <div id="peu">
-		<a rel="prev" href="../ud3/index.html" title="Ir al artÃ­culo anterior" accesskey="8"><img src="../../img/fletxa_izq_inv.gif" alt="Ir al artÃ­culo anterior" /></a> <strong>:</strong>
-		<a rel="index" href="../../index.html" title="Ir al Ã­ndice" accesskey="0"><img src="../../img/indice_inv.gif" alt="Ir al Ã­ndice" /></a> <strong>:</strong>
-		<a rel="next" href="../ud5/index.html" title="Ir al artÃ­culo siguiente" accesskey="9"><img src="../../img/fletxa_der_inv.gif" alt="Ir al artÃ­culo siguiente" /></a>
+		<a rel="prev" href="../ud3/index.html" title="Ir al artículo anterior" accesskey="8"><img src="../../img/fletxa_izq_inv.gif" alt="Ir al artículo anterior" /></a> <strong>:</strong>
+		<a rel="index" href="../../index.html" title="Ir al índice" accesskey="0"><img src="../../img/indice_inv.gif" alt="Ir al índice" /></a> <strong>:</strong>
+		<a rel="next" href="../ud5/index.html" title="Ir al artículo siguiente" accesskey="9"><img src="../../img/fletxa_der_inv.gif" alt="Ir al artículo siguiente" /></a>
 </div>
-<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
-</script>
-
-<script type="text/javascript">
-_uacct = "UA-1571980-1";
-_userv=2;
-_uhash = "off";
-_udn="uoc.edu";
-_ulink = 1;
-_ucto = 2592000;
-_uRno[0] = "uoc.edu";
-urchinTracker();
-</script>
 </body>
