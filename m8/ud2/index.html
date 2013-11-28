@@ -11,15 +11,15 @@
 <body>
 <div id="cabecera">
 	<img id="logo" src="../../img/logo.gif" alt="Universitat Oberta de Catalunya" />
-    <a href="http://mosaic.uoc.edu/"><img id="logomosaic" src="../../img/logo-mosaic.gif" alt="Logo de Mosaic" title="Abre la pÃ¡gina web de Mosaic" /></a>
+    <a href="http://mosaic.uoc.edu/"><img id="logomosaic" src="../../img/logo-mosaic.gif" alt="Logo de Mosaic" title="Abre la página web de Mosaic" /></a>
 	<div id="titulo">HTML5</div>
 	<div id="subtitulo">Los nuevos elementos estructurales de HTML5</div>
 <div id="cierre"></div>
 	<div id="navegador">
 		<a href="../../m0/accessibilitat.html" id="accesibilidad">Accesibilidad</a> <strong>:</strong> 
-		<a rel="prev" href="../ud1/index.html" title="Ir al artÃ­culo anterior" accesskey="8"><img src="../../img/fletxa_izq.gif" alt="Ir al artÃ­culo anterior" /></a> <strong>:</strong> 
-		<a rel="index" href="../../index.html" title="Ir al Ã­ndice" accesskey="0"><img src="../../img/indice.gif" alt="Ir al Ã­ndice" /></a> <strong>:</strong> 
-		<a rel="next" href="../ud3/index.html" title="Ir al artÃ­culo siguiente" accesskey="9"><img src="../../img/fletxa_der.gif" alt="Ir al artÃ­culo siguiente" /></a>
+		<a rel="prev" href="../ud1/index.html" title="Ir al artículo anterior" accesskey="8"><img src="../../img/fletxa_izq.gif" alt="Ir al artículo anterior" /></a> <strong>:</strong> 
+		<a rel="index" href="../../index.html" title="Ir al índice" accesskey="0"><img src="../../img/indice.gif" alt="Ir al índice" /></a> <strong>:</strong> 
+		<a rel="next" href="../ud3/index.html" title="Ir al artículo siguiente" accesskey="9"><img src="../../img/fletxa_der.gif" alt="Ir al artículo siguiente" /></a>
 	</div>
 </div>
 	
@@ -27,85 +27,85 @@
 <h1>Los nuevos elementos estructurales de HTML5</h1>
 <p class="by"><a href="../../index.html#mills">Chris Mills</a>, Bruce Lawson. 21 de diciembre de 2010. Publicado en: wsc, html5, article, section, elementos, cross browser, ie fix, web abierta</p>
 
-<h2>IntroducciÃ³n</h2>
+<h2>Introducción</h2>
 
-<p>HTML5 pone dos cosas nuevas sobre la mesa: APIs nuevas que aÃ±aden nuevas caracterÃ­sticas esenciales para el modelo de desarrollo web con estÃ¡ndares abiertos y nuevos elementos estructurales que definen caracterÃ­sticas especÃ­ficas para pÃ¡ginas web con una semÃ¡ntica mucho mÃ¡s precisa que la disponible en HTML 4. EncontrarÃ¡s mÃ¡s artÃ­culos que cubren muchas de las nuevas APIs buscando los <a href="http://dev.opera.com/articles/tags/html5/" hreflang="en">artÃ­culos de Dev.Opera marcados con la etiqueta HTML5</a>.</p>
+<p>HTML5 pone dos cosas nuevas sobre la mesa: APIs nuevas que añaden nuevas características esenciales para el modelo de desarrollo web con estándares abiertos y nuevos elementos estructurales que definen características específicas para páginas web con una semántica mucho más precisa que la disponible en HTML 4. Encontrarás más artículos que cubren muchas de las nuevas APIs buscando los <a href="http://dev.opera.com/articles/tags/html5/" hreflang="en">artículos de Dev.Opera marcados con la etiqueta HTML5</a>.</p>
 
-<p>Este artÃ­culo, por su parte, se centra en el segundo punto: veremos brevemente cÃ³mo se han elegido los nuevos elementos semÃ¡nticos, cuÃ¡les son las principales novedades y cÃ³mo utilizarlos, cÃ³mo funcionan los encabezamientos de HTML5 y el soporte de los navegadores para estos nuevos elementos, incluyendo cÃ³mo puede aÃ±adirse soporte a navegadores antiguos.</p>
+<p>Este artículo, por su parte, se centra en el segundo punto: veremos brevemente cómo se han elegido los nuevos elementos semánticos, cuáles son las principales novedades y cómo utilizarlos, cómo funcionan los encabezamientos de HTML5 y el soporte de los navegadores para estos nuevos elementos, incluyendo cómo puede añadirse soporte a navegadores antiguos.</p>
 
 <h2 id="structural">Presentando los elementos estructurales de HTML5</h2>
 
-<p>HTML 4 ya tiene un montÃ³n de elementos semÃ¡nticos que permiten definir con claridad las diferentes partes de una pÃ¡gina web, como formularios, listas, pÃ¡rrafos, tablas, etc. Pero tiene sus deficiencias. TodavÃ­a dependemos mucho de elementos <code>&lt;div&gt;</code> y <code>&lt;span&gt;</code> con diferentes identificadores y atributos de clase para definir varias caracterÃ­sticas, tales como menÃºs de navegaciÃ³n, encabezados, pies de pÃ¡gina, contenido principal, cajas de alerta, barras laterales, etc. Algo como <code>&lt;div id="cabecera"&gt;</code> funciona si nos referimos a que desarrolladores y diseÃ±adores saben para quÃ© sirve y son capaces de usar CSS y JavaScript para aplicar estilos y comportamiento personalizados para hacer que esto resulte comprensible para los usuarios finales.</p>
+<p>HTML 4 ya tiene un montón de elementos semánticos que permiten definir con claridad las diferentes partes de una página web, como formularios, listas, párrafos, tablas, etc. Pero tiene sus deficiencias. Todavía dependemos mucho de elementos <code>&lt;div&gt;</code> y <code>&lt;span&gt;</code> con diferentes identificadores y atributos de clase para definir varias características, tales como menús de navegación, encabezados, pies de página, contenido principal, cajas de alerta, barras laterales, etc. Algo como <code>&lt;div id="cabecera"&gt;</code> funciona si nos referimos a que desarrolladores y diseñadores saben para qué sirve y son capaces de usar CSS y JavaScript para aplicar estilos y comportamiento personalizados para hacer que esto resulte comprensible para los usuarios finales.</p>
 
-<p>Pero podrÃ­a ser mucho mejor. TodavÃ­a hay problemas con esta manera de trabajar:</p>
+<p>Pero podría ser mucho mejor. Todavía hay problemas con esta manera de trabajar:</p>
 
-<ul><li><p>Las personas podemos diferenciar los contenidos, pero las mÃ¡quinas no: el navegador no ve los diferentes divs como cabecera, pie de pÃ¡gina, etc. Los ve como divs diferentes. Â¿No serÃ­a mÃ¡s Ãºtil si los navegadores y lectores de pantalla fuesen capaces de identificar explÃ­citamente, pongamos por caso, el menÃº de navegaciÃ³n para que un usuario con discapacidad visual pueda encontrarlo mÃ¡s fÃ¡cilmente, o las diferentes entradas de un blog para que pudieran ser fÃ¡cilmente sindicadas en un canal RSS sin necesidad de programaciÃ³n adicional?</p></li>
-<li><p>Incluso si se usa cÃ³digo adicional para resolver algunos de estos problemas, sÃ³lo puede hacerse de forma fiable para los sitios web propios, puesto que desarrolladores web diferentes usan nombres de clase e identificadores diferentes, especialmente si tenemos en cuenta una audiencia internacional: diferentes desarrolladores web de paÃ­ses diferentes utilizan idiomas diferentes para escribir sus nombres de clase e identificadores</p></li></ul>
+<ul><li><p>Las personas podemos diferenciar los contenidos, pero las máquinas no: el navegador no ve los diferentes divs como cabecera, pie de página, etc. Los ve como divs diferentes. ¿No sería más útil si los navegadores y lectores de pantalla fuesen capaces de identificar explícitamente, pongamos por caso, el menú de navegación para que un usuario con discapacidad visual pueda encontrarlo más fácilmente, o las diferentes entradas de un blog para que pudieran ser fácilmente sindicadas en un canal RSS sin necesidad de programación adicional?</p></li>
+<li><p>Incluso si se usa código adicional para resolver algunos de estos problemas, sólo puede hacerse de forma fiable para los sitios web propios, puesto que desarrolladores web diferentes usan nombres de clase e identificadores diferentes, especialmente si tenemos en cuenta una audiencia internacional: diferentes desarrolladores web de países diferentes utilizan idiomas diferentes para escribir sus nombres de clase e identificadores</p></li></ul>
 
-<p>Por tanto, tiene mucho sentido definir un conjunto consistente de elementos para que todos podamos utilizar para esos bloques estructurales comunes que aparecen en tantos sitios web. Los elementos de HTML5 nuevos que vamos a cubrir en este artÃ­culo son:</p>
+<p>Por tanto, tiene mucho sentido definir un conjunto consistente de elementos para que todos podamos utilizar para esos bloques estructurales comunes que aparecen en tantos sitios web. Los elementos de HTML5 nuevos que vamos a cubrir en este artículo son:</p>
 
 <ul><li><p><code>&lt;header&gt;</code> (cabecera): Se utiliza para contener la cabecera de un sitio.</p></li>
-<li><p><code>&lt;footer&gt;</code> (pie de pÃ¡gina): Contiene el pie de pÃ¡gina de un sitio.</p></li>
-<li><p><code>&lt;nav&gt;</code>: Contiene la funcionalidad de navegaciÃ³n para la pÃ¡gina.</p></li>
-<li><p><code>&lt;article&gt;</code> (artÃ­culo): Contiene una pieza independiente de contenido, que tendrÃ­a sentido sindicar como elemento RSS como, por ejemplo, una noticia.</p></li>
-<li><p><code>&lt;section&gt;</code> (secciÃ³n): Se utiliza bien para agrupar artÃ­culos en diferentes temas, bien para definir las diferentes secciones de un solo artÃ­culo.</p></li>
+<li><p><code>&lt;footer&gt;</code> (pie de página): Contiene el pie de página de un sitio.</p></li>
+<li><p><code>&lt;nav&gt;</code>: Contiene la funcionalidad de navegación para la página.</p></li>
+<li><p><code>&lt;article&gt;</code> (artículo): Contiene una pieza independiente de contenido, que tendría sentido sindicar como elemento RSS como, por ejemplo, una noticia.</p></li>
+<li><p><code>&lt;section&gt;</code> (sección): Se utiliza bien para agrupar artículos en diferentes temas, bien para definir las diferentes secciones de un solo artículo.</p></li>
 <li><p><code>&lt;time&gt;</code> (hora): se usa para marcar tiempos y fechas.</p></li>
 <li><p><code>&lt;aside&gt;</code> (aparte): Define un bloque de contenido relacionado con el contenido principal que lo rodea, pero que no es esencial para el flujo del mismo.</p></li>
-<li><p><code>&lt;hgroup&gt;</code> (<span lang="en">heading group</span>, o grupo de encabezados): Se utiliza para incluir mÃ¡s de un encabezado si quieres que cuente como un Ãºnico encabezado en la estructura de encabezado de la pÃ¡gina.</p></li>
-<li><p><code>&lt;figure&gt;</code> y <code>&lt;figcaption&gt;</code> (figura y cita de figura): Se usan para encapsular una figura como un Ãºnico elemento y contener el tÃ­tulo de la figura, respectivamente.</p></li></ul>
+<li><p><code>&lt;hgroup&gt;</code> (<span lang="en">heading group</span>, o grupo de encabezados): Se utiliza para incluir más de un encabezado si quieres que cuente como un único encabezado en la estructura de encabezado de la página.</p></li>
+<li><p><code>&lt;figure&gt;</code> y <code>&lt;figcaption&gt;</code> (figura y cita de figura): Se usan para encapsular una figura como un único elemento y contener el título de la figura, respectivamente.</p></li></ul>
 
-<h3 id="how-decided">Â¿CÃ³mo se decidieron los nombres de los elementos?</h3>
+<h3 id="how-decided">¿Cómo se decidieron los nombres de los elementos?</h3>
 
-<p>Durante la creaciÃ³n de HTML5, el editor, Ian Hickson, usÃ³ las herramientas de Google para extraer datos de mÃ¡s de mil millones de pÃ¡ginas web, repasando los ID y nombres de clase mÃ¡s comÃºnmente utilizados en el mundo real en la web. Puede verse una de esas encuestas publicada en <a href="http://code.google.com/webstats/2005-12/classes.html" hreflang="en">Google Code: Web Authoring Statistics: Classes</a>. Para resumir una larga historia, los nombres de elementos que veremos en este artÃ­culo se tomaron de los 20 identificadores y nombres de clase mÃ¡s populares encontrados en las investigaciones de Hickson.</p>
+<p>Durante la creación de HTML5, el editor, Ian Hickson, usó las herramientas de Google para extraer datos de más de mil millones de páginas web, repasando los ID y nombres de clase más comúnmente utilizados en el mundo real en la web. Puede verse una de esas encuestas publicada en <a href="http://code.google.com/webstats/2005-12/classes.html" hreflang="en">Google Code: Web Authoring Statistics: Classes</a>. Para resumir una larga historia, los nombres de elementos que veremos en este artículo se tomaron de los 20 identificadores y nombres de clase más populares encontrados en las investigaciones de Hickson.</p>
 
 <div class="note">
-<p>Nota: Opera hizo un estudio similar, de 3,5 millones de direcciones URL, que llamÃ³ MAMA. MamÃ¡ tenÃ­a un conjunto de URLs mÃ¡s pequeÃ±o, pero considerÃ³ una variedad mÃ¡s grande y amplia de estadÃ­sticas de las pÃ¡ginas web. Para obtener mÃ¡s informaciÃ³n, echa un vistazo a <a href="http://dev.opera.com/articles/view/mama-common-attributes" hreflang="en">MAMA common attributes</a>, <a href="http://devfiles.myopera.com/articles/572/idlist-url.htm" hreflang="en">MAMA's id list</a> y <a href="http://devfiles.myopera.com/articles/572/classlist-url.htm" hreflang="en">MAMA's class list</a>. Para disponer de mÃ¡s opciones se puede ir a la <a href="http://dev.opera.com/articles/view/mama/" hreflang="en">pÃ¡gina de inicio de MAMA</a>.</p>
+<p>Nota: Opera hizo un estudio similar, de 3,5 millones de direcciones URL, que llamó MAMA. Mamá tenía un conjunto de URLs más pequeño, pero consideró una variedad más grande y amplia de estadísticas de las páginas web. Para obtener más información, echa un vistazo a <a href="http://dev.opera.com/articles/view/mama-common-attributes" hreflang="en">MAMA common attributes</a>, <a href="http://devfiles.myopera.com/articles/572/idlist-url.htm" hreflang="en">MAMA's id list</a> y <a href="http://devfiles.myopera.com/articles/572/classlist-url.htm" hreflang="en">MAMA's class list</a>. Para disponer de más opciones se puede ir a la <a href="http://dev.opera.com/articles/view/mama/" hreflang="en">página de inicio de MAMA</a>.</p>
 </div>
 
-<h3 id="why-no-content">Â¿Por quÃ© no hay un elemento <code>&lt;content&gt;</code>?</h3>
+<h3 id="why-no-content">¿Por qué no hay un elemento <code>&lt;content&gt;</code>?</h3>
 
-<p>Si bien esta puede parecer una omisiÃ³n flagrante, en realidad no lo es. El contenido principal serÃ¡ el bloque de nivel mÃ¡s alto de contenido diferente de <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code> o <code>&lt;footer&gt;</code> y, dependiendo de las circunstancias particulares, podrÃ­a tener mÃ¡s sentido para marcar el contenido usando un <code>&lt;article&gt;</code> , un <code>&lt;section&gt;</code>, o incluso un <code>&lt;div&gt;</code>. Bruce Lawson llama a esto "El algoritmo Scooby Doo", pero para saber por quÃ©, tendrÃ¡s que preguntarle en Twitter, o en una conferencia.</p>
+<p>Si bien esta puede parecer una omisión flagrante, en realidad no lo es. El contenido principal será el bloque de nivel más alto de contenido diferente de <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code> o <code>&lt;footer&gt;</code> y, dependiendo de las circunstancias particulares, podría tener más sentido para marcar el contenido usando un <code>&lt;article&gt;</code> , un <code>&lt;section&gt;</code>, o incluso un <code>&lt;div&gt;</code>. Bruce Lawson llama a esto "El algoritmo Scooby Doo", pero para saber por qué, tendrás que preguntarle en Twitter, o en una conferencia.</p>
 
-<h2 id="example-html">Una pÃ¡gina HTML5 de ejemplo</h2>
+<h2 id="example-html">Una página HTML5 de ejemplo</h2>
 
-<p>Hasta ahora hemos repasado un poco de historia y hemos visto quÃ© nuevos elementos se ofrecen. Pasemos a ver un ejemplo para ver exactamente cÃ³mo utilizarlos en el contexto de una pÃ¡gina real. Echad un vistazo a mi pÃ¡gina <a href="http://dev.opera.com/articles/view/new-structural-elements-in-html5/pwei_sample_html5.html" hreflang="en">A history of Pop Will Eat Itself</a> &mdash;una historia y discografÃ­a de una de mis bandas inglesas favoritas de los 80 y los 90 (si te gusta la mÃºsica alternativa, por favor, escÃºchales). He tomado el marcado original de la pÃ¡gina de la Wikipedia de <a href="http://en.wikipedia.org/wiki/Pop_Will_Eat_Itself" hreflang="en">Pop Will Eat Itself</a>, lo he limpiado, y lo he convertido en HTML5. Echemos un vistazo mÃ¡s de cerca a lo que hice.</p>
+<p>Hasta ahora hemos repasado un poco de historia y hemos visto qué nuevos elementos se ofrecen. Pasemos a ver un ejemplo para ver exactamente cómo utilizarlos en el contexto de una página real. Echad un vistazo a mi página <a href="http://dev.opera.com/articles/view/new-structural-elements-in-html5/pwei_sample_html5.html" hreflang="en">A history of Pop Will Eat Itself</a> &mdash;una historia y discografía de una de mis bandas inglesas favoritas de los 80 y los 90 (si te gusta la música alternativa, por favor, escúchales). He tomado el marcado original de la página de la Wikipedia de <a href="http://en.wikipedia.org/wiki/Pop_Will_Eat_Itself" hreflang="en">Pop Will Eat Itself</a>, lo he limpiado, y lo he convertido en HTML5. Echemos un vistazo más de cerca a lo que hice.</p>
 
-<p>MantÃ©n la pÃ¡gina de ejemplo abierta en otra pestaÃ±a del navegador mientras lees el artÃ­culo: la consultarÃ¡s de nuevo.</p>
+<p>Mantén la página de ejemplo abierta en otra pestaña del navegador mientras lees el artículo: la consultarás de nuevo.</p>
 
 <div class="note">
-<p>Mi ejemplo se utiliza el tradicional y probado contenedor <code>&lt;div&gt;</code> para centrar el contenido, pero Kroc Camen ha publicado un buen artÃ­culo que muestra <a href="http://camendesign.com/code/developpeurs_sans_frontieres" hreflang="en">cÃ³mo crear diseÃ±os centrados sin contenedores <code>&lt;div&gt;</code></a>, asÃ­ que he decidido compartirlo aquÃ­ tambiÃ©n. TambiÃ©n aconseja, Ãºtilmente, no utilizar los elementos <code>&lt;section&gt;</code> de HTML5 como contenedores glorificado en pÃ¡ginas HTML 5: simplemente, es un uso equivocado.</p>
+<p>Mi ejemplo se utiliza el tradicional y probado contenedor <code>&lt;div&gt;</code> para centrar el contenido, pero Kroc Camen ha publicado un buen artículo que muestra <a href="http://camendesign.com/code/developpeurs_sans_frontieres" hreflang="en">cómo crear diseños centrados sin contenedores <code>&lt;div&gt;</code></a>, así que he decidido compartirlo aquí también. También aconseja, útilmente, no utilizar los elementos <code>&lt;section&gt;</code> de HTML5 como contenedores glorificado en páginas HTML 5: simplemente, es un uso equivocado.</p>
 </div>
 
 <h3 id="meta-differences">Algunas meta-diferencias</h3>
 
-<p>Lo primero que notarÃ¡s es que el âdoctypeâ es mucho mÃ¡s sencillo que en versiones anteriores de HTML:</p>
+<p>Lo primero que notarás es que el ‘doctype’ es mucho más sencillo que en versiones anteriores de HTML:</p>
 
 <pre><code>&lt;!DOCTYPE html&gt;</code></pre>
 
-<p>Los creadores de HTML5 eligieron la cadena de doctype mÃ¡s corta posible: despuÃ©s de todo, Â¿por quÃ© debemos esperar que tÃº, el desarrollador, recuerdes una cadena enormemente larga con mÃºltiples URLs, cuando en realidad el doctype sÃ³lo estÃ¡ para poner el navegador en modo de estÃ¡ndares (por oposiciÃ³n al modo âquirksâ)?</p>
+<p>Los creadores de HTML5 eligieron la cadena de doctype más corta posible: después de todo, ¿por qué debemos esperar que tú, el desarrollador, recuerdes una cadena enormemente larga con múltiples URLs, cuando en realidad el doctype sólo está para poner el navegador en modo de estándares (por oposición al modo ‘quirks’)?</p>
 
-<p>A continuaciÃ³n, quiero llamar la atenciÃ³n sobre la aparente "laxitud de requisitos sintÃ¡cticos" de HTML5. He puesto comillas a todos mis valores de atributo y he escrito todos los elementos en minÃºsculas, pero eso es porque estoy acostumbrado a escribir utilizando las reglas de XHTML. Pero puede que te sorprenda descubrir que en HTML5 puedes ignorar esas reglas, si quieres. De hecho, ni siquiera tienes que molestarte en incluir los elementos <code>&lt;head&gt;</code>, <code>&lt;body&gt;</code> o <code>&lt;html&gt;</code>, y aÃºn asÃ­ validar.</p>
+<p>A continuación, quiero llamar la atención sobre la aparente "laxitud de requisitos sintácticos" de HTML5. He puesto comillas a todos mis valores de atributo y he escrito todos los elementos en minúsculas, pero eso es porque estoy acostumbrado a escribir utilizando las reglas de XHTML. Pero puede que te sorprenda descubrir que en HTML5 puedes ignorar esas reglas, si quieres. De hecho, ni siquiera tienes que molestarte en incluir los elementos <code>&lt;head&gt;</code>, <code>&lt;body&gt;</code> o <code>&lt;html&gt;</code>, y aún así validar.</p>
 
 <div class="note">
 <p>Nota: esto no es cierto si pasas a usar XHTML (HTML servido con tipo de documento XHTML: <code>application / xhtml + xml</code>)</p>
 </div>
 
-<p>Esto se debe a que el navegador da siempre por supuestos esos elementos. Si creas una pÃ¡gina HTML5 de muestra sin esos elementos, la cargas en un navegador, y compruebas el cÃ³digo fuente de la pÃ¡gina cargada, verÃ¡s que el navegador los inserta automÃ¡ticamente. TambiÃ©n puedes usar el <a href="http://software.hixie.ch/utilities/js/live-dom-viewer/" hreflang="en">Live DOM Viewer</a> de Ian Hickson para ver el estado de la DOM.</p>
+<p>Esto se debe a que el navegador da siempre por supuestos esos elementos. Si creas una página HTML5 de muestra sin esos elementos, la cargas en un navegador, y compruebas el código fuente de la página cargada, verás que el navegador los inserta automáticamente. También puedes usar el <a href="http://software.hixie.ch/utilities/js/live-dom-viewer/" hreflang="en">Live DOM Viewer</a> de Ian Hickson para ver el estado de la DOM.</p>
 
 <div class="note">
-<p>Nota: Vale, de hecho, los documentos HTML 4 tambiÃ©n validan sin incluir <code>&lt;head&gt;</code>, <code>&lt;body&gt;</code> o <code>&lt;html&gt;</code>, pero aun asÃ­ vale la pena mencionarlo aquÃ­.</p></div>
+<p>Nota: Vale, de hecho, los documentos HTML 4 también validan sin incluir <code>&lt;head&gt;</code>, <code>&lt;body&gt;</code> o <code>&lt;html&gt;</code>, pero aun así vale la pena mencionarlo aquí.</p></div>
 
-<p>Otra cosa a mencionar es que la especificaciÃ³n HTML5 define estrictamente cÃ³mo manejar el marcado mal formado (por ejemplo, elementos mal anidados o sin cerrar), definiendo por primera vez un algoritmo de anÃ¡lisis. Esto significa que incluso si cometes un error en parte del marcado, el DOM serÃ¡ consistente en todos los navegadores que soporten HTML5.</p>
+<p>Otra cosa a mencionar es que la especificación HTML5 define estrictamente cómo manejar el marcado mal formado (por ejemplo, elementos mal anidados o sin cerrar), definiendo por primera vez un algoritmo de análisis. Esto significa que incluso si cometes un error en parte del marcado, el DOM será consistente en todos los navegadores que soporten HTML5.</p>
 
-<p>Â¿Quiere decir eso que ya no hace falta preocuparse por la validaciÃ³n y las mejores prÃ¡cticas?Â¡DESDE LUEGO QUE NO! La validaciÃ³n sigue siendo una herramienta muy Ãºtil para hacer pÃ¡ginas tan buenas como sea posible. Aunque el DOM sea consistente en todos los navegadores puede que, para comenzar, no se comporte como querÃ­as, dando lugar a dolores de cabeza con el CSS y JavaScript. Y como verÃ¡s a medida que explores mÃ¡s HTML5, sigue habiendo muy buenas razones para asegurarse de declarar caracterÃ­sticas documento como <code>&lt;html&gt;</code> de salida. Por ejemplo, permite declarar el idioma del documento en el elemento <code>&lt;html&gt;</code> para fines de internacionalizaciÃ³n y accesibilidad, y ciertas tecnologÃ­as relacionadas tambiÃ©n lo requieren. Un buen ejemplo es <a href="http://dev.opera.com/articles/view/offline-applications-html5-appcache/" hreflang="en">AppCache</a>.</p>
+<p>¿Quiere decir eso que ya no hace falta preocuparse por la validación y las mejores prácticas?¡DESDE LUEGO QUE NO! La validación sigue siendo una herramienta muy útil para hacer páginas tan buenas como sea posible. Aunque el DOM sea consistente en todos los navegadores puede que, para comenzar, no se comporte como querías, dando lugar a dolores de cabeza con el CSS y JavaScript. Y como verás a medida que explores más HTML5, sigue habiendo muy buenas razones para asegurarse de declarar características documento como <code>&lt;html&gt;</code> de salida. Por ejemplo, permite declarar el idioma del documento en el elemento <code>&lt;html&gt;</code> para fines de internacionalización y accesibilidad, y ciertas tecnologías relacionadas también lo requieren. Un buen ejemplo es <a href="http://dev.opera.com/articles/view/offline-applications-html5-appcache/" hreflang="en">AppCache</a>.</p>
 
-<p>Para validar los documentos de HTML5, puede utilizar el <a href="http://validator.w3.org/" hreflang="en">validador del W3C</a>, que valida HTML5, asÃ­ como una amplia gama de variedades de lenguajes de marcas. Si quieres un validador especÃ­fico de HTML5 (y WAI-ARIA y MathML) puedes usar <a href="http://validator.nu/" hreflang="en">validator.nu</a>.</p>
+<p>Para validar los documentos de HTML5, puede utilizar el <a href="http://validator.w3.org/" hreflang="en">validador del W3C</a>, que valida HTML5, así como una amplia gama de variedades de lenguajes de marcas. Si quieres un validador específico de HTML5 (y WAI-ARIA y MathML) puedes usar <a href="http://validator.nu/" hreflang="en">validator.nu</a>.</p>
 
-<p>Como Ãºltimo punto de esta secciÃ³n, quiero llamar la atenciÃ³n sobre esta lÃ­nea:</p>
+<p>Como último punto de esta sección, quiero llamar la atención sobre esta línea:</p>
 
 <pre><code>&lt;meta charset="utf-8" /&gt;</code></pre>
 
-<p>Es necesario declarar el juego de caracteres del documento dentro de los primeros 512 bytes de este, para protegerse contra un <a href="http://code.google.com/p/doctype/wiki/ArticleUtf7" hreflang="en">grave problema de seguridad</a>. A menos que tengas una muy buena razÃ³n para no hacerlo, debes utilizar UTF-8.</p>
+<p>Es necesario declarar el juego de caracteres del documento dentro de los primeros 512 bytes de este, para protegerse contra un <a href="http://code.google.com/p/doctype/wiki/ArticleUtf7" hreflang="en">grave problema de seguridad</a>. A menos que tengas una muy buena razón para no hacerlo, debes utilizar UTF-8.</p>
 
 <h3 id="header"><code>&lt;header&gt;</code></h3>
 
@@ -118,15 +118,15 @@
 &nbsp; &lt;/hgroup&gt;
 &lt;/header&gt;</code></pre>
 
-<p>El propÃ³sito del elemento <code>&lt;header&gt;</code> es envolver la parte del contenido que forma la cabecera de la pÃ¡gina, generalmente con un logotipo o grÃ¡fico de la compaÃ±Ã­a, el tÃ­tulo de pÃ¡gina principal, etc.</p>
+<p>El propósito del elemento <code>&lt;header&gt;</code> es envolver la parte del contenido que forma la cabecera de la página, generalmente con un logotipo o gráfico de la compañía, el título de página principal, etc.</p>
 
 <h3 id="hgroup"><code>&lt;hgroup&gt;</code></h3>
 
-<p>NotarÃ¡s que en el cÃ³digo anterior, el Ãºnico contenido de la cabecera es un elemento <code>&lt;hgroup&gt;</code>, que rodea dos encabezados. Lo que pretendo es especificar el encabezado de nivel superior del documento, mÃ¡s un subtÃ­tulo o &lsquo;tagline&rsquo;. Quiero que sÃ³lo cuente el nivel superior de encabezado en la jerarquÃ­a de encabezados del documento y eso es exactamente lo que hace <code>&lt;hgroup&gt;</code>: que un grupo de encabezados cuente como un Ãºnico encabezado a efectos de la estructura del documento. Hay mÃ¡s informaciÃ³n acerca del funcionamiento de encabezados en la siguiente secciÃ³n: <a href="#html-outline">Esquemas HTML5 y el algoritmo de encabezados de HTML5</a>.</p>
+<p>Notarás que en el código anterior, el único contenido de la cabecera es un elemento <code>&lt;hgroup&gt;</code>, que rodea dos encabezados. Lo que pretendo es especificar el encabezado de nivel superior del documento, más un subtítulo o &lsquo;tagline&rsquo;. Quiero que sólo cuente el nivel superior de encabezado en la jerarquía de encabezados del documento y eso es exactamente lo que hace <code>&lt;hgroup&gt;</code>: que un grupo de encabezados cuente como un único encabezado a efectos de la estructura del documento. Hay más información acerca del funcionamiento de encabezados en la siguiente sección: <a href="#html-outline">Esquemas HTML5 y el algoritmo de encabezados de HTML5</a>.</p>
 
 <h3 id="html5-footer"><code>&lt;footer&gt;</code></h3>
 
-<p>Si vas al final del documento verÃ¡s el siguiente cÃ³digo:</p>
+<p>Si vas al final del documento verás el siguiente código:</p>
 
 <pre><code>&lt;footer&gt;
 &nbsp; &lt;h2 id=&quot;copyright&quot;&gt;Copyright and attribution&lt;/h2&gt;
@@ -134,15 +134,15 @@
 
 
 
-<p><code>&lt;footer&gt;</code> deberÃ­a usarse para contener el contenido de pie de pÃ¡gina del sitio: si te fijas en la parte inferior de tus sitios favoritos, verÃ¡ que los pies de pÃ¡gina se utilizan para poner una variedad de cosas, desde los avisos de copyright y datos de contacto a las declaraciones de accesibilidad, pasando por informaciÃ³n de licencias y varios otros enlaces secundarios.</p>
+<p><code>&lt;footer&gt;</code> debería usarse para contener el contenido de pie de página del sitio: si te fijas en la parte inferior de tus sitios favoritos, verá que los pies de página se utilizan para poner una variedad de cosas, desde los avisos de copyright y datos de contacto a las declaraciones de accesibilidad, pasando por información de licencias y varios otros enlaces secundarios.</p>
 
 <div class="note">
-<p>Nota. No existe un lÃ­mite de un encabezado y pie de pÃ¡gina por pÃ¡gina: podrÃ­as tener una pÃ¡gina con mÃºltiples artÃ­culos y un encabezado y pie por artÃ­culo.</p>
+<p>Nota. No existe un límite de un encabezado y pie de página por página: podrías tener una página con múltiples artículos y un encabezado y pie por artículo.</p>
 </div>
 
 <h3 id="nav"><code>&lt;nav&gt;</code></h3>
 
-<p>Subiendo de nuevo por el documento encontrarÃ¡s esta estructura:</p>
+<p>Subiendo de nuevo por el documento encontrarás esta estructura:</p>
 
 <pre><code>&lt;nav&gt;
 &nbsp; &lt;h2&gt;Contents&lt;/h2&gt;
@@ -153,7 +153,7 @@
 &nbsp;&nbsp;&nbsp; &lt;/ul&gt;
 &lt;/nav&gt;</code></pre>
 
-<p>El elemento <code>&lt;nav&gt;</code> sirve para marcar los enlaces de navegaciÃ³n u otras estructuras (por ejemplo, un formulario de bÃºsqueda) que te llevan a diferentes pÃ¡ginas del sitio actual, o a diferentes Ã¡reas de la pÃ¡gina actual. Otros enlaces, como los enlaces patrocinados, no cuentan. Por supuesto, puedes incluir los encabezados y otros elementos de estructura dentro de <code>&lt;nav&gt;</code>, pero no es obligatorio.</p>
+<p>El elemento <code>&lt;nav&gt;</code> sirve para marcar los enlaces de navegación u otras estructuras (por ejemplo, un formulario de búsqueda) que te llevan a diferentes páginas del sitio actual, o a diferentes áreas de la página actual. Otros enlaces, como los enlaces patrocinados, no cuentan. Por supuesto, puedes incluir los encabezados y otros elementos de estructura dentro de <code>&lt;nav&gt;</code>, pero no es obligatorio.</p>
 
 <h3 id="aside"><code>&lt;aside&gt;</code></h3>
 
@@ -165,11 +165,11 @@
 &nbsp; &lt;/table&gt;
 &lt;/aside&gt;</code></pre>
 
-<p>El elemento <code>&lt;aside&gt;</code> sirve para marcar fragmentos de contenido relacionados con el contenido principal, pero que no encajan directamente en el flujo principal. Por ejemplo, en este caso tenemos un montÃ³n de datos breves y estadÃ­sticas sobre la banda, que no funcionarÃ­an bien metidos con calzador en el contenido principal. Otros candidatos adecuados para los elementos &lt;aside&gt; serÃ­an listas de enlaces a contenidos externos relacionados, informaciÃ³n adicional, citas y/o barras laterales.</p>
+<p>El elemento <code>&lt;aside&gt;</code> sirve para marcar fragmentos de contenido relacionados con el contenido principal, pero que no encajan directamente en el flujo principal. Por ejemplo, en este caso tenemos un montón de datos breves y estadísticas sobre la banda, que no funcionarían bien metidos con calzador en el contenido principal. Otros candidatos adecuados para los elementos &lt;aside&gt; serían listas de enlaces a contenidos externos relacionados, información adicional, citas y/o barras laterales.</p>
 
 <h3 id="figure"><code>&lt;figure&gt;</code> y <code>&lt;figcaption&gt;</code></h3>
 
-<p>El dÃºo de <code>&lt;figure&gt;</code> y <code>&lt;figcaption&gt;</code> se creÃ³ para resolver un conjunto muy especÃ­fico de problemas. Para empezar, Â¿no es siempre un tanto semÃ¡nticamente dudoso e impuro marcar una imagen y su tÃ­tulo como dos pÃ¡rrafos, o un par de una lista de definiciones, o alguna cosa por el estilo? Y, en segundo lugar, Â¿quÃ© hacer cuando se quiere una figura consistente en una imagen, o dos imÃ¡genes, o dos imÃ¡genes y un texto? <code>&lt;figure&gt;</code> nos sirve para envolver todo el contenido que se quiera incluir en una sola figura, ya sea texto, imÃ¡genes, SVG, vÃ­deos, o cualquier otra cosa. DespuÃ©s se anida <code>&lt;figcaption&gt;</code> dentro del elemento <code>&lt;figure&gt;</code>, con el texto descriptivo de la figura. La figura que incluyo en el ejemplo es simple, para empezar:</p>
+<p>El dúo de <code>&lt;figure&gt;</code> y <code>&lt;figcaption&gt;</code> se creó para resolver un conjunto muy específico de problemas. Para empezar, ¿no es siempre un tanto semánticamente dudoso e impuro marcar una imagen y su título como dos párrafos, o un par de una lista de definiciones, o alguna cosa por el estilo? Y, en segundo lugar, ¿qué hacer cuando se quiere una figura consistente en una imagen, o dos imágenes, o dos imágenes y un texto? <code>&lt;figure&gt;</code> nos sirve para envolver todo el contenido que se quiera incluir en una sola figura, ya sea texto, imágenes, SVG, vídeos, o cualquier otra cosa. Después se anida <code>&lt;figcaption&gt;</code> dentro del elemento <code>&lt;figure&gt;</code>, con el texto descriptivo de la figura. La figura que incluyo en el ejemplo es simple, para empezar:</p>
 
 <pre><code>&lt;figure&gt;
  &lt;img src=&quot;pwei.png&quot; alt=&quot;Old poppies logo&quot; /&gt;
@@ -181,32 +181,32 @@
 &lt;/figure&gt;</code></pre>
 
 <h3 id="time"><code>&lt;time&gt;</code></h3>
-<p>El elemento <code>&lt;time&gt;</code> permite definir un valor de fecha y hora sin ambigÃ¼edad, legible a la vez por personas y mÃ¡quinas. Por ejemplo, he marcado las fechas de lanzamiento de singles de la banda asÃ­:</p>
+<p>El elemento <code>&lt;time&gt;</code> permite definir un valor de fecha y hora sin ambigüedad, legible a la vez por personas y máquinas. Por ejemplo, he marcado las fechas de lanzamiento de singles de la banda así:</p>
 
 <pre><code>&lt;time datetime=&quot;1989-03-13&quot;&gt;1989&lt;/time&gt;</code></pre>
 
-<p>El texto entre las etiquetas de apertura y cierre pueden ser el que quieras, segÃºn corresponda a la audiencia del sitio. Si quisieses, tambiÃ©n podÃ­as ponerlo asÃ­:</p>
+<p>El texto entre las etiquetas de apertura y cierre pueden ser el que quieras, según corresponda a la audiencia del sitio. Si quisieses, también podías ponerlo así:</p>
 
 <pre><code>&lt;time datetime=&quot;1989-03-13&quot;&gt;13th March 1989&lt;/time&gt;
 &lt;time datetime=&quot;1989-03-13&quot;&gt;March 13 1989&lt;/time&gt;
 &lt;time datetime=&quot;1989-03-13&quot;&gt;My nineteenth birthday&lt;/time&gt;</code></pre>
 
-<p>Por su parte, la fecha dentro de los atributos de fecha y hora es un estÃ¡ndar ISO legible por ordenador (puedes consultar <a href="http://www.w3.org/QA/Tips/iso-date" hreflang="en">W3C Tip: Use international date format (ISO)</a> para obtener mÃ¡s informaciÃ³n), con lo que se obtiene lo mejor de ambos mundos. TambiÃ©n se puede agregar la hora al final de la norma ISO, de esta forma:</p>
+<p>Por su parte, la fecha dentro de los atributos de fecha y hora es un estándar ISO legible por ordenador (puedes consultar <a href="http://www.w3.org/QA/Tips/iso-date" hreflang="en">W3C Tip: Use international date format (ISO)</a> para obtener más información), con lo que se obtiene lo mejor de ambos mundos. También se puede agregar la hora al final de la norma ISO, de esta forma:</p>
 
 <pre><code>&lt;time datetime=&quot;1989-03-13T13:00&quot;&gt;One o'clock in the afternoon, on the 13th of March 1989&lt;/time&gt;</code></pre>
 
-<p>TambiÃ©n puede agregarse un ajuste de zona horaria. AsÃ­, por ejemplo, para convertir el Ãºltimo ejemplo en hora del PacÃ­fico, podrÃ­a hacer esto:</p>
+<p>También puede agregarse un ajuste de zona horaria. Así, por ejemplo, para convertir el último ejemplo en hora del Pacífico, podría hacer esto:</p>
 
 <pre><code>&lt;time datetime=&quot;1989-03-13T13:00Z-08:00&quot;&gt;One o'clock in the afternoon, 
 on the 13th of March 1989&lt;/time&gt;</code></pre>
 
 <h3 id="article-section"><code>&lt;article&gt;</code> y <code>&lt;section&gt;</code></h3>
 
-<p>Ahora nos fijaremos en los que probablemente sean los dos elementos mÃ¡s incomprendidos de HTML5: <code>&lt;article&gt;</code> y <code>&lt;section&gt;</code>. La primera vez que te los encuentras la diferencia puede parecer confusa, pero en realidad la cosa no estÃ¡ tan mal.</p>
+<p>Ahora nos fijaremos en los que probablemente sean los dos elementos más incomprendidos de HTML5: <code>&lt;article&gt;</code> y <code>&lt;section&gt;</code>. La primera vez que te los encuentras la diferencia puede parecer confusa, pero en realidad la cosa no está tan mal.</p>
 
-<p>BÃ¡sicamente, el elemento <code>&lt;article&gt;</code> es para piezas de contenido independientes que tendrÃ­an sentido fuera del contexto de la pÃ¡gina actual, y podrÃ­an sindicarse perfectamente. Eso incluirÃ­a las entradas de un blog, un vÃ­deo con su transcripciÃ³n, una noticia, o una parte de una historia por capÃ­tulos.</p>
+<p>Básicamente, el elemento <code>&lt;article&gt;</code> es para piezas de contenido independientes que tendrían sentido fuera del contexto de la página actual, y podrían sindicarse perfectamente. Eso incluiría las entradas de un blog, un vídeo con su transcripción, una noticia, o una parte de una historia por capítulos.</p>
 
-<p>El elemento <code>&lt;section&gt;</code>, por su lado, sirve para dividir el contenido de una pÃ¡gina en diferentes funciones o Ã¡reas temÃ¡ticas, o dividir un artÃ­culo o historia en secciones diferentes. AsÃ­, por ejemplo, en mi historia de PWEI, la estructura tiene este aspecto:</p>
+<p>El elemento <code>&lt;section&gt;</code>, por su lado, sirve para dividir el contenido de una página en diferentes funciones o áreas temáticas, o dividir un artículo o historia en secciones diferentes. Así, por ejemplo, en mi historia de PWEI, la estructura tiene este aspecto:</p>
 
 <pre><code>&lt;article&gt;
 &nbsp; &lt;section id=&quot;Intro&quot;&gt;
@@ -220,7 +220,7 @@ on the 13th of March 1989&lt;/time&gt;</code></pre>
 &nbsp; &lt;/section&gt;
 &lt;/article&gt;</code></pre>
 
-<p>Pero tambiÃ©n podrÃ­as tener una estructura como:</p>
+<p>Pero también podrías tener una estructura como:</p>
 
 <pre><code>&lt;section id=&quot;rock&quot;&gt;
 &nbsp; &lt;h2&gt;Rock bands&lt;/h2&gt;
@@ -235,9 +235,9 @@ on the 13th of March 1989&lt;/time&gt;</code></pre>
 &nbsp; &lt;!-- multiple article elements could go in here --&gt;
 &lt;/section&gt;</code></pre>
 
-<h4 id="div">Â¿CÃ³mo afecta eso a <code>&lt;div&gt;</code>?</h4>
+<h4 id="div">¿Cómo afecta eso a <code>&lt;div&gt;</code>?</h4>
 
-<p>AsÃ­, con todos estos fantÃ¡sticos nuevos elementos para usar en nuestras pÃ¡ginas, los dÃ­as del humilde <code>&lt;div&gt;</code> estÃ¡n contados, Â¿verdad? NO. De hecho, el <code>&lt;div&gt;</code> todavÃ­a tiene un uso perfectamente vÃ¡lido. Debe usarse cuando no hay otro elemento mÃ¡s adecuado para agrupar un Ã¡rea de contenido, y ese suele ser el caso cuando se usa un elemento para agrupar contenido Ãºnicamente para aplicar estilos o efectos visuales. El ejemplo en mi historia de los PWEI es el <code>&lt;div id=&quot;wrapper&quot;&gt;</code> que he puesto alrededor de todo el contenido. La Ãºnica razÃ³n por la que estÃ¡ ahÃ­ es para poder usar CSS para centrar el contenido en el navegador:</p>
+<p>Así, con todos estos fantásticos nuevos elementos para usar en nuestras páginas, los días del humilde <code>&lt;div&gt;</code> están contados, ¿verdad? NO. De hecho, el <code>&lt;div&gt;</code> todavía tiene un uso perfectamente válido. Debe usarse cuando no hay otro elemento más adecuado para agrupar un área de contenido, y ese suele ser el caso cuando se usa un elemento para agrupar contenido únicamente para aplicar estilos o efectos visuales. El ejemplo en mi historia de los PWEI es el <code>&lt;div id=&quot;wrapper&quot;&gt;</code> que he puesto alrededor de todo el contenido. La única razón por la que está ahí es para poder usar CSS para centrar el contenido en el navegador:</p>
 
 <pre><code>#wrapper {
 &nbsp; background-color: #ffffff;
@@ -247,22 +247,22 @@ on the 13th of March 1989&lt;/time&gt;</code></pre>
 
 <h3 id="mark"><code>&lt;mark&gt;</code></h3>
 
-<p>El elemento <code>&lt;mark&gt;</code> sirve para destacar tÃ©rminos de relevancia actual o para destacar partes de contenidol sobre las que se quiere llamar la atenciÃ³n, pero cuyo significado semÃ¡ntico no se quiere cambiar. Es como cuando usted lees un artÃ­culo impreso y subrayas las partes que te parecen importantes con rotulador. AsÃ­, por ejemplo, es posible que quieras utilizar este elemento para el marcado de lÃ­neas en un wiki que deben ser objeto de atenciÃ³n editorial, o para resaltar las ocurrencias de un tÃ©rmino de bÃºsqueda que el usuario ha buscado en una pÃ¡gina, y luego darles un estilo apropiado en su CSS.</p>
+<p>El elemento <code>&lt;mark&gt;</code> sirve para destacar términos de relevancia actual o para destacar partes de contenidol sobre las que se quiere llamar la atención, pero cuyo significado semántico no se quiere cambiar. Es como cuando usted lees un artículo impreso y subrayas las partes que te parecen importantes con rotulador. Así, por ejemplo, es posible que quieras utilizar este elemento para el marcado de líneas en un wiki que deben ser objeto de atención editorial, o para resaltar las ocurrencias de un término de búsqueda que el usuario ha buscado en una página, y luego darles un estilo apropiado en su CSS.</p>
 
 <h3>El atributo <code>hidden</code></h3>
 
-<p>El atributo <code>hidden</code> (oculto), cuando se aplica a cualquier elemento, lo oculta por completo de cualquier forma de presentaciÃ³n, independientemente del medio, y debe utilizarse si se tiene la intenciÃ³n de mostrar el contenido mÃ¡s tarde (por ejemplo, usando JavaScript para eliminar el atributo), pero no quieres mostrarlo ahora. No debe ser utilizado para ocultar contenido como las pestaÃ±as ocultas de una interfaz con pestaÃ±as, ya que eso, en realidad, no es mÃ¡s que una forma diferente de presentar contenido en un espacio mÃ¡s pequeÃ±o, en lugar de ocultar el contenido completo.</p>
+<p>El atributo <code>hidden</code> (oculto), cuando se aplica a cualquier elemento, lo oculta por completo de cualquier forma de presentación, independientemente del medio, y debe utilizarse si se tiene la intención de mostrar el contenido más tarde (por ejemplo, usando JavaScript para eliminar el atributo), pero no quieres mostrarlo ahora. No debe ser utilizado para ocultar contenido como las pestañas ocultas de una interfaz con pestañas, ya que eso, en realidad, no es más que una forma diferente de presentar contenido en un espacio más pequeño, en lugar de ocultar el contenido completo.</p>
 
 <h2 id="html-outline">Esquemas HTML5 y el algoritmo de encabezados de HTML5</h2>
 
-<p>Antes de continuar con nuestro viaje hacia el dominio de HTML5, hay otra diferencia importante que debemos tratar entre HTML5 y las versiones anteriores de la especificaciÃ³n. En HTML tenemos que el concepto del esquema del documento, que es bÃ¡sicamente un desglose del documento en sus diferentes encabezados, y su jerarquÃ­a relativa, exactamente igual que cuando se escribe un documento en un procesador de textos y ponemos la vista de esquema. En efecto, he creado, bÃ¡sicamente, un esquema del documento de este documento anidando listas para crear la tabla de contenidos al comienzo de este artÃ­culo. El esquema de documento de este artÃ­culo tiene un aspecto como el siguiente:</p>
+<p>Antes de continuar con nuestro viaje hacia el dominio de HTML5, hay otra diferencia importante que debemos tratar entre HTML5 y las versiones anteriores de la especificación. En HTML tenemos que el concepto del esquema del documento, que es básicamente un desglose del documento en sus diferentes encabezados, y su jerarquía relativa, exactamente igual que cuando se escribe un documento en un procesador de textos y ponemos la vista de esquema. En efecto, he creado, básicamente, un esquema del documento de este documento anidando listas para crear la tabla de contenidos al comienzo de este artículo. El esquema de documento de este artículo tiene un aspecto como el siguiente:</p>
 
 <pre><code>- Los nuevos elementos estructurales de HTML5
-  - IntroducciÃ³n
+  - Introducción
   - Presentando los elementos estructurales de HTML5
-    - Â¿CÃ³mo se decidieron los nombres de los elementos?
-    - Â¿Por quÃ© no hay un elemento &lt;content&gt;?
-  - Una pÃ¡gina HTML5 de ejemplo
+    - ¿Cómo se decidieron los nombres de los elementos?
+    - ¿Por qué no hay un elemento &lt;content&gt;?
+  - Una página HTML5 de ejemplo
     - Algunas meta-diferencias
     - &lt;header&gt;
     - &lt;hgroup&gt;
@@ -272,16 +272,16 @@ on the 13th of March 1989&lt;/time&gt;</code></pre>
     - &lt;figure&gt; y &lt;figcaption&gt;
     - &lt;time&gt;
     - &lt;article&gt; y &lt;section&gt;
-      - Â¿CÃ³mo afecta eso a &lt;div&gt;?
+      - ¿Cómo afecta eso a &lt;div&gt;?
   - Esquemas HTML5 y el algoritmo de encabezados de HTML5
-  - CÃ³mo  hacer que funcione en navegadores antiguos
+  - Cómo  hacer que funcione en navegadores antiguos
   - Resumen</code></pre>
 
 
 
-<p>AsÃ­ que "Los nuevos elementos estructurales de  HTML5" es un <code>&lt;h1&gt;</code>, "Presentando  los elementos estructurales de HTML5" es un <code>&lt;h2&gt;</code> y asÃ­ sucesivamente.  En HTML4 estamos acostumbrados al hecho de que hay seis niveles posibles de  encabezado, y el nivel de tÃ­tulo lo dicta el elemento utilizado efectivamente,  lo que significa que es perfectamente posible acabar con una jerarquÃ­a de encabezados completamente rota si utilizas niveles de encabezado equivocados, o  incluso si algunos de sus contenidos se sindican a otro gestor de contenidos.</p>
+<p>Así que "Los nuevos elementos estructurales de  HTML5" es un <code>&lt;h1&gt;</code>, "Presentando  los elementos estructurales de HTML5" es un <code>&lt;h2&gt;</code> y así sucesivamente.  En HTML4 estamos acostumbrados al hecho de que hay seis niveles posibles de  encabezado, y el nivel de título lo dicta el elemento utilizado efectivamente,  lo que significa que es perfectamente posible acabar con una jerarquía de encabezados completamente rota si utilizas niveles de encabezado equivocados, o  incluso si algunos de sus contenidos se sindican a otro gestor de contenidos.</p>
 
-<p>HTML5 resuelve este problema generando la  jerarquÃ­a de encabezados basÃ¡ndose en la relaciÃ³n de anidaciÃ³n de las  diferentes secciones del documentos. Se crea una nueva secciÃ³n del documento  cada vez que se utiliza lo que se llama <em>contenido  de seccionado</em>: los elementos <code>&lt;article&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;nav&gt;</code>  y <code>&lt;aside&gt;</code>. AsÃ­, por ejemplo, si se toma el ejemplo siguiente:</p>
+<p>HTML5 resuelve este problema generando la  jerarquía de encabezados basándose en la relación de anidación de las  diferentes secciones del documentos. Se crea una nueva sección del documento  cada vez que se utiliza lo que se llama <em>contenido  de seccionado</em>: los elementos <code>&lt;article&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;nav&gt;</code>  y <code>&lt;aside&gt;</code>. Así, por ejemplo, si se toma el ejemplo siguiente:</p>
 
 <pre><code>&lt;h1&gt;My title&lt;/h1&gt;
 
@@ -291,7 +291,7 @@ on the 13th of March 1989&lt;/time&gt;</code></pre>
 
 
 
-<p>HTML 4 cuenta esto como un encabezado de primer  nivel seguido de uno de segundo nivel, pero HTML5 lo cuenta como dos encabezados  de primer nivel. Â¿Por quÃ©? Porque <code>&lt;div&gt;</code> no es un elemento de seccionado, y  por tanto no crea una nueva secciÃ³n en la jerarquÃ­a. Para remediar esto, habrÃ­a  que cambiar el <code>&lt;div&gt;</code> a un elemento de seccionado:</p>
+<p>HTML 4 cuenta esto como un encabezado de primer  nivel seguido de uno de segundo nivel, pero HTML5 lo cuenta como dos encabezados  de primer nivel. ¿Por qué? Porque <code>&lt;div&gt;</code> no es un elemento de seccionado, y  por tanto no crea una nueva sección en la jerarquía. Para remediar esto, habría  que cambiar el <code>&lt;div&gt;</code> a un elemento de seccionado:</p>
 
 <pre><code>&lt;h1&gt;My title&lt;/h1&gt;
 
@@ -299,26 +299,65 @@ on the 13th of March 1989&lt;/time&gt;</code></pre>
 &lt;h2&gt;My subtitle&lt;/h2&gt;
 &lt;/section&gt;</code></pre>
 
-<p>VÃ©ase  el <a href="http://dev.opera.com/articles/view/new-structural-elements-in-html5/outlining2.html" hreflang="en">segundo  ejemplo de esquema</a> en vivo.</p>
+<p>Véase  el <a href="http://dev.opera.com/articles/view/new-structural-elements-in-html5/outlining2.html" hreflang="en">segundo  ejemplo de esquema</a> en vivo.</p>
 
-<p>NingÃºn  navegador implementa actualmente el algoritmo de esquemas de HTML5, pero ya te puedes hacer una idea de cÃ³mo funciona mediante la extensiÃ³n de Opera <a href="https://addons.opera.com/addons/extensions/details/html5-outliner/1.0/?display=en" hreflang="en">HTML5  Outliner,</a>Â el <a href="http://gsnedders.html5.org/outliner/" hreflang="en">on-line HTML5 outliner</a> de  Geoffrey Sneddon, o el <a href="http://code.google.com/p/h5o/">outliner HTML5</a> de  Google. Prueba a ejecutar los ejemplos anteriores a travÃ©s de una de estas  herramientas si no me crees. En el futuro no tendrÃ¡s que molestarse con una  jerarquÃ­a de h1, h2, h3, etc, ya que independientemente de los elementos de  encabezado usados realmente, el algoritmo seguirÃ¡ llegando a la misma jerarquÃ­a  a partir de la anidaciÃ³n de las secciones del documento. Pero de momento  deberÃ­as seguir preocupÃ¡ndote, ya que ningÃºn navegador (ni lector de pantalla)  lo soporta todavÃ­a.</p>
+<p>Ningún  navegador implementa actualmente el algoritmo de esquemas de HTML5, pero ya te puedes hacer una idea de cómo funciona mediante la extensión de Opera <a href="https://addons.opera.com/addons/extensions/details/html5-outliner/1.0/?display=en" hreflang="en">HTML5  Outliner,</a> el <a href="http://gsnedders.html5.org/outliner/" hreflang="en">on-line HTML5 outliner</a> de  Geoffrey Sneddon, o el <a href="http://code.google.com/p/h5o/">outliner HTML5</a> de  Google. Prueba a ejecutar los ejemplos anteriores a través de una de estas  herramientas si no me crees. En el futuro no tendrás que molestarse con una  jerarquía de h1, h2, h3, etc, ya que independientemente de los elementos de  encabezado usados realmente, el algoritmo seguirá llegando a la misma jerarquía  a partir de la anidación de las secciones del documento. Pero de momento  deberías seguir preocupándote, ya que ningún navegador (ni lector de pantalla)  lo soporta todavía.</p>
 
-<p>La gran pregunta, ahora mismo, es  &quot;Â¿por quÃ© molestarse con todo esto&quot;? Bueno, esta nueva forma de  elaborar el esquema del documento y su jerarquÃ­a de encabezados tiene dos  ventajas principales sobre la antigua:</p>
+<p>La gran pregunta, ahora mismo, es  &quot;¿por qué molestarse con todo esto&quot;? Bueno, esta nueva forma de  elaborar el esquema del documento y su jerarquía de encabezados tiene dos  ventajas principales sobre la antigua:</p>
 
 <ol>
-  <li>Puedes tener tantos niveles de encabezado como quieras: no estÃ¡s limitado a seis.</li>
-  <li>Si transplantas el contenido a otro CMS, y esto hace que los niveles de <code>h1</code>, <code>h2</code>, <code>h3</code>, etc vayan mal, el algoritmo seguirÃ¡ llegando a una jerarquÃ­a correcta.</li>
+  <li>Puedes tener tantos niveles de encabezado como quieras: no estás limitado a seis.</li>
+  <li>Si transplantas el contenido a otro CMS, y esto hace que los niveles de <code>h1</code>, <code>h2</code>, <code>h3</code>, etc vayan mal, el algoritmo seguirá llegando a una jerarquía correcta.</li>
 </ol>
 
 <div class="note">
-<p>Nota: La jerarquÃ­a de encabezados de  HTML5 es en realidad una idea muy antigua, <a href="http://lists.w3.org/Archives/Public/www-talk/1991SepOct/0003.html">ideada  inicialmente por Tim Berners-Lee en 1991</a>:</p>
-<blockquote cite="http://lists.w3.org/Archives/Public/www-talk/1991SepOct/0003.html"><p>De hecho, preferirÃ­a, en vez de  &lt;H1&gt;, etc &lt;H2&gt; para los tÃ­tulos [estos provienen de la DTD de AAP]  tener elementos &lt;SECTION&gt;..&lt;/SECTION&gt; anidables y un  &lt;H&gt;..&lt;/H&gt; genÃ©rico que, a cualquier nivel dentro de las secciones,  producirÃ­a el nivel requerido de encabezado.</p></blockquote>
+<p>Nota: La jerarquía de encabezados de  HTML5 es en realidad una idea muy antigua, <a href="http://lists.w3.org/Archives/Public/www-talk/1991SepOct/0003.html">ideada  inicialmente por Tim Berners-Lee en 1991</a>:</p>
+<blockquote cite="http://lists.w3.org/Archives/Public/www-talk/1991SepOct/0003.html"><p>De hecho, preferiría, en vez de  &lt;H1&gt;, etc &lt;H2&gt; para los títulos [estos provienen de la DTD de AAP]  tener elementos &lt;SECTION&gt;..&lt;/SECTION&gt; anidables y un  &lt;H&gt;..&lt;/H&gt; genérico que, a cualquier nivel dentro de las secciones,  produciría el nivel requerido de encabezado.</p></blockquote>
 </div>
 
-<h2 id="older-browsers">CÃ³mo hacer que funcione en navegadores antiguos</h2>
+<h2 id="older-browsers">Cómo hacer que funcione en navegadores antiguos</h2>
 
-<p>Los navegadores antiguos: eternamente la  ruina de nuestra existencia cuando intentamos familiarizarnos con el uso de los  juguetes nuevos de la webâ¦ De hecho, el problema aquÃ­ son todos los  navegadores: <strong>ningÃºn navegador actual  reconoce y soporta estos nuevos elementos estructurales HTML5 </strong>como tales. Pero no temas, aÃºn  asÃ­ puedes hacer que funcionen en todos los navegadores de hoy con un mÃ­nimo  esfuerzo.</p>
+<p>Los navegadores antiguos: eternamente la  ruina de nuestra existencia cuando intentamos familiarizarnos con el uso de los  juguetes nuevos de la web… De hecho, el problema aquí son todos los  navegadores: <strong>ningún navegador actual  reconoce y soporta estos nuevos elementos estructurales HTML5 </strong>como tales. Pero no temas, aún  así puedes hacer que funcionen en todos los navegadores de hoy con un mínimo  esfuerzo.</p>
 
-<p>En primer lugar, si pones un elemento  desconocido en una pÃ¡gina web, por defecto el navegador lo tratarÃ¡ simplemente  como un <code>&lt;span&gt;</code>, es decir, un elemento en lÃ­nea anÃ³nimo. La mayorÃ­a de  elementos HTML5 que hemos analizado en este artÃ­culo deberÃ­an comportarse como  elementos de bloque y, por tanto, la manera mÃ¡s fÃ¡cil de hacer que se comporten  correctamente en navegadores antiguos es establecerles <code>display: block;</code> en el  CSS:</p>
+<p>En primer lugar, si pones un elemento  desconocido en una página web, por defecto el navegador lo tratará simplemente  como un <code>&lt;span&gt;</code>, es decir, un elemento en línea anónimo. La mayoría de  elementos HTML5 que hemos analizado en este artículo deberían comportarse como  elementos de bloque y, por tanto, la manera más fácil de hacer que se comporten  correctamente en navegadores antiguos es establecerles <code>display: block;</code> en el  CSS:</p>
 
-<pre><code>a
+<pre><code>article, section, aside, hgroup, nav,  header, footer, figure, figcaption {
+ display: block;
+}</code></pre>
+
+<p>Esto resuelve todos los problemas en  todos los navegadores excepto uno. ¿Adivinas cuál? Sí, increíble, verdad, que  IE resulte ser más difícil que los demás navegadores, y se niegue a aplicar  estilo a elementos que no reconoce… La solución para IE es ilógica pero,  afortunadamente, bastante simple. Para cada elemento de HTML5 que uses es  necesario insertar una línea de código JavaScript en la cabecera del documento,  de esta forma:</p>
+
+<pre><code>&lt;script&gt;
+  document.createElement('article');
+  document.createElement('section');
+  document.createElement('aside');
+  document.createElement('hgroup');
+  document.createElement('nav');
+  document.createElement('header');
+  document.createElement('footer');
+  document.createElement('figure');
+  document.createElement('figcaption');
+&lt;/script&gt;</code></pre>
+
+<p>Por arte de magia IE ahora aplicará los  estilos a los elementos. Es doloroso tener que usar JavaScript para hacer que  funcione el CSS, pero bueno, al menos tenemos un camino a seguir. ¿Por qué  funciona esto exactamente? Nadie con quien haya hablado lo sabe realmente. Y  también hay un problema con que los estilos TODAVÍA no llegan a la impresora al  imprimir documentos HTML5 desde IE.</p>
+
+<div class="note">
+<p>Nota: El problema de impresión de IE se  resuelve usando la biblioteca de JavaScript <a href="http://code.google.com/p/html5shiv/" hreflang="en">HTML5 Shiv</a>, que también se ocupa  de añadir las líneas <code>document.createElement</code> por ti. Deberías envolverla con <a href="http://dev.opera.com/articles/view/supporting-ie-with-conditional-comments/" hreflang="en">comentarios  condicionales</a> para las versiones de IE anteriores a IE9, para que los  navegadores modernos no ejecuten un JavaScript innecesario.</p>
+</div>
+
+<h2 id="summary">Resumen</h2>
+
+<p>Esto cierra nuestra discusión sobre los  nuevos elementos estructurales de HTML5. Si quieres más ayuda tenemos mucho más  que ofrecer en dev.opera.com, y también deberías consultar a los doctores de  HTML5.</p>
+</div>
+
+<div><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.es"><img src="../../m0/creative_commons.gif" id="logo_cc" alt="Logo Creative Commons" /></a></div>
+<div id="logo_text">Los contenidos recogidos en este artículo están sujetos a una licencia <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.es">Creative Commons<br /> Reconocimiento, No comercial - Compartir bajo la misma licencia 3.0 No adaptada</a>.
+</div>
+<div id="cierre_autor"></div>
+
+<div id="peu">
+		<a rel="prev" href="../ud1/index.html" title="Ir al artículo anterior" accesskey="8"><img src="../../img/fletxa_izq_inv.gif" alt="Ir al artículo anterior" /></a> <strong>:</strong>
+		<a rel="index" href="../../index.html" title="Ir al índice" accesskey="0"><img src="../../img/indice_inv.gif" alt="Ir al índice" /></a> <strong>:</strong>
+		<a rel="next" href="../ud3/index.html" title="Ir al artículo siguiente" accesskey="9"><img src="../../img/fletxa_der_inv.gif" alt="Ir al artículo siguiente" /></a>
+</div>
+</body>
