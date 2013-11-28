@@ -1,116 +1,116 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="utf-8" />
+<meta charset="iso-8859-1" />
 <meta name="author" content="Universitat Oberta de Catalunya" />
 
-<title>Nuevas caracterÃ­sticas de formularios en HTML5</title>
+<title>Nuevas características de formularios en HTML5</title>
 <link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
 </head>
 
 <body>
 <div id="cabecera">
 	<img id="logo" src="../../img/logo.gif" alt="Universitat Oberta de Catalunya" />
-    <a href="http://mosaic.uoc.edu/"><img id="logomosaic" src="../../img/logo-mosaic.gif" alt="Logo de Mosaic" title="Abre la pÃ¡gina web de Mosaic" /></a>
+    <a href="http://mosaic.uoc.edu/"><img id="logomosaic" src="../../img/logo-mosaic.gif" alt="Logo de Mosaic" title="Abre la página web de Mosaic" /></a>
 	<div id="titulo">HTML5</div>
-	<div id="subtitulo">Nuevas caracterÃ­sticas de formularios en HTML5</div>
+	<div id="subtitulo">Nuevas características de formularios en HTML5</div>
 <div id="cierre"></div>
 	<div id="navegador">
 		<a href="../../m0/accessibilitat.html" id="accesibilidad">Accesibilidad</a> <strong>:</strong> 
-		<a rel="prev" href="../ud2/index.html" title="Ir al artÃ­culo anterior" accesskey="8"><img src="../../img/fletxa_izq.gif" alt="Ir al artÃ­culo anterior" /></a> <strong>:</strong> 
-		<a rel="index" href="../../index.html" title="Ir al Ã­ndice" accesskey="0"><img src="../../img/indice.gif" alt="Ir al Ã­ndice" /></a> <strong>:</strong> 
-		<a rel="next" href="../ud4/index.html" title="Ir al artÃ­culo siguiente" accesskey="9"><img src="../../img/fletxa_der.gif" alt="Ir al artÃ­culo siguiente" /></a>
+		<a rel="prev" href="../ud2/index.html" title="Ir al artículo anterior" accesskey="8"><img src="../../img/fletxa_izq.gif" alt="Ir al artículo anterior" /></a> <strong>:</strong> 
+		<a rel="index" href="../../index.html" title="Ir al índice" accesskey="0"><img src="../../img/indice.gif" alt="Ir al índice" /></a> <strong>:</strong> 
+		<a rel="next" href="../ud4/index.html" title="Ir al artículo siguiente" accesskey="9"><img src="../../img/fletxa_der.gif" alt="Ir al artículo siguiente" /></a>
 	</div>
 </div>
 	
 <div id="main">
-<h1>Nuevas caracterÃ­sticas de formularios en HTML5</h1>
+<h1>Nuevas características de formularios en HTML5</h1>
 <p class="by"><a href="../../index.html#mills">Chris Mills</a>, Patrick H. Lauke. 16 de diciembre de 2010. Publicado en: html5, formularios, web abierta</p>
 
-<h2>PresentaciÃ³n</h2>
+<h2>Presentación</h2>
 
-<p>HTML5 incluye muchas nuevas  caracterÃ­sticas para hacer que los formularios web sean mucho mÃ¡s fÃ¡cil de  escribir, y mucho mÃ¡s potentes y consistentes en la web. Este artÃ­culo presenta  una breve descripciÃ³n de algunos de los controles de formulario y de las nuevas  funcionalidades que se han introducido.</p>
+<p>HTML5 incluye muchas nuevas  características para hacer que los formularios web sean mucho más fácil de  escribir, y mucho más potentes y consistentes en la web. Este artículo presenta  una breve descripción de algunos de los controles de formulario y de las nuevas  funcionalidades que se han introducido.</p>
 
-<h2>Â¿Malas formas?</h2>
+<h2>¿Malas formas?</h2>
 
-<p>PlanteÃ©monoslo: los formularios HTML  siempre han sido dolorosos. No son exactamente divertidos a la hora de crear el  marcado y pueden resultar difÃ­ciles a la hora de aplicarles estilos  âespecialmente si quieres que sean coherentes en mÃºltiples navegadores y que  encajen con el aspecto general de tu sitio. Y rellenarlos puede ser frustrante  para los usuarios finales, incluso si se han creado con cuidado y consideraciÃ³n  para que sean tan usables y accesibles como sea posible. Crear un buen  formulario es mÃ¡s limitar los daÃ±os que crear una experiencia de usuario  agradable.</p>
+<p>Planteémonoslo: los formularios HTML  siempre han sido dolorosos. No son exactamente divertidos a la hora de crear el  marcado y pueden resultar difíciles a la hora de aplicarles estilos  —especialmente si quieres que sean coherentes en múltiples navegadores y que  encajen con el aspecto general de tu sitio. Y rellenarlos puede ser frustrante  para los usuarios finales, incluso si se han creado con cuidado y consideración  para que sean tan usables y accesibles como sea posible. Crear un buen  formulario es más limitar los daños que crear una experiencia de usuario  agradable.</p>
 
-<p>Cuando HTML 4.01 se convirtiÃ³ en  recomendaciÃ³n estable la web era un lugar mayoritariamente estÃ¡tico. SÃ­, habÃ­a  algÃºn formulario de comentarios aquÃ­ y allÃ¡ y algÃºn que otro <span lang="en">script</span> de libro de visitas, pero en  general los sitios web estaban para que los visitantes, simplemente, leyesen.  Desde entonces la web ha evolucionado. Para muchas personas el navegador se ha  convertido en una ventana a un mundo de aplicaciones complejas, basadas en la  web que tratan de aportar una experiencia casi de escritorio.</p>
+<p>Cuando HTML 4.01 se convirtió en  recomendación estable la web era un lugar mayoritariamente estático. Sí, había  algún formulario de comentarios aquí y allá y algún que otro <span lang="en">script</span> de libro de visitas, pero en  general los sitios web estaban para que los visitantes, simplemente, leyesen.  Desde entonces la web ha evolucionado. Para muchas personas el navegador se ha  convertido en una ventana a un mundo de aplicaciones complejas, basadas en la  web que tratan de aportar una experiencia casi de escritorio.</p>
 
 <div class="imagen">
 <img src="fig1.png" alt="Algunos elementos de formulario complejos y no nativos, creados con JavaScript" />
 <p>Figura 1: Algunos elementos de formulario complejos y no nativos, creados con JavaScript</p>
 </div>
 
-<p>Para satisfacer la necesidad de esos  elementos mÃ¡s sofisticados necesarios para estas aplicaciones, los  desarrolladores han estado aprovechando bibliotecas y <span lang="en">frameworks</span> JavaScript (como jQueryUI o YUI). Estas soluciones han  madurado sin duda en los Ãºltimos aÃ±os, aportando una gran funcionalidad a las  pÃ¡ginas web, e incluso comienzan a incorporar soporte para lectores de pantalla  a travÃ©s de tecnologÃ­as puente como WAI-ARIA. Pero, en esencia, son una  soluciÃ³n para compensar los limitados controles disponibles en HTML. &ldquo;Imitan&quot;  los widgets mÃ¡s complejos (como los selectores de fecha y los controles  deslizantes) aÃ±adiendo capas de marcado adicionales (no siempre semÃ¡nticas) y  una gran cantidad de cÃ³digo JavaScript al principio de las pÃ¡ginas.</p>
+<p>Para satisfacer la necesidad de esos  elementos más sofisticados necesarios para estas aplicaciones, los  desarrolladores han estado aprovechando bibliotecas y <span lang="en">frameworks</span> JavaScript (como jQueryUI o YUI). Estas soluciones han  madurado sin duda en los últimos años, aportando una gran funcionalidad a las  páginas web, e incluso comienzan a incorporar soporte para lectores de pantalla  a través de tecnologías puente como WAI-ARIA. Pero, en esencia, son una  solución para compensar los limitados controles disponibles en HTML. &ldquo;Imitan&quot;  los widgets más complejos (como los selectores de fecha y los controles  deslizantes) añadiendo capas de marcado adicionales (no siempre semánticas) y  una gran cantidad de código JavaScript al principio de las páginas.</p>
 
-<p>HTML5 pretende estandarizar algunos de  los controles ricos mÃ¡s comunes, haciÃ©ndolos nativos en el navegador y eliminando  la necesidad de estas soluciones cargadas de <span lang="en">scripts</span>.</p>
+<p>HTML5 pretende estandarizar algunos de  los controles ricos más comunes, haciéndolos nativos en el navegador y eliminando  la necesidad de estas soluciones cargadas de <span lang="en">scripts</span>.</p>
 
 <h2>Nuestro ejemplo</h2>
 
-<p>Para ilustrar algunas de las nuevas  caracterÃ­sticas, este artÃ­culo viene acompaÃ±ado de un <a href="http://dev.opera.com/articles/view/new-form-features-in-html5/html5-forms-example.html" hreflang="en">>ejemplo bÃ¡sico de  formularios HTML5</a>. No pretende representar un formulario &ldquo;real&rdquo; (tendrÃ­as  apuros para encontrar una situaciÃ³n en la que tengas necesidad de todas las  nuevas caracterÃ­sticas en un solo formulario), pero deberÃ­a dar una buena idea  del aspecto y comportamiento de los diversos nuevos aspectos.</p>
+<p>Para ilustrar algunas de las nuevas  características, este artículo viene acompañado de un <a href="http://dev.opera.com/articles/view/new-form-features-in-html5/html5-forms-example.html" hreflang="en">>ejemplo básico de  formularios HTML5</a>. No pretende representar un formulario &ldquo;real&rdquo; (tendrías  apuros para encontrar una situación en la que tengas necesidad de todas las  nuevas características en un solo formulario), pero debería dar una buena idea  del aspecto y comportamiento de los diversos nuevos aspectos.</p>
 
 <div class="note">
-<p>Nota: la imagen y apariencia de los nuevos  controles de formulario y los mensajes de validaciÃ³n difiere de navegador a  navegador, por lo que para dar un estilo razonablemente consistente en mÃºltiples  navegadores todavÃ­a necesitarÃ¡ de cuidadosa consideraciÃ³n.</p>
+<p>Nota: la imagen y apariencia de los nuevos  controles de formulario y los mensajes de validación difiere de navegador a  navegador, por lo que para dar un estilo razonablemente consistente en múltiples  navegadores todavía necesitará de cuidadosa consideración.</p>
 </div>
 
 <h2>Nuevos controles de formulario</h2>
 
-<p>Como los formularios son la herramienta  principal para la entrada de datos en aplicaciones web y los datos que se desea  recopilar se han vuelto mÃ¡s complejos, ha sido necesario crear un elemento de  entrada con mayor capacidad, para recoger estos datos con mÃ¡s semÃ¡ntica y mejor  definiciÃ³n y permitir una gestiÃ³n de Â errores y validaciÃ³n mÃ¡s fÃ¡cil y mÃ¡s eficaz.</p>
+<p>Como los formularios son la herramienta  principal para la entrada de datos en aplicaciones web y los datos que se desea  recopilar se han vuelto más complejos, ha sido necesario crear un elemento de  entrada con mayor capacidad, para recoger estos datos con más semántica y mejor  definición y permitir una gestión de  errores y validación más fácil y más eficaz.</p>
 
 <h3><code>&lt;input type=&quot;number&quot;&gt;</code></h3>
 
-<p>El primer nuevo tipo de entrada que  discutiremos es el de nÃºmeros:</p>
+<p>El primer nuevo tipo de entrada que  discutiremos es el de números:</p>
 
-<pre><code>&lt;input type=&quot;number&quot; â¦ &gt;</code></pre>
+<pre><code>&lt;input type=&quot;number&quot; … &gt;</code></pre>
 
-<p>Esto crea un tipo especial de campo de  entrada para la entrada de nÃºmeros. En la mayorÃ­a de navegadores que lo  soportan se presenta como un campo de entrada de texto con un control que  permite incrementar y disminuir su valor.</p>
+<p>Esto crea un tipo especial de campo de  entrada para la entrada de números. En la mayoría de navegadores que lo  soportan se presenta como un campo de entrada de texto con un control que  permite incrementar y disminuir su valor.</p>
 
 <div class="imagen">
-<img src="fig2.png" alt="Un tipo de entrada numÃ©rico" />
-<p>Figura 2:Â  Un tipo de entrada numÃ©rico</p>
+<img src="fig2.png" alt="Un tipo de entrada numérico" />
+<p>Figura 2:  Un tipo de entrada numérico</p>
 </div>
 
 <h3><code>&lt;input type=&quot;range&quot;&gt;</code></h3>
 
-<p>Crear un control deslizante que permita  elegir entre una gama de valores era un proceso complicado y una propuesta semÃ¡nticamente  dudosa, pero con HTML5 es fÃ¡cil: simplemente se usa el tipo de entrada de rangos.</p>
+<p>Crear un control deslizante que permita  elegir entre una gama de valores era un proceso complicado y una propuesta semánticamente  dudosa, pero con HTML5 es fácil: simplemente se usa el tipo de entrada de rangos.</p>
 
-<pre><code>&lt;input type=&quot;range&quot; â¦ &gt;</code></pre>
+<pre><code>&lt;input type=&quot;range&quot; … &gt;</code></pre>
 
 <div class="imagen">
 <img src="fig3.png" alt="Un tipo de entrada de rangos" />
 <p>Figura 3: Un tipo de entrada de rangos</p>
 </div>
 
-<p>Ten en  cuenta que,  por defecto, esta entrada no suele  mostrar el valor seleccionado,  ni siquiera el rango de valores que cubre. Los  autores deben comunicarlos  a travÃ©s de otros medios. Por ejemplo, para  mostrar el valor  actual, podrÃ­amos usar un elemento de  salida junto con algo  de JavaScript para actualizar su  resultado cada vez que el usuario interactÃºe  con el formulario.</p>
+<p>Ten en  cuenta que,  por defecto, esta entrada no suele  mostrar el valor seleccionado,  ni siquiera el rango de valores que cubre. Los  autores deben comunicarlos  a través de otros medios. Por ejemplo, para  mostrar el valor  actual, podríamos usar un elemento de  salida junto con algo  de JavaScript para actualizar su  resultado cada vez que el usuario interactúe  con el formulario.</p>
 
 <pre><code>&lt;output  onforminput=&quot;value=weight.value&quot;&gt;&lt;/output&gt;</code></pre>
 
 <h3><code>&lt;input type=&quot;date&quot;&gt;</code> y otros controles de  fecha y hora</h3>
 
-<p>HTML5 tiene diferentes tipos de entrada  para la creaciÃ³n de  selectores complejos de fecha y hora, por ejemplo, como  los selectores de fecha que se ven en casi todos los sitios de reservas de vuelos  o trenes. Estos solÃ­an crearse usando parches nada semÃ¡nticos, por lo que es fantÃ¡stico  disponer de maneras estÃ¡ndares y fÃ¡ciles de hacerlo. Por ejemplo:</p>
+<p>HTML5 tiene diferentes tipos de entrada  para la creación de  selectores complejos de fecha y hora, por ejemplo, como  los selectores de fecha que se ven en casi todos los sitios de reservas de vuelos  o trenes. Estos solían crearse usando parches nada semánticos, por lo que es fantástico  disponer de maneras estándares y fáciles de hacerlo. Por ejemplo:</p>
 
-<pre><code>&lt;input type=&quot;date&quot; â¦ &gt;
-&lt;input type=&quot;time&quot; â¦ &gt;</code></pre>
+<pre><code>&lt;input type=&quot;date&quot; … &gt;
+&lt;input type=&quot;time&quot; … &gt;</code></pre>
 
-<p>Respectivamente, crean un selector de  fecha plenamente funcional y una entrada de texto que contiene un separador para  horas, minutos y segundos (dependiendo del atributo de paso especificado) que  sÃ³lo permite introducir un valor de tiempo.</p>
+<p>Respectivamente, crean un selector de  fecha plenamente funcional y una entrada de texto que contiene un separador para  horas, minutos y segundos (dependiendo del atributo de paso especificado) que  sólo permite introducir un valor de tiempo.</p>
 
 <div class="imagen">
 <img src="fig4.png" alt="Tipos de entrada de fecha y  hora" />
 <p>Figura 4: Tipos de entrada de fecha y  hora</p>
 </div>
 
-<p>Pero la cosa no termina ahÃ­ - hay otros  tipos de entrada disponibles relacionados:</p>
+<p>Pero la cosa no termina ahí - hay otros  tipos de entrada disponibles relacionados:</p>
 
 <ul>
   <li><code>datetime</code>: combina la  funcionalidad de los dos que hemos visto anteriormente, lo que permite elegir  una fecha y una hora</li>
-  <li><code>month</code>: permite elegir un mes,  almacenado internamente como un nÃºmero entre 1 y 12, aunque los diferentes  navegadores pueden dar mecanismos mÃ¡s elaborados de selecciÃ³n, como listas de  desplazamiento con los nombres de los meses</li>
-  <li><code>week</code>: permite elegir semana,  almacenada internamente con el formato 2010-W37 (semana 37 del aÃ±o 2010),  mediante un selector de fechas similar a las que ya hemos visto</li>
+  <li><code>month</code>: permite elegir un mes,  almacenado internamente como un número entre 1 y 12, aunque los diferentes  navegadores pueden dar mecanismos más elaborados de selección, como listas de  desplazamiento con los nombres de los meses</li>
+  <li><code>week</code>: permite elegir semana,  almacenada internamente con el formato 2010-W37 (semana 37 del año 2010),  mediante un selector de fechas similar a las que ya hemos visto</li>
 </ul>
 
 <h3><code>&lt;input type=&quot;color&quot;&gt;</code></h3>
 
-<p>Este tipo de entrada muestra un selector  de color. La implementaciÃ³n de Opera permite al usuario elegir entre una variedad  de colores, introducir valores hexadecimales directamente en un campo de texto o invocar el selector de color nativo del sistema operativo.</p>
+<p>Este tipo de entrada muestra un selector  de color. La implementación de Opera permite al usuario elegir entre una variedad  de colores, introducir valores hexadecimales directamente en un campo de texto o invocar el selector de color nativo del sistema operativo.</p>
 
 <div class="imagen">
 <img src="fig5.png" alt="Una entrada de color y los selectores de color nativos de Windows y OS X" />
@@ -119,18 +119,18 @@
 
 <h3><code>&lt;input type=&quot;search&quot;&gt;</code></h3>
 
-<p>PodrÃ­a discutirse que el tipo de entrada  de bÃºsqueda no es mÃ¡s que una entrada con un estilo diferente. Se supone que los  navegadores tienen que dar estilo a estas entradas igual que la funcionalidad  de bÃºsqueda del sistema operativo correspondiente. MÃ¡s allÃ¡ de esta  consideraciÃ³n puramente estÃ©tica, sin embargo, sigue siendo importante seÃ±alar  que marcar explÃ­citamente los campos de bÃºsqueda abre la posibilidad de que los  navegadores, tecnologÃ­as de asistencia o robots automÃ¡ticos hagan algo  inteligente con estas entradas en el futuro. Por ejemplo, un navegador podrÃ­a  ofrecer al usuario una opciÃ³n para crear automÃ¡ticamente una bÃºsqueda  personalizada para un sitio especÃ­fico.</p>
+<p>Podría discutirse que el tipo de entrada  de búsqueda no es más que una entrada con un estilo diferente. Se supone que los  navegadores tienen que dar estilo a estas entradas igual que la funcionalidad  de búsqueda del sistema operativo correspondiente. Más allá de esta  consideración puramente estética, sin embargo, sigue siendo importante señalar  que marcar explícitamente los campos de búsqueda abre la posibilidad de que los  navegadores, tecnologías de asistencia o robots automáticos hagan algo  inteligente con estas entradas en el futuro. Por ejemplo, un navegador podría  ofrecer al usuario una opción para crear automáticamente una búsqueda  personalizada para un sitio específico.</p>
 
 <div class="imagen">
-<img src="fig6.png" alt="Una entrada de bÃºsqueda tal y  como aparece en Opera en OS X" />
-<p>Figura 6: Una entrada de bÃºsqueda tal y  como aparece en Opera en OS X</p>
+<img src="fig6.png" alt="Una entrada de búsqueda tal y  como aparece en Opera en OS X" />
+<p>Figura 6: Una entrada de búsqueda tal y  como aparece en Opera en OS X</p>
 </div>
 
 <h3>El elemento <code>&lt;datalist&gt;</code> y el atributo <code>list</code></h3>
 
-<p>Hasta ahora hemos estado acostumbrados a  utilizar elementos <code>&lt;select&gt;</code> y <code>&lt;option&gt;</code> para crear desplegables de  opciones para que elijan nuestros usuarios. Pero Â¿y si queremos crear una lista  que permita a los usuarios elegir entre una lista de opciones sugeridas pero a  la vez ser capaz de escribir el suyo propio? Eso requiere mÃ¡s <span lang="en">scripting</span> incÃ³modo. Pero ahora puedes  usar, simplemente, el atributo <code>list</code> para conectar una entrada corriente a una  lista de opciones, definida dentro de un elemento <code>&lt;datalist&gt;</code>.</p>
+<p>Hasta ahora hemos estado acostumbrados a  utilizar elementos <code>&lt;select&gt;</code> y <code>&lt;option&gt;</code> para crear desplegables de  opciones para que elijan nuestros usuarios. Pero ¿y si queremos crear una lista  que permita a los usuarios elegir entre una lista de opciones sugeridas pero a  la vez ser capaz de escribir el suyo propio? Eso requiere más <span lang="en">scripting</span> incómodo. Pero ahora puedes  usar, simplemente, el atributo <code>list</code> para conectar una entrada corriente a una  lista de opciones, definida dentro de un elemento <code>&lt;datalist&gt;</code>.</p>
 
-<pre><code>&lt;input type=&quot;text&quot;  list=&quot;mydata&quot; â¦ &gt;
+<pre><code>&lt;input type=&quot;text&quot;  list=&quot;mydata&quot; … &gt;
 &lt;datalist id=&quot;mydata&quot;&gt;
 &lt;option label=&quot;Mr&quot; value=&quot;Mister&quot;&gt;
 &lt;option label=&quot;Mrs&quot; value=&quot;Mistress&quot;&gt;
@@ -138,23 +138,23 @@
 &lt;/datalist&gt;</code></pre>
 
 <div class="imagen">
-<img src="fig7.png" alt="CreaciÃ³n de un elemento de  entrada con sugerencias usando datalist" />
-<p>Figura 7: CreaciÃ³n de un elemento de  entrada con sugerencias usando datalist
+<img src="fig7.png" alt="Creación de un elemento de  entrada con sugerencias usando datalist" />
+<p>Figura 7: Creación de un elemento de  entrada con sugerencias usando datalist
 </div>
 
 <h3><code>&lt;input type=&quot;tel&quot;&gt;</code>, <code>&lt;input  type=&quot;email&quot;&gt;</code> y <code>&lt;input type=&quot;url&quot;&gt;</code></h3>
 
-<p>Como sus nombres indican, estos nuevos  tipos de entrada se refieren a nÃºmeros de telÃ©fono, direcciones de correo  electrÃ³nico y URLs. Los navegadores las muestran como entradas de texto de formulario  comunes, pero seÃ±alar explÃ­citamente quÃ© tipo de texto esperamos en estos  campos tiene un papel importante en la validaciÃ³n de formularios del lado del  cliente. AdemÃ¡s, en ciertos dispositivos mÃ³viles el navegador cambiarÃ¡ de la  entrada de texto habitual en el teclado en pantalla a variantes mÃ¡s relevantes  al contexto. Una vez mÃ¡s, es concebible que en el futuro los navegadores se  aprovechen mÃ¡s de estas entradas marcadas explÃ­citamente para ofrecer  funcionalidades adicionales como autocompletar direcciones de correo electrÃ³nico  y nÃºmeros de telÃ©fono basÃ¡ndose en la lista de contactos del usuario o su libreta  de direcciones.</p>
+<p>Como sus nombres indican, estos nuevos  tipos de entrada se refieren a números de teléfono, direcciones de correo  electrónico y URLs. Los navegadores las muestran como entradas de texto de formulario  comunes, pero señalar explícitamente qué tipo de texto esperamos en estos  campos tiene un papel importante en la validación de formularios del lado del  cliente. Además, en ciertos dispositivos móviles el navegador cambiará de la  entrada de texto habitual en el teclado en pantalla a variantes más relevantes  al contexto. Una vez más, es concebible que en el futuro los navegadores se  aprovechen más de estas entradas marcadas explícitamente para ofrecer  funcionalidades adicionales como autocompletar direcciones de correo electrónico  y números de teléfono basándose en la lista de contactos del usuario o su libreta  de direcciones.</p>
 
 <h2>Nuevos atributos</h2>
 
-<p>AdemÃ¡s de los tipos de entrada nuevos  completamente, HTML5 define una serie de nuevos atributos para los controles de  formulario que ayudan a simplificar algunas tareas comunes y precisar los  valores esperados para determinados campos de entrada.</p>
+<p>Además de los tipos de entrada nuevos  completamente, HTML5 define una serie de nuevos atributos para los controles de  formulario que ayudan a simplificar algunas tareas comunes y precisar los  valores esperados para determinados campos de entrada.</p>
 
 <h3><code>placeholder</code></h3>
 
-<p>Un truco comÃºn de la usabilidad en  formularios web es tener contenido de relleno en los campos de entrada de texto.  Por ejemplo, para dar mÃ¡s informaciÃ³n sobre el tipo esperado de informaciÃ³n que  queremos que el usuario introduzca, que desaparece cuando el control de  formulario adquiere el foco. Esto requerÃ­a algo de JavaScript (borrar el  contenido del campo de formulario con foco y volver al texto por defecto si el  usuario abandona el campo sin introducir nada), ahora podemos simplemente  utilizar el atributo <code>placeholder</code>:</p>
+<p>Un truco común de la usabilidad en  formularios web es tener contenido de relleno en los campos de entrada de texto.  Por ejemplo, para dar más información sobre el tipo esperado de información que  queremos que el usuario introduzca, que desaparece cuando el control de  formulario adquiere el foco. Esto requería algo de JavaScript (borrar el  contenido del campo de formulario con foco y volver al texto por defecto si el  usuario abandona el campo sin introducir nada), ahora podemos simplemente  utilizar el atributo <code>placeholder</code>:</p>
 
-<pre><code>&lt;input  type=&quot;text&quot;â¦ placeholder=&quot;John Doe&quot;&gt;</code></pre>
+<pre><code>&lt;input  type=&quot;text&quot;… placeholder=&quot;John Doe&quot;&gt;</code></pre>
 
 <div class="imagen">
 <img src="fig8.png" alt="Una entrada de texto con un  valor de relleno" />
@@ -163,114 +163,101 @@
 
 <h3><code>autofocus</code></h3>
 
-<p>Otra caracterÃ­stica comÃºn para la que  antes dependÃ­amos de <span lang="en">scripting</span> es  hacer que un campo de formulario adquiera el foco de forma automÃ¡tica cuando se  carga una pÃ¡gina. Esto ahora se puede conseguir con el atributo autofocus:</p>
+<p>Otra característica común para la que  antes dependíamos de <span lang="en">scripting</span> es  hacer que un campo de formulario adquiera el foco de forma automática cuando se  carga una página. Esto ahora se puede conseguir con el atributo autofocus:</p>
 
-<pre><code>&lt;input type=&quot;text&quot; autofocus  â¦ &gt;</code></pre>
+<pre><code>&lt;input type=&quot;text&quot; autofocus  … &gt;</code></pre>
 
-<p>Ten en cuenta que no deberÃ­as tener mÃ¡s de un control de formulario <code>autofocus</code> en una pÃ¡gina. AdemÃ¡s, hay que utilizar este tipo de funcionalidad con precauciÃ³n, en situaciones en que el formulario representa la principal Ã¡rea de interÃ©s en una pÃ¡gina. Una pÃ¡gina de bÃºsqueda es un buen ejemplo: si no hay una gran cantidad de contenido y texto explicativo, tiene sentido dar foco automÃ¡ticamente a la entrada de texto del formulario de bÃºsqueda.</p>
+<p>Ten en cuenta que no deberías tener más de un control de formulario <code>autofocus</code> en una página. Además, hay que utilizar este tipo de funcionalidad con precaución, en situaciones en que el formulario representa la principal área de interés en una página. Una página de búsqueda es un buen ejemplo: si no hay una gran cantidad de contenido y texto explicativo, tiene sentido dar foco automáticamente a la entrada de texto del formulario de búsqueda.</p>
 
 <h3><code>min</code> y <code>max</code></h3>
 
-<p>Como su propio nombre indica, este par de atributos permiten establecer un lÃ­mite inferior y superior para los valores que se pueden introducir en un campo de formulario numÃ©rico, como los tipos de entrada numÃ©ricos, de rango, fecha y hora (sÃ­, hasta se pueden utilizar para establecer los lÃ­mites superior e inferior para las fechas: por ejemplo, en un formulario de reserva de viajes podrÃ­as limitar el selector de fechas para que sÃ³lo permita al usuario seleccionar fechas futuras). Para entradas <code>range</code>, de hecho <code>min</code> y <code>max</code> son  necesarios para definir los valores que se devuelven cuando se envÃ­a el formulario. El cÃ³digo es bastante simple e intuitivo:</p>
+<p>Como su propio nombre indica, este par de atributos permiten establecer un límite inferior y superior para los valores que se pueden introducir en un campo de formulario numérico, como los tipos de entrada numéricos, de rango, fecha y hora (sí, hasta se pueden utilizar para establecer los límites superior e inferior para las fechas: por ejemplo, en un formulario de reserva de viajes podrías limitar el selector de fechas para que sólo permita al usuario seleccionar fechas futuras). Para entradas <code>range</code>, de hecho <code>min</code> y <code>max</code> son  necesarios para definir los valores que se devuelven cuando se envía el formulario. El código es bastante simple e intuitivo:</p>
 
-<pre><code>&lt;input type=&quot;number&quot; â¦ <strong>min=&quot;1&quot; max=&quot;10&quot;</strong>&gt;</code></pre>
+<pre><code>&lt;input type=&quot;number&quot; … <strong>min=&quot;1&quot; max=&quot;10&quot;</strong>&gt;</code></pre>
 
 <h3><code>step</code></h3>
 
-<p>El atributo <code>step</code> se puede utilizar con un valor de entrada numÃ©rico para dictar la granularidad de los valores que se pueden introducir. Por ejemplo, es posible que desees que los usuarios introduzcan una hora determinada, pero sÃ³lo en incrementos de 30 minutos. En este caso, podemos usar el atributo <code>step</code>, teniendo en cuenta que para entradas <code>time</code> el valor del atributo estÃ¡ en segundos:</p>
+<p>El atributo <code>step</code> se puede utilizar con un valor de entrada numérico para dictar la granularidad de los valores que se pueden introducir. Por ejemplo, es posible que desees que los usuarios introduzcan una hora determinada, pero sólo en incrementos de 30 minutos. En este caso, podemos usar el atributo <code>step</code>, teniendo en cuenta que para entradas <code>time</code> el valor del atributo está en segundos:</p>
 
-<pre><code>&lt;input type=&quot;time&quot; â¦ <strong>step=&quot;1800&quot;</strong>&gt;</code></pre>
+<pre><code>&lt;input type=&quot;time&quot; … <strong>step=&quot;1800&quot;</strong>&gt;</code></pre>
 
 <h2>Nuevos mecanismos de salida</h2>
 
-<p>AdemÃ¡s de los nuevos controles de formulario con que los usuarios puedan interactuar, HTML5 define una serie de nuevos elementos especÃ­ficamente destinados a mostrar y visualizar informaciÃ³n al usuario.</p>
+<p>Además de los nuevos controles de formulario con que los usuarios puedan interactuar, HTML5 define una serie de nuevos elementos específicamente destinados a mostrar y visualizar información al usuario.</p>
 
 <h3><code>output</code></h3>
 
-<p>Ya hemos mencionado el elemento <code>output</code> al hablar de <code>range</code>: este elemento sirve como una forma de mostrar un "resultado de cÃ¡lculo", o mÃ¡s generalmente para proporcionar un resultado explÃ­citamente identificado de un <span lang="en">script</span> (en lugar de simplemente meter un poco de texto en en un <code>span</code> o <code>div</code> cualquiera con <code>innerHTML</code>, por ejemplo). Para hacer aÃºn mÃ¡s explÃ­cito con quÃ© controles de formulario especÃ­ficos estÃ¡ relacionado, podemos, de forma similar a <code>label</code>, pasar una lista de <code>id</code>s en el atributo opcional <code>for</code> del elemento.</p>
+<p>Ya hemos mencionado el elemento <code>output</code> al hablar de <code>range</code>: este elemento sirve como una forma de mostrar un "resultado de cálculo", o más generalmente para proporcionar un resultado explícitamente identificado de un <span lang="en">script</span> (en lugar de simplemente meter un poco de texto en en un <code>span</code> o <code>div</code> cualquiera con <code>innerHTML</code>, por ejemplo). Para hacer aún más explícito con qué controles de formulario específicos está relacionado, podemos, de forma similar a <code>label</code>, pasar una lista de <code>id</code>s en el atributo opcional <code>for</code> del elemento.</p>
 
-<pre><code>&lt;input type=&quot;range&quot; <strong>id=&quot;rangeexample&quot;</strong> â¦ &gt;  &lt;output onforminput=&quot;value=rangeexample.value&quot; 
+<pre><code>&lt;input type=&quot;range&quot; <strong>id=&quot;rangeexample&quot;</strong> … &gt;  &lt;output onforminput=&quot;value=rangeexample.value&quot; 
 <strong>for=&quot;rangeexample&quot;</strong>&gt;&lt;/output&gt;</code></pre>
 
 <h3><code>&lt;progress&gt;</code> y <code>&lt;meter&gt;</code></h3>
 
-<p>Estos dos nuevos elementos son muy similares y ambos tienen como resultado un indicador o barra que se presenta al usuario. La distinciÃ³n estÃ¡ en su propÃ³sito. Como sugiere su nombre, <code>progress</code> estÃ¡ destinado a representar una barra de progreso para indicar el porcentaje de realizaciÃ³n de una tarea en particular, mientras que <code>meter</code> es un indicador mÃ¡s general de una medida escalar o valor fraccionario.</p>
+<p>Estos dos nuevos elementos son muy similares y ambos tienen como resultado un indicador o barra que se presenta al usuario. La distinción está en su propósito. Como sugiere su nombre, <code>progress</code> está destinado a representar una barra de progreso para indicar el porcentaje de realización de una tarea en particular, mientras que <code>meter</code> es un indicador más general de una medida escalar o valor fraccionario.</p>
 
 <div class="imagen">
 <img src="fig9.png" alt="Una barra indicadora de progreso" />
 <p>Figura 9: Una barra indicadora de progreso</p>
 </div>
 
-<h2>ValidaciÃ³n</h2>
+<h2>Validación</h2>
 
-<p>La validaciÃ³n de formularios es muy importante tanto en el lado del cliente como en el del servidor, para ayudar a los usuarios legÃ­timos a evitar y corregir errores, y para evitar que usuarios maliciosos envÃ­en datos que puedan causar daÃ±os a nuestra aplicaciÃ³n. Como ahora los navegadores pueden tener una idea del tipo de valores que se espera de los diferentes controles de formulario (ya sea su tipo, o cualquier lÃ­mite superior o inferior asignado a valores numÃ©ricos, fechas y horas), tambiÃ©n puede ofrecer validaciÃ³n de forma nativa: otra tarea tediosa para la que, hasta ahora, los autores debÃ­an escribir pÃ¡ginas y pÃ¡ginas de JavaScript o usar bibliotecas o <span lang="en">scripts</span> de validaciÃ³n ya existentes.</p>
+<p>La validación de formularios es muy importante tanto en el lado del cliente como en el del servidor, para ayudar a los usuarios legítimos a evitar y corregir errores, y para evitar que usuarios maliciosos envíen datos que puedan causar daños a nuestra aplicación. Como ahora los navegadores pueden tener una idea del tipo de valores que se espera de los diferentes controles de formulario (ya sea su tipo, o cualquier límite superior o inferior asignado a valores numéricos, fechas y horas), también puede ofrecer validación de forma nativa: otra tarea tediosa para la que, hasta ahora, los autores debían escribir páginas y páginas de JavaScript o usar bibliotecas o <span lang="en">scripts</span> de validación ya existentes.</p>
 
 <div class="note">
-<p>Nota: para poder validar controles de formulario, estos deben tener atributo <code>name</code>, ya que sin este no se enviarÃ­an como parte del formulario.</p>
+<p>Nota: para poder validar controles de formulario, estos deben tener atributo <code>name</code>, ya que sin este no se enviarían como parte del formulario.</p>
 </div>
 
 <h3><code>required</code></h3>
 
-<p>Uno de los aspectos mÃ¡s comunes de la validaciÃ³n de formularios es comprobar el cumplimentado de los campos obligatorios: no permitir que se envÃ­e un formulario hasta que se hayan introducido determinados tipos de informaciÃ³n. Esto se consigue ahora simplemente aÃ±adiendo el atributo <code>required</code> a cualquier elemento <code>input</code>, <code>select</code> o <code>textarea</code>.</p>
+<p>Uno de los aspectos más comunes de la validación de formularios es comprobar el cumplimentado de los campos obligatorios: no permitir que se envíe un formulario hasta que se hayan introducido determinados tipos de información. Esto se consigue ahora simplemente añadiendo el atributo <code>required</code> a cualquier elemento <code>input</code>, <code>select</code> o <code>textarea</code>.</p>
 
-<pre><code>&lt;input type=&quot;text&quot; â¦ <strong>required</strong>&gt;</code></pre>
+<pre><code>&lt;input type=&quot;text&quot; … <strong>required</strong>&gt;</code></pre>
 
 <div class="imagen">
-<img src="fig10.png" alt="La validaciÃ³n de lado de cliente de Opera en acciÃ³n, mostrando un error para un campo obligatorio que se habÃ­a dejado vacÃ­o" />
-<p>Figura 10: La validaciÃ³n de lado de cliente de Opera en acciÃ³n, mostrando un error para un campo obligatorio que se habÃ­a dejado vacÃ­o</p>
+<img src="fig10.png" alt="La validación de lado de cliente de Opera en acción, mostrando un error para un campo obligatorio que se había dejado vacío" />
+<p>Figura 10: La validación de lado de cliente de Opera en acción, mostrando un error para un campo obligatorio que se había dejado vacío</p>
 </div>
 
 <h3><code>type</code> y <code>pattern</code></h3>
 
-<p>Como hemos visto, los autores pueden especificar el tipo de entradas que esperan de sus campos de formulario: en lugar de simplemente definir entradas de texto, los autores pueden crear explÃ­citamente entradas para cosas como nÃºmeros, direcciones de correo electrÃ³nico y URLs. Como parte de la validaciÃ³n en el lado del cliente, los navegadores ahora pueden revisar que lo que ha introducido el usuario en estos campos mÃ¡s especÃ­ficos coincide con la estructura esperada: en esencia, los navegadores evalÃºan los valores entrados contra un patrÃ³n incorporado que define cÃ³mo son las entradas vÃ¡lidas en esos controles y advertirÃ¡n al usuario cuando su entrada no coincida con esos criterios.</p>
+<p>Como hemos visto, los autores pueden especificar el tipo de entradas que esperan de sus campos de formulario: en lugar de simplemente definir entradas de texto, los autores pueden crear explícitamente entradas para cosas como números, direcciones de correo electrónico y URLs. Como parte de la validación en el lado del cliente, los navegadores ahora pueden revisar que lo que ha introducido el usuario en estos campos más específicos coincide con la estructura esperada: en esencia, los navegadores evalúan los valores entrados contra un patrón incorporado que define cómo son las entradas válidas en esos controles y advertirán al usuario cuando su entrada no coincida con esos criterios.</p>
 
 <div class="imagen">
-<img src="fig11.png" alt="El mensaje de error de Opera para direcciones de correo no vÃ¡lidas en un control email" />
-<p>Figura 11: El mensaje de error de Opera para direcciones de correo no vÃ¡lidas en un control <code>email</code></p>
+<img src="fig11.png" alt="El mensaje de error de Opera para direcciones de correo no válidas en un control email" />
+<p>Figura 11: El mensaje de error de Opera para direcciones de correo no válidas en un control <code>email</code></p>
 </div>
 
-<p>Para otros campos de entrada de texto que, de todas formas, tengan que seguir una estructura determinada (por ejemplo, formularios de inicio de sesiÃ³n, donde los nombres de usuario sÃ³lo puedan contener una secuencia especÃ­fica de letras minÃºsculas y nÃºmeros), los autores pueden utilizar el atributo <code>pattern</code> para especificar su propia expresiÃ³n regular personalizada.</p>
+<p>Para otros campos de entrada de texto que, de todas formas, tengan que seguir una estructura determinada (por ejemplo, formularios de inicio de sesión, donde los nombres de usuario sólo puedan contener una secuencia específica de letras minúsculas y números), los autores pueden utilizar el atributo <code>pattern</code> para especificar su propia expresión regular personalizada.</p>
 
-<pre><code>&lt;input type=&quot;text&quot; â¦ <strong>pattern=&quot;[a-z]{3}[0-9]{3}&quot;</strong>&gt;</code></pre>
+<pre><code>&lt;input type=&quot;text&quot; … <strong>pattern=&quot;[a-z]{3}[0-9]{3}&quot;</strong>&gt;</code></pre>
 
 <h2>Dar estilo con CSS</h2>
 
-<p>En concierto con la validaciÃ³n de formularios incorporada de HTML5, el <a href="http://www.w3.org/TR/css3-ui/" hreflang="en">mÃ³dulo bÃ¡sico de interfaz de usuario de CSS3</a> define una serie de nuevas pseudo-clases que se pueden utilizar para diferenciar los campos obligatorios y para cambiar la apariencia de los controles de formulario de forma dinÃ¡mica en funciÃ³n de si se han o no rellenado en forma correcta:</p>
+<p>En concierto con la validación de formularios incorporada de HTML5, el <a href="http://www.w3.org/TR/css3-ui/" hreflang="en">módulo básico de interfaz de usuario de CSS3</a> define una serie de nuevas pseudo-clases que se pueden utilizar para diferenciar los campos obligatorios y para cambiar la apariencia de los controles de formulario de forma dinámica en función de si se han o no rellenado en forma correcta:</p>
 
 <div class="imagen">
-<img src="fig12.png" alt="Estilos :valid e :invalid aplicados dinÃ¡micamente a medida que se entra una direcciÃ³n de correo electrÃ³nico" />
-<p>Figura 12: Estilos <code>:valid</code> e <code>:invalid</code> aplicados dinÃ¡micamente a medida que se entra una direcciÃ³n de correo electrÃ³nico</p>
+<img src="fig12.png" alt="Estilos :valid e :invalid aplicados dinámicamente a medida que se entra una dirección de correo electrónico" />
+<p>Figura 12: Estilos <code>:valid</code> e <code>:invalid</code> aplicados dinámicamente a medida que se entra una dirección de correo electrónico</p>
 </div>
 
-<h2>Â¿Multinavegador?</h2>
+<h2>¿Multinavegador?</h2>
 
-<p>En el navegador de escritorio, Opera cuenta actualmente con la implementaciÃ³n mÃ¡s completa de los nuevos tipos de entrada y de la validaciÃ³n nativa del lado del cliente, pero el soporte tambiÃ©n estÃ¡ en la hoja de ruta de todos los principales navegadores, por lo que no pasarÃ¡ mucho tiempo antes de que podamos aprovechar estas nuevas y poderosas herramientas. Pero, Â¿y en las versiones antiguas de los navegadores?</p>
+<p>En el navegador de escritorio, Opera cuenta actualmente con la implementación más completa de los nuevos tipos de entrada y de la validación nativa del lado del cliente, pero el soporte también está en la hoja de ruta de todos los principales navegadores, por lo que no pasará mucho tiempo antes de que podamos aprovechar estas nuevas y poderosas herramientas. Pero, ¿y en las versiones antiguas de los navegadores?</p>
 
-<p>Por diseÃ±o, los navegadores que no entienden los nuevos tipos de entrada (como <code>date</code> o <code>number</code>) simplemente recurrirÃ¡n a tratarlos como entradas de texto estÃ¡ndar: no tan fÃ¡ciles de usar como sus avanzadas contrapartes HTML5, pero por lo menos permiten que se cumplimente el formulario. Sin embargo, como con la mayorÃ­a de las nuevas funcionalidades de HTML5, podemos ofrecer un plan alternativo mÃ¡s agradable para los usuarios de navegadores que no aÃºn no estÃ¡n al corriente con los formularios HTML5 con detecciÃ³n bÃ¡sica de caracterÃ­sticas en JavaScript, si es necesario, procediendo a la carga de bibliotecas JavaScript externas para "simular" el soporte para <span lang="en">widgets</span> de control mÃ¡s complejos y validaciÃ³n. De esta manera, podemos escribir cÃ³digo para el futuro, sin descuidar a ninguno de nuestros usuarios.</p>
+<p>Por diseño, los navegadores que no entienden los nuevos tipos de entrada (como <code>date</code> o <code>number</code>) simplemente recurrirán a tratarlos como entradas de texto estándar: no tan fáciles de usar como sus avanzadas contrapartes HTML5, pero por lo menos permiten que se cumplimente el formulario. Sin embargo, como con la mayoría de las nuevas funcionalidades de HTML5, podemos ofrecer un plan alternativo más agradable para los usuarios de navegadores que no aún no están al corriente con los formularios HTML5 con detección básica de características en JavaScript, si es necesario, procediendo a la carga de bibliotecas JavaScript externas para "simular" el soporte para <span lang="en">widgets</span> de control más complejos y validación. De esta manera, podemos escribir código para el futuro, sin descuidar a ninguno de nuestros usuarios.</p>
 
 </div>
 
 <div><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.es"><img src="../../m0/creative_commons.gif" id="logo_cc" alt="Logo Creative Commons" /></a></div>
-<div id="logo_text">Los contenidos recogidos en este artÃ­culo estÃ¡n sujetos a una licencia <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.es">Creative Commons<br /> Reconocimiento, No comercial - Compartir bajo la misma licencia 3.0 No adaptada</a>.
+<div id="logo_text">Los contenidos recogidos en este artículo están sujetos a una licencia <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.es">Creative Commons<br /> Reconocimiento, No comercial - Compartir bajo la misma licencia 3.0 No adaptada</a>.
 </div>
 <div id="cierre_autor"></div>
 
 <div id="peu">
-		<a rel="prev" href="../ud2/index.html" title="Ir al artÃ­culo anterior" accesskey="8"><img src="../../img/fletxa_izq_inv.gif" alt="Ir al artÃ­culo anterior" /></a> <strong>:</strong>
-		<a rel="index" href="../../index.html" title="Ir al Ã­ndice" accesskey="0"><img src="../../img/indice_inv.gif" alt="Ir al Ã­ndice" /></a> <strong>:</strong>
-		<a rel="next" href="../ud4/index.html" title="Ir al artÃ­culo siguiente" accesskey="9"><img src="../../img/fletxa_der_inv.gif" alt="Ir al artÃ­culo siguiente" /></a>
+		<a rel="prev" href="../ud2/index.html" title="Ir al artículo anterior" accesskey="8"><img src="../../img/fletxa_izq_inv.gif" alt="Ir al artículo anterior" /></a> <strong>:</strong>
+		<a rel="index" href="../../index.html" title="Ir al índice" accesskey="0"><img src="../../img/indice_inv.gif" alt="Ir al índice" /></a> <strong>:</strong>
+		<a rel="next" href="../ud4/index.html" title="Ir al artículo siguiente" accesskey="9"><img src="../../img/fletxa_der_inv.gif" alt="Ir al artículo siguiente" /></a>
 </div>
-<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
-</script>
-
-<script type="text/javascript">
-_uacct = "UA-1571980-1";
-_userv=2;
-_uhash = "off";
-_udn="uoc.edu";
-_ulink = 1;
-_ucto = 2592000;
-_uRno[0] = "uoc.edu";
-urchinTracker();
-</script>
 </body>
