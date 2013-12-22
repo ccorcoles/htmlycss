@@ -379,4 +379,394 @@
 
 <p>Los cambios en el etiquetado necesarios para convertir una plantilla de una columna en una plantilla de dos columnas son sencillos, pero en muchos casos las nuevas reglas de estilo necesarias no lo son.</p>
 
-<h3 id="sidebarplacement">Colocación de <code>#sidebar</code> a la izquier
+<h3 id="sidebarplacement">Colocación de <code>#sidebar</code> a la izquierda en vez de en su orden original</h3>
+
+<p>Hay dos procedimientos para hacerlo; uno funcionará independientemente de la longitud de cualquiera de las columnas, mientras que el otro requiere que <code>#bodyCopy</code> sea más largo que <code>#sidebar</code>.</p>
+  
+  <p>El planteamiento principal y más común es utilizar <code>float</code>:</p>
+  
+  <ol>
+    <li><p>Asignar un valor <code>width</code> a <code>#bodyCopy</code>.</p></li>
+    <li><p>Añadir a esta regla un valor <code>float</code> de <code>right</code>.</p></li>
+    <li><p>Asignar un <code>width</code> apropiado a <code>#sidebar</code>.</p></li>
+    <li><p>Asignar valores de <code>margin</code> (margen) y <code>padding</code> (relleno) según sea necesario en <code>#bodyCopy</code> (texto central) y/o <code>#footer</code> (pie) para garantizar que exista el canal deseado entre los dos elementos.</p></li>
+    <li><p>Asignar <code>clear: both;</code> a <code>#footer</code>.</p></li>
+  </ol>
+  
+  <p>Las dos columnas tienen los valores <code>width</code> (anchura) especificados de manera que tengan unos márgenes consistentes.</p>
+  
+  <p>En el caso en el que <code>#sidebar</code> queda en el margen derecho de la composición, los pasos ya descritos se deberían continuar siguiendo, aunque el valor de <code>float</code> de <code>#bodyCopy</code> se debería establecer en <code>left</code>. El valor <code>width</code> asignado a <code>#sidebar</code> se debería sustituir por un valor <code>margin-left</code> (margen izquierdo) apropiado.</p>
+  
+    <p>También es posible asignar un valor <code>margin-left</code> o <code>margin-right</code> (margen derecho) grande (según sea necesario) al elemento del que se ha eliminado <code>float</code>, en vez de <code>width</code>.</p>
+  
+  <p>Un segundo planteamiento que probablemente provocará menos errores en Internet Explorer 6 es asignar un valor <code>margin-left</code> o <code>margin-right</code> grande a <code>#bodyCopy</code> según convenga, y posicionar <code>#sidebar</code> de manera absoluta. No obstante, este planteamiento es menos flexible porque los casos en los que <code>#sidebar</code> sea más largo que <code>#bodyCopy</code> harán que el elemento anterior sangre hacia <code>#footer</code>.</p>
+
+<h3 id="fauxcolumns">Columnas falsas: uso de una imagen de fondo para alinear las longitudes de las columnas cuando la longitud de su contenido es diferente</h3>
+
+<p>Un examen más minucioso de las implementaciones de columnas utilizando la propiedad <code>float</code> revela que cuando se quieren diferentes colores de fondo o reglas verticales entre columnas, no se puede contar con ello para establecer la longitud del área de contenidos principal cuando se aplica mediante propiedades <code>background-color</code> o <code>border</code>.</p>
+  
+  <p>La solución más fácil a este problema es crear y especificar una imagen de fondo (generalmente de un píxel de altura) a uno de los elementos antepasados de las columnas que, a causa de su asignación a este elemento antepasado, siempre se repetirá desde la parte superior a la parte inferior de la columna más alta relacionada. Por lo tanto::</p>
+  
+<pre><code>#main {
+   background-image: url(images/bg_2column.gif);
+   background-repeat: repeat-y;
+}</code></pre>
+  
+  
+<p>Si <code>bg_2column.gif</code> está formado por dos bandas de colores muy contrastados que corresponden con más o menos precisión a las anchuras asignadas en las columnas de contenido, el resultado serán dos columnas que parecerán tener la misma altura... aunque realmente no la tengan, como se descubriría si a continuación se insertaran las reglas siguientes:</p>
+
+  <pre><code>#bodyCopy {
+   background-color: #ccc;
+}
+
+#sidebar {
+   background-color: #999;
+}</code></pre> 
+  
+  <p>Realizar este paso no elimina necesariamente la necesidad de aplicar propiedades <code>color</code> o <code>background-color</code> a una columna determinada; si el color del texto predeterminado no es legible sobre una o ambas columnas, sus colores de fondo y primer plano se deberían especificar explícitamente en la hoja de estilos como salvaguarda contra la posibilidad de que el navegador no cargue las imágenes de fondo.</p>
+
+<h3 id="primarynavigationsecondcolumn">Desplazamiento de la navegación principal en la segunda columna mientras se mantiene el orden de origen</h3>
+
+<p>Una vez que se ha añadido una segunda columna a la disposición, probablemente parecerá natural colocar la navegación principal de la web en la parte superior de aquella columna... sin embargo, ¿cómo hacerlo cuando la navegación descansa en una parte diferente de la estructura de la plantilla?</p>
+
+  <p>La respuesta a esta pregunta se encuentra en el posicionamiento:</p>
+
+  <ol>
+    <li><p>Si habéis asignado <code>overflow: hidden;</code> en <code>#header</code>, (encabezamiento), haced que <code>#nav</code> sea un descendiente directo de <code>#main</code> (principal). En casi todos los casos, será posible hacerlo sin estropear el orden de origen deseado.</p></li>
+    <li><p>Asignad <code>position: relative;</code> (posición relativa) al antepasado inmediato de <code>#nav</code>, y <code>position: absolute;</code> en la propia <code>#nav</code>.</p></li>
+    <li><p>Como la posición absoluta de <code>#nav</code> lo colocará en el vértice superior izquierdo de su antepasado de manera predeterminada, ajustad los valores <code>left</code> y <code>top</code> (superior) de <code>#nav</code> según dicten las circunstancias.</p></li>
+    <li><p>Ajustad el valor <code>margin-top</code> o <code>padding-top</code> de <code>#sidebar</code> (según convenga) para reflejar la altura prevista de <code>#nav</code>. En los casos en los que <code>#nav</code> cambia de una página o sección a la siguiente, será necesario escribir algunas reglas, quizá con varios selectores en cada una; de aquí el consejo anterior de asignar una <code>id</code> referente del ámbito del contenido (y quizá también una <code>class</code>) en el <code>body</code> de cada documento de la web.</p></li>
+  </ol>
+
+<h2 id="triplecolumnlayout">38.5. Implementación de la composición a tres columnas</h2>
+
+<div class="imagen">
+	<img alt="" src="76510_m7_04.gif"/>
+	<p>Figura 4. Los elementos de una composición a tres columnes; observad los dos nuevos elementos contenedores y la diferente asignación de <code>id</code>.</p>
+</div>
+  
+  <p>Las principales diferencias de etiquetado que impone añadir una tercera columna son:</p>
+  
+<ul>
+  <li><p>Un contenedor incluye dos columnas adyacentes, generalmente la primera y la segunda.</p></li>
+  
+  <li><p>La tercera columna está situada en su propio contenedor.</p></li>
+  </ul>
+  
+  <p>Una vez establecido el etiquetado, la obtención de la disposición deseada es una cuestión de ordenar correctamente los valores <code>float</code>. No debéis olvidar que los contenedores no flotantes requieren un ajuste de márgenes para que la alineación sea correcta.</p>
+  
+  <div class="note">
+	<h3>Nota</h3>
+  <p>Debéis tener en cuenta que en relación con la figura 4, es mejor asignar a los elementos de la columna dual y del contenedor terciario <code>id</code> que ofrezcan alguna indicación del contexto, más que los <code>id</code> sugeridos en el propio diagrama.</p>
+ </div>
+  
+  <table summary="">
+    <thead>
+      <tr>
+        <th colspan="6">Asignación flotante en cada columna en una composición de tres columnas.</th>
+      </tr>
+      <tr>
+        <th>Presentación deseada</th>
+        <th>Contenido del<br /> contenedor</th>
+        <th>Contenedor</th>
+        <th>Primario</th>
+        <th>Secundario</th>
+        <th>Terciario</th>
+      </tr>
+    </thead>
+		<tfoot>
+			 <tr>
+			 	<th colspan="6">Tabla 1. Valores <code>float</code> de los cuatro elementos contenedores de una composición de tres columnas por orden de aparición de izquierda a derecha.</th>
+			 </tr>
+    </tfoot>
+		<tbody>
+    <tr>
+      <td>2-1-3</td>
+      <td>1+2</td> 
+      <td><code>left</code></td>
+      <td><code>right</code></td>
+      <td><code>none</code></td>
+      <td><code>none</code></td>
+    </tr>
+    <tr>
+      <td>2-3-1</td>
+      <td>2+3</td>
+      <td><code>left</code></td>
+      <td><code>none</code></td>
+      <td><code>left</code></td>
+      <td><code>none</code></td>
+    </tr>
+    <tr>
+      <td>3-1-2</td>
+      <td>1+2</td>
+      <td><code>right</code></td>
+      <td><code>left</code></td>
+      <td><code>none</code></td>
+      <td><code>none</code></td>
+    </tr>
+    <tr>
+      <td>3-2-1</td>
+      <td>1+2</td>
+      <td><code>right</code></td>
+      <td><code>left</code></td>
+      <td><code>none</code></td>
+      <td><code>none</code></td>
+    </tr>
+    <tr>
+      <td>1-2-3</td>
+      <td>1+2</td>
+      <td><code>left</code></td>
+      <td><code>left</code></td>
+      <td><code>none</code></td>
+      <td><code>none</code></td>
+    </tr>
+    <tr>
+      <td>1-3-2</td>
+      <td>2+3</td>
+      <td><code>right</code></td>
+      <td><code>none</code></td>
+      <td><code>right</code></td>
+      <td><code>none</code></td>
+    </tr>
+		</tbody>
+	  </table>
+
+    <p>La mayor dificultad de los diseños de tres columnas y su sencilla solución</p>
+    
+    <p>La disposición a tres columnas más flexible introduce un elemento contenedor que no tiene significado semánticamente; la alternativa es imponer las convenciones de longitud del contenido u orden del código, que crearán una carga pesada, ya sea sobre los responsables de mantenimiento (en caso de requisitos de longitud de los contenidos), o sobre los visitantes (en caso de limitaciones del orden del código).</p>
+    
+    <p>La introducción de este contenedor "sin significado" también puede plantear problemas cuando se trata de rediseñar una web. Imaginémonos la siguiente situación:</p>
+    
+    <p>Cuando se diseña una web desde cero, se dispone con sus columnas en orden de presentación 2-3-1, pero más adelante se rediseña con sus columnas en un orden más tradicional como 2-1-3. El elemento contenedor de dos columnas se deberá mover de manera que comprenda diferentes contenedores de columnas. Y entonces, ¿qué?</p>
+    
+    <p>En este caso, el resultado es fácil de obtener; si el sitio funciona realmente con plantillas, entonces hay (probablemente) pocos archivos que haya que cambiar. Si, en cambio, todos los documentos de la web utilizan el mismo esquema de etiquetado, se deberá utilizar buscar y sustituir. De todos modos, esto no será difícil.</p>
+    
+    <p>La disposición de etiquetado global de los contenedores tomará una de las dos formas siguientes:</p>
+
+	<ul>  
+
+	      <li><p><code>&lt;div id="<strong>#container"&gt;&lt;div id="primary"</strong>&gt;...&lt;/div&gt;</code><br />
+		<code>&lt;div id="secondary"&gt;...<strong>&lt;/div&gt;&lt;/div&gt;</strong>&lt;div id="tertiary"&gt;...&lt;/div&gt;</code></p></li>
+
+	  <li><p><code>&lt;div id="primary"&gt;...&lt;/div&gt;&lt;div id="<strong>#container"&gt;</strong></code><br />
+		<code><strong>&lt;div id="secondary"</strong>&gt;...&lt;/div&gt;&lt;div id="tertiary"&gt;...<strong>&lt;/div&gt;&lt;/div&gt;</strong></code></p></li>
+
+	  </ul>
+
+  <p>En estos dos ejemplos, los fragmentos correspondientes que se deben buscar y sustituir se muestran en negrita. Algunas de estas <code>id</code> serán únicas en vuestro documento, y como la ubicación de las etiquetas de cierre doble se puede prever (ya sea al lado de una tercera etiqueta de cierre o de <code>#tertiary</code>), escribir una operación de búsqueda y sustitución para modificarlas es un cambio relativamente sencillo.</p>
+
+<h2 id="headersandfooters">38.6. Visión amplia de los encabezamientos y pies</h2>
+
+<p>Hasta ahora hemos hablado de qué debería ir en los encabezamientos y pies: logo/logotipo, búsqueda en toda la web, enlaces con información de cuentas de usuario, metadatos de la web, etc., pero la efectividad y el atractivo del encabezamiento/pie se ha tratado poco fuera de los artículos del currículo sobre esqueletos y compuestos/bocetos.</p>
+  
+  <p>Como no sería positivo agobiaros con un discurso larguísimo en defensa de este hecho, os proponemos buscar tres webs que sean notables, ya sea por su popularidad o por la importancia de sus editores, y echar un vistazo a sus particularidades de diseño.</p>
+
+<h3 id="cindyli">38.6.1. Sitio personal: Cindy Li</h3>
+
+<div class="imagen">
+	<img alt="El fondo de la web es azul celeste para el cuerpo y un azul más grisáceo para los bordes. La tipografía de los títulos es una sans serif de formas redondeadas, para la que se usa un color cian. A la izquierda hay un dibujo de perfil de una chica con una flor en el pelo. En el menú de navegación se usa media flor como indicador de la sección en que nos encontramos. El texto central se enmarca en bocadillos de cómic blancos." src="76510_m7_05.gif"/>
+	<p>Figura 5. En este caso, hay dos asuntos dignos de ser comentados, la identidad y el contraste.</p>
+</div>
+
+<h3 id="identitycindyli">Identidad</h3>
+
+<p><em>Identidad</em> es un término que adquiere un significado especial en el reino de la publicidad y el marketing, donde hace referencia a las marcas comerciales y otros elementos de diseño que son particulares de la presentación de una empresa comercial y sus productos. La <a href="http://www.cindyli.com/">web de Cindy Li</a> lo lleva a cabo a un nivel personal mostrando una caricatura de su perfil facial en el encabezamiento del sitio y utilizando un tipo de letra distintivo para definir el título de la web y la navegación principal.</p>
+  
+  <p>El modo como se impone la identidad en las webs de empresa se tratará con más detalle a continuación.</p>
+
+<h3 id="contrastcindyli">Contraste</h3>
+
+<p>En cindyli.com, el visitante puede ver a primera vista de qué va la cosa: la identidad, el lienzo de contenidos y el contenido primario están todos colocados en huellas discretas gracias a sus colores de fondo. Además, el título de la web y la navegación tienen un contraste alto en relación con el fondo.</p>
+  
+  <p>Y en cuanto al pie de la web:</p>
+  
+<div class="imagen">
+	<img alt="El pie de la web. Textos en azul grisáceo y cian sobre azul celeste.
+ El texto es Copyright Cindy Li, powered by Expression Engine, más un enlace al RSS del sitio" src="76510_m7_06.gif"/>
+	<p>Figura 6. El pie de Cindy Li es algo escaso, en él aparece la declaración de copyright, un enlace a la web de marketing de la plataforma publicitaria que utiliza (lo que probablemente es obligatorio bajo las condiciones de la licencia de uso), y un enlace a una suscripción sindicada de los artículos que publica.</p>
+</div>
+  
+  
+  <p>Al contrario que las demás webs presentadas en este artículo, la web de Cindy no ofrece una búsqueda de texto completo, probablemente por motivos técnicos. No obstante, como la web es un blog, su diseño permite asumir que la mayoría de los lectores limitan su interés en los nuevos contenidos.</p>
+
+<h3 id="facebook">38.6.2. Redes sociales: Facebook</h3>
+
+<div class="imagen">
+	<img alt="Cabecera del sitio web de Facebook. Textos blancos en tipografía negrita sobre fondo azul. A la izquierda tenemos el nombre de la web y enlaces a 'Home', 'Profile', 'Friends' e 'Inbox'. A la derecha tenemos el nombre del usuario, 'Settings', 'Logout' y una caja de búsqueda." src="76510_m7_07.gif"/>
+	<p>Figura 7. Facebook, como muchos destinos de redes sociales, refuerza su identidad mediante el uso de la composición y el color, ya que la propia aplicación es el destino. </p>
+</div>
+  
+  <p>Igual que muchas webs comerciales, Facebook ofrece tanto una búsqueda con texto completo como un enfoque categorizado en la navegación de la web.</p>
+  
+<div class="imagen">
+	<img alt="Pie del sitio web de Facebook. En la parte inferior tenemos una línea con un menú de aplicaciones, un enlace al chat de Facebook con el número de amigos conectados, un notificador de actualizaciones y un botón que indica y permite cambiar nuestra visibilidad en el chat. Por encima tenemos otra línea con la información de copyright, un botón para cambiar la interfaz del idioma y enlaces a metainformación del sitio ('acerca de', 'publicidad'...)" src="76510_m7_08.gif"/>
+	<p>Figura 8. Igual que su encabezamiento, el pie de Facebook también es pequeño, incluso si tenemos en cuenta el "widget" de aplicación persistente en la parte más inferior. Lo que tiene interés en este caso se encuentra al lado de la declaración de copyright: un artilugio para cambiar el idioma predeterminado del usuario.</p>
+</div>
+  
+  <p>Otra práctica común ejemplificada por el pie de Facebook es que mientras los enlaces de uso en la búsqueda de usuario van en el encabezamiento, el pie contiene todos los enlaces sobre el operador de la web y de la propia web.</p>
+
+<h3 id="BNSF">38.6.3. Marketing de empresa y servicio al cliente: BNSF Railway</h3>
+
+<div class="imagen">
+	<img alt="Cabecera de la web de BNSF Railway. En una primera línea, un menú de navegación con textos blancos sobre fondo naranja. Por debajo, el logotipo de la empresa, una caja de búsqueda, accesos al registro y 'log in' y un botón para canviar el perfil del usuario." src="76510_m7_09.gif"/>
+	<p>Figura 9. Como la mayoría de las webs "de empresa", el contraste más alto de las características del encabezamiento se disfruta mediante el logotipo del editor de la web... y el único tono presente es el mismo que se utiliza en el logotipo.</p>
+</div>
+
+<h3 id="identityrevisited">Repaso de la identidad</h3>
+
+<p>En cuanto a los diferentes logos, logotipos y otros recursos de diseño que refuerzan la identidad comercial, debéis tener en cuenta los siguientes, que son marcas omnipresentes que hacen negocios con Opera Software:</p>
+  
+<ul>
+  <li><p>Nokia</p>
+<div class="imagen">
+	<img alt="Logo de Nokia" src="76510_m7_10.gif"/>
+</div></li>
+  
+  <li><p>Samsung Group y Samsung Electronics</p>
+<div class="imagen">
+	<img alt="Logo de Samsung" src="76510_m7_11.gif"/>
+</div></li>
+  
+  <li><p>Google</p>
+<div class="imagen">
+	<img alt="Logo de Google" src="76510_m7_12.gif"/>
+</div></li>
+  
+  <li><p>IBM</p>
+<div class="imagen">
+	<img alt="Logo de IBM" src="76510_m7_13.gif"/>
+</div></li>
+
+</ul>
+  <p>Aparte de estos cuatro, hay otros ejemplos similares de diseño gráfico muy conocidos: el símbolo de Nike, el "Swoosh" (de hecho, este nombre está registrado), el logotipo de "la estrella de la muerte" de AT&amp;T, el logotipo de FedEx (y la flecha en el espacio blanco contenido por sus dos últimas letras), y el "marrón de UPS" son ejemplos de identidad corporativa que el público general conoce casi universalmente (al menos en Estados Unidos).</p>
+  
+  <p>Cualquier operador que se tome la molestia de desarrollar una identidad visual distintiva hará bien en integrar esta identidad en el diseño de la web porque tiene un fuerte impacto en la naturaleza del trabajo del especialista en estilos.</p>
+  
+  <p>Y en cuanto a otros elementos del encabezamiento de BNSF aparte del logotipo, el más notable es el uso de dos modos de búsqueda (como en el caso de Facebook).</p>
+  <div class="imagen">
+	<img alt="Pie de la web de BNSF Railway. Tres líneas de texto centradas. En la primera, texto en naranja y rojo para informar de emergencias y en rojo. En la segunda, texto en negro con enlaces a metainformación del sitio. En la tercera, también en negro, información de copyright" src="76510_m7_14.gif"/>
+	<p>Figura 10. La web de BNSF tiene la disposición de pie más "tradicional" de estos tres sitios, donde se hace el mínimo esfuerzo por colocar la navegación secundaria en un plano visual distintivo con reglas horizontales o un color de fondo diferente.</p>
+</div>
+
+<h3 id="headerandfooterdesign">38.6.4. Diseño de encabezamiento y pie: los detalles de bajo nivel</h3>
+
+<p>Al adoptar una visión más amplia del diseño del encabezamiento y el pie, quedan claras los siguientes elementos comunes:
+</p>
+  <ul>
+  <li><p><strong>Los destinos de empresas y aplicaciones tienden a disponer su navegación principal en una fila a lo largo del margen superior del lienzo del navegador.</strong> Este hecho los distingue de las webs de noticias y comercio electrónico, que a menudo utilizan un planteamiento más columnar para la composición de la navegación.</p></li>
+  <li><p><strong>Igual que la navegación principal orientada horizontalmente es habitual, también lo es el uso de una navegación secundaria discreta en el pie.</strong> Además, la división de destino y metainformación de la web descrita anteriormente en este artículo se impone bastante a menudo.</p></li>
+  <li><p><strong>Donde hay presente una búsqueda de texto completo, los campos de introducción tienden a colocarse cerca del margen derecho del encabezamiento.</strong> Esto es así sobre todo porque la búsqueda de texto completo bien implementada es una manera tan válida de navegar por el sitio como los enlaces tradicionales alimentados por una taxonomía, y es probable que un subconjunto de la población de la web abuse de ello, probablemente los usuarios con menos conocimientos técnicos.</p></li>
+</ul>
+<h3 id="moreaboutnavigationlayout">Más información sobre la implementación de la composición de navegación</h3>
+
+<p>Antes de pasar a los detalles, deberíais consultar <a href="http://www.accessify.com/tools-and-wizards/developer-tools/list-o-matic/" hreflang="en">List-O-Matic</a>, una aplicación alojada en Accessify.com que crea elementos de navegación con un estilo sencillo, preparados para ser insertados en cualquier composición de página.</p>
+  
+  <p>Aparte del tema de las herramientas que hacen el trabajo por vosotros, hay dos enfoques básicos en la composición de la navegación:</p>
+  
+  <p>La navegación se integra en el encabezamiento de la web (visualmente, si no literalmente) y se orienta horizontalmente. En este caso, el valor <code>display</code> (visualizar) de los enlaces individuales probablemente se cambiará <code>a block</code>, y a los elementos de su lista de contenidos se les asignará un valor <code>float</code> de <code>left</code>.</p>
+  
+  <p>La navegación está orientada verticalmente y está colocada a la izquierda del contenido principal, ya sea en su propia columna o justo encima del contenido no primario. En este caso, lo más probable es que veáis que se utiliza algún tipo de posicionamiento no <code>static</code>.</p>
+
+<h2 id="varyingcolumnsites">38.7. Webs con diferentes números de columnas: hacer trampa con <code>class</code> y <code>display</code></h2>
+
+<p>Algunas webs pueden tener páginas con una o dos columnas; otras, dos o tres. La flexibilidad es uno de los puntos fuertes de CSS, y uno de los recursos de los que los diseñadores gráficos tiran inconscientemente, en su libidionosa cruzada por obtener un control férreo sobre la experiencia del usuario.</p>
+  
+  <p>Normalmente, estos casos se tratan parcialmente con <em>includes</em>: scripts del sitio que permiten añadir fragmentos persistentes a una página de manera programática, en vez de copiarlos repetidamente.</p>
+  
+  <p>Sin embargo, incluso con esas inclusiones los especialistas en estilos todavía encontrarán diferencias en la disposición; entonces, ¿cuál es la mejor manera de tratarlas?</p>
+  
+  <p>El planteamiento más directo es añadir una <code>class</code> al <code>body</code> de cualquier página que la pueda necesitar. Esto podría asumir una naturaleza ordinal que corresponde a algunas series de disposiciones sugeridas en las directrices de identidad, o tener que ver de nuevo con el contenido y el resultado en varias reglas selectoras, como las siguientes:
+</p>
+  
+<pre><code>.about #bodyCopy,
+.contact #bodyCopy,
+.privacy #bodyCopy {
+   float: none; width: auto;
+}
+
+.about #sidebar,
+.contact #sidebar,
+.privacy #sidebar {
+   display: none;
+}</code></pre>
+  
+  <p>El único inconveniente de seguir este planteamiento sin la ventaja de incluir declaraciones (una manera pobre de hacer que el contenido desaparezca o reaparezca, si queréis) es que las políticas de los operadores de los motores de búsqueda podrían reducir el peso de aquellas páginas en sus resultados o, en el caso de implementaciones espectacularmente chapuceras, incluso sacar de sus listas las webs que las utilizan. Por este motivo (entre muchos otros que se deben tener en cuenta), cualquier tipo de alojamiento que contratéis debería aceptar algún tipo de función de inclusión.</p>   
+
+
+   
+<h2 id="summary">Resumen</h2>
+  
+ 	<p>Aunque es tentador –sobre todo si sois principiantes– sentarse directamente y empezar a escribir etiquetado y código, este proceso no da como resultado webs especialmente atractivas, útiles o mantenibles.</p>
+   
+   <p>No obstante, teniendo en cuenta esmeradamente el contenido que irá en una web y el modo como se debería disponer, podéis lanzar cualquier web a la estructura derivada de sus requisitos.</p>
+   
+   <p>Plantillas básicas:</p>
+   
+   <ul>
+       <li><p>una columna</p>
+            
+	<p class="font"><strong>Archivo fuente:</strong> "<a href="http://dev.opera.com/articles/view/38-headers-footers-columns-templates/template_1col.html.txt">Composición a una columna</a>"</p></li>
+   
+   <li><p>dos columnas</p>
+   
+   <p class="font"><strong>Archivo fuente:</strong> "<a href="http://dev.opera.com/articles/view/38-headers-footers-columns-templates/template_2col.html.txt">Composición a dos columna</a>"</p></li>
+   
+   <li><p>tres columnas</p>
+   
+   <p class="font"><strong>Archivo fuente:</strong> "<a href="http://dev.opera.com/articles/view/38-headers-footers-columns-templates/template_3col.html.txt">Composición a tres columna</a>"</p></li>
+   
+</ul>
+
+
+<h2 id="exercises">Preguntas de repaso</h2> 
+
+  <ol>
+	<li><p>Dada una lista de posibles enlaces proporcionados por vuestro instructor, divididlas en enlaces primarios (encabezamientos) y secundarios (pies). Justificad vuestras asignaciones basándoos en los ejemplos facilitados en este artículo.</p></li>
+
+
+      <li><p>Identificad lo siguiente en un compuesto creado por un compañero:</p>
+<ol class="lletres">
+        <li><p>el número de columnas que se deben aplicar al diseño;</p></li>
+        <li><p>las anchuras de estas columnas,</p></li>
+        <li><p>el <code>float</code>/<code>width</code>/<code>margin</code>, y</p></li>
+        <li><p>la combinació <code>float</code>/<code>width</code>/<code>margin</code>, si la hay, que se debería utilizar para implementar la presentación de estas columnas.</p></li>
+</ol></li>
+
+      <li><p>Con un logotipo, una lista de requisitos y una arquitectura determinados, diseñad un encabezamiento de web.</p></li>
+
+      <li><p>Si no podéis demostrar el uso de la sección áurea de la composición del encabezamiento diseñado en el ejercicio anterior, modificad la composición de manera apropiada y evaluad subjetivamente lo atractivo que es el resultado.</p></li>
+      <li><p>Basándoos sólo en los resultados de los motores de búsqueda, obtened el motivo por el que las listas son preferibles a las colecciones de <code>div</code> (o de otros elementos) para estructurar los elementos de navegación. Haced referencia a las características del software de lectura de pantallas en vuestra respuesta.</p></li>
+
+      <li><p>Revisad, de memoria, uno de los archivos de la plantilla proporcionada de manera que admita un número diferente de columnas. Modificad también de manera significativa la composición de la navegación principal, comparada con lo que se encontró en el archivo de plantilla original.</p></li>
+      </ol>
+
+  <h2 id="biblio">Lecturas complementarias</h2>
+
+<ul>
+      <li><p><a href="http://www.bnsf.com/" hreflang="en"><strong>BNSF Railroad</strong></a>. 2006. [Fecha de consulta: 13 de enero de 2009].</p></li>
+
+
+
+      <li><p><a href="http://www.facebook.com/home.php" hreflang="en"><strong>Facebook</strong></a>. 2008. [Fecha de consulta: 13 de enero de 2009].</p></li>
+
+
+      <li><p><strong>Henick, Ben</strong>. 2006. "<a href="http://www.alistapart.com/articles/avoidedgecases" hreflang="en">Avoid edge cases by designing up front</a>". <em>A List Apart</em>. [Fecha de consulta: 13 de enero de 2009].</p></li>
+
+      <li><p><strong>Li, Cindy</strong> (2008). "<a href="http://www.cindyli.com/" hreflang="en">The Adventures of Cindy Li</a>". [Fecha de consulta: 13 de gener de 2009].</p></li>
+
+      <li><p><strong>Morville, Peter; Rosenfeld, Louis</strong> (2006). <em>Information architecture for the world wide web</em> (3ª edició). Cambridge: O'Reilly Media.</p></li>
+      </ul>  
+       
+</div>
+<div><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.es"><img src="../../m0/creative_commons.gif" id="logo_cc" alt="Logo Creative Commons" /></a></div>
+<div id="logo_text">Los contenidos recogidos en este artículo están sujetos a una licencia <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.es">Creative Commons<br /> Reconocimiento, No comercial - Compartir bajo la misma licencia 3.0 No adaptada</a>.
+</div>
+<div id="cierre_autor"></div>
+
+<div id="peu">
+		<a rel="prev" href="../../m6/ud11/index.html" title="Ir al artículo anterior" accesskey="8"><img src="../../img/fletxa_izq_inv.gif" alt="Ir al artículo anterior" /></a> <strong>:</strong>
+		<a rel="index" href="../../index.html" title="Ir al índice" accesskey="0"><img src="../../img/indice_inv.gif" alt="Ir al índice" /></a> <strong>:</strong>
+		<img src="../../img/fletxa_der_inv.gif" alt="Ir al artículo siguiente" />
+</div>
+</body>
+</html>
