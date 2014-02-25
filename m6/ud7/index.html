@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="utf-8" />
+<meta charset="iso-8859-1" />
 <meta name="author" content="Universitat Oberta de Catalunya" />
 
 <title>CSS - Estilos de las tablas</title>
@@ -63,11 +63,6 @@
 <ul class="index">
 <li><a href="#inner-grids">Parrillas interiores con: lastchild</a></li>
 </ul></li>
-</ul></li>
-<li>33.4. <a href="#commonbugs" accesskey="4">Dos errores comunes</a>
-<ul class="index">
-<li>33.4.1. <a href="#bordercollapse">Error de superposición de los bordes</a></li>
-<li>33.4.2. <a href="#margincaption">Error de margen/<code>caption</code></a></li>
 </ul></li>
 <li class="especial"><a href="#summary">Resumen</a></li>
 <li class="especial"><a href="#exercises">Preguntas de repaso</a></li>
@@ -309,7 +304,7 @@ caption {
 
 <h3 id="captionplacement">33.2.5. Colocación del <code>caption</code></h3>
 
-<p>Hasta ahora, el <code>caption</code> ha estado siempre en la parte superior de la tabla. Sin embargo, puede que queráis moverlo a otro lugar. Por desgracia, en IE no se puede hacer, pero en todos los demás navegadores podéis cambiar la posición del <code>caption</code> utilizando la propiedad <code>caption-side</code> (lado del título). Las opciones posibles son: <code>top</code> (superior), <code>bottom</code> (inferior), <code>left</code> (izquierda) y <code>right</code> (derecha). Ahora lo pondremos en la parte inferior:</p>
+<p>Hasta ahora, el <code>caption</code> ha estado siempre en la parte superior de la tabla. Sin embargo, puede que queráis moverlo a otro lugar. Por desgracia, en IE no se puede hacer hasta la versión 8, pero en todos los demás navegadores podéis cambiar la posición del <code>caption</code> utilizando la propiedad <code>caption-side</code> (lado del título). Las opciones posibles son: <code>top</code> (superior), <code>bottom</code> (inferior), <code>left</code> (izquierda) y <code>right</code> (derecha). Ahora lo pondremos en la parte inferior:</p>
 
 <pre><code>table {
    width: 100%;
@@ -333,13 +328,6 @@ caption {
 <div class="imagen">
 <img src="76510_m6_74.gif" alt="Captura de pantalla del título en la parte inferior" />
 <p>Figura 8. Tabla con el <code>caption</code> movido a la parte inferior</p>
-</div>
-
-<p>Si queréis cambiar la posición del <code>caption</code>, recordad que ningún estilo específico de lado funcionará con IE. Por ejemplo, si queréis añadir tres bordes para hacer que el título "se una" a la parte inferior de la tabla, en IE no quedará así porque el título seguirá estando en la parte superior. Deberéis utilizar <a href="http://dev.opera.com/articles/view/supporting-ie-with-conditional-comments/" hreflang="en">comentarios condicionales</a> para reaplicar el estilo a la tabla para IE.</p>                                                    
-
-<div class="vegeu_tambe">
-<h3>Ved también</h3>
-<p>Para saber más, podéis ver también el subapartado 33.2.7.</p>
 </div>
 
 <p>Para el resto de ejemplos, dejaremos el <code>caption</code> en la parte superior.</p>
@@ -401,11 +389,11 @@ td, th {
 <p>Figura 10. Tabla con una imagen de fondo con gradación de colores que se ve entre las celdas</p>
 </div>
 
-<p>Por defecto, con IE no se verá tanto el fondo porque no reconoce <code>border-spacing</code>. Sin embargo, se consigue el mismo efecto, tal como se observa en la figura 11:</p>
+<p>Por defecto, con las versiones anteriores a la 8 de IE no se verá tanto el fondo porque no reconocen <code>border-spacing</code>. Sin embargo, se consigue el mismo efecto, tal como se observa en la figura 11:</p>
 
 <div class="imagen">
 <img src="76510_m6_77.gif" alt="Captura de pantalla que muestra un espacio más pequeño en IE." />
-<p>Figura 11. IE proporciona menos espacio entre bordes. </p>
+<p>Figura 11. Las versiones anteriores a la 8 de IE proporcionan menos espacio entre bordes. </p>
 </div>
 
 <p>Dependiendo de las circunstancias, puede que os conforméis con esta diferencia de representación entre navegadores. Pero, lógicamente, eso no siempre es posible, por ejemplo cuando un cliente especifica que quiere que un diseño quede exactamente igual en todos los navegadores.</p>
@@ -669,52 +657,7 @@ th {
    width: 25%;
 }</code></pre>
 
-<p>Esto ya funciona actualmente en las últimas versiones de Opera, Firefox y Safari.</p>
-
-<h2 id="commonbugs">33.4. Dos errores comunes</h2>
-
-<p>En este último subapartado hablaremos de dos errores realmente muy habituales para que estéis preparados cuando os los encontréis. Tienen que ver con los bordes y los títulos.</p>
-
-<h3 id="bordercollapse">33.4.1. Error de superposición de los bordes</h3>
-
-<p>Cuando defináis la tabla con <code>border-collapse: collapse;</code> descubriréis que Firefox y Safari no muestran correctamente la anchura de los elementos de la tabla. Por ejemplo, si establecéis un borde de 1 píxel para la tabla, las celdas y el título, Firefox mostrará el título 1 píxel más corto por el lado izquierdo, como se ve en la figura 17:</p>
-
-<div class="imagen">
-<img src="76510_m6_83.gif" alt="Captura de pantalla de la falta de 1 píxel" />
-<p>Figura 17. El error de <code>border-collapse</code> afecta a Firefox y Safari. </p>
-</div>
-
-<p>Safari hace lo mismo, pero en el lado derecho. Este error se basa en una cuestión de redondeo que se reduce al problema de cómo representar "medio píxel". Se podría afirmar que no se trata de un error per se, pero los navegadores no están de acuerdo, de manera que en la práctica sí que se trata de un error.</p>
-
-<p>¿Cómo se puede solucionar? Si queréis utilizar un borde de 1 píxel y un fondo de título, no hay ninguna otra solución aparte de aceptarlo. Es una diferencia muy pequeña y no se trata de un problema grave. Es decir, la tabla sigue siendo perfectamente legible. Por lo tanto, mucha gente opta por aceptar las diferencias entre navegadores. La web tiene estas cosas.</p>
-
-<p>Si no os importa utilizar un borde más grande, como por ejemplo de 2 píxeles, podéis establecer un borde de 1 píxel en la tabla, las celdas y el título y después definir la tabla para que tenga los bordes separados y aplicar un espacio de cero entre ellas.</p>
-
-<pre><code>table {
-   border-collapse: separate;
-   border-spacing: 0;
-   border: 1px solid #000;
-}
-th, td, caption {
-   border: 1px solid #000;
-}</code></pre>
-
-<p>En el caso de Firefox, como mínimo los bordes de 1 píxel se suman para crear el borde representado de 2 píxeles que queremos obtener, de manera que nos ahorramos el problema del redondeo. El Safari, en cambio, sigue dejando un espacio.</p>
-
-<p>Por otra parte, podéis evitar el problema si no aplicáis borde ni color de fondo al título. El problema no desaparecerá, pero no se notará. Probablemente, ésta es la solución más fácil y efectiva.</p>
-
-<h3 id="margincaption">33.4.2. Error de margen/<code>caption</code></h3>
-
-<p>Si utilizáis una <code>caption</code> y establecéis un margen en <code>table</code> (tabla), debéis tener en cuenta que puede que Firefox y Safari dispongan el margen de la tabla entre las celdas de la tabla y el título.</p>
-
-<p>Para evitar que suceda esto en Firefox, podéis definir el margen en tres lados de la tabla, definir explícitamente el <code>caption-side</code> (lado en el que aparece la <code>caption</code>) y después añadir el cuarto margen en la <code>caption</code>. Por desgracia, en el caso de Safari, esta solución causará error. Por lo tanto, no se trata realmente de una solución a no ser que estéis dispuestos a tolerar el error en Firefox o Safari.</p>
-
-<p>La única manera de evitar un problema en Firefox y, a la vez, en Safari, es establecer un margen cero al lado de la <code>caption</code>. Por ejemplo, si el título se encuentra en la parte superior, podéis establecer el margen en el lado de la derecha, abajo y en el lado izquierdo o sólo abajo. Esto puede que funcione si definís todos los márgenes en el mismo lado de los elementos de contenido, de manera que no sea necesario que el margen cree espacios entre la tabla y el contenido adyacente.</p>
-
-    
-<h2 id="summary">Resumen</h2>
-
-<p>Ya deberíais dominar las opciones de estilo básicas para tablas. Hay ciertos límites que imponen las inconsistencias de los navegadores, pero en general deberíais poder crear tablas claras y legibles sin ningún problema. Sólo debéis fijaros bien en los bordes, dar al texto un poco de espacio para que pueda "respirar" e ir con cuidado con los fondos.</p>
+<p>Esto ya funciona actualmente en las últimas versiones de todos los navegadores (el último navegador significativo que no lo soporta es la versión 8 de IE).</p>
     
 <h2 id="exercises">Preguntas de repaso</h2>
 
