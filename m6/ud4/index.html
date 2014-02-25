@@ -468,4 +468,488 @@ h1 { color:red; font-size:2em; }</code></pre>
 
 <h3 id="minandmax">30.2.2. <code>min-width</code>, <code>max-width</code>, <code>min-height</code> y <code>max-height</code></h3>
 
-<p>En ocasiones os encontraréis situaciones en las que necesitáis limitar el tamaño de un elemento, generalmente para garantizar que una columna de tamaño proporcional conserve siempre una anchura legible. Las distintas prop
+<p>En ocasiones os encontraréis situaciones en las que necesitáis limitar el tamaño de un elemento, generalmente para garantizar que una columna de tamaño proporcional conserve siempre una anchura legible. Las distintas propiedades <code>min-</code> y <code>max-</code> responden a este requisito. Del mismo modo que con <code>width</code> y <code>height</code>, los resultados que pueden esperarse de utilizar estas propiedades son bastante previsibles en realidad.</p>
+
+<p>Sin embargo, según nuestra experiencia, estas propiedades tienen un uso limitado (aunque otros expertos no estén de acuerdo). Igual que los antiguos <code>width</code> y <code>height</code>, pueden sufrir errores de redondeo que pueden enviar resultados totalmente inesperados. Y lo que es más importante, IE 6, que a fecha de julio del 2008 aún tiene una amplia cuota de mercado, no los reconoce en absoluto.</p>
+
+<h3 id="demo4">Demostración 4</h3>
+
+<p>Se colocaron márgenes <code>auto</code> a la izquierda y a la derecha del contenedor de la página. Ahora es necesaria una <code>width</code> para que los valores de margen tengan sentido. Además, el plan es asignar un valor <code>float</code> al texto destacado de manera que también obtenga una anchura.</p>
+
+<pre><code>#main { width: 42em; }
+.pullQuote { width: 14em; }</code></pre>
+
+<p class="font"><strong>Archivo fuente de:</strong> "<a href="http://dev.opera.com/articles/view/30-the-css-layout-model-boxes-border/demo_rev4.html" hreflang="en">Ejemplo de cambio de la anchura del contenedor del documento y del texto destacado</a>"</p>                                       
+
+<p class="font"><strong>Archivo fuente de:</strong> "<a href="http://dev.opera.com/articles/view/30-the-css-layout-model-boxes-border/layout_04.css" hreflang="en">Hoja de estilo de la demostración 4</a>"</p>                                                                                  
+
+<h3 id="overflow">30.2.3. Desbordamiento: poner barreras al código o dejarlo libre</h3>
+
+<p>Cuando se establece la <code>width</code> o la <code>height</code> de un elemento, a veces es necesario pensar qué resultados son deseables en caso de que los contenidos de este elemento ocupen más espacio del que hay disponible. Esto es especialmente cierto para los sitios con contenido generado por el usuario y con especificaciones de composición estrictas.</p>
+
+<p>La propiedad <code>overflow</code> (desbordamiento) y sus cuatro valores válidos (<code>visible</code>, <code>hidden</code>, <code>auto</code> y <code>scroll</code>) existen para hacer frente a estas circunstancias. En la figura 5 puede observarse el efecto que tienen cuando se aplican a un elemento cuyo contenido se desborda de los límites de su caja.</p>
+
+<div class="imagen">
+<img src="76510_m6_12.gif" alt="Los efectos de la propiedad de desbordamiento de CSS" />
+<p>Figura 5. Los efectos de la propiedad de desbordamiento de CSS</p>
+</div>
+
+<h3 id="fouroverflowvalues">Los resultados de los cuatro valores de <code>overflow</code></h3>
+
+<ul>
+<li><p><code>visible</code> (<strong>por defecto</strong>). El contenido que sobrepasa las dimensiones de la caja de un elemento se muestra sin afectar al flujo o los márgenes de los elementos adyacentes. En consecuencia, puede parecer que el contenido de un elemento choque con el contenido de un elemento adyacente. En subapartados posteriores, se habla de las técnicas para evitar esta situación y casos especiales provocados por problemas de representación en IE.</p></li>
+
+<li><p><code>hidden</code>. Cualquier contenido que esté fuera de los límites de un elemento quedará escondido.</p></li>
+
+<li><p><code>auto</code>. Las dimensiones de un elemento estarán limitadas igual que cuando se utiliza el valor <code>hidden</code> (escondido), pero se crearán las barras de desplazamiento que sean necesarias para que el contenido que no quepa sea accesible al visitante.</p></li>
+
+<li><p><code>scroll</code>. Se incorporarán barras de desplazamiento verticales y horizontales al elemento aunque no sean necesarias.</p></li>
+</ul>
+
+<h2 id="cssboxmodels">30.3. Los modelos de caja de CSS: hacer que todo encaje</h2>
+
+<p>Ahora que ya hemos hablado de las propiedades fundamentales de composición, es el momento de descubrir cómo el navegador representa la anchura de un elemento según sus propiedades de CSS y cómo evitar que los elementos creen errores en las composiciones. Algunos resultados tendrán todo el sentido del mundo y otros parecerán horriblemente antiintuitivos. Para acabar de complicarlo todo, hay dos algoritmos de composición que se deben tener en cuenta: el modelo especificado por el World Wide Web Consortium (W3C) en la Recomendación de CSS 2.1 y el que se ha utilizado en las versiones antiguas de IE.</p>
+
+<h3 id="choosingrightunits">30.3.1. Elegir las unidades adecuadas para la composición</h3>
+
+<p>Tal como sucede con el texto, el tamaño de los elementos puede ajustarse con unidades proporcionales como <code>%</code> o <code>em</code>, o con unidades estáticas como <code>px</code>. Otro elemento que se debe tener en cuenta es que el lienzo del navegador siempre tiene un tamaño de un valor estático que no se puede asumir sin utilizar un script en el lado del cliente para recuperar el tamaño de la ventana o cambiarlo, técnicas que se ajustan mal a las exigencias de la accesibilidad, usabilidad y portabilidad de medios.</p>
+
+<h3 id="sizingelements">La regla principal de aplicar tamaño a los elementos: mezclar unidades proporcionales y estáticas con cuidado, o no hacerlo</h3>
+
+<p>El valor por defecto tanto de <code>width</code> como de <code>height</code> es <code>auto</code>, que es una directiva que significa: "Utiliza el espacio disponible". El resultado de los elementos de bloque es que su <code>width</code> computada ocupa todo este espacio. En cuanto a la <code>height</code>, los elementos se amplían por defecto para incluir su contenido.</p>
+
+<p>Si cambiáis los valores de <code>width</code> y <code>height</code>, debéis ir con mucho cuidado para garantizar que el contenido de un elemento encaje (con los márgenes, los bordes y el relleno) con la anchura que habéis especificado. La manera más fácil de hacerlo es llevar a cabo el proceso siguiente:</p>
+<ol>
+<li><p>Pensad en el ancho máximo que pueda tener vuestra composición teniendo en cuenta las resoluciones de visualización habituales y/o el tamaño de la tipografía. En el momento de escribir estas líneas, esta anchura será normalmente de unos 800 o 1.024 píxeles. Cuanto más amplia sea la audiencia esperada de vuestro sitio, más probabilidades habrá de que se deba elegir el más pequeño de estos valores.</p></li>
+<li><p>Cread un elemento contenedor para todo el documento ajustado a una anchura determinada inferior a la calculada en el paso #1.</p></li>
+<li><p>Utilizad el mismo tipo de unidad cuando establezcáis las propiedades de composición de los elementos en el elemento contenedor creado en el paso #2.</p></li>
+</ol>
+
+<h3 id="unittypeprocons">Elegir el tipo de unidad adecuada para la composición: ventajas y desventajas</h3>
+
+<table summary="">
+<thead>            
+<tr>
+    <th><strong>Unidad</strong></th>
+    <th><strong>Ventajas</strong></th>
+    <th><strong>Desventajas</strong></th>
+  </tr>
+</thead>
+<tfoot>
+	<tr>
+		<th colspan="3">Tabla 1. Ventajas y desventajas del porcentaje, de em y de unidades de píxel que especifiquen propiedades de composición.</th>
+	</tr>
+</tfoot>
+<tbody>
+  <tr>
+    <th><strong>em</strong></th>
+    <td>Es más adecuado para crear cuadrículas de composición muy precisas en dos dimensiones.
+      
+      <br /><br />Cuando se utiliza en relación con contenedores de documentos, posibilita composiciones que se amplían o se contraen según el tamaño del texto central.
+      
+      <br /><br />Las dimensiones computadas de los elementos se convierten en fácilmente previsibles.</td>
+    <td>Puede ser que las unidades fraccionarias se amplíen o se contraigan con ligeras diferencias entre navegadores.
+      
+      <br /><br />Para conseguir los mejores resultados, todos los valores de font-size y line-height del documento deberían establecerse en valores explícitos y previsibles.</td>
+  </tr>
+  <tr>
+    <th><strong>porcentaje</strong></th>
+    <td>Es más adecuado para composiciones totalmente flexibles.
+      
+      <br /><br />Es más fácil para crear elementos como columnas iguales.</td>
+    <td>Para evitar errores, quizá se necesiten elementos contenedores adicionales.
+      
+      <br /><br />Puede resultar en elementos anchos de manera inaceptable o estrechos.
+      
+      <br /><br />Los resultados dependen mucho del contexto.</td>
+  </tr>
+  <tr>
+    <th><strong>px</strong></th>
+    <td>Ofrece el mayor control sobre la composición.
+      
+      <br /><br />Elimina la mayoría de la variación en la composición entre navegadores.</td>
+    <td>Es el menos adecuado para requisitos de accesibilidad y aceptación de todo tipo de medios.
+      
+      <br /><br />Es el más susceptible de causar errores.</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h3 id="boxmodelcomponents">30.3.2. Los componentes del modelo de cajas</h3>
+
+<p>En realidad, el modelo de cajas sólo es una serie de directivas que definen cómo interactúan entre sí las diferentes especificaciones de composición de un elemento. Los componentes que incluye el modelo de caja son:</p>
+<ol>
+<li><p>Lienzo de documento.</p></li>
+<li><p>Márgenes.</p></li>
+<li><p>Bordes.</p></li>
+<li><p>Relleno.</p></li>
+<li><p>Anchuras y alturas de los elementos.</p></li>
+<li><p>Propiedades de elementos hijo.</p></li>
+</ol>
+<p>El último de estos elementos incluye a los otros cinco. Sin embargo, para simplificar, este subapartado se centrará en las relaciones sencillas de padre-hijo, y se reserva el tema de las interacciones de modelos de caja de múltiples niveles para futuros apartados que tratarán con más detalle los puntos de la composición de página.</p>
+
+
+<h3 id="W3Cboxmodel">30.3.3. El modelo de caja del W3C: todo es acumulable</h3>
+
+<p>La regla básica es que la anchura o altura computada de un elemento es igual a:</p>
+
+<pre><code>margin + border + padding + (width|height)</code></pre>
+
+<p>En muchos casos, la <code>width</code> y/o <code>height</code> se establecerán en su valor predeterminado de <code>auto</code>, lo que significa que la zona del lienzo reservada para el contenido es igual a:</p>
+
+<pre><code>lienzo_disponible - margin - padding - border</code></pre> 
+
+<p>En una expresión de este tipo, <code>lienzo_disponible</code> es un valor discreto en sí (aunque a menudo autocomputado), del que se restan las cantidades correspondientes a márgenes, bordes y relleno. Este número es de gran importancia para la anchura de los elementos porque los errores de cálculo de anchura que cometa un diseñador tendrán la desagradable consecuencia de provocar que aparezca una barra de desplazamiento horizontal en la ventana del navegador. Adicionalmente, los navegadores siempre sitúan los elementos en el margen izquierdo del lienzo del navegador, ya que, en caso contrario, se desbordan fuera del margen derecho de la ventana del navegador si no se especifica lo contrario.</p>
+
+<p>Fijaos en la siguiente regla de hoja de estilo:</p>
+
+<pre><code>#myLayoutColumn {
+   width: 50em;
+   margin: 1.5em auto 1.5em auto;
+   border: .1em;
+   padding: .9em;
+}</code></pre>
+
+<p>Como ya hemos comentado en la explicación de las propiedades del margen, se puede esperar que <code>#myLayoutColumn</code> se centre en su elemento contenedor, independientemente de si el contenedor es <code>body</code> o algo creado por el grupo de producción.</p>
+
+<p>Además, si la activación del "modo estricto" (mediante el uso de una declaración <code>!DOCTYPE</code> adecuada) causa que se utilice el modelo de cajas del W3C, también se puede esperar que la anchura <em>no marginal</em> computada prevista sea:</p>
+
+<pre><code>.1em + .9em + 50em + .9em + .1em = 52em</code></pre> 
+
+<p>En los medios <code>screen</code>, el navegador tomará este valor, redondeará todos los valores de manera separada hasta el píxel más próximo y representará el resultado de acuerdo con ello.</p>
+
+<h3 id="proportionalmarginspadding">Márgenes proporcionales y relleno en el modelo de caja del W3C</h3>
+
+<p>Cuando se utiliza el modelo de cajas del W3C, los márgenes proporcionales y el relleno se computan en relación con la <code>width</code> computada del elemento contenedor. Por poner un ejemplo, si especificáis <code>margin: 20%</code> para un elemento incluido en un elemento que tiene 800 píxeles de anchura, el margen que se representa alrededor del primer elemento será de 160 píxeles por todos los lados (ya que el 20% de 800 son 160).</p>
+
+<p>Si a este mismo elemento se le asigna <code>padding: 5%</code>, la anchura computada del contenido será de 400 píxeles:</p>
+
+<pre><code>20% + 5% + 5% + 20% = <em>50%</em>
+<em>0.50</em> × 800 = <em>400</em>
+800 - <em>400</em> = <em>400</em></code></pre>
+
+<h2 id="documentflow">30.4. Trabajar con flujo de documentos</h2>
+
+<p>Los próximos apartados tratan de la creación de composiciones de múltiples columnas, de manera que debemos presentar tres propiedades de CSS que aún nos faltan en este apartado: <code>display</code>, <code>float</code> y <code>clear</code>.</p>
+
+<h3 id="elementtypesdisplay">30.4.1. Tipos de elementos y la propiedad <code>display</code></h3>
+
+<p>Excepto las partes de <code>html</code>, <code>body</code> y <code>table</code>, todos los elementos de la Recomendación de HTML 4.01 que estén relacionados con contenido primario tienen un tipo asociado "en línea" o "bloque". Cada tipo determina el comportamiento de la composición por defecto de varias maneras.</p>
+
+<ol class="lletres">
+<li><p>En línea</p>
+
+<ul>
+<li><p>El texto y las imágenes que hay inmediatamente delante y/o detrás de elementos en línea se representan sobre una línea base común con el contenido del elemento en línea, a no ser que sean tan largos que se superpongan sobre el límite del elemento contenedor, en cuyo caso el contenido insertado acabará sobre una nueva línea base por debajo de la primera.</p></li>
+
+<li><p>Las líneas de texto dentro de elementos en línea se disponen con saltos de línea blandos según sea necesario (o según se pueda), excepto en los casos en los que este comportamiento se modifica por el uso de la propiedad <code>white-space</code> (espacio en blanco).</p></li>
+
+<li><p>Las propiedades <code>margin</code>, <code>width</code>, <code>height</code> y <code>float</code> en reglas de hoja de estilo aplicables a estos elementos (excepto <code>img</code> y <code>object</code>) se ignoran.</p></li>
+
+<li><p>Los elementos en línea sólo pueden contener texto u otros elementos en línea.</p></li>
+</ul></li>
+
+<li><p>Bloque</p>
+
+<ul>
+<li><p>Estos elementos se representan como bloques discretos dentro de sus contenedores.</p></li>
+
+<li><p>A no ser que se les asigne un valor <code>float</code> de <code>left</code> o <code>right</code>, siempre se representarán con saltos de línea precedentes y posteriores.</p></li>
+
+<li><p>En general, los saltos de línea entre elementos de bloque anidados que no tienen ningún contenido entre ellos se colapsarán.</p></li>
+
+<li><p>Los elementos de bloque con una anchura de <code>auto</code> (la predeterminada) siempre se ampliarán para llenar toda la anchura que puedan.</p></li>
+</ul></li>
+</ol>
+
+<p>La propiedad <code>display</code> (visualizar) tiene tres valores que se utilizan habitualmente: <code>block</code>, <code>inline</code> y <code>none</code>, de los cuales dos hacen referencia a los tipos de elemento correspondiente. El efecto de cambiar el valor de <code>display</code> de un elemento es provocar que un elemento en línea se comporte como un elemento de bloque, que un elemento de bloque se comporte como uno en línea o modificar la representación del documento como si el elemento (y todo su contenido) no existiera en absoluto.</p>
+
+<p>De hecho, es fundamental saber qué elementos se corresponden con qué tipos por defecto. Las relaciones se exponen brevemente en la tabla 2:</p>
+
+<table summary="">
+<thead>        
+<tr>
+<th><strong>Elemento</strong></th>
+    <th><strong>Tipo</strong></th>
+    <th><strong>Subtipo</strong></th>
+    <th><strong>Notas</strong></th>
+  </tr>
+</thead>
+<tfoot>
+	<tr>
+		<th colspan="4">Tabla 2. Elementos de HTML de uso frecuente y sus tipos. Sólo se colapsarán los márgenes entre dos elementos de bloque adyacentes del mismo subtipo.</th>
+	</tr>
+</tfoot>
+<tbody>
+  <tr>
+    <th><code>a</code></th>
+    <td>en línea</td>
+    <td>especial</td>
+    <td></td>
+  </tr>
+  <tr>
+    <th><code>abbr</code></th>
+    <td>en línea</td>
+    <td>frase</td>
+    <td></td>
+  </tr>
+  <tr>
+    <th><code>acronym</code></th>
+    <td>en línea</td>
+    <td>frase</td>
+    <td></td>
+  </tr>
+  <tr>
+    <th><code>address</code></th>
+    <td>bloque</td>
+    <td></td>
+    <td>En la práctica se comporta de manera parecida a <code>p</code>.</td>
+  </tr>
+  <tr>
+    <th><code>blockquote</code></th>
+    <td>bloque</td>
+    <td></td>
+    <td>Debe incluir como mínimo un elemento de bloque cuando el <code>!DOCTYPE</code> declarado es <code>Strict</code>.</td>
+  </tr>
+  <tr>
+    <th><code>body</code></th>
+    <td></td>
+    <td></td>
+    <td>Engloba todo el lienzo del documento; normalmente tiene un margen (en IE, Firefox y Safari) o un relleno (en Opera) de <code>10px</code> cuando el medio es <code>screen</code>.</td>
+  </tr>
+  <tr>
+    <th><code>cite</code></th>
+    <td>en línea</td>
+    <td>frase</td>
+    <td></td>
+  </tr>
+  <tr>
+    <th><code>div</code></th>
+    <td>bloque</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <th><code>em</code></th>
+    <td>en línea</td>
+    <td>frase</td>
+    <td></td>
+  </tr>
+  <tr>
+    <th><code>fieldset</code></th>
+    <td>bloque</td>
+    <td></td>
+    <td>Normalmente se representa por defecto con <code>border: 1px black;</code>.</td>
+  </tr>
+  <tr>
+    <th><code>form</code></th>
+    <td>bloque</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <th><code>h1... h6</code></th>
+    <td>bloque</td>
+    <td>título</td>
+    <td></td>
+  </tr>
+  <tr>
+    <th><code>input</code></th>
+    <td>en línea</td>
+    <td>control de formulario</td>
+    <td></td>
+  </tr>
+  <tr>
+    <th><code>img</code></th>
+    <td>en línea</td>
+    <td>especial</td>
+    <td></td>
+  </tr>
+  <tr>
+    <th><code>label</code></th>
+    <td>en línea</td>
+    <td>control de formulario</td>
+    <td></td>
+  </tr>
+  <tr>
+    <th><code>li</code></th>
+    <td>bloque</td>
+    <td></td>
+    <td>Tipo de elemento no especificado en la Definición de Tipo de Documento, pero este elemento puede contener elementos de bloque o insertados; la Recomendación CSS 2.1 completa reserva un valor <code>display</code> para elementos de lista.</td>
+  </tr>
+  <tr>
+    <th><code>ol</code></th>
+    <td>bloque</td>
+    <td>lista</td>
+    <td></td>
+  </tr>
+  <tr>
+    <th><code>p</code></th>
+    <td>bloque</td>
+    <td></td>
+    <td>Sólo puede incluir elementos en línea, que normalmente se representan con márgenes superiores e inferiores.</td>
+  </tr>
+  <tr>
+    <th><code>span</code></th>
+    <td>en línea</td>
+    <td>especial</td>
+    <td></td>
+  </tr>
+  <tr>
+    <th><code>strong</code></th>
+    <td>en línea</td>
+    <td>frase</td>
+    <td></td>
+  </tr>
+  <tr>
+    <th><code>table</code></th>
+    <td>bloque</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <th><code>ul</code></th>
+    <td>bloque</td>
+    <td>lista</td>
+    <td></td>
+  </tr>
+</tbody>
+</table>
+                        
+<h3 id="demo5">Demostración 5</h3>
+
+<p>¿Y si eliminamos la anotación "Prólogo" del título únicamente para esta demostración?</p>
+
+<pre><code>.sectionNote { display: none; }</code></pre>  
+
+<p class="font"><strong>Archivo fuente de:</strong> "<a href="http://dev.opera.com/articles/view/30-the-css-layout-model-boxes-border/demo_rev5.html" hreflang="en">Ejemplo con eliminación de la parte superflua de un apartado</a>"</p>
+
+<p class="font"><strong>Archivo fuente de:</strong> "<a href="http://dev.opera.com/articles/view/30-the-css-layout-model-boxes-border/layout_05.css" hreflang="en">Hoja de estilo de la demostración 5</a>"</p>                                                                                  
+
+<h3 id="float">30.4.2. Hacer que algunos elementos fluyan <em>en torno a</em> otros: la propiedad <code>float</code></h3>
+        
+
+<div class="imagen_izq">
+<img src="76510_m6_13.jpg" alt="Un gato con tocino pegado en el lomo con cinta adhesiva."/>
+</div>     
+
+<p>Hay una foto colocada a la izquierda de este párrafo. Prácticamente todos veréis que el texto siguiente fluye de manera natural a su alrededor, aunque puede que algunos primero debáis dejar de preguntaros por qué un famoso escritor de novelas de ciencia ficción decide pegar tocino a su gato con cinta adhesiva, por muy aburrido que esté. Los atributos del HTML pueden utilizarse para especificar el comportamiento de la composición que podéis observar, pero en este caso los resultados se han conseguido con CSS.</p>
+
+<p>Tal como os podéis imaginar, la pareja propiedad/valor que lo hace posible es <code>float: left</code>;. En futuros apartados se tratarán las sutilezas de trabajar con elementos flotantes, pero, de momento, es necesario tocar este tema de pasada. <code>float: right</code> también es una pareja de propiedad/valor perfectamente útil, y para aquellas ocasiones en las que necesitáis contradecir una asignación de <code>class</code> que invoque <code>float</code>, podéis especificar <code>float: none</code>.</p>
+
+<p>La propiedad <code>float</code> sí que tiene unas cuantas instrucciones de uso:</p>
+
+<ul>
+<li><p>Un valor <code>float</code> sólo tendrá relevancia si se aplica a un elemento de bloque con una <code>width</code> explícita.</p></li> 
+
+<li><p>Las propiedades <code>float</code>, <code>clear</code> y <code>margin</code> aparecen <em>juntas</em> en las reglas de hojas de estilo para crear columnas en una composición.</p></li> 
+
+<li><p>Es complicado hacer que un elemento flotante se estire hasta llegar a la parte inferior de su contenedor, pero no es imposible. La manera habitual de hacerlo se denomina <em><a href="http://www.alistapart.com/articles/fauxcolumns/" hreflang="en">faux-columns</a></em>.</p></li>
+</ul>       
+
+
+<h3 id="demo6">Demostración 6</h3>
+
+<p>Ya hemos hablado de la colocación de un valor <code>float</code> en el texto destacado, de manera que ahora lo haremos y veremos cómo queda. Y, ya que estamos, añadámosle un poco de color de fondo para que se distinga mejor del contenido principal.</p>
+
+<pre><code>.pullQuote { float: right;
+background-color: rgb(204,204,204); }</code></pre>
+
+<p class="font"><strong>Archivo fuente de:</strong> "<a href="http://dev.opera.com/articles/view/30-the-css-layout-model-boxes-border/demo_rev6.html" hreflang="en">Ejemplo de hacer 'flotar' el texto destacado hacia el margen derecho</a>"</p>                                                                 
+
+<p class="font"><strong>Archivo fuente de:</strong> "<a href="http://dev.opera.com/articles/view/30-the-css-layout-model-boxes-border/layout_06.css" hreflang="en">Hoja de estilo de la demostración 6</a>"</p>   
+
+
+<h3 id="floatandclear">30.4.3. Forzar elementos <em>por debajo</em> de sus predecesores flotantes: la propiedad <code>clear</code></h3>
+
+<p>De la misma manera que la propiedad <code>float</code>, a la propiedad <code>clear</code> puede asignársele uno de los valores <code>left</code>, <code>right</code> o <code>none</code>. El valor <code>both</code> (ambos) también es posible.</p>
+
+<p>Aunque la propiedad <code>float</code> rige cómo debería fluir el contenido de los elementos subsiguientes a su alrededor, la propiedad <code>clear</code> rige cómo debe fluir un elemento en torno a todos sus vecinos; en la mayoría de los casos, no debería fluir en absoluto.</p>
+
+<p>La figura 6 demuestra el funcionamiento de <code>clear: left;</code> en una composición en la que a dos elementos consecutivos se les han asignado valores idénticos de <code>height</code> y valores de <code>float</code> de <code>left</code> y <code>right</code>:</p>
+
+<div class="imagen">
+<img src="76510_m6_14.gif" alt="Composición de tres columnas adyecentes con un pie inferior. La columna izquierda tiene identificador #fLeftWidget, una anchura de 25%, una altura (height) de 14 em y el valor de left asignado a la propiedad float. La columna derecha tiene identificador #fRightWidget, una anchura de 25%, una altura (height) de 14 em y el valor de right asignado a la propiedad float. El pie tiene identificador #clearWidget y el valor de left asignado a la propiedad clear. En la columna central hay un texto en latín." />
+<p>Figura 6. <code>clear:left</code> permite que la caja inferior corte las dos columnas porque son de la misma altura. </p>
+</div>
+
+<p>En la demostración anterior, el flujo por defecto de <code>#cLeftWidget</code> lo colocaría justo por debajo del texto en latín, es decir, entre <code>#fLeftWidget</code> y <code>#fRightWidget</code>.
+</p>
+
+<p>Pensad qué sucede cuando el primero de la misma colección de elementos se hace más corto que su hermano que toca a la derecha, tal como se ve en la figura 7.</p>
+
+<div class="imagen">
+<img src="76510_m6_15.gif" alt="La misma composición de tres columnas y un pie de la imagen anterior. Ahora la columna de la derecha se solapa con el pie. En la columna izquierda se ha reducido el valor de la propiedad height de 14 a 10.5 ems." />
+<p>Figura 7. Cuando la columna derecha es más larga que la columna izquierda, <code>clear:left</code> no cortará las dos columnas y, por lo tanto, hay que utilizar <code>clear:both.</code></p>
+</div>
+
+<p>En el primer ejemplo, el valor <code>clear</code> del elemento final se establece en <code>left</code> para demostrar este hecho: como los dos elementos con <code>float</code> son igual de altos, el elemento con <code>clear</code> se coloca automáticamente por debajo de los dos. Sin embargo, el segundo ejemplo demuestra que para conseguir el mismo resultado con elementos con <code>float</code> de alturas diferentes, hay que utilizar <code>clear: both</code>;.</p>
+
+<p>Esta información sobre la propiedad <code>clear</code> está pensada sólo como una pequeña introducción a sus efectos, ya que los detalles de la técnica asociada a su uso se tratarán en apartados posteriores.</p>
+         
+
+<h2 id="summary">Resumen</h2>
+
+<p>Entre las diferencias entre motores de representación, la necesidad de incluir una amplia gama de terreno definido tradicionalmente y la inhabilidad para predecir las dimensiones exactas de una ventana de navegador, la composición de documentos web está llena de dificultades y riesgos. A pesar de todo, el nivel habitual de soporte de CSS ha avanzado hasta el punto de que no es difícil conseguir que los documentos web den resultados aceptables en cualquier navegador.</p>
+
+
+
+<h2 id="exercises">Preguntas de repaso</h2>
+
+<p>Preguntas a las que deberíais poder responder:</p>
+       
+<ol>
+<li><p>¿En qué circunstancias es mejor utilizar el valor abreviado como <code>margin</code> o una única propiedad de margen como <code>margin-top</code>?</p></li>
+
+<li><p>Cuando las propiedades abreviadas de <code>margin</code>, <code>padding</code> y <code>border-width</code> se presentan con los cuatro valores, ¿en qué orden se aplican estos valores a los cuatro lados de un elemento?</p></li>
+
+<li><p>Si quisierais colocar una regla bajo el texto de cada título de un documento, ¿qué propiedad utilizaríais?</p></li>
+
+<li><p>¿Qué valor de <code>border-style</code> utilizaríais para hacer que un elemento parezca un botón de interfaz?</p></li>
+
+<li><p><em>Sí o no:</em> ¿especificar un borde alrededor de un elemento también creará automáticamente un canal en torno al elemento?</p></li>
+
+<li><p>Si creáis un elemento que no sea tan ancho como su contenedor, ¿qué pareja de propiedad/valor debéis establecer para garantizar que el elemento quede centrado horizontalmente en su contenedor?</p></li>
+
+<li><p><em>Sí o no:</em> si colocáis un elemento contenedor dentro de <code>body</code> y establecéis la <code>width</code> en un valor superior a <code>100%</code>, ¿cambiará el comportamiento del lienzo del documento?</p></li>
+         
+<li><p>Si una imagen es demasiado grande para el elemento contenedor, ¿qué pareja de propiedad/valor utilizaríais para garantizar que no se creen errores en la composición de la página y por qué?</p></li>
+
+<li><p>Si asignáis un valor de <code>display</code> de <code>block</code> a un elemento <code>a</code> (enlace) y dais una altura y una anchura razonables a este elemento, ¿cómo cambia el comportamiento del enlace cuando se pasa el ratón por encima en un medio de visualización <code>screen</code>?</p></li>
+
+<li><p>En circunstancias normales, un elemento de bloque se amplía hasta llenar la anchura de su contenedor (menos márgenes, bordes y relleno). Por defecto, ¿cambia realmente este comportamiento cuando este elemento va precedido de un elemento con <code>float</code>, o sólo parece que cambia?</p></li>
+
+<li><p>Si pretendéis aplicar un valor <code>float</code> a un elemento, ¿qué otra propiedad también debéis establecer en este elemento?</p></li>
+
+<li><p>Si quisierais estar del todo seguros de que un elemento siempre se ampliará para llenar la anchura de su contenedor, ¿qué parejas de propiedad/valor estableceríais?</p></li>
+</ol>
+
+
+
+<h2 id="furtherreading">Lecturas complementarias</h2>
+
+<p><strong>Bergevin, Holly; Gallant, John</strong> (2006). <em><a href="http://positioniseverything.net/explorer.html" hreflang="en">Explorer exposed. Position Is Everything</a></em>. [Fecha de consulta: 1 de julio del 2008].</p>
+
+<p><strong>Bos, Bert y otros</strong> (2007). <em><a href="http://www.w3.org/TR/2007/CR-CSS21-20070719" hreflang="en">Cascading style sheets level 2 revision 1 (CSS 2.1) specification</a></em>. World Wide Web Consortium. [Fecha de consulta: 30 de junio del 2008].</p>
+
+<p><strong>Raggett, Dave y otros</strong> (1999). <em><a href="http://www.w3.org/TR/1999/REC-html401-19991224" hreflang="en">HTML 4.01 specification</a></em>. World Wide Web Consortium. [Fecha de consulta: 30 de junio del 2008].</p>
+
+<p><strong>Raymond, Eric; Steele, Guy</strong> (eds.) (2003). <em><a href="http://www.catb.org/jargon/html/B/brute-force.html" hreflang="en">Brute force. The Jargon File (Version 4.4.7)</a></em>. [Fecha de consulta: 30 de junio del 2008].</p>
+
+<p><strong>Scalzi, John</strong> (2006). <em><a href="http://www.scalzi.com/whatever/004457.html" hreflang="en">Clearly you people thought I was kidding. Whatever</a></em>. [Fecha de consulta: 30 de junio del 2008].</p>
+
+
+ </div>
+<div><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.es"><img src="../../m0/creative_commons.gif" id="logo_cc" alt="Logo Creative Commons" /></a></div>
+<div id="logo_text">Los contenidos recogidos en este artículo están sujetos a una licencia <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.es">Creative Commons<br /> Reconocimiento, No comercial - Compartir bajo la misma licencia 3.0 No adaptada</a>.
+</div>
+<div id="cierre_autor"></div>
+
+<div id="peu">          
+	<a rel="prev" href="../ud3/index.html" title="Ir al artículo anterior" accesskey="8"><img src="../../img/fletxa_izq_inv.gif" alt="Ir al artículo anterior" /></a> <strong>:</strong>
+	<a rel="index" href="../../index.html" title="Ir al índice" accesskey="0"><img src="../../img/indice_inv.gif" alt="Ir al índice" /></a> <strong>:</strong>
+	<a rel="next" href="../ud5/index.html" title="Ir al artículo siguiente" accesskey="9"><img src="../../img/fletxa_der_inv.gif" alt="Ir al artículo siguiente" /></a>
+</div>
+</body>
+</html>
