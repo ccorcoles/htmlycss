@@ -436,7 +436,7 @@ li {
    display:-moz-inline-box;
 }</code></pre>
 
-<p>En la mayoría de los navegadores, con esto será suficiente para crear el efecto de la columna, pero deberéis especificar que IE haga que "floten" los elementos de la lista a la izquierda. Utilizamos un estilo condicional para todas las versiones hasta IE 7.</p>
+<p>En la mayoría de los navegadores, con esto será suficiente para crear el efecto de la columna, pero deberéis especificar que IE haga que "floten" los elementos de la lista a la izquierda. Utilizamos un estilo condicional para todas las versiones hasta IE 7 (ya que aún no sabemos qué harán las futuras versiones).</p>
 
 <pre><code>&lt;!--[if lte IE 7]&gt;
    &lt;style type="text/css"&gt;
@@ -484,7 +484,7 @@ li {
 
 <li><p>Visitado (<em>visited</em>). El estado de un enlace que el usuario ya ha visitado.</p></li>
 
-<li><p>Seleccionado (<em>focus</em>). Se aplica mientras el enlace está seleccionado; por ejemplo, cuando el cursor del usuario del teclado se encuentra sobre el enlace.</p></li>
+<li><p>Seleccionado (<em>focus</em>). Se aplica mientras el enlace está seleccionado; por ejemplo, cuando el cursor del usuario del teclado se encuentra sobre el enlace. Actualmente, IE no acepta el estado seleccionado y sólo utiliza <code>active</code> (activo) en lugar de <code>focus</code> (seleccionado).</p></li>
 
 <li><p>Por encima (<em>hover</em>). Se aplica cuando un usuario tiene el puntero del ratón por encima del enlace pero todavía no ha hecho clic sobre él.</p></li>
 
@@ -526,4 +526,354 @@ li {
 
 <li><p>Los usuarios esperan que los enlaces <strong>reaccionen</strong> de alguna manera cuando se pasa el cursor por encima o cuando se selecciona el enlace.</p></li>
 
-<li><p>Los usuarios esperan que los enlaces <strong>cam
+<li><p>Los usuarios esperan que los enlaces <strong>cambien</strong> después de visitarlos.</p></li>
+
+<li><p>A los usuarios les gusta la <strong>consistencia</strong> de los estilos de los enlaces de la misma función para así saber sobre qué deben hacer clic.</p></li>
+
+<li><p>Los usuarios esperan que el texto subrayado sea un enlace, así que no subrayéis otra cosa.</p></li>
+</ul>
+
+<p>Siempre debéis cumplir estas normas básicas porque contribuyen a que los usuarios puedan identificar y utilizar los enlaces rápidamente. Debéis crear estilos que no obliguen a la gente a dudar de qué partes del texto son enlaces.</p>
+
+<p>Estas expectativas se traducen en unas normas de codificación muy sencillas:</p>
+<ul>
+<li><p>definir estilos para todos los estados de enlace,</p></li>
+<li><p>utilizar el subrayado sólo para los enlaces.</p></li>
+</ul>
+
+<h3 id="usecolorcarefully">32.2.4. Utilización adecuada de los colores</h3>
+
+<p>Cuando apliquéis estilos a los enlaces, id con cuidado de no basaros únicamente en el color para distinguir los diferentes estados de enlace. No todo el mundo puede ver igual los colores (como los daltónicos), de manera que debéis utilizar colores y también estilos como diferentes subrayados, iconos o colores invertidos.</p>
+
+<p>También deberíais aseguraros de que los colores que elegís tengan bastante contraste. Es muy fácil si se utilizan herramientas como <a href="http://www.paciellogroup.com/resources/contrast-analyser.html" hreflang="en">Colour Contrast Analyser (tanto para PC como para Mac)</a> o la <a href="http://www.paciellogroup.com/resources/wat-about.html" hreflang="en">barra de herramientas de accesibilidad web para Opera</a> (ambas de Paciello Group).</p>                                     
+
+
+<p>Con el Colour Contrast Analyser (podéis ver la figura 21) se puede utilizar un selector de colores para seleccionar los colores de letra y de fondo de la pantalla y después obtener una evaluación sencilla del contraste que hacen:</p>
+
+<div class="imagen">
+<img src="76510_m6_55.gif" alt="Prueba de color del título hecha con el programa CCA. Dados dos colores de fondo y primer plano, el programa indica se se superan cuatro criterios de contraste entre ambos." />
+<p>Figura 21. Captura de pantalla del Colour Contrast Analyser</p>
+</div>
+
+<p>Si los cuatro resultados son "<em>pass</em>" (superado), la combinación de colores es adecuada. No os olvidéis de comprobar todos los estados de enlace. Puede que debáis introducir algunos manualmente en el campo "hex" para comprobar el estado "seleccionado", "por encima" y "activo".</p>
+
+
+<h3 id="cssforlinks">32.2.5. Entremos en materia: el CSS</h3>
+
+<p>Ahora que ya entendéis las normas básicas de los enlaces, pasemos a ver el código. En este subapartado se describe todo el CSS que necesitaréis para aplicar estilos como es debido.</p>
+
+<h3 id="linkstateorder">Aplicar estilos de estado de enlace en el orden adecuado</h3>
+
+<p>Para empezar, tened en cuenta que si no aplicáis los estilos a los enlaces en el orden correcto en la hoja de estilo, las definiciones se anularán entre ellas y los estados de los enlaces no funcionarán. Los estilos de los enlaces siempre deben ir en este orden:</p>
+
+<ol>
+<li><p><code>link</code></p></li>
+<li><p><code>visited</code></p></li>
+<li><p><code>focus</code></p></li>
+<li><p><code>hover</code></p></li>
+<li><p><code>active</code></p></li>
+</ol>
+
+<p>Un truco mnemotécnico para recordarlo podría ser: "Los Visitantes Fueron Hasta Allí". Si creéis que no os acordaréis de esta frase, deberéis recordar el orden de las propiedades de memoria o copiar y pegar el bloque de código que se muestra a continuación.</p>
+
+<p>Los estilos de los diferentes estados de los enlaces se aplican utilizando sus "pseudoclases" (:link :visited :focus :hover :active) que se adjuntan al selector de elemento de enlace, <code>a</code>. Por lo tanto, el CSS inicial debería ser el siguiente:</p>
+
+<pre><code>a:link{}
+a:visited{}
+a:focus{}
+a:hover{}
+a:active{}</code></pre>
+
+<p>Si queréis definir una regla de CSS para todos los enlaces en todos los estados, podéis aplicar el estilo <code>a</code> directamente. Sólo debéis acordaros de colocar primero la regla genérica para mantener el orden:</p>
+
+<pre><code><strong>a {}</strong>
+a:link{}
+a:visited{}
+a:focus{}
+a:hover{}
+a:active{}</code></pre>
+
+<p>Eso va muy bien si tenéis pensado sustituir el subrayado por defecto por un borde inferior, que es lo que se suele hacer para obtener un mejor control visual del estilo.</p>
+
+<h3 id="controllingdefaults">Controlar las opciones por defecto</h3>
+
+<p>Por defecto, la mayoría de los navegadores establecen que todos los enlaces estén subrayados y los enlaces en estado "seleccionado" tienen un contorno, como se puede ver en la figura 22:</p>
+
+<div class="imagen">
+<img src="76510_m6_56.gif" alt="Los estilos por defecto de 'seleccionado' de Opera 9, Firefox 2 e IE 7. Opera 9 subraya en morado, y deja el texto en blanco sobre azul con un recuadro azul claro. Firefox 2 pone el texto subrayado en morado sobre blanco, con contorno punteado. IE7 hace lo mismo, con un tono diferente de morado" />
+<p>Figura 22. De izquierda a derecha: los estilos por defecto de "seleccionado" de Opera 9, Firefox 2 e IE 7 </p>
+</div>
+
+<p>Si queréis sustituir estos estilos por otros, podéis cambiar o desactivar estos valores predeterminados.</p>
+
+
+<h3 id="underline">Subrayados</h3>
+
+<p>El subrayado (<em>underline</em>) se define mediante la <a href="http://www.w3.org/TR/REC-CSS2/text.html#lining-striking-props" hreflang="en">propiedad <code>text-decoration</code></a>:</p>
+
+
+<pre><code>a {
+   text-decoration: underline;
+}</code></pre>
+
+<p>Podéis desactivar el subrayado estableciendo la propiedad en <code>none</code>:</p>
+
+<pre><code>a {
+   text-decoration: none;
+}</code></pre>
+
+<p>Incluso si mantenéis el estilo del subrayado, puede que os resulte más fácil desactivar <code>text-decoration</code> y utilizar <code>border-bottom</code> para establecer un subrayado falso. En el ejemplo que se muestra más adelante lo veremos más detenidamente.</p>
+
+<h3 id="outline">Contorno</h3>
+
+<p>El contorno del estado "seleccionado" se controla con la <a href="http://www.w3.org/TR/REC-CSS2/ui.html#dynamic-outlines" hreflang="eng">propiedad <code>outline</code></a>. El contorno es muy parecido a un borde, pero no ocupa espacio ni provoca que la página refluya cuando aparece (tened en cuenta que IE 7 y versiones anteriores no lo soportan). La manera más fácil de controlar el contorno es con la propiedad de abreviación:</p>
+
+<pre><code>a:focus{
+   outline: thick solid #000;
+}</code></pre>
+
+<p>Este ejemplo se representaría más o menos como se ve en la figura 23:</p>
+
+<div class="imagen">
+<img src="76510_m6_57.gif" alt="Enlace con un borde negro grueso" />
+<p>Figura 23. Representación de ejemplo de un contorno negro y grueso</p>
+</div>
+
+<p>Si tenéis dudas sobre qué hacer con el contorno, limitaos a dejarlo en la forma predeterminada por el navegador.</p>
+
+
+<h3 id="recreatingnetscape">32.2.6. Ejemplo: recreación de las opciones por defecto de Netscape</h3>
+
+<p>Para dar un ejemplo fácil de estilo de los enlaces, recrearemos las opciones por defecto de Netscape, es decir, el azul, el morado y el rojo. Mantendremos el subrayado, pero haremos que el estado activo se muestre en cursiva. Aumentaremos el tamaño del texto sólo para ver cómo queda y estableceremos un fondo blanco para la página.</p>
+
+<pre><code>body{
+   background: #fff;
+   color: #000;
+   font-size: 2em;
+}
+a {
+   text-decoration: underline;
+}
+a:link{
+   color: #0000CC;
+}
+a:visited{
+   color: #6D006D;
+}
+a:focus{
+   color: #CC0000;
+}
+a:hover{
+   color: #CC0000;
+}
+a:active{
+   color: #CC0000;
+   font-style: italic;
+}</code></pre>
+
+<p>De esta manera, conseguiremos un resultado parecido al de la figura 24:</p>
+
+<div class="imagen">
+<img src="76510_m6_58.gif" alt="Ejemplo de representación de los estilos definidos anteriormente" />
+<p>Figura 24. Recreación de las opciones por defecto de Netscape</p>
+</div>
+
+<h3 id="fauxunderlines">Subrayados falsos con <code>border-bottom</code></h3>
+
+<p>Muchos diseñadores han observado que el subrayado es un poco demasiado grueso y tapa las astas descendentes de las letras minúsculas, es decir, la línea del subrayado cruza la parte inferior de las letras "g", "j", "p", e "y", tal como se muestra la figura 25:</p>
+
+<div class="imagen">
+<img src="76510_m6_59.gif" alt="La palabra pygmy con una línea de subrayado que corta las letras." />
+<p>Figura 25. La línea del subrayado corta las astas descendentes de las minúsculas.</p>
+</div>
+
+<p>Pongamos por caso que la persona que se encarga del diseño de la página está de acuerdo y le gustaría que la línea del subrayado fuera más fina y que no tocara el texto. Para cumplir este requisito, que es muy habitual, utilizaremos un borde en lugar de un subrayado de manera que quede como la figura 26:</p>
+
+<div class="imagen">
+<img src="76510_m6_60.gif" alt="La palabra pygmy con un borde falso de subrayado que no corta las letras." />
+<p>Figura 26. Utilizar un borde en vez del subrayado queda más bonito. </p>
+</div>
+
+<p>Primero, desactivad el subrayado para todos los estados de enlace y, después, estableced un borde inferior que encaje con el color del enlace en cada estado.</p>
+
+<pre><code>body{
+   background: #fff;
+   color: #000;
+   font-size: 2em;
+   line-height: 2em;
+}
+a {
+   <strong>text-decoration: none;</strong>
+}
+a:link{
+   color: #00c;
+   <strong>border-bottom: 1px solid #00c;</strong>
+}
+a:visited{
+   color: #6D006D;
+   <strong>border-bottom: 1px solid #6D006D;</strong>
+}
+a:focus{
+   color: #c00;
+   <strong>border-bottom: 1px solid #c00;</strong>
+}
+a:hover{
+   color: #c00;
+   <strong>border-bottom: 1px solid #c00;</strong>
+}
+a:active{
+   color: #c00;
+   <strong>border-bottom: 1px solid #c00;</strong>
+   font-style: italic;
+}</code></pre>
+
+<p>De esta manera, conseguiremos un resultado parecido al de la figura 27:</p>
+
+<div class="imagen">
+<img src="76510_m6_61.gif" alt="Ejemplo de representación de los estilos definidos anteriormente" />
+<p>Figura 27. Enlaces con el subrayado falso aplicado </p>
+</div>
+
+<p>Si utilizáis el método del borde falso, id con cuidado de tener suficiente <code>line-height</code> (altura de línea) establecido para que el subrayado no choque con el texto de la línea siguiente.</p>
+
+<h3 id="stylesthatdontrelyoncolor">Estilos no basados en el color</h3>
+
+<p>Como el ejemplo que hemos utilizado hasta ahora se basa totalmente en los colores para distinguir cuatro de los cinco estados de los enlaces, deberíamos dar el paso siguiente y cambiar el borde inferior para los estados "visitado", "seleccionado" y "por encima". Demos a los enlaces visitados un borde de puntos y a los enlaces "por encima" y "seleccionado" un borde discontinuo:</p>
+
+<pre><code>body{
+   background: #fff;
+   color: #000;
+   font-size: 2em;
+}
+a {
+   text-decoration: none;
+}
+a:link{
+   color: #00c;
+   border-bottom: 1px solid #00c;
+}
+a:visited{
+   color: #6D006D;
+   border-bottom: 1px dotted #6D006D;
+}
+a:focus{
+   color: #c00;
+   border-bottom: 1px dashed #c00;
+}
+a:hover{
+   color: #c00;
+   border-bottom: 1px dashed #c00;
+}
+a:active{
+   color: #c00;
+   border-bottom: 1px solid #c00;
+   font-style: italic;
+}</code></pre>
+
+<p>De este modo, conseguiremos un resultado parecido al de la figura 28:</p>
+
+<div class="imagen">
+<img src="76510_m6_62.gif" alt="Ejemplo de representación donde se ve cómo los bordes sirven para diferenciar los estados del enlace." />
+<p>Figura 28. Cambiar el estilo de borde para cada estado de enlace</p>
+</div>
+
+<p>Este método, si se aceptan "focus" y "hover" como estados con estilos equivalentes, provoca que los estados de enlace se distingan con más factores además del color. Incluso si tuvierais que ver estos enlaces en blanco y negro, podríais identificar los diferentes estados de enlace tal como se muestra la figura 29:</p>
+
+<div class="imagen">
+<img src="76510_m6_63.gif" alt="El mismo ejemplo todo en negro para resaltar las diferencias del borde" />
+<p>Figura 29. Ahora los estados de enlace pueden distinguirse aunque estén en blanco y negro. </p>
+</div>
+
+
+<h3 id="iconsonlinks">32.2.7. Iconos en enlaces</h3>
+
+<p>Algunos sitios web utilizan iconos y símbolos para añadir información sobre los enlaces. Por ejemplo, algunas páginas utilizan una flecha para indicar que un enlace conduce a un sitio externo, o utilizan una marca de aprobado para indicar que el enlace ya se ha visitado.</p>
+
+<p>Estos efectos son muy fáciles de aplicar con imágenes de fondo, como se muestra en la figura 30:</p>
+
+<div class="imagen">
+<img src="76510_m6_64.gif" alt="Ejemplo de representación de enlaces con iconos" />
+<p>Figura 30. Ejemplo de enlaces con iconos distintivos </p>
+</div>
+
+<p>Para añadir un icono de flecha a los enlaces externos, podéis añadir la clase <code>external</code> a la etiqueta del enlace (<code>link</code>):</p>
+
+<pre><code>&lt;a href="http://example.com/" <strong>class="external"</strong>&gt;external link&lt;/a&gt;</code></pre>
+
+<p>Después, en vuestra hoja de estilo, aplicad una imagen de fondo para esta clase sin olvidaros añadir el relleno para que quepa la imagen:</p>
+
+<pre><code>a.external {
+   background: #fff url("icon-external.gif") center right no-repeat;
+   padding-right: 30px;
+}</code></pre>
+
+<p>Este ejemplo aplicaría el icono a todos los casos de enlaces visitados, a todos los estados. Si quisierais limitar el icono sólo a los enlaces externos no visitados, podéis combinar las clases y las pseudoclases del estado de enlace en el selector.</p>
+
+<pre><code><strong>a.external</strong>:link{
+   background: #fff url("icon-external.gif") center right no-repeat;
+   padding-right: 30px;
+}</code></pre>
+
+<p>Combinar clases y estados proporciona una amplia gama de posibilidades creativas para aplicar a los enlaces. Mientras recordéis comprobar los colores, el único límite a partir de aquí es vuestra imaginación.</p>
+
+<h2 id="navigationexample">32.3. Combinarlo todo: un sencillo menú de navegación</h2>
+
+<p>Para demostrar una manera de combinar las listas y los enlaces, el zip de ejemplos incluye un submenú desplegable de navegación sencillo, como se ve en la figura 31. Los submenús desplegables son un sistema de navegación muy habitual.</p>
+
+<div class="imagen">
+<img src="76510_m6_65.gif" alt="Captura de pantalla de la sublista desplegable de ejemplo." />
+<p>Figura 31. Captura de pantalla del submenú de ejemplo </p>
+<p class="font"><strong>Ved los ejemplos en:</strong> "<a href="http://dev.opera.com/articles/view/32-styling-lists-and-links/stylinglistsexampleflyout.html" hreflang="en">Simple flyout navigation menu</a>"</p>                                                                                         
+</div>
+
+<h2 id="summary">Resumen</h2>
+
+<p>Para un diseñador web es esencial saber muy bien cómo aplicar estilos a listas y enlaces porque se utilizan por todas partes. Se suelen combinar para crear la navegación por el sitio, y un estilo claro de los enlaces es vital para que un sitio web sea fácil de utilizar. Unos estilos de enlaces mal hechos pueden confundir mucho a todo el mundo e incluso pueden hacer que determinadas personas no puedan utilizar el sitio.</p>
+
+
+
+<h2 id="exercises">Preguntas de repaso</h2>
+
+<p>Preguntas a las que deberíais poder responder:</p>
+
+<ol>
+<li><p>¿Cómo se pueden elegir los estilos básicos de las listas, como por ejemplo picos cuadrados o números romanos, en una lista ordenada?</p></li>
+
+<li><p>¿Qué es un <em>sprite</em> de imagen y para qué se puede utilizar?</p></li>
+
+<li><p>¿Por qué el contraste de los colores es importante y cómo se puede garantizar que los colores de los enlaces sean de colores adecuados?</p></li>
+
+<li><p>¿Cuál es el orden correcto para aplicar estilos a cada estado de enlace?</p></li>
+</ol>
+
+ 
+<h2 id="furtherreading">Bibliografía</h2>
+
+<ul>
+<li><p><em><a href="http://www.wcagsamurai.org/errata/errata.html" hreflang="en">WCAG Samurai Errata for WCAG 1.0</a></em>, que hace referencia específicamente al punto <em><a href="http://www.wcagsamurai.org/errata/errata.html#GL" hreflang="en">Guideline 2. Don't rely on colour alone</a></em>.</p></li>                                                                        
+
+<li><p>"<a href="http://joeclark.org/book/sashay/serialization/Chapter09.html" hreflang="en">Type and Colour</a>" (un capítulo de <em>Building Accessible Websites</em>, de Joe Clark)</p></li>
+
+<li><p>"<a href="http://juicystudio.com/article/highlighting-links.php" hreflang="en">Juicy Studio: Highlighting Links</a>"</p></li>                              
+
+<li><p>"<a href="http://www.maxdesign.com.au/presentation/external/" hreflang="en">Max Design-Simple, accessible external links</a>"</p></li>                
+
+<li><p>"<a href="http://www.paciellogroup.com/resources/contrast-analyser.html" hreflang="en">Resource Center-Contrast Analyser 2.0 (Paciello Group)</a>"</p></li>
+
+<li><p>"<a href="http://www.alistapart.com/articles/" hreflang="en">A List Apart: CSS<em> Sprites</em> : Image Slicing's Kiss of Death</a>"</p></li>                                               
+</ul>
+
+  </div>
+<div><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.es"><img src="../../m0/creative_commons.gif" id="logo_cc" alt="Logo Creative Commons" /></a></div>
+<div id="logo_text">Los contenidos recogidos en este artículo están sujetos a una licencia <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.es">Creative Commons<br /> Reconocimiento, No comercial - Compartir bajo la misma licencia 3.0 No adaptada</a>.
+</div>
+<div id="cierre_autor"></div>
+
+<div id="peu">
+		<a rel="prev" href="../ud5/index.html" title="Ir al artículo anterior" accesskey="8"><img src="../../img/fletxa_izq_inv.gif" alt="Ir al artículo anterior" /></a> <strong>:</strong>
+		<a rel="index" href="../../index.html" title="Ir al índice" accesskey="0"><img src="../../img/indice_inv.gif" alt="Ir al índice" /></a> <strong>:</strong>
+		<a rel="next" href="../ud7/index.html" title="Ir al artículo siguiente" accesskey="9"><img src="../../img/fletxa_der_inv.gif" alt="Ir al artículo siguiente" /></a>
+</div>
+</body>
+
+</html>
